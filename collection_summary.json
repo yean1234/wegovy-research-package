@@ -1,0 +1,17 @@
+{
+  "collection_date": "2026-10-12",
+  "search_period": [
+    "2021-01-01",
+    "2026-10-12"
+  ],
+  "unique_urls": 345,
+  "body_extraction_status": {
+    "body_extracted": 330,
+    "insufficient_text": 12,
+    "failed": 3
+  },
+  "near_duplicates_flagged": 3,
+  "all_groups_provisional_unique": 133,
+  "four_priority_groups_provisional_unique": 110,
+  "final_analysis_corpus_completed": false
+}
