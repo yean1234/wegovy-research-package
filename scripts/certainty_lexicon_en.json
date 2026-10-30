@@ -1,1759 +1,2286 @@
 {
-  "version": "2026-10-30-v1",
-  "purpose": "영어 초록 문장에 대한 확신/완화(certainty/hedging) 단서 사전. Notion 계획 ⑥ '영어 원문 교차 확인'용. 문장별로 Sumner et al. 2014 (BMJ) 7단계 인과 주장 강도(0-6)를 부여하고, 이를 한국어 사전과 같은 단정/가능성/연관/무관 4범주로 접어서(collapsed_ko) 번역문의 한국어 사전 라벨과 일치율을 계산한다. 규칙 평가는 대소문자 무시(re.IGNORECASE)로 수행한다.",
-  "provenance_policy": {
-    "status_values": {
-      "verified_lecture_pdf": "첨부된 수업 PDF(W5_1_Text_Preprocessing_2.pdf)에서 본문 그대로 확인한 항목. 페이지 번호는 pdftotext 기준.",
-      "unverified_from_memory": "인용 출처에 있다고 기억하지만 컨테이너에 네트워크가 없어 원문(본문·부록·보충자료)과 대조하지 못한 항목. 네트워크가 열리면 docs/certainty_lexicon_source.md의 검증 목록대로 확인해야 한다.",
-      "project_addition": "어떤 출처에도 근거하지 않고 이 프로젝트(코퍼스: 세마글루타이드 부작용 초록)를 위해 추가한 항목. 휴리스틱이므로 결과 보고 시 반드시 명시하고, 가능하면 사람 검증으로 확인한다."
-    },
-    "network_note": "작성 시점(2026-10-30) 컨테이너에서 Europe PMC, PubMed, Crossref, 출판사 사이트 접근이 차단되어 어떤 학술 출처도 원문 확인을 하지 못했다. 따라서 수업 PDF 외의 모든 source 항목은 unverified_from_memory다.",
-    "matching": "pattern은 Python re 모듈용 정규식이며 모두 \\b 단어 경계를 쓴다. re.IGNORECASE 플래그로 컴파일할 것(사전 자체는 소문자로 적되 약어 HR/OR/RR/CI는 원문 대문자 표기를 그대로 둔다). W5 수업의 TOKEN_PATTERN은 숫자와 축약형을 보존하므로, 단서 매칭은 토큰화 전의 원문 문장(casefold만 적용)에 대해 수행한다."
+ "version": "2026-10-30-v3",
+ "purpose": "영어 초록 문장에 대한 확신/완화(certainty/hedging) 단서 사전. Notion 계획 ⑥ '영어 원문 교차 확인'용. 문장별로 Sumner et al. 2014 (BMJ; web appendix ww1 코딩표로 검증) 7단계 인과 주장 강도(0-6)를 부여하고, 이를 한국어 사전과 같은 단정/가능성/연관/무관 4범주로 접어서(collapsed_ko) 번역문의 한국어 사전 라벨과 일치율을 계산한다. 규칙 평가는 대소문자 무시(re.IGNORECASE)로 수행하되 효과 측정치 약어(OR/HR/RR/IRR/CI)는 (?-i:...) 그룹으로 대소문자를 구분한다(provenance_policy.matching 참조).",
+ "provenance_policy": {
+  "status_values": {
+   "verified_source_text": "원문(본문·부록)에서 그 단서 문구(또는 그 직접 굴절형)와 단계를 직접 확인한 항목. 항목마다 source_quote 에 원문 인용을 둔다. status 는 '문구→단계' 대응에 대한 것이고, 정규식 형태(굴절형 확장, lookaround 제외 규칙, 목적어 명사 목록 등)는 pattern_status='project_operationalisation' 으로 따로 표시한다.",
+   "project_extension_of_verified_category": "원문에 그 문구는 없지만 원문이 정의한 범주(예: Sumner level 6 'Direct causal statement')의 동의어·파생형으로 이 프로젝트가 추가한 항목. extends_category 와 extends_quote 에 확장한 범주를 적는다. 휴리스틱으로 보고한다.",
+   "project_addition": "검증된 범주의 확장으로도 정당화하기 어려운 프로젝트 추가 항목. 휴리스틱으로 보고하고 사람 검증으로 확인한다.",
+   "unverified_from_memory": "인용 출처에 있다고 기억하지만 원문과 대조하지 못한 항목(Hyland 2005 목록 전체, Adams 2017 자극 문구, BioScope 홈페이지 키워드 목록).",
+   "verified_lecture_pdf": "첨부된 수업 PDF(W5_1_Text_Preprocessing_2.pdf)에서 본문 그대로 확인한 항목. 페이지 번호는 pdftotext 기준."
   },
-  "sources": [
-    {
-      "id": "sumner2014",
-      "citation": "Sumner P, Vivian-Griffiths S, Boivin J, Williams A, Venetis CA, Davies A, Ogden J, Whelan L, Hughes B, Dalton B, Boy F, Chambers CD. The association between exaggeration in health related science news and academic press releases: retrospective observational study. BMJ 2014;349:g7015. doi:10.1136/bmj.g7015",
-      "what_used": "7-level causal-claim strength scale (0 no statement, 1 statement of no relationship, 2 correlational/associational statement, 3 ambiguous statement of relationship, 4 conditional statement of causation, 5 statement of 'can' cause, 6 unconditional statement of causation) and its example phrases; the rule that a text is coded by its strongest (highest) claim. The scale is in the paper's Box/Table and the full coding scheme with phrase lists is in the web appendix (supplementary coding scheme).",
-      "status": "unverified_from_memory",
-      "verify_against": "BMJ 2014;349:g7015 web appendix (supplementary coding scheme) — the exact phrase-to-level table."
-    },
-    {
-      "id": "hyland2005",
-      "citation": "Hyland K. Metadiscourse: Exploring Interaction in Writing. London: Continuum, 2005. (Appendix: list of metadiscourse items — hedges and boosters)",
-      "what_used": "hedge word list and booster word list (interactional metadiscourse). Hyland's hedges mark the writer's reluctance to present a proposition categorically; boosters mark certainty.",
-      "status": "unverified_from_memory",
-      "verify_against": "Hyland 2005 Appendix (the same lists are reprinted in Hyland 1998 'Hedging in Scientific Research Articles' and Hyland 2005 Discourse Studies 7(2):173-192)."
-    },
-    {
-      "id": "adams2017",
-      "citation": "Adams RC, Sumner P, Vivian-Griffiths S, Barrington A, Williams A, Boivin J, Chambers CD, Bott L. How readers understand causal and correlational expressions used in news headlines. J Exp Psychol Appl 2017;23(1):1-14. doi:10.1037/xap0000100",
-      "what_used": "correlational vs 'can'/conditional vs direct-causal phrase examples used as stimuli (e.g. 'associated with', 'linked to', 'related to' vs 'might cause', 'can increase' vs 'causes', 'increases', 'leads to').",
-      "status": "unverified_from_memory",
-      "verify_against": "Adams et al. 2017 Table 1 / supplementary stimulus list."
-    },
-    {
-      "id": "vincze2008",
-      "citation": "Vincze V, Szarvas G, Farkas R, Móra G, Csirik J. The BioScope corpus: biomedical texts annotated for uncertainty, negation and their scopes. BMC Bioinformatics 2008;9(Suppl 11):S9. doi:10.1186/1471-2105-9-S11-S9",
-      "what_used": "Biomedical hedge (speculation) cue examples from the annotation guidelines (e.g. may, might, could, possible, possibly, likely, suggest, indicate, appear, seem, whether, putative, potential, hypothesis) and negation cue examples (no, not, without, absence, fail to, lack). Used only to corroborate cues that are not in Hyland 2005 and to anchor the negation-cue list; the BioScope guideline treats the scope of a cue linguistically, not with a token window.",
-      "status": "unverified_from_memory",
-      "verify_against": "BioScope annotation guidelines (supplementary file) and Farkas R et al. CoNLL-2010 Shared Task: Learning to detect hedges and their scope in natural language text."
-    },
-    {
-      "id": "w5_lecture",
-      "citation": "수업 자료 W5_1_Text_Preprocessing_2.pdf (첨부 파일), p.14 regex tokenizer, p.27-33 advanced preprocessing",
-      "what_used": "p.30-31: keep negations 'not/never/without' — they flip meaning ('not safe', 'never works', 'without evidence'); p.32-33: do not blindly remove short tokens, contraction normalization (isn't -> is not, can't -> cannot / can not), and 'stopword를 제거할 때도 not, no, never 같은 negation은 keep list에 넣어서 보존'; p.14: TOKEN_PATTERN keeps contractions and numbers.",
-      "status": "verified_lecture_pdf",
-      "verify_against": "n/a (verified from the attached PDF text via pdftotext on 2026-10-30)."
-    },
-    {
-      "id": "notion_plan_v2",
-      "citation": "팀 Notion '계획 v2' (영어 초록 전처리 제안 ⑥, 한국어 사전 규칙 ⑤ '단서가 여럿이면 가장 강한 것으로')",
-      "what_used": "the collapse of the 7-level scale to 단정/가능성/연관·무관 and the 'strongest cue wins' sentence rule.",
-      "status": "project_document",
-      "verify_against": "n/a (team document)."
-    }
-  ],
-  "levels": {
-    "6": {
-      "name_en": "unconditional statement of causation",
-      "name_ko": "단정 (무조건 인과)",
-      "collapsed_ko": "단정",
-      "example_en": "X causes Y / X increases the risk of Y / X leads to Y",
-      "source": "sumner2014",
-      "status": "unverified_from_memory"
-    },
-    "5": {
-      "name_en": "statement of 'can' cause",
-      "name_ko": "가능성 ('can' 인과)",
-      "collapsed_ko": "가능성",
-      "example_en": "X can cause Y / X can increase the risk of Y",
-      "source": "sumner2014",
-      "status": "unverified_from_memory"
-    },
-    "4": {
-      "name_en": "conditional statement of causation",
-      "name_ko": "가능성 (조건부 인과: may/might/could)",
-      "collapsed_ko": "가능성",
-      "example_en": "X may cause Y / X might increase Y / X could lead to Y",
-      "source": "sumner2014",
-      "status": "unverified_from_memory"
-    },
-    "3": {
-      "name_en": "ambiguous statement of relationship",
-      "name_ko": "연관 (모호한 관계 표현)",
-      "collapsed_ko": "연관",
-      "example_en": "the effect/impact of X on Y / X affects Y / X influences Y",
-      "source": "sumner2014",
-      "status": "unverified_from_memory",
-      "note": "Sumner 2014는 effect/impact/affect/influence처럼 인과를 암시하지만 명시하지 않는 표현을 3(ambiguous)으로 둔 것으로 기억한다. 원문 보충자료로 확인 필요."
-    },
-    "2": {
-      "name_en": "statement of correlation / association",
-      "name_ko": "연관 (상관·연관)",
-      "collapsed_ko": "연관",
-      "example_en": "X is associated with Y / X is linked to Y / patients taking X had a higher risk of Y",
-      "source": "sumner2014",
-      "status": "unverified_from_memory"
-    },
-    "1": {
-      "name_en": "explicit statement of no relationship",
-      "name_ko": "무관 (관계 없음 명시)",
-      "collapsed_ko": "무관",
-      "example_en": "X was not associated with Y / no increased risk of Y with X",
-      "source": "sumner2014",
-      "status": "unverified_from_memory"
-    },
-    "0": {
-      "name_en": "no statement of relationship",
-      "name_ko": "해당 없음 (관계 진술 없음)",
-      "collapsed_ko": null,
-      "example_en": "(sentence describes methods, sample size, setting, etc.)",
-      "source": "sumner2014",
-      "status": "unverified_from_memory"
-    }
+  "network_note": "v3(2026-10-30): Europe PMC 접근이 열려 Sumner 2014 본문(PMC4262123)과 web appendix ww1, Vincze 2008 본문(PMC2586758)을 원문 대조했고 Sumner 2014 / Adams 2017 / Vincze 2008 의 서지 메타데이터를 확인했다(citation_status). Adams 2017 본문과 Hyland 2005(단행본)는 여전히 접근 불가.",
+  "matching": "pattern은 Python re 모듈용 정규식이며 최상위 대안(alternative)은 모두 \\b 단어 경계, lookbehind, 또는 (?-i: 로 시작해야 한다(compile_lexicon 이 검사해 경고; allow_unanchored=true 인 항목만 예외). re.IGNORECASE 로 컴파일하되, 대문자여야만 뜻이 있는 효과 측정치 약어 OR/HR/aHR/RR/aRR/IRR/CI 는 (?-i:...) 인라인 그룹으로 대소문자를 구분한다('2 or 3 doses', '24 hr' 오탐 방지). 매칭은 토큰화 전 원문 문장의 NFKC 뷰(W5 p.29)에 대해 수행하고 casefold 는 하지 않는다(대소문자 구분 그룹 때문). 축약형은 W5 p.32 Option 1(보존)대로 그대로 두고 n't 는 negation modifier 의 n't\\b 대안으로 직접 매칭한다. type 이 evidence_flag_types 에 속하는 항목은 문장 level 을 정하지 않고 evidence_flags 로만 기록된다.",
+  "pattern_status_note": "모든 pattern 은 원문 문구를 정규식으로 옮긴 프로젝트 조작화(operationalisation)다. 단순 굴절형 이상의 제한(lookbehind/lookahead, 목적어 명사 목록, 사이에 끼는 단어 허용 등)이 있는 항목은 pattern_status='project_operationalisation' 과 pattern_note 로 표시한다."
+ },
+ "sources": [
+  {
+   "id": "sumner2014",
+   "citation": "Sumner P, Vivian-Griffiths S, Boivin J, Williams A, Venetis CA, Davies A, Ogden J, Whelan L, Hughes B, Dalton B, Boy F, Chambers CD. The association between exaggeration in health related science news and academic press releases: retrospective observational study. BMJ 2014;349:g7015. doi:10.1136/bmj.g7015",
+   "pmid": "25498121",
+   "pmcid": "PMC4262123",
+   "citation_status": "verified_europepmc_metadata_2026-10-30",
+   "what_used": "Methods: unit of coding (main statements; for journal articles the abstract and discussion), the seven point scale with one example sentence per level, and the 'stronger statements trumped weaker ones' rule.",
+   "status": "verified_source_text",
+   "verified_quotes": [
+    "For journal articles we used the abstract and discussion. We used a seven point scale to rate increasing levels of determinism, where the presence of stronger statements trumped weaker ones",
+    "correlational (for example, “drinking wine is associated with increased cancer rates”), ambiguous (for example, “drinking wine linked to cancer risk”), conditional causal (for example, “drinking wine might increase cancer risk”), can cause (for example, “drinking wine can increase cancer risk”), and unconditionally causal (for example, “drinking wine increases cancer risk”)"
+   ],
+   "verify_against": "done: full text PMC4262123 (Europe PMC) Methods section, read 2026-10-30."
   },
-  "collapse_map": {
-    "description": "Sumner 7단계 -> 한국어 사전 범주. Notion 계획 v2의 단정/가능성/연관·무관 체계와 맞춘다. 연관(2,3)과 무관(1)은 한국어 사전에서 '연관·무관' 한 묶음으로 보고하기도 하므로 both keys are provided.",
-    "level_to_collapsed": {
-      "6": "단정",
-      "5": "가능성",
-      "4": "가능성",
-      "3": "연관",
-      "2": "연관",
-      "1": "무관",
-      "0": null
-    },
-    "collapsed_to_group3": {
-      "단정": "단정",
-      "가능성": "가능성",
-      "연관": "연관·무관",
-      "무관": "연관·무관"
-    },
-    "source": "notion_plan_v2 (collapse) + sumner2014 (levels)",
-    "status": "project_document; level 5 -> 가능성 and level 3 -> 연관 are project decisions (see docs/certainty_lexicon_source.md)"
+  {
+   "id": "sumner2014_appendix",
+   "citation": "Sumner P et al. BMJ 2014;349:g7015, web appendix ww1 (supplementary methods incl. the table of examples for the relationship-statement levels), downloaded from Europe PMC supplementaryFiles for PMC4262123.",
+   "pmid": "25498121",
+   "pmcid": "PMC4262123",
+   "citation_status": "verified_europepmc_metadata_2026-10-30",
+   "what_used": "the original coding manual: definition and example phrases for levels 0-6, the strongest-statement rule, and the separate 'explicitly probabilistic' binary code with its example words.",
+   "status": "verified_source_text",
+   "verified_quotes": [
+    "the IV (or pseudo IV in correlational designs), DV and stated relationship between them (if any) were extracted from the main claims, which were operationalized as the title plus first two sentences in PRs and news. For the JA, main claims were defined within the abstract and discussion sections.",
+    "0. No relationship stated (but could have been): The study must have contained at least two variables (IV and DV, or pseudo IV and DV) between which a relationship could have been stated. If there were not two suitable variables, the code 'not applicable' was used.",
+    "1. Statement of NO relationship/cause: e.g. 'no difference'; 'persists without'; 'does not result in'; 'no significant extra risk'; 'added no benefit'.",
+    "2. Statement of correlation: Meaning remains if the variables in the statement are reversed; e.g. 'associated with'; 'related to'; 'varies with'; 'increases as'; 'decreases as'; 'have higher/lower rates of'; 'linear relationship';",
+    "3. Ambiguous statement of correlation/cause: Strictly does not state cause, but contains stronger implication of direct relationship than level 2; e.g. 'linked to'; 'predicts'; 'connected to'; 'more successful'; 'had difficulty';",
+    "4. Conditional cause: Causal statement (examples in level 6) preceded by conditional, such as 'might', 'could', 'may', 'appears'; or a statement that implies 'might cause', e.g. 'likely to be a critical event', 'demonstrates potential'.",
+    "5. Can cause: Causal statement (examples in level 6) preceded by 'can'. ... Thus we grouped 'could' with 'might' in category 4.",
+    "6. Causal statement: Direct causal statement; e.g. 'enhances', 'increases' [as transitive verb - X increases Y], 'decreases', 'cuts', 'ameliorates'; 'influences'; 'prevents'; 'raises/reduces'; 'enables'; 'determines'; 'is vital for'; 'boosts/improves'; 'drives'; 'leads to'; 'transforms'; encourages' etc.",
+    "Where statements of different levels were made within the analysed segments of text, stronger statements trumped weaker ones.",
+    "Separately, we also coded whether or not the statement of relationship was explicitly probabilistic – for example, 'correlated with the risk of...' (correlational probabilistic); 'raises the chance of...' (causal probabilistic); Further probabilistic words/phrases included: 'likelihood'; 'makes more likely'; 'tendency'; 'rate'."
+   ],
+   "verify_against": "done: ww1 text (pdftotext) lines 72-108, read 2026-10-30. Note the appendix says 'the 6 levels of relationship statement' while listing codes 0-6; the article says 'seven point scale'."
   },
-  "entries": [
-    {
-      "cue": "cause",
-      "pattern": "\\bcaus(?:e|es|ed|ing)\\b",
-      "level": 6,
-      "type": "causal_verb",
-      "source": "sumner2014",
-      "status": "unverified_from_memory",
-      "note": "Sumner 2014 level-6 anchor example 'X causes Y'. Noun 'cause' (e.g. 'the cause of') is also matched; see sentence_rule for 'possible cause' handling."
-    },
-    {
-      "cue": "lead to",
-      "pattern": "\\ble(?:ad|ads|d|ading)\\s+to\\b",
-      "level": 6,
-      "type": "causal_verb",
-      "source": "sumner2014",
-      "status": "unverified_from_memory",
-      "note": "'leads to' is a direct causal stimulus phrase in Adams 2017."
-    },
-    {
-      "cue": "result in",
-      "pattern": "\\bresult(?:s|ed|ing)?\\s+in\\b",
-      "level": 6,
-      "type": "causal_verb",
-      "source": "sumner2014",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "induce",
-      "pattern": "\\binduc(?:e|es|ed|ing)\\b",
-      "level": 6,
-      "type": "causal_verb",
-      "source": "adams2017",
-      "status": "project_addition",
-      "note": "Not certain it appears in Sumner/Adams lists; added for drug-safety abstracts ('drug-induced pancreatitis'). Adjective 'semaglutide-induced' is matched by the same pattern."
-    },
-    {
-      "cue": "trigger",
-      "pattern": "\\btrigger(?:s|ed|ing)?\\b",
-      "level": 6,
-      "type": "causal_verb",
-      "source": "sumner2014",
-      "status": "project_addition",
-      "note": "Project addition; verb sense only is intended."
-    },
-    {
-      "cue": "increase the risk",
-      "pattern": "(?<!\\ban\\s)(?<!\\ba\\s)(?<!\\bthe\\s)(?<!\\bwith\\s)(?<!\\bof\\s)(?<!\\band\\s)(?<!\\bor\\s)(?<!\\bno\\s)\\b(?:increas|rais|elevat)(?:e|es|ed|ing)\\s+(?:the\\s+|a\\s+|their\\s+|one's\\s+)?(?:risk|rate|incidence|likelihood|odds|hazard|chance)s?\\b",
-      "level": 6,
-      "type": "causal_verb_phrase",
-      "source": "sumner2014",
-      "status": "unverified_from_memory",
-      "note": "Sumner 2014 codes 'X increases risk of Y' as unconditional causal (subject acts on risk) vs 'X is associated with increased risk' which is correlational (level 2). The fixed-width lookbehinds exclude the participial/adjectival form after a determiner or preposition ('an increased risk', 'with increased risk'), which is then caught by the level-2 risk_language entry. The lookbehind list is a PROJECT pattern."
-    },
-    {
-      "cue": "increase (verb, subject acts on outcome)",
-      "pattern": "\\b(?:increas|decreas|reduc|boost|lower|rais|cut)(?:e|es|ed|ing)?\\s+(?!risk|the\\s+risk|rate|incidence)(?:[a-z-]+\\s+){0,2}?(?:levels?|symptoms?|weight|events?|mortality|glucose|pressure)\\b",
-      "level": 6,
-      "type": "causal_verb_phrase",
-      "source": "sumner2014",
-      "status": "project_addition",
-      "note": "Project pattern generalising Sumner's 'X increases/reduces/boosts Y'. Lookahead limited to common outcome nouns in this corpus to reduce false matches. HEURISTIC."
-    },
-    {
-      "cue": "drive",
-      "pattern": "\\bdriv(?:e|es|en|ing)\\b",
-      "level": 6,
-      "type": "causal_verb",
-      "source": "sumner2014",
-      "status": "project_addition",
-      "note": "Project addition."
-    },
-    {
-      "cue": "produce",
-      "pattern": "\\bproduc(?:e|es|ed|ing)\\b",
-      "level": 6,
-      "type": "causal_verb",
-      "source": "sumner2014",
-      "status": "project_addition",
-      "note": "Project addition; may also match 'produced by' in methods sentences (level 0 context). Needs human check."
-    },
-    {
-      "cue": "responsible for",
-      "pattern": "\\bresponsible\\s+for\\b",
-      "level": 6,
-      "type": "causal_phrase",
-      "source": "sumner2014",
-      "status": "project_addition",
-      "note": "Project addition."
-    },
-    {
-      "cue": "due to",
-      "pattern": "\\bdue\\s+to\\b",
-      "level": 6,
-      "type": "causal_phrase",
-      "source": "sumner2014",
-      "status": "unverified_from_memory",
-      "note": "I recall 'due to' being treated as causal in the Sumner coding scheme; verify."
-    },
-    {
-      "cue": "because of",
-      "pattern": "\\bbecause\\s+of\\b",
-      "level": 6,
-      "type": "causal_phrase",
-      "source": "sumner2014",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "attributable to",
-      "pattern": "\\battributable\\s+to\\b",
-      "level": 6,
-      "type": "causal_phrase",
-      "source": "sumner2014",
-      "status": "project_addition",
-      "note": "Project addition (epidemiological usage: 'attributable risk')."
-    },
-    {
-      "cue": "contribute to",
-      "pattern": "\\bcontribut(?:e|es|ed|ing)\\s+to\\b",
-      "level": 6,
-      "type": "causal_verb",
-      "source": "sumner2014",
-      "status": "project_addition",
-      "note": "Project addition."
-    },
-    {
-      "cue": "promote",
-      "pattern": "\\bpromot(?:e|es|ed|ing)\\b",
-      "level": 6,
-      "type": "causal_verb",
-      "source": "sumner2014",
-      "status": "project_addition",
-      "note": "Project addition."
-    },
-    {
-      "cue": "prevent",
-      "pattern": "\\bprevent(?:s|ed|ing)?\\b",
-      "level": 6,
-      "type": "causal_verb",
-      "source": "sumner2014",
-      "status": "unverified_from_memory",
-      "note": "Sumner's scale is symmetric for protective claims ('X prevents/reduces Y' = causal). Verify."
-    },
-    {
-      "cue": "protect against",
-      "pattern": "\\bprotect(?:s|ed|ing|ive)?\\s+(?:against|from)\\b",
-      "level": 6,
-      "type": "causal_verb_phrase",
-      "source": "sumner2014",
-      "status": "project_addition",
-      "note": "Project addition, protective-causal."
-    },
-    {
-      "cue": "effect of",
-      "pattern": "\\beffects?\\s+(?:of|on)\\b",
-      "level": 3,
-      "type": "ambiguous_relationship",
-      "source": "sumner2014",
-      "status": "unverified_from_memory",
-      "note": "Sumner 2014 level 3 (ambiguous): 'effect' implies but does not state causation."
-    },
-    {
-      "cue": "affect",
-      "pattern": "\\baffect(?:s|ed|ing)?\\b",
-      "level": 3,
-      "type": "ambiguous_relationship",
-      "source": "sumner2014",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "impact",
-      "pattern": "\\bimpact(?:s|ed|ing)?\\b",
-      "level": 3,
-      "type": "ambiguous_relationship",
-      "source": "sumner2014",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "influence",
-      "pattern": "\\binfluenc(?:e|es|ed|ing)\\b",
-      "level": 3,
-      "type": "ambiguous_relationship",
-      "source": "sumner2014",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "role of / play a role",
-      "pattern": "\\b(?:role\\s+(?:of|in)|play(?:s|ed)?\\s+a\\s+role)\\b",
-      "level": 3,
-      "type": "ambiguous_relationship",
-      "source": "sumner2014",
-      "status": "project_addition",
-      "note": "Project addition; treated as ambiguous like 'effect'."
-    },
-    {
-      "cue": "implicated in",
-      "pattern": "\\bimplicated\\s+in\\b",
-      "level": 3,
-      "type": "ambiguous_relationship",
-      "source": "sumner2014",
-      "status": "project_addition",
-      "note": "Project addition."
-    },
-    {
-      "cue": "adverse event / side effect (noun, attribution implied)",
-      "pattern": "\\b(?:adverse\\s+(?:event|effect|reaction|drug\\s+reaction)s?|side\\s+effects?)\\b",
-      "level": 3,
-      "type": "ambiguous_relationship",
-      "source": "sumner2014",
-      "status": "project_addition",
-      "note": "Project addition. Pharmacovigilance nouns imply attribution to the drug without stating causation; put at 3. HEURISTIC — review."
-    },
-    {
-      "cue": "associated with",
-      "pattern": "\\bassociat(?:ed|ion|ions)\\s+(?:with|between|of)\\b",
-      "level": 2,
-      "type": "association",
-      "source": "sumner2014",
-      "status": "unverified_from_memory",
-      "note": "Core level-2 example in Sumner 2014 and Adams 2017."
-    },
-    {
-      "cue": "association (noun)",
-      "pattern": "\\bassociations?\\b",
-      "level": 2,
-      "type": "association",
-      "source": "sumner2014",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "linked to",
-      "pattern": "\\blink(?:ed|s)?\\s+(?:to|with|between)\\b",
-      "level": 2,
-      "type": "association",
-      "source": "adams2017",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "link (noun)",
-      "pattern": "\\blinks?\\b",
-      "level": 2,
-      "type": "association",
-      "source": "adams2017",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "related to",
-      "pattern": "\\brelat(?:ed|ion|ionship|ionships)\\s+(?:to|with|between)\\b",
-      "level": 2,
-      "type": "association",
-      "source": "adams2017",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "correlated / correlation",
-      "pattern": "\\bcorrelat(?:e|es|ed|ion|ions|ing)\\b",
-      "level": 2,
-      "type": "association",
-      "source": "sumner2014",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "connected to",
-      "pattern": "\\bconnect(?:ed|ion)\\s+(?:to|with|between)\\b",
-      "level": 2,
-      "type": "association",
-      "source": "adams2017",
-      "status": "unverified_from_memory",
-      "note": "Adams 2017 correlational stimulus, I believe."
-    },
-    {
-      "cue": "tied to",
-      "pattern": "\\btied\\s+to\\b",
-      "level": 2,
-      "type": "association",
-      "source": "adams2017",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "risk of",
-      "pattern": "\\brisks?\\s+(?:of|for)\\b",
-      "level": 2,
-      "type": "risk_language",
-      "source": "sumner2014",
-      "status": "unverified_from_memory",
-      "note": "Risk language without an agentive verb is read as correlational in Sumner 2014 ('patients taking X had a higher risk of Y'). When preceded by increases/raises it is captured at 6 by causal_cues; see precedence."
-    },
-    {
-      "cue": "increased / higher / greater / elevated risk",
-      "pattern": "\\b(?:increased|higher|greater|elevated|raised|excess|lower|reduced|decreased)\\s+(?:risk|rate|incidence|odds|hazard|likelihood|chance)s?\\b",
-      "level": 2,
-      "type": "risk_language",
-      "source": "sumner2014",
-      "status": "unverified_from_memory",
-      "note": "Participial/adjectival form = correlational (no stated agent)."
-    },
-    {
-      "cue": "more likely / less likely",
-      "pattern": "\\b(?:more|less)\\s+likely\\b",
-      "level": 2,
-      "type": "risk_language",
-      "source": "sumner2014",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "hazard ratio / HR",
-      "pattern": "\\b(?:hazard\\s+ratios?|HR|aHR|HRs)\\b",
-      "level": 2,
-      "type": "effect_measure",
-      "source": "sumner2014",
-      "status": "project_addition",
-      "note": "Project addition: reporting an effect measure in an observational study = associational statement. Also keeps 'HR' which the W3 len>2 filter would drop."
-    },
-    {
-      "cue": "odds ratio / OR",
-      "pattern": "\\b(?:odds\\s+ratios?|aOR|ORs)\\b|\\bOR\\b(?=\\s*[=:,(]?\\s*\\d)",
-      "level": 2,
-      "type": "effect_measure",
-      "source": "sumner2014",
-      "status": "project_addition",
-      "note": "Project addition. Bare 'OR' is matched only when followed by a number so the conjunction 'or' (casefold) is not counted. HEURISTIC."
-    },
-    {
-      "cue": "relative risk / RR",
-      "pattern": "\\b(?:relative\\s+risks?|risk\\s+ratios?|RR|aRR|RRs)\\b",
-      "level": 2,
-      "type": "effect_measure",
-      "source": "sumner2014",
-      "status": "project_addition",
-      "note": "Project addition."
-    },
-    {
-      "cue": "incidence rate ratio / IRR",
-      "pattern": "\\b(?:incidence\\s+rate\\s+ratios?|IRR|IRRs)\\b",
-      "level": 2,
-      "type": "effect_measure",
-      "source": "sumner2014",
-      "status": "project_addition",
-      "note": "Project addition."
-    },
-    {
-      "cue": "95% CI",
-      "pattern": "\\b9[05]\\s?%\\s*(?:CI|confidence\\s+intervals?)\\b|\\bCIs?\\b",
-      "level": 2,
-      "type": "effect_measure",
-      "source": "sumner2014",
-      "status": "project_addition",
-      "note": "Project addition; the W3 letter-only regex deletes '95%' so this must run on the number-preserving copy (Notion ⑧)."
-    },
-    {
-      "cue": "P value",
-      "pattern": "\\bP\\s*(?:<|>|=|≤|≥)\\s*\\.?\\d",
-      "level": 2,
-      "type": "effect_measure",
-      "source": "sumner2014",
-      "status": "project_addition",
-      "note": "Project addition; statistical-significance statement treated as associational evidence."
-    },
-    {
-      "cue": "predictor / predict",
-      "pattern": "\\bpredict(?:s|ed|or|ors|ive)?\\b",
-      "level": 2,
-      "type": "association",
-      "source": "sumner2014",
-      "status": "project_addition",
-      "note": "Project addition (regression language)."
-    },
-    {
-      "cue": "prevalence / incidence of (descriptive)",
-      "pattern": "\\b(?:prevalence|incidence)\\s+of\\b",
-      "level": 2,
-      "type": "descriptive_frequency",
-      "source": "sumner2014",
-      "status": "project_addition",
-      "note": "Project addition. Descriptive frequency after exposure is at most associational. HEURISTIC — may deserve level 0; review."
-    },
-    {
-      "cue": "no association",
-      "pattern": "\\bno\\s+(?:significant\\s+|statistically\\s+significant\\s+|clear\\s+|evidence\\s+of\\s+(?:an?\\s+)?)?(?:association|link|relationship|correlation|difference|increase|excess|signal)s?\\b",
-      "level": 1,
-      "type": "no_relationship",
-      "source": "sumner2014",
-      "status": "unverified_from_memory",
-      "note": "Sumner 2014 level 1: explicit statement of no relationship."
-    },
-    {
-      "cue": "not associated / not linked / not related",
-      "pattern": "\\b(?:not|never)\\s+(?:significantly\\s+|statistically\\s+)?(?:associated|linked|related|correlated|connected)\\b",
-      "level": 1,
-      "type": "no_relationship",
-      "source": "sumner2014",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "no increased risk",
-      "pattern": "\\bno\\s+(?:significantly\\s+|statistically\\s+significant\\s+)?(?:increased|higher|greater|elevated|excess)\\s+(?:risk|rate|incidence|odds|hazard)s?\\b",
-      "level": 1,
-      "type": "no_relationship",
-      "source": "sumner2014",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "did not increase / did not cause",
-      "pattern": "\\b(?:did|does|do)\\s+not\\s+(?:significantly\\s+)?(?:increase|raise|cause|lead|result|induce|affect|alter|change|differ)\\b",
-      "level": 1,
-      "type": "no_relationship",
-      "source": "sumner2014",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "was not associated",
-      "pattern": "\\b(?:was|were|is|are)\\s+not\\s+(?:significantly\\s+|independently\\s+)?(?:associated|linked|related|correlated)\\b",
-      "level": 1,
-      "type": "no_relationship",
-      "source": "sumner2014",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "no difference",
-      "pattern": "\\bno\\s+(?:significant\\s+|statistically\\s+significant\\s+|meaningful\\s+)?differences?\\b",
-      "level": 1,
-      "type": "no_relationship",
-      "source": "sumner2014",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "no evidence of",
-      "pattern": "\\bno\\s+(?:clear\\s+|strong\\s+|convincing\\s+)?evidence\\s+(?:of|for|that)\\b",
-      "level": 1,
-      "type": "no_relationship",
-      "source": "sumner2014",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "not significant / non-significant",
-      "pattern": "\\b(?:not\\s+(?:statistically\\s+)?significant|non-?significant|nonsignificant)\\b",
-      "level": 1,
-      "type": "no_relationship",
-      "source": "sumner2014",
-      "status": "project_addition",
-      "note": "Project addition: statistical null result treated as 'no relationship' statement. HEURISTIC — Sumner may code this as 0 or 2; verify."
-    },
-    {
-      "cue": "CI includes 1 / null",
-      "pattern": "\\b(?:crossed|crosses|included|includes|spanned|spans)\\s+(?:1|1\\.0|one|the\\s+null|unity)\\b",
-      "level": 1,
-      "type": "no_relationship",
-      "source": "sumner2014",
-      "status": "project_addition",
-      "note": "Project addition (epidemiological null wording)."
-    },
-    {
-      "cue": "without (negation)",
-      "pattern": "\\bwithout\\s+(?:an?\\s+|any\\s+)?(?:increase|association|evidence|effect|difference|signal)s?\\b",
-      "level": 1,
-      "type": "no_relationship",
-      "source": "w5_lecture",
-      "status": "verified_lecture_pdf",
-      "note": "W5 p.30-31: keep 'without' — 'without evidence' is the key signal. Scope of 'without' limited to relationship nouns here (project pattern)."
-    },
-    {
-      "cue": "lack of / absence of (association)",
-      "pattern": "\\b(?:lack|absence)\\s+of\\s+(?:an?\\s+|any\\s+)?(?:association|evidence|link|relationship|effect|difference|increase|signal)s?\\b",
-      "level": 1,
-      "type": "no_relationship",
-      "source": "vincze2008",
-      "status": "unverified_from_memory",
-      "note": "BioScope lists 'lack', 'absence' as negation cues; relationship-noun restriction is a project pattern."
-    },
-    {
-      "cue": "fail to / failed to (show)",
-      "pattern": "\\bfail(?:s|ed|ing)?\\s+to\\s+(?:show|demonstrate|find|detect|reveal|identify|confirm|support)\\b",
-      "level": 1,
-      "type": "no_relationship",
-      "source": "vincze2008",
-      "status": "unverified_from_memory",
-      "note": "BioScope negation cue 'fail to'."
-    }
-  ],
-  "modifiers": [
-    {
-      "cue": "may",
-      "pattern": "\\bmay\\b",
-      "effect": "downgrade_to_4",
-      "applies_when": "sentence level >= 5 (causal cue present)",
-      "source": "sumner2014",
-      "status": "unverified_from_memory",
-      "note": "Sumner level 4 'conditional statement of causation': may/might/could cause."
-    },
-    {
-      "cue": "might",
-      "pattern": "\\bmight\\b",
-      "effect": "downgrade_to_4",
-      "applies_when": "sentence level >= 5",
-      "source": "sumner2014",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "could",
-      "pattern": "\\bcould\\b",
-      "effect": "downgrade_to_4",
-      "applies_when": "sentence level >= 5",
-      "source": "sumner2014",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "can",
-      "pattern": "\\bcan\\b(?!\\s*not\\b)",
-      "effect": "level_5",
-      "applies_when": "sentence level == 6 (unconditional causal cue present); 'can' + causal -> 5",
-      "source": "sumner2014",
-      "status": "unverified_from_memory",
-      "note": "Sumner level 5 'statement of can cause'. Negative 'cannot/can not' excluded by lookahead and handled by negation. NLTK stopwords list contains 'can' — do not remove stopwords before cue matching (Notion ⑦)."
-    },
-    {
-      "cue": "possible / possibly / potential / potentially (before causal cue)",
-      "pattern": "\\b(?:possibl[ey]|potential(?:ly)?|putative(?:ly)?|probabl[ey]|likely|plausibl[ey])\\b",
-      "effect": "downgrade_to_4",
-      "applies_when": "sentence level >= 5",
-      "source": "hyland2005 (hedges) + sumner2014 level 4 (conditional)",
-      "status": "project_addition",
-      "note": "PROJECT HEURISTIC: Sumner's level 4 is defined by modal verbs; treating adjectival/adverbial hedges on a causal verb ('possible cause', 'potentially induces') as equivalent to may/might is a project extension. Mark in report."
-    },
-    {
-      "cue": "negation (not / no / never / cannot / n't)",
-      "pattern": "\\b(?:not|no|never|cannot|neither|nor)\\b|n't\\b",
-      "effect": "negation_to_1",
-      "applies_when": "a relationship cue (level >= 2) occurs within negation_window_tokens AFTER the negation cue, OR a no_relationship_cues pattern matched",
-      "source": "sumner2014 level 1 (statement of no relationship); w5_lecture p.30-31, p.33 keep negations not/no/never/without; vincze2008 negation cues",
-      "status": "w5 part verified_lecture_pdf; sumner/vincze part unverified_from_memory",
-      "note": "Contraction normalization (W5 p.33: isn't -> is not, can't -> cannot) should be run before matching so that n't forms are also caught by the word-form pattern. The token window is a PROJECT HEURISTIC (see sentence_rule)."
-    },
-    {
-      "cue": "hypothetical / unconfirmed framing",
-      "pattern": "\\b(?:hypothes(?:is|es|ized|ised)|hypothetical(?:ly)?|speculat(?:e|ed|ive|ion)|unconfirmed|unproven|not\\s+(?:yet\\s+)?established)\\b",
-      "effect": "downgrade_to_4",
-      "applies_when": "sentence level >= 5",
-      "source": "vincze2008 (hedge cues hypothesis/speculate)",
-      "status": "project_addition",
-      "note": "PROJECT HEURISTIC extension of level 4."
-    }
-  ],
-  "hedges": [
-    {
-      "cue": "about (approximation)",
-      "pattern": "\\babout\\s+(?=\\d)",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "almost",
-      "pattern": "\\balmost\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "apparent / apparently",
-      "pattern": "\\bapparent(?:ly)?\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "appear",
-      "pattern": "\\bappear(?:s|ed|ing)?\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "approximately",
-      "pattern": "\\bapproximately\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "argue",
-      "pattern": "\\bargu(?:e|es|ed|ing)\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "around (approximation)",
-      "pattern": "\\baround\\s+(?=\\d)",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "assume",
-      "pattern": "\\bassum(?:e|es|ed|ing)\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "broadly",
-      "pattern": "\\bbroadly\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "certain extent / amount / level",
-      "pattern": "\\bcertain\\s+(?:extent|amount|level|degree)\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "claim",
-      "pattern": "\\bclaim(?:s|ed|ing)?\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "could",
-      "pattern": "\\bcould\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "doubt / doubtful",
-      "pattern": "\\bdoubt(?:ful|s|ed)?\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "essentially",
-      "pattern": "\\bessentially\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "estimate",
-      "pattern": "\\bestimat(?:e|es|ed|ing)\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "fairly",
-      "pattern": "\\bfairly\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "feel / felt",
-      "pattern": "\\b(?:feel|feels|felt)\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "frequently",
-      "pattern": "\\bfrequently\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "generally / in general",
-      "pattern": "\\b(?:generally|in\\s+general)\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "guess",
-      "pattern": "\\bguess(?:es|ed)?\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "indicate",
-      "pattern": "\\bindicat(?:e|es|ed|ing)\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "in most cases / instances",
-      "pattern": "\\bin\\s+most\\s+(?:cases|instances)\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "in my/our view / opinion",
-      "pattern": "\\bin\\s+(?:my|our)\\s+(?:view|opinion)\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "largely",
-      "pattern": "\\blargely\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "likely",
-      "pattern": "\\blikely\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "mainly",
-      "pattern": "\\bmainly\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "may",
-      "pattern": "\\bmay\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "maybe",
-      "pattern": "\\bmaybe\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "might",
-      "pattern": "\\bmight\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "mostly",
-      "pattern": "\\bmostly\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "often",
-      "pattern": "\\boften\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "on the whole",
-      "pattern": "\\bon\\s+the\\s+whole\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "ought",
-      "pattern": "\\bought\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "perhaps",
-      "pattern": "\\bperhaps\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "plausible / plausibly",
-      "pattern": "\\bplausibl[ey]\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "possible / possibly",
-      "pattern": "\\bpossibl[ey]\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "postulate",
-      "pattern": "\\bpostulat(?:e|es|ed|ing)\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "presumable / presumably",
-      "pattern": "\\bpresumabl[ey]\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "probable / probably",
-      "pattern": "\\bprobabl[ey]\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "quite",
-      "pattern": "\\bquite\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "rather",
-      "pattern": "\\brather\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "relatively",
-      "pattern": "\\brelatively\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "roughly",
-      "pattern": "\\broughly\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "seem",
-      "pattern": "\\bseem(?:s|ed|ing|ingly)?\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "should",
-      "pattern": "\\bshould\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "sometimes",
-      "pattern": "\\bsometimes\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "somewhat",
-      "pattern": "\\bsomewhat\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "suggest",
-      "pattern": "\\bsuggest(?:s|ed|ing|ive)?\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "suppose",
-      "pattern": "\\bsuppos(?:e|es|ed|edly)\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "suspect",
-      "pattern": "\\bsuspect(?:s|ed)?\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "tend to",
-      "pattern": "\\btend(?:s|ed)?\\s+to\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "typical / typically",
-      "pattern": "\\btypical(?:ly)?\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "uncertain / uncertainly",
-      "pattern": "\\buncertain(?:ly|ty)?\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "unclear / unclearly",
-      "pattern": "\\bunclear(?:ly)?\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "unlikely",
-      "pattern": "\\bunlikely\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "usually",
-      "pattern": "\\busually\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "would",
-      "pattern": "\\bwould\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "potential / potentially",
-      "pattern": "\\bpotential(?:ly)?\\b",
-      "role": "hedge",
-      "source": "vincze2008",
-      "status": "unverified_from_memory",
-      "note": "Not sure it is in Hyland's list; BioScope hedge cue."
-    },
-    {
-      "cue": "putative",
-      "pattern": "\\bputative(?:ly)?\\b",
-      "role": "hedge",
-      "source": "vincze2008",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "whether",
-      "pattern": "\\bwhether\\b",
-      "role": "hedge",
-      "source": "vincze2008",
-      "status": "unverified_from_memory",
-      "note": "BioScope hedge cue in 'to determine whether'."
-    },
-    {
-      "cue": "hypothesis / hypothesize",
-      "pattern": "\\bhypothes(?:is|es|ized|ised|ize|ise)\\b",
-      "role": "hedge",
-      "source": "vincze2008",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "speculate / speculative",
-      "pattern": "\\bspeculat(?:e|es|ed|ive|ion)\\b",
-      "role": "hedge",
-      "source": "vincze2008",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "warrant further",
-      "pattern": "\\bwarrant(?:s|ed|ing)?\\s+(?:further|additional|more|future)\\b",
-      "role": "hedge",
-      "source": "project",
-      "status": "project_addition",
-      "note": "Conventional biomedical abstract hedge; not in cited lists as far as I know."
-    },
-    {
-      "cue": "further research / studies are needed",
-      "pattern": "\\b(?:further|additional|more|future|larger|prospective)\\s+(?:research|studies|study|investigation|investigations|trials|data|evaluation|work)\\s+(?:is|are|will\\s+be|would\\s+be|may\\s+be)?\\s*(?:needed|required|warranted|necessary)\\b",
-      "role": "hedge",
-      "source": "project",
-      "status": "project_addition",
-      "note": "Conventional biomedical abstract hedge."
-    },
-    {
-      "cue": "cannot be excluded / ruled out",
-      "pattern": "\\bcan\\s*not\\s+be\\s+(?:excluded|ruled\\s+out)\\b",
-      "role": "hedge",
-      "source": "project",
-      "status": "project_addition",
-      "note": ""
-    },
-    {
-      "cue": "should be interpreted with caution",
-      "pattern": "\\b(?:interpreted|treated|viewed|considered)\\s+with\\s+caution\\b|\\bcaution(?:ed|s)?\\b",
-      "role": "hedge",
-      "source": "project",
-      "status": "project_addition",
-      "note": ""
-    },
-    {
-      "cue": "hypothesis-generating",
-      "pattern": "\\bhypothesis[-\\s]generating\\b",
-      "role": "hedge",
-      "source": "project",
-      "status": "project_addition",
-      "note": ""
-    },
-    {
-      "cue": "limited evidence / limitations",
-      "pattern": "\\blimit(?:ed|ations?)\\b",
-      "role": "hedge",
-      "source": "project",
-      "status": "project_addition",
-      "note": "Very broad; 'limitations' section marker. HEURISTIC."
-    },
-    {
-      "cue": "preliminary",
-      "pattern": "\\bpreliminary\\b",
-      "role": "hedge",
-      "source": "project",
-      "status": "project_addition",
-      "note": ""
-    },
-    {
-      "cue": "exploratory",
-      "pattern": "\\bexploratory\\b",
-      "role": "hedge",
-      "source": "project",
-      "status": "project_addition",
-      "note": ""
-    },
-    {
-      "cue": "inconclusive",
-      "pattern": "\\binconclusive\\b",
-      "role": "hedge",
-      "source": "project",
-      "status": "project_addition",
-      "note": ""
-    },
-    {
-      "cue": "unknown / not known / remains to be",
-      "pattern": "\\b(?:unknown|not\\s+(?:yet\\s+)?known|remains?\\s+to\\s+be\\s+(?:determined|established|elucidated|seen|clarified))\\b",
-      "role": "hedge",
-      "source": "project",
-      "status": "project_addition",
-      "note": ""
-    },
-    {
-      "cue": "not causal / causality not established",
-      "pattern": "\\b(?:causal(?:ity)?\\s+(?:cannot|could\\s+not|can\\s*not)\\s+be\\s+(?:established|inferred|determined|confirmed)|no\\s+causal|not\\s+(?:prove|establish|imply|infer)\\s+causa(?:lity|tion))\\b",
-      "role": "hedge",
-      "source": "project",
-      "status": "project_addition",
-      "note": "Explicit disclaimers of causality common in observational abstracts. Treated as a hedge; the sentence's relationship level is still assigned by the cue rules (usually 2)."
-    },
-    {
-      "cue": "residual confounding / confounding",
-      "pattern": "\\bconfound(?:ing|ed|ers?)\\b",
-      "role": "hedge",
-      "source": "project",
-      "status": "project_addition",
-      "note": "Methodological hedge in observational studies. HEURISTIC."
-    },
-    {
-      "cue": "may not / might not",
-      "pattern": "\\b(?:may|might)\\s+not\\b",
-      "role": "hedge",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": "Composite of Hyland hedges with negation."
-    }
-  ],
-  "boosters": [
-    {
-      "cue": "actually",
-      "pattern": "\\bactually\\b",
-      "role": "booster",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "always",
-      "pattern": "\\balways\\b",
-      "role": "booster",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "believe",
-      "pattern": "\\bbeliev(?:e|es|ed)\\b",
-      "role": "booster",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "beyond doubt",
-      "pattern": "\\bbeyond\\s+doubt\\b",
-      "role": "booster",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "certain / certainly",
-      "pattern": "\\bcertain(?:ly)?\\b(?!\\s+(?:extent|amount|level|degree))",
-      "role": "booster",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "clear / clearly",
-      "pattern": "\\bclear(?:ly)?\\b",
-      "role": "booster",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "conclusively",
-      "pattern": "\\bconclusive(?:ly)?\\b",
-      "role": "booster",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "decidedly",
-      "pattern": "\\bdecidedly\\b",
-      "role": "booster",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "definite / definitely",
-      "pattern": "\\bdefinite(?:ly)?\\b",
-      "role": "booster",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "demonstrate",
-      "pattern": "\\bdemonstrat(?:e|es|ed|ing)\\b",
-      "role": "booster",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "determine",
-      "pattern": "\\bdetermin(?:e|es|ed|ing)\\b",
-      "role": "booster",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "doubtless",
-      "pattern": "\\bdoubtless\\b",
-      "role": "booster",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "establish",
-      "pattern": "\\bestablish(?:es|ed|ing)?\\b",
-      "role": "booster",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "evident / evidently",
-      "pattern": "\\bevident(?:ly)?\\b",
-      "role": "booster",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "find / found",
-      "pattern": "\\b(?:find|finds|found)\\b",
-      "role": "booster",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "in fact",
-      "pattern": "\\bin\\s+fact\\b",
-      "role": "booster",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "incontestable",
-      "pattern": "\\bincontestabl[ey]\\b",
-      "role": "booster",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "incontrovertible",
-      "pattern": "\\bincontrovertibl[ey]\\b",
-      "role": "booster",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "indeed",
-      "pattern": "\\bindeed\\b",
-      "role": "booster",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "indisputable",
-      "pattern": "\\bindisputabl[ey]\\b",
-      "role": "booster",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "know / known",
-      "pattern": "\\b(?:know|knows|known)\\b",
-      "role": "booster",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "must (epistemic)",
-      "pattern": "\\bmust\\b",
-      "role": "booster",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "never",
-      "pattern": "\\bnever\\b",
-      "role": "booster",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "no doubt",
-      "pattern": "\\bno\\s+doubt\\b",
-      "role": "booster",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "obvious / obviously",
-      "pattern": "\\bobvious(?:ly)?\\b",
-      "role": "booster",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "of course",
-      "pattern": "\\bof\\s+course\\b",
-      "role": "booster",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "prove / proved / proven",
-      "pattern": "\\bprov(?:e|es|ed|en|ing)\\b",
-      "role": "booster",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "realize",
-      "pattern": "\\brealiz(?:e|es|ed)\\b",
-      "role": "booster",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "really",
-      "pattern": "\\breally\\b",
-      "role": "booster",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "show / shows / showed / shown",
-      "pattern": "\\bshow(?:s|ed|n|ing)?\\b",
-      "role": "booster",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "sure / surely",
-      "pattern": "\\bsure(?:ly)?\\b",
-      "role": "booster",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "think / thought",
-      "pattern": "\\b(?:think|thinks|thought)\\b",
-      "role": "booster",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "true / truly",
-      "pattern": "\\btru(?:e|ly)\\b",
-      "role": "booster",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "undeniable / undeniably",
-      "pattern": "\\bundeniabl[ey]\\b",
-      "role": "booster",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "undisputedly",
-      "pattern": "\\bundisputedly\\b",
-      "role": "booster",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "undoubtedly",
-      "pattern": "\\bundoubtedly\\b",
-      "role": "booster",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "without doubt",
-      "pattern": "\\bwithout\\s+doubt\\b",
-      "role": "booster",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": ""
-    },
-    {
-      "cue": "confirm",
-      "pattern": "\\bconfirm(?:s|ed|ing|ation)?\\b",
-      "role": "booster",
-      "source": "hyland2005",
-      "status": "unverified_from_memory",
-      "note": "Not sure 'confirm' is in Hyland's appendix list; commonly listed as a booster in Hyland-derived lists."
-    },
-    {
-      "cue": "robust",
-      "pattern": "\\brobust(?:ly|ness)?\\b",
-      "role": "booster",
-      "source": "project",
-      "status": "project_addition",
-      "note": "Project addition (statistical confidence language)."
-    },
-    {
-      "cue": "strongly / strong",
-      "pattern": "\\bstrong(?:ly|er|est)?\\b",
-      "role": "booster",
-      "source": "project",
-      "status": "project_addition",
-      "note": "Project addition."
-    },
-    {
-      "cue": "significant / significantly (statistical)",
-      "pattern": "\\b(?<!not\\s)(?<!non-)(?<!non)significant(?:ly)?\\b",
-      "role": "booster",
-      "source": "project",
-      "status": "project_addition",
-      "note": "Project addition; statistical significance read as a certainty marker. Negated forms are excluded (handled in no_relationship_cues). HEURISTIC."
-    },
-    {
-      "cue": "consistent / consistently",
-      "pattern": "\\bconsistent(?:ly)?\\b",
-      "role": "booster",
-      "source": "project",
-      "status": "project_addition",
-      "note": "Project addition."
-    },
-    {
-      "cue": "substantial / substantially",
-      "pattern": "\\bsubstantial(?:ly)?\\b",
-      "role": "booster",
-      "source": "project",
-      "status": "project_addition",
-      "note": "Project addition."
-    },
-    {
-      "cue": "markedly / marked",
-      "pattern": "\\bmarked(?:ly)?\\b",
-      "role": "booster",
-      "source": "project",
-      "status": "project_addition",
-      "note": "Project addition."
-    },
-    {
-      "cue": "conclude / conclusion",
-      "pattern": "\\bconclu(?:de|des|ded|sion|sions)\\b",
-      "role": "booster",
-      "source": "project",
-      "status": "project_addition",
-      "note": "Project addition; note that the section label CONCLUSIONS is stripped in Notion ① before matching."
-    },
-    {
-      "cue": "well-established / well established",
-      "pattern": "\\bwell[-\\s]established\\b",
-      "role": "booster",
-      "source": "project",
-      "status": "project_addition",
-      "note": ""
-    },
-    {
-      "cue": "evidence (noun, positive)",
-      "pattern": "(?<!\\bno\\s)(?<!\\bof\\s)(?<!\\bany\\s)\\bevidence\\b",
-      "role": "booster",
-      "source": "project",
-      "status": "project_addition",
-      "note": "Positive 'evidence' only; 'no evidence' is a no_relationship cue. HEURISTIC."
-    }
-  ],
-  "associational_cues": [
-    "associated with",
-    "association (noun)",
-    "linked to",
-    "link (noun)",
-    "related to",
-    "correlated / correlation",
-    "connected to",
-    "tied to",
-    "risk of",
-    "increased / higher / greater / elevated risk",
-    "more likely / less likely",
-    "hazard ratio / HR",
-    "odds ratio / OR",
-    "relative risk / RR",
-    "incidence rate ratio / IRR",
-    "95% CI",
-    "P value",
-    "predictor / predict",
-    "prevalence / incidence of (descriptive)"
-  ],
-  "causal_cues": [
-    "cause",
-    "lead to",
-    "result in",
-    "induce",
-    "trigger",
-    "increase the risk",
-    "increase (verb, subject acts on outcome)",
-    "drive",
-    "produce",
-    "responsible for",
-    "due to",
-    "because of",
-    "attributable to",
-    "contribute to",
-    "promote",
-    "prevent",
-    "protect against"
-  ],
-  "ambiguous_cues": [
-    "effect of",
-    "affect",
-    "impact",
-    "influence",
-    "role of / play a role",
-    "implicated in",
-    "adverse event / side effect (noun, attribution implied)"
-  ],
-  "no_relationship_cues": [
-    "no association",
-    "not associated / not linked / not related",
-    "no increased risk",
-    "did not increase / did not cause",
-    "was not associated",
-    "no difference",
-    "no evidence of",
-    "not significant / non-significant",
-    "CI includes 1 / null",
-    "without (negation)",
-    "lack of / absence of (association)",
-    "fail to / failed to (show)"
-  ],
-  "sentence_rule": {
-    "description": "1) Run all `entries` patterns (re.IGNORECASE) on the sentence (casefold/NFKC-normalised, numbers kept, contractions normalised per W5 p.33). 2) Base level = highest level among matched entries (Sumner 2014 codes a text by its strongest claim; Notion 계획 v2 ⑤ '단서가 여럿이면 가장 강한 것으로'). 3) 'associated with (an) increased risk' must resolve to level 2, not 6: the level-6 'increase the risk' pattern excludes the participial form after a determiner/preposition by lookbehind, so no extra precedence logic is needed; verify on the 번역 검수 sheet. 4) Modifiers: if base level == 6 and `can` matches -> 5; if base level >= 5 and may/might/could (or the project adjectival hedges) match -> 4. 5) Negation: if a no_relationship_cues pattern matched -> level 1 regardless of other cues; else if a negation cue occurs within `negation_window_tokens` tokens BEFORE a level>=2 cue -> level 1. 6) If no entry matched -> level 0. 7) collapsed_ko = collapse_map.level_to_collapsed[level]. 8) hedges/boosters do not change the level; they are counted separately (hedge_count, booster_count) and listed in the 번역 검수 sheet (Notion ⑤) so every sentence with a cue is reviewed against the source.",
-    "source": "sumner2014 (highest claim; may/might/could=4; can=5; no relationship=1) + notion_plan_v2 ⑤ + w5_lecture p.30-33 (keep negations, contraction normalisation)",
-    "status": {
-      "highest_claim_rule": "unverified_from_memory",
-      "modal_modifiers": "unverified_from_memory",
-      "participial_exclusion_step3": "project_addition — the determiner/preposition lookbehind list is a project pattern",
-      "negation_window_tokens": "project_addition — PROJECT HEURISTIC (Sumner codes the whole statement by hand; BioScope resolves negation scope syntactically, not by a fixed window). Report it explicitly and check with human validation.",
-      "hedge_booster_counts": "hyland2005 lists unverified_from_memory"
-    },
-    "negation_window_tokens": 5,
-    "negation_window_direction": "before the cue (negation precedes the relationship word in English: 'was not associated', 'no increased risk', 'did not increase')",
-    "tokenizer_for_window": "W5 lecture p.14 TOKEN_PATTERN = [A-Za-z]+(?:'[A-Za-z]+)+|[A-Za-z]+|\\d+(?:\\.\\d+)? applied after NFKC+casefold; numbers kept (Notion ⑧)."
+  {
+   "id": "adams2017",
+   "citation": "Adams RC, Sumner P, Vivian-Griffiths S, Barrington A, Williams A, Boivin J, Chambers CD, Bott L. How readers understand causal and correlational expressions used in news headlines. J Exp Psychol Appl 2017;23(1):1-14. doi:10.1037/xap0000100",
+   "pmid": "27808530",
+   "citation_status": "verified_europepmc_metadata_2026-10-30",
+   "what_used": "(v3) no entry depends on it any more. v1/v2 attributed 'linked to', 'related to', 'connected to', 'tied to' to its stimulus list from memory; these are now sourced to the Sumner appendix (verified) or marked project extensions.",
+   "status": "unverified_from_memory",
+   "verify_against": "full text not available in the container (only Europe PMC metadata). Its phrase content stays unverified_from_memory."
   },
-  "agreement_evaluation": {
-    "description": "For Notion ⑥: compare collapsed_ko of each English source sentence with the Korean-lexicon label of its translation (same sentence_id). Report simple agreement rate and Cohen's kappa; disagreement rows go to the 번역 검수 sheet.",
-    "status": "project procedure"
+  {
+   "id": "vincze2008",
+   "citation": "Vincze V, Szarvas G, Farkas R, Móra G, Csirik J. The BioScope corpus: biomedical texts annotated for uncertainty, negation and their scopes. BMC Bioinformatics 2008;9(Suppl 11):S9. doi:10.1186/1471-2105-9-S11-S9",
+   "pmid": "19025695",
+   "pmcid": "PMC2586758",
+   "citation_status": "verified_europepmc_metadata_2026-10-30",
+   "what_used": "hedge (speculation) and negation keywords that the paper text itself annotates in its examples (<may>, <might>, <likely>, <possible>, <probably>, <suggests>, <indicate>, <seem(s)>, raising verbs 'seem, appear, be expected, be likely', <cannot be> ... <excluded>, <raises the question of>; [no], [not], [without], [neither], 'cannot' as a negative keyword on its own), and the statement that punctuation marks or conjunctions function as scope boundary markers.",
+   "status": "verified_source_text",
+   "status_scope": "verified_source_text applies ONLY to the cue words quoted in each entry's source_quote. Cue words v1/v2 attributed to BioScope from memory — potential, putative, whether, hypothesis, speculate, lack, absence, fail to — are NOT named as cues in the paper text (PMC2586758, checked 2026-10-30); the paper defers its 'comprehensive list of speculative and negative keywords' to the corpus homepage, which was not checked. Those stay unverified_from_memory / project extensions.",
+   "verify_against": "done for the paper text (PMC2586758 full text XML, read 2026-10-30). Not done: corpus-homepage keyword list; Farkas et al. CoNLL-2010."
+  },
+  {
+   "id": "hyland2005",
+   "citation": "Hyland K. Metadiscourse: Exploring Interaction in Writing. London: Continuum, 2005. (Appendix: list of metadiscourse items — hedges and boosters)",
+   "what_used": "hedge word list and booster word list (interactional metadiscourse).",
+   "status": "unverified_from_memory",
+   "citation_status": "unverified (book; not accessible from the container)",
+   "verify_against": "Hyland 2005 Appendix (or Hyland 1998 'Hedging in Scientific Research Articles'; Hyland 2005 Discourse Studies 7(2):173-192). NOT accessible on 2026-10-30."
+  },
+  {
+   "id": "w5_lecture",
+   "citation": "수업 자료 W5_1_Text_Preprocessing_2.pdf (첨부 파일), p.14 regex tokenizer, p.27-33 advanced preprocessing",
+   "what_used": "p.30-31: keep negations 'not/never/without' — they flip meaning ('not safe', 'never works', 'without evidence'); p.32-33: do not blindly remove short tokens, contraction normalization (isn't -> is not, can't -> cannot / can not), and 'stopword를 제거할 때도 not, no, never 같은 negation은 keep list에 넣어서 보존'; p.14: TOKEN_PATTERN keeps contractions and numbers.",
+   "status": "verified_lecture_pdf",
+   "verify_against": "n/a (verified from the attached PDF text via pdftotext on 2026-10-30)."
+  },
+  {
+   "id": "notion_plan_v2",
+   "citation": "팀 Notion '계획 v2' (영어 초록 전처리 제안 ⑥, 한국어 사전 규칙 ⑤ '단서가 여럿이면 가장 강한 것으로')",
+   "what_used": "the collapse of the 7-level scale to 단정/가능성/연관·무관 and the 'strongest cue wins' sentence rule.",
+   "status": "project_document",
+   "verify_against": "n/a (team document)."
   }
+ ],
+ "levels": {
+  "6": {
+   "name_en": "Causal statement",
+   "name_article": "unconditionally causal",
+   "name_ko": "단정 (직접 인과)",
+   "collapsed_ko": "단정",
+   "example_en": "drinking wine increases cancer risk",
+   "source": "sumner2014_appendix",
+   "status": "verified_source_text",
+   "source_quote": "6. Causal statement: Direct causal statement; e.g. 'enhances', 'increases' [as transitive verb - X increases Y], 'decreases', 'cuts', 'ameliorates'; 'influences'; 'prevents'; 'raises/reduces'; 'enables'; 'determines'; 'is vital for'; 'boosts/improves'; 'drives'; 'leads to'; 'transforms'; encourages' etc."
+  },
+  "5": {
+   "name_en": "Can cause",
+   "name_article": "can cause",
+   "name_ko": "가능성 ('can' 인과)",
+   "collapsed_ko": "가능성",
+   "example_en": "drinking wine can increase cancer risk",
+   "source": "sumner2014_appendix",
+   "status": "verified_source_text",
+   "source_quote": "5. Can cause: Causal statement (examples in level 6) preceded by 'can'. ... Thus we grouped 'could' with 'might' in category 4."
+  },
+  "4": {
+   "name_en": "Conditional cause",
+   "name_article": "conditional causal",
+   "name_ko": "가능성 (조건부 인과)",
+   "collapsed_ko": "가능성",
+   "example_en": "drinking wine might increase cancer risk",
+   "source": "sumner2014_appendix",
+   "status": "verified_source_text",
+   "source_quote": "4. Conditional cause: Causal statement (examples in level 6) preceded by conditional, such as 'might', 'could', 'may', 'appears'; or a statement that implies 'might cause', e.g. 'likely to be a critical event', 'demonstrates potential'."
+  },
+  "3": {
+   "name_en": "Ambiguous statement of correlation/cause",
+   "name_article": "ambiguous",
+   "name_ko": "연관 (모호한 관계)",
+   "collapsed_ko": "연관",
+   "example_en": "drinking wine linked to cancer risk",
+   "source": "sumner2014_appendix",
+   "status": "verified_source_text",
+   "source_quote": "3. Ambiguous statement of correlation/cause: Strictly does not state cause, but contains stronger implication of direct relationship than level 2; e.g. 'linked to'; 'predicts'; 'connected to'; 'more successful'; 'had difficulty';"
+  },
+  "2": {
+   "name_en": "Statement of correlation",
+   "name_article": "correlational",
+   "name_ko": "연관 (상관)",
+   "collapsed_ko": "연관",
+   "example_en": "drinking wine is associated with increased cancer rates",
+   "source": "sumner2014_appendix",
+   "status": "verified_source_text",
+   "source_quote": "2. Statement of correlation: Meaning remains if the variables in the statement are reversed; e.g. 'associated with'; 'related to'; 'varies with'; 'increases as'; 'decreases as'; 'have higher/lower rates of'; 'linear relationship';"
+  },
+  "1": {
+   "name_en": "Statement of NO relationship/cause",
+   "name_article": "explicit statement of no relation",
+   "name_ko": "무관 (관계 없음 명시)",
+   "collapsed_ko": "무관",
+   "example_en": "no difference / does not result in / no significant extra risk",
+   "source": "sumner2014_appendix",
+   "status": "verified_source_text",
+   "source_quote": "1. Statement of NO relationship/cause: e.g. 'no difference'; 'persists without'; 'does not result in'; 'no significant extra risk'; 'added no benefit'."
+  },
+  "0": {
+   "name_en": "No relationship stated (but could have been)",
+   "name_article": "no statement",
+   "name_ko": "해당 없음 (관계 진술 없음)",
+   "collapsed_ko": null,
+   "example_en": "(sentence describes methods, sample size, setting, etc.)",
+   "source": "sumner2014_appendix",
+   "status": "verified_source_text",
+   "source_quote": "0. No relationship stated (but could have been): The study must have contained at least two variables (IV and DV, or pseudo IV and DV) between which a relationship could have been stated. If there were not two suitable variables, the code 'not applicable' was used.",
+   "note": "PROJECT OPERATIONALISATION: this pipeline also gives 0 to sentences where Sumner would use 'not applicable' (fewer than two variables)."
+  }
+ },
+ "collapse_map": {
+  "description": "Sumner 7단계 -> 한국어 사전 범주. Notion 계획 v2의 단정/가능성/연관·무관 체계와 맞춘다. 연관(2,3)과 무관(1)은 한국어 사전에서 '연관·무관' 한 묶음으로 보고하기도 하므로 both keys are provided.",
+  "level_to_collapsed": {
+   "6": "단정",
+   "5": "가능성",
+   "4": "가능성",
+   "3": "연관",
+   "2": "연관",
+   "1": "무관",
+   "0": null
+  },
+  "collapsed_to_group3": {
+   "단정": "단정",
+   "가능성": "가능성",
+   "연관": "연관·무관",
+   "무관": "연관·무관"
+  },
+  "source": "notion_plan_v2 (collapse) + sumner2014_appendix (levels, verified)",
+  "status": "project_document; level 5 -> 가능성 and level 3 -> 연관 are project decisions (see docs/certainty_lexicon_source.md)"
+ },
+ "entries": [
+  {
+   "cue": "Sumner level-6 verb, present 3rd person, transitive (enhances/increases/decreases/cuts/ameliorates/influences/prevents/raises/reduces/enables/determines/boosts/improves/drives/transforms/encourages)",
+   "pattern": "(?<!\\bthe\\s)(?<!\\ban\\s)(?<!\\ba\\s)(?<!\\bno\\s)(?<!\\bany\\s)\\b(?:enhances|increases|decreases|cuts|ameliorates|influences|prevents|raises|reduces|enables|determines|boosts|improves|drives|transforms|encourages)\\b(?!\\s+(?:in|of|with|as|over|by|from|during|after|among|across|between|than|to|and|or|at|for|on|when|if|while|because|was|were|is|are|have|has|had|will|may|can|could|would|should|did|do|does)\\b)(?!\\s+(?:the\\s+)?(?:question|questions|concerns?|possibility|issue)\\b)(?=\\s+[A-Za-z(])",
+   "level": 6,
+   "type": "causal_verb",
+   "source": "sumner2014_appendix",
+   "status": "verified_source_text",
+   "source_quote": "6. Causal statement: Direct causal statement; e.g. 'enhances', 'increases' [as transitive verb - X increases Y], 'decreases', 'cuts', 'ameliorates'; 'influences'; 'prevents'; 'raises/reduces'; 'enables'; 'determines'; 'is vital for'; 'boosts/improves'; 'drives'; 'leads to'; 'transforms'; encourages' etc. [article: “drinking wine increases cancer risk”]",
+   "pattern_status": "project_operationalisation",
+   "pattern_note": "Transitive use approximated by: no determiner before (the/an/a/no/any increases = noun), and the next word is not a preposition/conjunction/auxiliary ('increases in', 'increases as' (= level 2), 'increases were'). 'raises the question/concern(s)/possibility' excluded (BioScope hedge 'raises the question of'). Other inflections are handled by the modal and past-tense entries."
+  },
+  {
+   "cue": "Sumner level-6 verb after a modal / 'appears to' (may increase, can reduce, appears to improve …)",
+   "pattern": "\\b(?:may|might|could|can|cannot|will|would|should|must|appears?\\s+to|appeared\\s+to|seems?\\s+to|seemed\\s+to|likely\\s+to)\\s+(?:enhance|increase|decrease|cut|ameliorate|influence|prevent|raise|reduce|enable|determine|boost|improve|drive|transform|encourage|lead\\s+to)\\b(?!\\s+(?:in|of|with|as)\\b)",
+   "level": 6,
+   "type": "causal_verb",
+   "source": "sumner2014_appendix",
+   "status": "verified_source_text",
+   "source_quote": "4. Conditional cause: Causal statement (examples in level 6) preceded by conditional, such as 'might', 'could', 'may', 'appears'; or a statement that implies 'might cause', e.g. 'likely to be a critical event', 'demonstrates potential'. / 5. Can cause: Causal statement (examples in level 6) preceded by 'can'. ... Thus we grouped 'could' with 'might' in category 4. [article: “drinking wine might increase cancer risk”, “drinking wine can increase cancer risk”]",
+   "pattern_status": "project_operationalisation",
+   "pattern_note": "Base-form verb directly after a modal/'appears to'. The span includes the modal; the modal itself then downgrades the cue to 4/5 via `modifiers`. Bare 'to' + verb ('to determine whether', 'to reduce the risk') is NOT matched (purpose clauses in methods/advice)."
+  },
+  {
+   "cue": "Sumner level-6 verb, past/-ing forms that are rarely adjectival (prevented, enabled, ameliorated, transformed, encouraged, boosted, influenced/influencing, drove, driven by)",
+   "pattern": "(?<!-)(?<!\\blog\\s)(?<!\\bthe\\s)(?<!\\ban\\s)(?<!\\ba\\s)(?<!\\bno\\s)(?<!\\bany\\s)\\b(?:prevent(?:ed|ing)|enabl(?:ed|ing)|ameliorat(?:ed|ing)|transformed|encouraged|boosted|influenc(?:ed|ing)|drove|driven\\s+by)\\b",
+   "level": 6,
+   "type": "causal_verb",
+   "source": "sumner2014_appendix",
+   "status": "verified_source_text",
+   "source_quote": "6. Causal statement: Direct causal statement; e.g. 'enhances', 'increases' [as transitive verb - X increases Y], 'decreases', 'cuts', 'ameliorates'; 'influences'; 'prevents'; 'raises/reduces'; 'enables'; 'determines'; 'is vital for'; 'boosts/improves'; 'drives'; 'leads to'; 'transforms'; encourages' etc.",
+   "pattern_status": "project_operationalisation",
+   "pattern_note": "Inflections of the quoted verbs. Excluded: hyphenated/‘log transformed’, 'transforming' (transforming growth factor), 'encouraging' (adjective), 'enhanced/improved' (mostly adjectival), 'determined' (methods: 'was determined', 'to determine')."
+  },
+  {
+   "cue": "increase / reduce the risk (causal probabilistic: X increases/raises/reduces the risk/chance/rate of Y)",
+   "pattern": "\\b(?:increas|decreas|reduc|rais)(?:es|ed|ing)\\s+(?:the|a|their|its|one's)\\s+(?:[a-z-]+\\s+)?(?:risks?|rates?|incidence|likelihood|odds|hazards?|chances?)\\b|\\b(?:increas|decreas|reduc|rais)es\\s+(?:[a-z-]+\\s+)?(?:risks?|rates?|incidence|likelihood|odds|hazards?|chances?)\\b|\\b(?:may|might|could|can|cannot|will|would|should|must|appears?\\s+to|appeared\\s+to|seems?\\s+to|seemed\\s+to|likely\\s+to)\\s+(?:increase|decrease|reduce|raise)\\s+(?:the\\s+|a\\s+|their\\s+|its\\s+)?(?:[a-z-]+\\s+)?(?:risks?|rates?|incidence|likelihood|odds|hazards?|chances?)\\b",
+   "level": 6,
+   "type": "causal_verb_phrase",
+   "source": "sumner2014_appendix",
+   "status": "verified_source_text",
+   "source_quote": "'raises the chance of...' (causal probabilistic) — 6. Causal statement: Direct causal statement; e.g. 'enhances', 'increases' [as transitive verb - X increases Y], 'decreases', 'cuts', 'ameliorates'; 'influences'; 'prevents'; 'raises/reduces'; 'enables'; 'determines'; 'is vital for'; 'boosts/improves'; 'drives'; 'leads to'; 'transforms'; encourages' etc. [article: “drinking wine increases cancer risk”]",
+   "pattern_status": "project_operationalisation",
+   "pattern_note": "Past tense counts as verbal only with a determiner before the risk noun ('increased the risk'); 'increased risk' / 'an increased risk' / 'associated with increased cancer rates' are adjectival = level 2 (article example). v2 used a determiner lookbehind list instead."
+  },
+  {
+   "cue": "increased / reduced + outcome noun (past or base form, X increased/reduced weight)",
+   "pattern": "(?<!\\bthe\\s)(?<!\\ban\\s)(?<!\\ba\\s)(?<!\\bno\\s)(?<!\\bany\\s)(?<!\\bwith\\s)(?<!\\bof\\s)(?<!\\band\\s)(?<!\\bor\\s)(?<!\\bhad\\s)(?<!\\bhas\\s)(?<!\\bhave\\s)(?<!\\bincluded\\s)(?<!\\bincluding\\s)(?<!\\bshowed\\s)(?<!\\bin\\s)(?<!\\bfor\\s)(?<!\\bby\\s)\\b(?:increas|decreas|reduc|boost|rais)(?:e|ed|ing)\\s+(?!in\\b|of\\b|risk|the\\s+risk|rate|incidence)(?:[a-z-]+\\s+){0,2}?(?:levels?|symptoms?|weight|events?|mortality|glucose|pressure)\\b|(?<!\\bthe\\s)(?<!\\ban\\s)(?<!\\ba\\s)(?<!\\bno\\s)(?<!\\bany\\s)(?<!\\bwith\\s)(?<!\\bof\\s)(?<!\\band\\s)(?<!\\bor\\s)(?<!\\bhad\\s)(?<!\\bhas\\s)(?<!\\bhave\\s)(?<!\\bincluded\\s)(?<!\\bincluding\\s)(?<!\\bshowed\\s)(?<!\\bin\\s)(?<!\\bfor\\s)(?<!\\bby\\s)\\bcut(?:s|ting)?\\s+(?:[a-z-]+\\s+){0,2}?(?:levels?|symptoms?|weight|events?|mortality|glucose|pressure)\\b",
+   "level": 6,
+   "type": "causal_verb_phrase",
+   "source": "sumner2014_appendix",
+   "status": "verified_source_text",
+   "source_quote": "'increases' [as transitive verb - X increases Y], 'decreases', 'cuts', 'raises/reduces', 'boosts'",
+   "pattern_status": "project_operationalisation",
+   "pattern_note": "Object-noun list (levels/symptoms/weight/events/mortality/glucose/pressure) and the preceding-word exclusions (determiners, with/of/and/or/had/has/have/included/including/showed/in/for/by) are PROJECT patterns to separate verb use ('Semaglutide reduced weight') from participial adjectives ('included increased lipase levels'). KNOWN RISK: other adjectival contexts ('patients reported increased symptoms') still score 6 — review."
+  },
+  {
+   "cue": "lead to",
+   "pattern": "\\ble(?:ad|ads|d|ading)\\s+to\\b",
+   "level": 6,
+   "type": "causal_verb",
+   "source": "sumner2014_appendix",
+   "status": "verified_source_text",
+   "source_quote": "'leads to'"
+  },
+  {
+   "cue": "is vital for",
+   "pattern": "\\b(?:is|are|was|were|be|being|been)\\s+vital\\s+for\\b",
+   "level": 6,
+   "type": "causal_phrase",
+   "source": "sumner2014_appendix",
+   "status": "verified_source_text",
+   "source_quote": "'is vital for'"
+  },
+  {
+   "cue": "cause",
+   "pattern": "\\bcaus(?:e|es|ed|ing)\\b",
+   "level": 6,
+   "type": "causal_verb",
+   "source": "project",
+   "status": "project_extension_of_verified_category",
+   "extends_category": "sumner2014_appendix level 6",
+   "extends_quote": "6. Causal statement: Direct causal statement",
+   "note": "'cause' is not in the level-6 example list, but the appendix uses it as the causal verb of levels 4/5 ('Can cause' is more deterministic than 'may cause'). Noun 'cause' ('the most common causes of') is also matched — review."
+  },
+  {
+   "cue": "result in",
+   "pattern": "\\bresult(?:s|ed|ing)?\\s+in\\b",
+   "level": 6,
+   "type": "causal_verb",
+   "source": "project",
+   "status": "project_extension_of_verified_category",
+   "extends_category": "sumner2014_appendix level 6",
+   "extends_quote": "6. Causal statement: Direct causal statement",
+   "note": "Affirmative counterpart of the level-1 example 'does not result in'."
+  },
+  {
+   "cue": "induce",
+   "pattern": "\\binduc(?:e|es|ed|ing)\\b",
+   "level": 6,
+   "type": "causal_verb",
+   "source": "project",
+   "status": "project_extension_of_verified_category",
+   "extends_category": "sumner2014_appendix level 6",
+   "extends_quote": "6. Causal statement: Direct causal statement",
+   "note": "Drug-safety usage ('drug-induced'); the hyphenated adjective 'semaglutide-induced' is also matched — it names an attribution rather than stating it; review."
+  },
+  {
+   "cue": "trigger",
+   "pattern": "\\btrigger(?:s|ed|ing)?\\b",
+   "level": 6,
+   "type": "causal_verb",
+   "source": "project",
+   "status": "project_extension_of_verified_category",
+   "extends_category": "sumner2014_appendix level 6",
+   "extends_quote": "6. Causal statement: Direct causal statement",
+   "note": "Synonym of 'drives'/'leads to'; noun 'trigger' also matched."
+  },
+  {
+   "cue": "lower (verb) + outcome noun",
+   "pattern": "(?<!\\bthe\\s)(?<!\\ban\\s)(?<!\\ba\\s)(?<!\\bno\\s)(?<!\\bany\\s)(?<!\\bwith\\s)(?<!\\bof\\s)(?<!\\band\\s)(?<!\\bor\\s)(?<!\\bhad\\s)(?<!\\bhas\\s)(?<!\\bhave\\s)(?<!\\bincluded\\s)(?<!\\bincluding\\s)(?<!\\bshowed\\s)(?<!\\bin\\s)(?<!\\bfor\\s)(?<!\\bby\\s)\\blower(?:s|ed|ing)\\s+(?!in\\b|of\\b)(?:the\\s+|a\\s+|their\\s+|its\\s+)?(?:[a-z-]+\\s+){0,2}?(?:levels?|symptoms?|weight|events?|mortality|glucose|pressure|risks?|rates?|incidence|odds|chances?)\\b|\\b(?:may|might|could|can|cannot|will|would|should|must|appears?\\s+to|appeared\\s+to|seems?\\s+to|seemed\\s+to|likely\\s+to)\\s+lower\\s+(?:the\\s+|a\\s+|their\\s+|its\\s+)?(?:[a-z-]+\\s+){0,2}?(?:levels?|symptoms?|weight|events?|mortality|glucose|pressure|risks?|rates?|incidence|odds|chances?)\\b",
+   "level": 6,
+   "type": "causal_verb_phrase",
+   "source": "project",
+   "status": "project_extension_of_verified_category",
+   "extends_category": "sumner2014_appendix level 6",
+   "extends_quote": "'raises/reduces'",
+   "note": "'lower(s/ed)' as a synonym of 'reduces'. Bare 'lower' (adjective: 'lower body weight was seen') is no longer matched (v2 false positive).",
+   "pattern_status": "project_operationalisation"
+  },
+  {
+   "cue": "elevate (verb) the risk",
+   "pattern": "\\belevat(?:es|ed|ing)\\s+(?:the|a|their|its)\\s+(?:[a-z-]+\\s+)?(?:risks?|rates?|incidence|likelihood|odds|hazards?|chances?)\\b|\\b(?:may|might|could|can|cannot|will|would|should|must|appears?\\s+to|appeared\\s+to|seems?\\s+to|seemed\\s+to|likely\\s+to)\\s+elevate\\s+(?:the\\s+|a\\s+)?(?:[a-z-]+\\s+)?(?:risks?|rates?|incidence|likelihood|odds|hazards?|chances?)\\b",
+   "level": 6,
+   "type": "causal_verb_phrase",
+   "source": "project",
+   "status": "project_extension_of_verified_category",
+   "extends_category": "sumner2014_appendix level 6",
+   "extends_quote": "'raises/reduces'",
+   "note": "'elevate' as a synonym of 'raises'."
+  },
+  {
+   "cue": "produce",
+   "pattern": "\\bproduc(?:e|es|ed|ing)\\b",
+   "level": 6,
+   "type": "causal_verb",
+   "source": "project",
+   "status": "project_extension_of_verified_category",
+   "extends_category": "sumner2014_appendix level 6",
+   "extends_quote": "6. Causal statement: Direct causal statement",
+   "note": "May also match 'produced by' in methods sentences — review."
+  },
+  {
+   "cue": "responsible for",
+   "pattern": "\\bresponsible\\s+for\\b",
+   "level": 6,
+   "type": "causal_phrase",
+   "source": "project",
+   "status": "project_extension_of_verified_category",
+   "extends_category": "sumner2014_appendix level 6",
+   "extends_quote": "6. Causal statement: Direct causal statement",
+   "note": ""
+  },
+  {
+   "cue": "due to",
+   "pattern": "\\bdue\\s+to\\b",
+   "level": 6,
+   "type": "causal_phrase",
+   "source": "project",
+   "status": "project_extension_of_verified_category",
+   "extends_category": "sumner2014_appendix level 6",
+   "extends_quote": "6. Causal statement: Direct causal statement",
+   "note": "Causal connective; v1/v2 attributed it to Sumner from memory — it is NOT in the appendix list."
+  },
+  {
+   "cue": "because of",
+   "pattern": "\\bbecause\\s+of\\b",
+   "level": 6,
+   "type": "causal_phrase",
+   "source": "project",
+   "status": "project_extension_of_verified_category",
+   "extends_category": "sumner2014_appendix level 6",
+   "extends_quote": "6. Causal statement: Direct causal statement",
+   "note": "Causal connective; not in the appendix list."
+  },
+  {
+   "cue": "attributable to",
+   "pattern": "\\battributable\\s+to\\b",
+   "level": 6,
+   "type": "causal_phrase",
+   "source": "project",
+   "status": "project_extension_of_verified_category",
+   "extends_category": "sumner2014_appendix level 6",
+   "extends_quote": "6. Causal statement: Direct causal statement",
+   "note": "Epidemiological usage ('attributable risk')."
+  },
+  {
+   "cue": "contribute to",
+   "pattern": "\\bcontribut(?:e|es|ed|ing)\\s+to\\b",
+   "level": 6,
+   "type": "causal_verb",
+   "source": "project",
+   "status": "project_extension_of_verified_category",
+   "extends_category": "sumner2014_appendix level 6",
+   "extends_quote": "6. Causal statement: Direct causal statement",
+   "note": ""
+  },
+  {
+   "cue": "promote",
+   "pattern": "\\bpromot(?:e|es|ed|ing)\\b",
+   "level": 6,
+   "type": "causal_verb",
+   "source": "project",
+   "status": "project_extension_of_verified_category",
+   "extends_category": "sumner2014_appendix level 6",
+   "extends_quote": "'encourages'",
+   "note": "Synonym of 'encourages'/'enhances'."
+  },
+  {
+   "cue": "protect against",
+   "pattern": "\\bprotect(?:s|ed|ing|ive)?\\s+(?:against|from)\\b",
+   "level": 6,
+   "type": "causal_verb_phrase",
+   "source": "project",
+   "status": "project_extension_of_verified_category",
+   "extends_category": "sumner2014_appendix level 6",
+   "extends_quote": "'prevents'",
+   "note": "Protective-causal synonym of 'prevents'."
+  },
+  {
+   "cue": "likely to be (implies 'might cause')",
+   "pattern": "(?<!\\bmore\\s)(?<!\\bless\\s)(?<!\\bmost\\s)\\blikely\\s+to\\s+be\\b",
+   "level": 4,
+   "type": "conditional_statement",
+   "source": "sumner2014_appendix",
+   "status": "verified_source_text",
+   "source_quote": "or a statement that implies 'might cause', e.g. 'likely to be a critical event'",
+   "pattern_status": "project_operationalisation",
+   "pattern_note": "Comparative 'more/less likely to be' is excluded (correlational/probabilistic). KNOWN RISK: 'the incidence is likely to be underestimated' also scores 4 — review."
+  },
+  {
+   "cue": "demonstrates potential",
+   "pattern": "\\bdemonstrat(?:e|es|ed|ing)\\s+(?:the\\s+|a\\s+)?potential\\b",
+   "level": 4,
+   "type": "conditional_statement",
+   "source": "sumner2014_appendix",
+   "status": "verified_source_text",
+   "source_quote": "'demonstrates potential'"
+  },
+  {
+   "cue": "linked to",
+   "pattern": "\\blink(?:s|ed)?\\s+to\\b",
+   "level": 3,
+   "type": "ambiguous_relationship",
+   "source": "sumner2014_appendix",
+   "status": "verified_source_text",
+   "source_quote": "'linked to' [article: ambiguous (for example, “drinking wine linked to cancer risk”)]",
+   "note": "v2 had level 2 (from memory, attributed to Adams 2017)."
+  },
+  {
+   "cue": "predicts",
+   "pattern": "\\bpredicts\\b|\\bpredicted\\b(?!\\s+(?:probabilit(?:y|ies)|values?))",
+   "level": 3,
+   "type": "ambiguous_relationship",
+   "source": "sumner2014_appendix",
+   "status": "verified_source_text",
+   "source_quote": "'predicts'",
+   "pattern_status": "project_operationalisation",
+   "pattern_note": "'predicted probability/values' (model output) excluded; bare 'predict' ('to predict') not matched.",
+   "note": "v2 had 'predictor / predict' as a level-2 project_addition."
+  },
+  {
+   "cue": "connected to",
+   "pattern": "\\bconnected\\s+to\\b",
+   "level": 3,
+   "type": "ambiguous_relationship",
+   "source": "sumner2014_appendix",
+   "status": "verified_source_text",
+   "source_quote": "'connected to'",
+   "note": "v2 had level 2."
+  },
+  {
+   "cue": "more successful",
+   "pattern": "\\bmore\\s+successful\\b",
+   "level": 3,
+   "type": "ambiguous_relationship",
+   "source": "sumner2014_appendix",
+   "status": "verified_source_text",
+   "source_quote": "'more successful'"
+  },
+  {
+   "cue": "had difficulty",
+   "pattern": "\\b(?:had|has|have|having)\\s+(?:more\\s+|less\\s+|greater\\s+)?difficult(?:y|ies)\\b",
+   "level": 3,
+   "type": "ambiguous_relationship",
+   "source": "sumner2014_appendix",
+   "status": "verified_source_text",
+   "source_quote": "'had difficulty'"
+  },
+  {
+   "cue": "linked with / link between (noun)",
+   "pattern": "\\blinked\\s+with\\b|\\blinks?\\s+(?:between|with|of)\\b",
+   "level": 3,
+   "type": "ambiguous_relationship",
+   "source": "project",
+   "status": "project_extension_of_verified_category",
+   "extends_category": "sumner2014_appendix level 3",
+   "extends_quote": "'linked to'",
+   "note": "Variant and noun form of 'linked to'. v2 matched bare 'link(s)' at level 2."
+  },
+  {
+   "cue": "connection between / with",
+   "pattern": "\\bconnect(?:ed|ion|ions)\\s+(?:with|between)\\b",
+   "level": 3,
+   "type": "ambiguous_relationship",
+   "source": "project",
+   "status": "project_extension_of_verified_category",
+   "extends_category": "sumner2014_appendix level 3",
+   "extends_quote": "'connected to'",
+   "note": ""
+  },
+  {
+   "cue": "tied to",
+   "pattern": "\\btied\\s+to\\b",
+   "level": 3,
+   "type": "ambiguous_relationship",
+   "source": "project",
+   "status": "project_extension_of_verified_category",
+   "extends_category": "sumner2014_appendix level 3",
+   "extends_quote": "'linked to'",
+   "note": "Synonym of 'linked to'; v2 had level 2 attributed to Adams 2017 from memory."
+  },
+  {
+   "cue": "predictor / predictive of",
+   "pattern": "\\bpredict(?:or|ors|ive)\\b",
+   "level": 3,
+   "type": "ambiguous_relationship",
+   "source": "project",
+   "status": "project_extension_of_verified_category",
+   "extends_category": "sumner2014_appendix level 3",
+   "extends_quote": "'predicts'",
+   "note": "Noun/adjective of 'predicts'."
+  },
+  {
+   "cue": "effect of",
+   "pattern": "\\beffects?\\s+(?:of|on)\\b",
+   "level": 3,
+   "type": "ambiguous_relationship",
+   "source": "project",
+   "status": "project_extension_of_verified_category",
+   "extends_category": "sumner2014_appendix level 3",
+   "extends_quote": "3. Ambiguous statement of correlation/cause: Strictly does not state cause, but contains stronger implication of direct relationship than level 2",
+   "note": "v1/v2 attributed effect/impact/affect to Sumner level 3 from memory; they are NOT in the appendix list."
+  },
+  {
+   "cue": "affect",
+   "pattern": "\\baffect(?:s|ed|ing)?\\b",
+   "level": 3,
+   "type": "ambiguous_relationship",
+   "source": "project",
+   "status": "project_extension_of_verified_category",
+   "extends_category": "sumner2014_appendix level 3",
+   "extends_quote": "3. Ambiguous statement of correlation/cause",
+   "note": "Not in the appendix list (see 'effect of'). Note 'influences' is level 6 in the appendix, so 'affects' could arguably be 6 — kept at 3 as in v2; review."
+  },
+  {
+   "cue": "impact",
+   "pattern": "\\bimpact(?:s|ed|ing)?\\b",
+   "level": 3,
+   "type": "ambiguous_relationship",
+   "source": "project",
+   "status": "project_extension_of_verified_category",
+   "extends_category": "sumner2014_appendix level 3",
+   "extends_quote": "3. Ambiguous statement of correlation/cause",
+   "note": "Not in the appendix list (see 'effect of')."
+  },
+  {
+   "cue": "influence (noun) of / on",
+   "pattern": "\\binfluences?\\s+(?:of|on)\\b",
+   "level": 3,
+   "type": "ambiguous_relationship",
+   "source": "project",
+   "status": "project_extension_of_verified_category",
+   "extends_category": "sumner2014_appendix level 3",
+   "extends_quote": "3. Ambiguous statement of correlation/cause",
+   "note": "Noun use only. The VERB 'influences' is level 6 in the appendix (v2 had the verb at 3)."
+  },
+  {
+   "cue": "role of / play a role",
+   "pattern": "\\b(?:role\\s+(?:of|in)|play(?:s|ed)?\\s+a\\s+role)\\b",
+   "level": 3,
+   "type": "ambiguous_relationship",
+   "source": "project",
+   "status": "project_extension_of_verified_category",
+   "extends_category": "sumner2014_appendix level 3",
+   "extends_quote": "3. Ambiguous statement of correlation/cause",
+   "note": ""
+  },
+  {
+   "cue": "implicated in",
+   "pattern": "\\bimplicated\\s+in\\b",
+   "level": 3,
+   "type": "ambiguous_relationship",
+   "source": "project",
+   "status": "project_extension_of_verified_category",
+   "extends_category": "sumner2014_appendix level 3",
+   "extends_quote": "3. Ambiguous statement of correlation/cause",
+   "note": ""
+  },
+  {
+   "cue": "adverse event / side effect (noun, attribution implied)",
+   "pattern": "\\b(?:adverse\\s+(?:event|effect|reaction|drug\\s+reaction)s?|side\\s+effects?)\\b",
+   "level": 3,
+   "type": "ambiguous_relationship",
+   "source": "project",
+   "status": "project_addition",
+   "note": "PROJECT ADDITION (not a stated relationship in Sumner's sense): pharmacovigilance nouns imply attribution to the drug without stating causation. HEURISTIC — review; this entry alone puts many descriptive sentences at 3.",
+   "inspired_by": "sumner2014_appendix level 3"
+  },
+  {
+   "cue": "associated with",
+   "pattern": "\\bassociated\\s+with\\b",
+   "level": 2,
+   "type": "association",
+   "source": "sumner2014_appendix",
+   "status": "verified_source_text",
+   "source_quote": "'associated with' [article: correlational (for example, “drinking wine is associated with increased cancer rates”)]"
+  },
+  {
+   "cue": "related to",
+   "pattern": "\\brelated\\s+to\\b",
+   "level": 2,
+   "type": "association",
+   "source": "sumner2014_appendix",
+   "status": "verified_source_text",
+   "source_quote": "'related to'"
+  },
+  {
+   "cue": "varies with",
+   "pattern": "\\bvar(?:y|ies|ied|ying)\\s+with\\b",
+   "level": 2,
+   "type": "association",
+   "source": "sumner2014_appendix",
+   "status": "verified_source_text",
+   "source_quote": "'varies with'"
+  },
+  {
+   "cue": "increases as / decreases as",
+   "pattern": "\\b(?:increas|decreas)(?:e|es|ed|ing)\\s+as\\b(?!\\s+(?:compared|well|a\\s+result|expected)\\b)",
+   "level": 2,
+   "type": "association",
+   "source": "sumner2014_appendix",
+   "status": "verified_source_text",
+   "source_quote": "'increases as'; 'decreases as'",
+   "pattern_status": "project_operationalisation",
+   "pattern_note": "'as compared/as well/as a result/as expected' excluded."
+  },
+  {
+   "cue": "have higher/lower rates of",
+   "pattern": "\\b(?:higher|lower)\\s+rates?\\s+of\\b",
+   "level": 2,
+   "type": "association",
+   "source": "sumner2014_appendix",
+   "status": "verified_source_text",
+   "source_quote": "'have higher/lower rates of'",
+   "pattern_status": "project_operationalisation",
+   "pattern_note": "The verb 'have' is not required (also 'showed higher rates of')."
+  },
+  {
+   "cue": "linear relationship",
+   "pattern": "\\blinear\\s+(?:relationship|association|trend)s?\\b",
+   "level": 2,
+   "type": "association",
+   "source": "sumner2014_appendix",
+   "status": "verified_source_text",
+   "source_quote": "'linear relationship'",
+   "pattern_status": "project_operationalisation",
+   "pattern_note": "'linear association/trend' are project variants."
+  },
+  {
+   "cue": "correlated with",
+   "pattern": "\\bcorrelated\\s+with\\b",
+   "level": 2,
+   "type": "association",
+   "source": "sumner2014_appendix",
+   "status": "verified_source_text",
+   "source_quote": "'correlated with the risk of...' (correlational probabilistic)"
+  },
+  {
+   "cue": "association (noun)",
+   "pattern": "\\bassociations?\\b",
+   "level": 2,
+   "type": "association",
+   "source": "project",
+   "status": "project_extension_of_verified_category",
+   "extends_category": "sumner2014_appendix level 2",
+   "extends_quote": "'associated with'",
+   "note": "Noun form of 'associated with'."
+  },
+  {
+   "cue": "relation / relationship with / between",
+   "pattern": "\\brelat(?:ion|ions|ionship|ionships)\\s+(?:to|with|between)\\b|\\brelated\\s+with\\b",
+   "level": 2,
+   "type": "association",
+   "source": "project",
+   "status": "project_extension_of_verified_category",
+   "extends_category": "sumner2014_appendix level 2",
+   "extends_quote": "'related to' / 'linear relationship'",
+   "note": ""
+  },
+  {
+   "cue": "correlation / correlate",
+   "pattern": "\\bcorrelat(?:e|es|ion|ions|ing)\\b",
+   "level": 2,
+   "type": "association",
+   "source": "project",
+   "status": "project_extension_of_verified_category",
+   "extends_category": "sumner2014_appendix level 2",
+   "extends_quote": "'correlated with'",
+   "note": ""
+  },
+  {
+   "cue": "increased / higher / greater / elevated risk (adjectival, no agent)",
+   "pattern": "\\b(?:increased|higher|greater|elevated|raised|excess|lower|reduced|decreased)\\s+(?:(?!(?:the|a|an|their|its)\\b)[a-z-]+\\s+)?(?:risk|rate|incidence|odds|hazard|likelihood|chance)s?\\b",
+   "level": 2,
+   "type": "risk_language",
+   "source": "project",
+   "status": "project_extension_of_verified_category",
+   "extends_category": "sumner2014_appendix level 2",
+   "extends_quote": "'have higher/lower rates of' [article: “associated with increased cancer rates”]",
+   "note": "Comparative risk/rate wording without an agentive verb. One intervening word allowed ('lower recurrence rates', 'increased cancer rates').",
+   "pattern_status": "project_operationalisation"
+  },
+  {
+   "cue": "more likely / less likely",
+   "pattern": "\\b(?:more|less)\\s+likely\\b",
+   "level": 2,
+   "type": "risk_language",
+   "source": "project",
+   "status": "project_extension_of_verified_category",
+   "extends_category": "sumner2014_appendix level 2",
+   "extends_quote": "'have higher/lower rates of'",
+   "note": "Comparative likelihood ('were less likely to shift'). 'makes more likely' is also an appendix probabilistic phrase (see probabilistic_cues)."
+  },
+  {
+   "cue": "hazard ratio / HR",
+   "pattern": "\\b(?:hazard\\s+ratios?|(?-i:HR|aHR|HRs))\\b",
+   "level": 2,
+   "type": "effect_measure",
+   "source": "project",
+   "status": "project_addition",
+   "note": "Project addition: reporting an effect measure = evidence flag (see evidence_flag_types), not a level. HR/aHR/HRs are case-sensitive via (?-i:...) so 'hr' (hours, '24 hr') is not matched. Also keeps 'HR' which the W3 len>2 filter would drop.",
+   "inspired_by": "sumner2014"
+  },
+  {
+   "cue": "odds ratio / OR",
+   "pattern": "\\b(?:odds\\s+ratios?|(?-i:aOR|ORs))\\b|\\b(?-i:OR)\\b(?=\\s*[=:,(]?\\s*\\d)",
+   "level": 2,
+   "type": "effect_measure",
+   "source": "project",
+   "status": "project_addition",
+   "note": "Project addition (evidence flag). Bare 'OR' is case-sensitive AND must be followed by a number, so the conjunction 'or' in '2 or 3 doses' is not counted. HEURISTIC.",
+   "inspired_by": "sumner2014"
+  },
+  {
+   "cue": "relative risk / RR",
+   "pattern": "\\b(?:relative\\s+risks?|risk\\s+ratios?|(?-i:RR|aRR|RRs))\\b",
+   "level": 2,
+   "type": "effect_measure",
+   "source": "project",
+   "status": "project_addition",
+   "note": "Project addition (evidence flag). RR/aRR/RRs case-sensitive.",
+   "inspired_by": "sumner2014"
+  },
+  {
+   "cue": "incidence rate ratio / IRR",
+   "pattern": "\\b(?:incidence\\s+rate\\s+ratios?|(?-i:IRR|IRRs))\\b",
+   "level": 2,
+   "type": "effect_measure",
+   "source": "project",
+   "status": "project_addition",
+   "note": "Project addition (evidence flag). IRR/IRRs case-sensitive.",
+   "inspired_by": "sumner2014"
+  },
+  {
+   "cue": "95% CI",
+   "pattern": "\\b9[05]\\s?%\\s*(?:(?-i:CI)|confidence\\s+intervals?)\\b|\\b(?-i:CIs?)\\b",
+   "level": 2,
+   "type": "effect_measure",
+   "source": "project",
+   "status": "project_addition",
+   "note": "Project addition (evidence flag); CI/CIs case-sensitive. The W3 letter-only regex deletes '95%' so this must run on the number-preserving copy (Notion ⑧).",
+   "inspired_by": "sumner2014"
+  },
+  {
+   "cue": "P value",
+   "pattern": "\\bP\\s*(?:<|>|=|≤|≥)\\s*\\.?\\d",
+   "level": 2,
+   "type": "effect_measure",
+   "source": "project",
+   "status": "project_addition",
+   "note": "Project addition (evidence flag): statistical-significance statement recorded as evidence, not as a relationship level.",
+   "inspired_by": "sumner2014"
+  },
+  {
+   "cue": "prevalence / incidence of (descriptive)",
+   "pattern": "\\b(?:prevalence|incidence)\\s+of\\b",
+   "level": 2,
+   "type": "descriptive_frequency",
+   "source": "project",
+   "status": "project_addition",
+   "note": "Project addition (evidence flag). Descriptive frequency after exposure is not a relationship claim; recorded in evidence_flags only (was level 2 in v1).",
+   "inspired_by": "sumner2014"
+  },
+  {
+   "cue": "no difference",
+   "pattern": "\\bno\\s+(?:significant\\s+|statistically\\s+significant\\s+|meaningful\\s+)?differences?\\b",
+   "level": 1,
+   "type": "no_relationship",
+   "source": "sumner2014_appendix",
+   "status": "verified_source_text",
+   "source_quote": "'no difference'",
+   "pattern_status": "project_operationalisation",
+   "pattern_note": "optional 'significant/statistically significant/meaningful' inserted"
+  },
+  {
+   "cue": "persists without",
+   "pattern": "\\bpersist(?:s|ed|ing)?\\s+without\\b",
+   "level": 1,
+   "type": "no_relationship",
+   "source": "sumner2014_appendix",
+   "status": "verified_source_text",
+   "source_quote": "'persists without'"
+  },
+  {
+   "cue": "does not result in",
+   "pattern": "\\b(?:did|does|do)\\s+not\\s+result\\s+in\\b|\\bdo(?:es)?n't\\s+result\\s+in\\b|\\bdidn't\\s+result\\s+in\\b",
+   "level": 1,
+   "type": "no_relationship",
+   "source": "sumner2014_appendix",
+   "status": "verified_source_text",
+   "source_quote": "'does not result in'"
+  },
+  {
+   "cue": "no significant extra risk",
+   "pattern": "\\bno\\s+(?:significant\\s+|statistically\\s+significant\\s+)?extra\\s+risks?\\b",
+   "level": 1,
+   "type": "no_relationship",
+   "source": "sumner2014_appendix",
+   "status": "verified_source_text",
+   "source_quote": "'no significant extra risk'"
+  },
+  {
+   "cue": "added no benefit",
+   "pattern": "\\badd(?:s|ed|ing)?\\s+no\\s+(?:additional\\s+|extra\\s+|further\\s+)?benefits?\\b",
+   "level": 1,
+   "type": "no_relationship",
+   "source": "sumner2014_appendix",
+   "status": "verified_source_text",
+   "source_quote": "'added no benefit'"
+  },
+  {
+   "cue": "no association",
+   "pattern": "\\bno\\s+(?:significant\\s+|statistically\\s+significant\\s+|clear\\s+|evidence\\s+of\\s+(?:an?\\s+)?)?(?:association|link|relationship|correlation|increase|excess|signal)s?\\b",
+   "level": 1,
+   "type": "no_relationship",
+   "source": "project",
+   "status": "project_extension_of_verified_category",
+   "extends_category": "sumner2014_appendix level 1",
+   "extends_quote": "1. Statement of NO relationship/cause",
+   "note": "Generalises 'no difference' / 'no significant extra risk' to relationship nouns."
+  },
+  {
+   "cue": "not associated / not linked / not related",
+   "pattern": "\\b(?:not|never)\\s+(?:significantly\\s+|statistically\\s+)?(?:associated|linked|related|correlated|connected)\\b",
+   "level": 1,
+   "type": "no_relationship",
+   "source": "project",
+   "status": "project_extension_of_verified_category",
+   "extends_category": "sumner2014_appendix level 1",
+   "extends_quote": "1. Statement of NO relationship/cause",
+   "note": "Negation of verified level-2/3 cues (associated with, related to, linked to, connected to)."
+  },
+  {
+   "cue": "was not associated",
+   "pattern": "\\b(?:was|were|is|are)\\s+not\\s+(?:significantly\\s+|independently\\s+)?(?:associated|linked|related|correlated)\\b",
+   "level": 1,
+   "type": "no_relationship",
+   "source": "project",
+   "status": "project_extension_of_verified_category",
+   "extends_category": "sumner2014_appendix level 1",
+   "extends_quote": "1. Statement of NO relationship/cause",
+   "note": "As above."
+  },
+  {
+   "cue": "no increased risk",
+   "pattern": "\\bno\\s+(?:significantly\\s+|statistically\\s+significant\\s+)?(?:increased|higher|greater|elevated|excess)\\s+(?:risk|rate|incidence|odds|hazard)s?\\b",
+   "level": 1,
+   "type": "no_relationship",
+   "source": "project",
+   "status": "project_extension_of_verified_category",
+   "extends_category": "sumner2014_appendix level 1",
+   "extends_quote": "'no significant extra risk'",
+   "note": "Synonyms of 'extra'."
+  },
+  {
+   "cue": "did not increase / did not cause (negated causal verb)",
+   "pattern": "\\b(?:did|does|do)\\s+not\\s+(?:significantly\\s+)?(?:increase|raise|cause|lead|induce|affect|alter|change|differ|reduce|decrease|improve|prevent|influence|enhance)\\b",
+   "level": 1,
+   "type": "no_relationship",
+   "source": "project",
+   "status": "project_extension_of_verified_category",
+   "extends_category": "sumner2014_appendix level 1",
+   "extends_quote": "'does not result in'",
+   "note": "Negation of a level-6 (or level-3) verb, analogous to the verified 'does not result in'."
+  },
+  {
+   "cue": "no evidence of",
+   "pattern": "\\bno\\s+(?:clear\\s+|strong\\s+|convincing\\s+)?evidence\\s+(?:of|for|that)\\b",
+   "level": 1,
+   "type": "no_relationship",
+   "source": "project",
+   "status": "project_extension_of_verified_category",
+   "extends_category": "sumner2014_appendix level 1",
+   "extends_quote": "1. Statement of NO relationship/cause",
+   "note": ""
+  },
+  {
+   "cue": "not significant / non-significant",
+   "pattern": "\\b(?:not\\s+(?:statistically\\s+)?significant|non-?significant|nonsignificant)\\b",
+   "level": 1,
+   "type": "no_relationship",
+   "source": "project",
+   "status": "project_extension_of_verified_category",
+   "extends_category": "sumner2014_appendix level 1",
+   "extends_quote": "'no significant extra risk'",
+   "note": "Statistical null wording. Weaker than an explicit 'no relationship' statement; under the max-level rule it only decides the level when no stronger cue is present. HEURISTIC — review."
+  },
+  {
+   "cue": "without (negation)",
+   "pattern": "\\bwithout\\s+(?:an?\\s+|any\\s+)?(?:increase|association|evidence|effect|difference|signal)s?\\b",
+   "level": 1,
+   "type": "no_relationship",
+   "source": "project",
+   "status": "project_extension_of_verified_category",
+   "extends_category": "sumner2014_appendix level 1",
+   "extends_quote": "'persists without'",
+   "note": "'without' is also a BioScope negation keyword (Vincze 2008: '([without] hydronephrosis)') and W5 p.30-31 says to keep it. The noun list is a project restriction."
+  },
+  {
+   "cue": "lack of / absence of (association)",
+   "pattern": "\\b(?:lack|absence)\\s+of\\s+(?:an?\\s+|any\\s+)?(?:association|evidence|link|relationship|effect|difference|increase|signal)s?\\b",
+   "level": 1,
+   "type": "no_relationship",
+   "source": "project",
+   "status": "project_extension_of_verified_category",
+   "extends_category": "sumner2014_appendix level 1",
+   "extends_quote": "1. Statement of NO relationship/cause",
+   "note": "v1/v2 attributed 'lack/absence' to BioScope from memory; NOT named in the Vincze 2008 paper text (checked 2026-10-30)."
+  },
+  {
+   "cue": "fail to / failed to (show)",
+   "pattern": "\\bfail(?:s|ed|ing)?\\s+to\\s+(?:show|demonstrate|find|detect|reveal|identify|confirm|support)\\b",
+   "level": 1,
+   "type": "no_relationship",
+   "source": "project",
+   "status": "project_extension_of_verified_category",
+   "extends_category": "sumner2014_appendix level 1",
+   "extends_quote": "1. Statement of NO relationship/cause",
+   "note": "v1/v2 attributed 'fail to' to BioScope from memory; NOT named in the Vincze 2008 paper text."
+  },
+  {
+   "cue": "CI includes 1 / null",
+   "pattern": "\\b(?:crossed|crosses|included|includes|spanned|spans)\\s+(?:1|1\\.0|one|the\\s+null|unity)\\b",
+   "level": 1,
+   "type": "no_relationship",
+   "source": "project",
+   "status": "project_addition",
+   "note": "Project addition (epidemiological null wording; a statistical inference, not a verbal statement of no relationship).",
+   "inspired_by": "sumner2014_appendix level 1"
+  }
+ ],
+ "modifiers": [
+  {
+   "cue": "may",
+   "pattern": "\\bmay\\b",
+   "effect": "downgrade_to_4",
+   "applies_when": "a level-6 cue occurs after it in the sentence (Sumner: 'Causal statement ... preceded by conditional')",
+   "source": "sumner2014_appendix",
+   "status": "verified_source_text",
+   "source_quote": "4. Conditional cause: Causal statement (examples in level 6) preceded by conditional, such as 'might', 'could', 'may', 'appears'; or a statement that implies 'might cause', e.g. 'likely to be a critical event', 'demonstrates potential'."
+  },
+  {
+   "cue": "might",
+   "pattern": "\\bmight\\b",
+   "effect": "downgrade_to_4",
+   "applies_when": "a level-6 cue occurs after it",
+   "source": "sumner2014_appendix",
+   "status": "verified_source_text",
+   "source_quote": "4. Conditional cause: Causal statement (examples in level 6) preceded by conditional, such as 'might', 'could', 'may', 'appears'; or a statement that implies 'might cause', e.g. 'likely to be a critical event', 'demonstrates potential'."
+  },
+  {
+   "cue": "could",
+   "pattern": "\\bcould\\b",
+   "effect": "downgrade_to_4",
+   "applies_when": "a level-6 cue occurs after it",
+   "source": "sumner2014_appendix",
+   "status": "verified_source_text",
+   "source_quote": "5. Can cause: Causal statement (examples in level 6) preceded by 'can'. ... Thus we grouped 'could' with 'might' in category 4. / 4. Conditional cause: Causal statement (examples in level 6) preceded by conditional, such as 'might', 'could', 'may', 'appears'; or a statement that implies 'might cause', e.g. 'likely to be a critical event', 'demonstrates potential'."
+  },
+  {
+   "cue": "appears",
+   "pattern": "\\bappear(?:s|ed)?\\b",
+   "effect": "downgrade_to_4",
+   "applies_when": "a level-6 cue occurs after it",
+   "source": "sumner2014_appendix",
+   "status": "verified_source_text",
+   "source_quote": "4. Conditional cause: Causal statement (examples in level 6) preceded by conditional, such as 'might', 'could', 'may', 'appears'; or a statement that implies 'might cause', e.g. 'likely to be a critical event', 'demonstrates potential'."
+  },
+  {
+   "cue": "can",
+   "pattern": "\\bcan\\b(?!\\s*not\\b)",
+   "effect": "level_5",
+   "applies_when": "a level-6 cue occurs after it (and no level-4 modifier does)",
+   "source": "sumner2014_appendix",
+   "status": "verified_source_text",
+   "source_quote": "5. Can cause: Causal statement (examples in level 6) preceded by 'can'. ... Thus we grouped 'could' with 'might' in category 4.",
+   "note": "Negative 'cannot/can not' excluded by lookahead and handled as negation. NLTK stopwords contain 'can' — do not remove stopwords before cue matching (Notion ⑦)."
+  },
+  {
+   "cue": "seem / seems",
+   "pattern": "\\bseem(?:s|ed)?\\b",
+   "effect": "downgrade_to_4",
+   "applies_when": "a level-6 cue occurs after it",
+   "source": "project",
+   "status": "project_extension_of_verified_category",
+   "extends_category": "sumner2014_appendix level 4",
+   "extends_quote": "preceded by conditional, such as 'might', 'could', 'may', 'appears'",
+   "note": "Synonym of 'appears' (both are BioScope raising-verb hedges: 'seem, appear, be expected, be likely')."
+  },
+  {
+   "cue": "possible / potential / likely / probably / putative / plausible (before causal cue)",
+   "pattern": "\\b(?:possibl[ey]|potential(?:ly)?|putative(?:ly)?|probabl[ey]|likely|plausibl[ey])\\b",
+   "effect": "downgrade_to_4",
+   "applies_when": "a level-6 cue occurs after it",
+   "source": "project",
+   "status": "project_extension_of_verified_category",
+   "extends_category": "sumner2014_appendix level 4",
+   "extends_quote": "or a statement that implies 'might cause', e.g. 'likely to be a critical event', 'demonstrates potential'",
+   "note": "Adjectival/adverbial hedges on a causal cue ('their potential to cause', 'possibly induced'). 'likely' and 'potential' are the appendix's own words; the others are synonyms. HEURISTIC."
+  },
+  {
+   "cue": "hypothetical / unconfirmed framing",
+   "pattern": "\\b(?:hypothes(?:is|es|ized|ised)|hypothetical(?:ly)?|speculat(?:e|ed|ive|ion)|unconfirmed|unproven|not\\s+(?:yet\\s+)?established)\\b",
+   "effect": "downgrade_to_4",
+   "applies_when": "a level-6 cue occurs after it",
+   "source": "project",
+   "status": "project_extension_of_verified_category",
+   "extends_category": "sumner2014_appendix level 4",
+   "extends_quote": "a statement that implies 'might cause'",
+   "note": "HEURISTIC."
+  },
+  {
+   "cue": "negation (no / not / neither / cannot)",
+   "pattern": "\\b(?:not|no|neither|cannot)\\b",
+   "effect": "negation_to_1",
+   "applies_when": "a level>=2 cue starts within negation_window_tokens tokens after it, with no clause boundary in between (see sentence_rule)",
+   "source": "vincze2008",
+   "status": "verified_source_text",
+   "source_quote": "negative keywords are marked by square brackets: [ no ], [ without ] etc. … ([neither] of these proteins bound in vitro to EBS1 or EBS2) … Repression did [not] <seem> to involve … The following sentence contains cannot , which is a negative keyword on its own",
+   "note": "status covers the cue WORDS as negation keywords (Vincze 2008 paper text); also kept per W5 p.30-31/p.33 (verified_lecture_pdf). The window rule that applies them is a PROJECT HEURISTIC (sentence_rule)."
+  },
+  {
+   "cue": "negation (never / nor / n't)",
+   "pattern": "\\b(?:never|nor)\\b|n't\\b",
+   "effect": "negation_to_1",
+   "applies_when": "as above",
+   "source": "project",
+   "status": "project_extension_of_verified_category",
+   "extends_category": "vincze2008 negation keywords",
+   "extends_quote": "[ no ], [ without ] etc.",
+   "note": "Not named in the Vincze 2008 paper text. 'never' is kept per W5 p.30-31 (verified_lecture_pdf) and is also a Hyland booster. Contractions are NOT normalised (W5 p.32 Option 1): n't is matched directly (allow_unanchored=true).",
+   "allow_unanchored": true
+  }
+ ],
+ "hedges": [
+  {
+   "cue": "about (approximation)",
+   "pattern": "\\babout\\s+(?=\\d)",
+   "role": "hedge",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "almost",
+   "pattern": "\\balmost\\b",
+   "role": "hedge",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "apparent / apparently",
+   "pattern": "\\bapparent(?:ly)?\\b",
+   "role": "hedge",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "appear",
+   "pattern": "\\bappear(?:s|ed|ing)?\\b",
+   "role": "hedge",
+   "source": "vincze2008",
+   "status": "verified_source_text",
+   "note": "Verified as a BioScope speculation keyword in the Vincze 2008 paper text; also in Hyland 2005 list (unverified_from_memory).",
+   "source_quote": "Another example of scope change is the case of raising verbs ( seem, appear, be expected, be likely etc.). [also: 'the cue candidate appear' is NOT a hedge in 'larvae usually appear 2 d after']"
+  },
+  {
+   "cue": "approximately",
+   "pattern": "\\bapproximately\\b",
+   "role": "hedge",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "argue",
+   "pattern": "\\bargu(?:e|es|ed|ing)\\b",
+   "role": "hedge",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "around (approximation)",
+   "pattern": "\\baround\\s+(?=\\d)",
+   "role": "hedge",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "assume",
+   "pattern": "\\bassum(?:e|es|ed|ing)\\b",
+   "role": "hedge",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "broadly",
+   "pattern": "\\bbroadly\\b",
+   "role": "hedge",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "certain extent / amount / level",
+   "pattern": "\\bcertain\\s+(?:extent|amount|level|degree)\\b",
+   "role": "hedge",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "claim",
+   "pattern": "\\bclaim(?:s|ed|ing)?\\b",
+   "role": "hedge",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "could",
+   "pattern": "\\bcould\\b",
+   "role": "hedge",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "doubt / doubtful",
+   "pattern": "\\bdoubt(?:ful|s|ed)?\\b",
+   "role": "hedge",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "essentially",
+   "pattern": "\\bessentially\\b",
+   "role": "hedge",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "estimate",
+   "pattern": "\\bestimat(?:e|es|ed|ing)\\b",
+   "role": "hedge",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "fairly",
+   "pattern": "\\bfairly\\b",
+   "role": "hedge",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "feel / felt",
+   "pattern": "\\b(?:feel|feels|felt)\\b",
+   "role": "hedge",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "frequently",
+   "pattern": "\\bfrequently\\b",
+   "role": "hedge",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "generally / in general",
+   "pattern": "\\b(?:generally|in\\s+general)\\b",
+   "role": "hedge",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "guess",
+   "pattern": "\\bguess(?:es|ed)?\\b",
+   "role": "hedge",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "indicate",
+   "pattern": "\\bindicat(?:e|es|ed|ing)\\b",
+   "role": "hedge",
+   "source": "vincze2008",
+   "status": "verified_source_text",
+   "note": "Verified as a BioScope speculation keyword in the Vincze 2008 paper text; also in Hyland 2005 list (unverified_from_memory).",
+   "source_quote": "Slightly increased perihilar lung markings (<may> (<indicate> early reactive airways disease))."
+  },
+  {
+   "cue": "in most cases / instances",
+   "pattern": "\\bin\\s+most\\s+(?:cases|instances)\\b",
+   "role": "hedge",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "in my/our view / opinion",
+   "pattern": "\\bin\\s+(?:my|our)\\s+(?:view|opinion)\\b",
+   "role": "hedge",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "largely",
+   "pattern": "\\blargely\\b",
+   "role": "hedge",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "likely",
+   "pattern": "\\blikely\\b",
+   "role": "hedge",
+   "source": "vincze2008",
+   "status": "verified_source_text",
+   "note": "Verified as a BioScope speculation keyword in the Vincze 2008 paper text; also in Hyland 2005 list (unverified_from_memory).",
+   "source_quote": "The picture most (<likely> reflects airways disease)."
+  },
+  {
+   "cue": "mainly",
+   "pattern": "\\bmainly\\b",
+   "role": "hedge",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "may",
+   "pattern": "\\bmay\\b",
+   "role": "hedge",
+   "source": "vincze2008",
+   "status": "verified_source_text",
+   "note": "Verified as a BioScope speculation keyword in the Vincze 2008 paper text; also in Hyland 2005 list (unverified_from_memory).",
+   "source_quote": "These findings that (<may> be from an acute pneumonia) include minimal bronchiectasis as well."
+  },
+  {
+   "cue": "maybe",
+   "pattern": "\\bmaybe\\b",
+   "role": "hedge",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "might",
+   "pattern": "\\bmight\\b",
+   "role": "hedge",
+   "source": "vincze2008",
+   "status": "verified_source_text",
+   "note": "Verified as a BioScope speculation keyword in the Vincze 2008 paper text; also in Hyland 2005 list (unverified_from_memory).",
+   "source_quote": "These findings (<might> be chronic) and (<may> represent reactive airways disease)."
+  },
+  {
+   "cue": "mostly",
+   "pattern": "\\bmostly\\b",
+   "role": "hedge",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "often",
+   "pattern": "\\boften\\b",
+   "role": "hedge",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "on the whole",
+   "pattern": "\\bon\\s+the\\s+whole\\b",
+   "role": "hedge",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "ought",
+   "pattern": "\\bought\\b",
+   "role": "hedge",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "perhaps",
+   "pattern": "\\bperhaps\\b",
+   "role": "hedge",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "plausible / plausibly",
+   "pattern": "\\bplausibl[ey]\\b",
+   "role": "hedge",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "possible / possibly",
+   "pattern": "\\bpossibl[ey]\\b",
+   "role": "hedge",
+   "source": "vincze2008",
+   "status": "verified_source_text",
+   "note": "Verified as a BioScope speculation keyword in the Vincze 2008 paper text; also in Hyland 2005 list (unverified_from_memory).",
+   "source_quote": "(Atelectasis in the right mid zone is, however, <possible>)."
+  },
+  {
+   "cue": "postulate",
+   "pattern": "\\bpostulat(?:e|es|ed|ing)\\b",
+   "role": "hedge",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "presumable / presumably",
+   "pattern": "\\bpresumabl[ey]\\b",
+   "role": "hedge",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "probable / probably",
+   "pattern": "\\bprobabl[ey]\\b",
+   "role": "hedge",
+   "source": "vincze2008",
+   "status": "verified_source_text",
+   "note": "Verified as a BioScope speculation keyword in the Vincze 2008 paper text; also in Hyland 2005 list (unverified_from_memory).",
+   "source_quote": "(The chimaeric oncoprotein <probably> affects cell survival rather than cell growth)."
+  },
+  {
+   "cue": "quite",
+   "pattern": "\\bquite\\b",
+   "role": "hedge",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "rather",
+   "pattern": "\\brather\\b",
+   "role": "hedge",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "relatively",
+   "pattern": "\\brelatively\\b",
+   "role": "hedge",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "roughly",
+   "pattern": "\\broughly\\b",
+   "role": "hedge",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "seem",
+   "pattern": "\\bseem(?:s|ed|ing|ingly)?\\b",
+   "role": "hedge",
+   "source": "vincze2008",
+   "status": "verified_source_text",
+   "note": "Verified as a BioScope speculation keyword in the Vincze 2008 paper text; also in Hyland 2005 list (unverified_from_memory).",
+   "source_quote": "It (<seems> that the treatment is successful). (The treatment <seems> to be successful)."
+  },
+  {
+   "cue": "should",
+   "pattern": "\\bshould\\b",
+   "role": "hedge",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "sometimes",
+   "pattern": "\\bsometimes\\b",
+   "role": "hedge",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "somewhat",
+   "pattern": "\\bsomewhat\\b",
+   "role": "hedge",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "suggest",
+   "pattern": "\\bsuggest(?:s|ed|ing|ive)?\\b",
+   "role": "hedge",
+   "source": "vincze2008",
+   "status": "verified_source_text",
+   "note": "Verified as a BioScope speculation keyword in the Vincze 2008 paper text; also in Hyland 2005 list (unverified_from_memory).",
+   "source_quote": "This result (<suggests> that the valency of Bi in the material is smaller than + 3)."
+  },
+  {
+   "cue": "suppose",
+   "pattern": "\\bsuppos(?:e|es|ed|edly)\\b",
+   "role": "hedge",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "suspect",
+   "pattern": "\\bsuspect(?:s|ed)?\\b",
+   "role": "hedge",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "tend to",
+   "pattern": "\\btend(?:s|ed)?\\s+to\\b",
+   "role": "hedge",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "typical / typically",
+   "pattern": "\\btypical(?:ly)?\\b",
+   "role": "hedge",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "uncertain / uncertainly",
+   "pattern": "\\buncertain(?:ly|ty)?\\b",
+   "role": "hedge",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "unclear / unclearly",
+   "pattern": "\\bunclear(?:ly)?\\b",
+   "role": "hedge",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "unlikely",
+   "pattern": "\\bunlikely\\b",
+   "role": "hedge",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "usually",
+   "pattern": "\\busually\\b",
+   "role": "hedge",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "would",
+   "pattern": "\\bwould\\b",
+   "role": "hedge",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "potential / potentially",
+   "pattern": "\\bpotential(?:ly)?\\b",
+   "role": "hedge",
+   "source": "vincze2008",
+   "status": "unverified_from_memory",
+   "note": "NOT named as a cue in the Vincze 2008 paper text (checked 2026-10-30); the paper defers its full keyword list to the corpus homepage (not checked). Not sure it is in Hyland's list; BioScope hedge cue."
+  },
+  {
+   "cue": "putative",
+   "pattern": "\\bputative(?:ly)?\\b",
+   "role": "hedge",
+   "source": "vincze2008",
+   "status": "unverified_from_memory",
+   "note": "NOT named as a cue in the Vincze 2008 paper text (checked 2026-10-30); the paper defers its full keyword list to the corpus homepage (not checked)."
+  },
+  {
+   "cue": "whether",
+   "pattern": "\\bwhether\\b",
+   "role": "hedge",
+   "source": "vincze2008",
+   "status": "unverified_from_memory",
+   "note": "NOT named as a cue in the Vincze 2008 paper text (checked 2026-10-30); the paper defers its full keyword list to the corpus homepage (not checked). BioScope hedge cue in 'to determine whether'."
+  },
+  {
+   "cue": "hypothesis / hypothesize",
+   "pattern": "\\bhypothes(?:is|es|ized|ised|ize|ise)\\b",
+   "role": "hedge",
+   "source": "vincze2008",
+   "status": "unverified_from_memory",
+   "note": "NOT named as a cue in the Vincze 2008 paper text (checked 2026-10-30); the paper defers its full keyword list to the corpus homepage (not checked)."
+  },
+  {
+   "cue": "speculate / speculative",
+   "pattern": "\\bspeculat(?:e|es|ed|ive|ion)\\b",
+   "role": "hedge",
+   "source": "vincze2008",
+   "status": "unverified_from_memory",
+   "note": "NOT named as a cue in the Vincze 2008 paper text (checked 2026-10-30); the paper defers its full keyword list to the corpus homepage (not checked)."
+  },
+  {
+   "cue": "warrant further",
+   "pattern": "\\bwarrant(?:s|ed|ing)?\\s+(?:further|additional|more|future)\\b",
+   "role": "hedge",
+   "source": "project",
+   "status": "project_addition",
+   "note": "Conventional biomedical abstract hedge; not in cited lists as far as I know."
+  },
+  {
+   "cue": "further research / studies are needed",
+   "pattern": "\\b(?:further|additional|more|future|larger|prospective)\\s+(?:research|studies|study|investigation|investigations|trials|data|evaluation|work)\\s+(?:is|are|will\\s+be|would\\s+be|may\\s+be)?\\s*(?:needed|required|warranted|necessary)\\b",
+   "role": "hedge",
+   "source": "project",
+   "status": "project_addition",
+   "note": "Conventional biomedical abstract hedge."
+  },
+  {
+   "cue": "should be interpreted with caution",
+   "pattern": "\\b(?:interpreted|treated|viewed|considered)\\s+with\\s+caution\\b|\\bcaution(?:ed|s)?\\b",
+   "role": "hedge",
+   "source": "project",
+   "status": "project_addition",
+   "note": ""
+  },
+  {
+   "cue": "hypothesis-generating",
+   "pattern": "\\bhypothesis[-\\s]generating\\b",
+   "role": "hedge",
+   "source": "project",
+   "status": "project_addition",
+   "note": ""
+  },
+  {
+   "cue": "limited evidence / limitations",
+   "pattern": "\\blimit(?:ed|ations?)\\b",
+   "role": "hedge",
+   "source": "project",
+   "status": "project_addition",
+   "note": "Very broad; 'limitations' section marker. HEURISTIC."
+  },
+  {
+   "cue": "preliminary",
+   "pattern": "\\bpreliminary\\b",
+   "role": "hedge",
+   "source": "project",
+   "status": "project_addition",
+   "note": ""
+  },
+  {
+   "cue": "exploratory",
+   "pattern": "\\bexploratory\\b",
+   "role": "hedge",
+   "source": "project",
+   "status": "project_addition",
+   "note": ""
+  },
+  {
+   "cue": "inconclusive",
+   "pattern": "\\binconclusive\\b",
+   "role": "hedge",
+   "source": "project",
+   "status": "project_addition",
+   "note": ""
+  },
+  {
+   "cue": "unknown / not known / remains to be",
+   "pattern": "\\b(?:unknown|not\\s+(?:yet\\s+)?known|remains?\\s+to\\s+be\\s+(?:determined|established|elucidated|seen|clarified))\\b",
+   "role": "hedge",
+   "source": "project",
+   "status": "project_addition",
+   "note": ""
+  },
+  {
+   "cue": "not causal / causality not established",
+   "pattern": "\\b(?:causal(?:ity)?\\s+(?:cannot|could\\s+not|can\\s*not)\\s+be\\s+(?:established|inferred|determined|confirmed)|no\\s+causal|not\\s+(?:prove|establish|imply|infer)\\s+causa(?:lity|tion))\\b",
+   "role": "hedge",
+   "source": "project",
+   "status": "project_addition",
+   "note": "Explicit disclaimers of causality common in observational abstracts. Treated as a hedge; the sentence's relationship level is still assigned by the cue rules (usually 2)."
+  },
+  {
+   "cue": "residual confounding / confounding",
+   "pattern": "\\bconfound(?:ing|ed|ers?)\\b",
+   "role": "hedge",
+   "source": "project",
+   "status": "project_addition",
+   "note": "Methodological hedge in observational studies. HEURISTIC."
+  },
+  {
+   "cue": "may not / might not",
+   "pattern": "\\b(?:may|might)\\s+not\\b",
+   "role": "hedge",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": "Composite of Hyland hedges with negation."
+  },
+  {
+   "cue": "cannot be excluded",
+   "pattern": "\\bcan\\s*not\\s+be\\s+(?:completely\\s+|fully\\s+)?excluded\\b",
+   "role": "hedge",
+   "source": "vincze2008",
+   "status": "verified_source_text",
+   "source_quote": "(A small amount of adenopathy <cannot be> completely <excluded>)."
+  },
+  {
+   "cue": "cannot be ruled out",
+   "pattern": "\\bcan\\s*not\\s+be\\s+(?:completely\\s+|fully\\s+)?ruled\\s+out\\b",
+   "role": "hedge",
+   "source": "project",
+   "status": "project_extension_of_verified_category",
+   "extends_category": "vincze2008 speculation keywords",
+   "extends_quote": "<cannot be> completely <excluded>",
+   "note": "Synonym of 'cannot be excluded'."
+  },
+  {
+   "cue": "be expected",
+   "pattern": "\\b(?:be|is|are|was|were|been)\\s+expected\\b",
+   "role": "hedge",
+   "source": "vincze2008",
+   "status": "verified_source_text",
+   "source_quote": "raising verbs ( seem, appear, be expected, be likely etc.)"
+  },
+  {
+   "cue": "raises the question of",
+   "pattern": "\\brais(?:e|es|ed|ing)\\s+the\\s+question\\s+of\\b",
+   "role": "hedge",
+   "source": "vincze2008",
+   "status": "verified_source_text",
+   "source_quote": "Mild bladder wall thickening (<raises the question of> cystitis)."
+  }
+ ],
+ "boosters": [
+  {
+   "cue": "actually",
+   "pattern": "\\bactually\\b",
+   "role": "booster",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "always",
+   "pattern": "\\balways\\b",
+   "role": "booster",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "believe",
+   "pattern": "\\bbeliev(?:e|es|ed)\\b",
+   "role": "booster",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "beyond doubt",
+   "pattern": "\\bbeyond\\s+doubt\\b",
+   "role": "booster",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "certain / certainly",
+   "pattern": "\\bcertain(?:ly)?\\b(?!\\s+(?:extent|amount|level|degree))",
+   "role": "booster",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "clear / clearly",
+   "pattern": "\\bclear(?:ly)?\\b",
+   "role": "booster",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "conclusively",
+   "pattern": "\\bconclusive(?:ly)?\\b",
+   "role": "booster",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "decidedly",
+   "pattern": "\\bdecidedly\\b",
+   "role": "booster",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "definite / definitely",
+   "pattern": "\\bdefinite(?:ly)?\\b",
+   "role": "booster",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "demonstrate",
+   "pattern": "\\bdemonstrat(?:e|es|ed|ing)\\b",
+   "role": "booster",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "determine",
+   "pattern": "\\bdetermin(?:e|es|ed|ing)\\b",
+   "role": "booster",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "doubtless",
+   "pattern": "\\bdoubtless\\b",
+   "role": "booster",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "establish",
+   "pattern": "\\bestablish(?:es|ed|ing)?\\b",
+   "role": "booster",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "evident / evidently",
+   "pattern": "\\bevident(?:ly)?\\b",
+   "role": "booster",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "find / found",
+   "pattern": "\\b(?:find|finds|found)\\b",
+   "role": "booster",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "in fact",
+   "pattern": "\\bin\\s+fact\\b",
+   "role": "booster",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "incontestable",
+   "pattern": "\\bincontestabl[ey]\\b",
+   "role": "booster",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "incontrovertible",
+   "pattern": "\\bincontrovertibl[ey]\\b",
+   "role": "booster",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "indeed",
+   "pattern": "\\bindeed\\b",
+   "role": "booster",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "indisputable",
+   "pattern": "\\bindisputabl[ey]\\b",
+   "role": "booster",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "know / known",
+   "pattern": "\\b(?:know|knows|known)\\b",
+   "role": "booster",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "must (epistemic)",
+   "pattern": "\\bmust\\b",
+   "role": "booster",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "never",
+   "pattern": "\\bnever\\b",
+   "role": "booster",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": "Also a negation cue in modifiers: a level-1 sentence ('never associated') is counted as boosted. Review."
+  },
+  {
+   "cue": "no doubt",
+   "pattern": "\\bno\\s+doubt\\b",
+   "role": "booster",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "obvious / obviously",
+   "pattern": "\\bobvious(?:ly)?\\b",
+   "role": "booster",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "of course",
+   "pattern": "\\bof\\s+course\\b",
+   "role": "booster",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "prove / proved / proven",
+   "pattern": "\\bprov(?:e|es|ed|en|ing)\\b",
+   "role": "booster",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "realize",
+   "pattern": "\\brealiz(?:e|es|ed)\\b",
+   "role": "booster",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "really",
+   "pattern": "\\breally\\b",
+   "role": "booster",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "show / shows / showed / shown",
+   "pattern": "\\bshow(?:s|ed|n|ing)?\\b",
+   "role": "booster",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "sure / surely",
+   "pattern": "\\bsure(?:ly)?\\b",
+   "role": "booster",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "think / thought",
+   "pattern": "\\b(?:think|thinks|thought)\\b",
+   "role": "booster",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "true / truly",
+   "pattern": "\\btru(?:e|ly)\\b",
+   "role": "booster",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "undeniable / undeniably",
+   "pattern": "\\bundeniabl[ey]\\b",
+   "role": "booster",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "undisputedly",
+   "pattern": "\\bundisputedly\\b",
+   "role": "booster",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "undoubtedly",
+   "pattern": "\\bundoubtedly\\b",
+   "role": "booster",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "without doubt",
+   "pattern": "\\bwithout\\s+doubt\\b",
+   "role": "booster",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": ""
+  },
+  {
+   "cue": "confirm",
+   "pattern": "\\bconfirm(?:s|ed|ing|ation)?\\b",
+   "role": "booster",
+   "source": "hyland2005",
+   "status": "unverified_from_memory",
+   "note": "Not sure 'confirm' is in Hyland's appendix list; commonly listed as a booster in Hyland-derived lists."
+  },
+  {
+   "cue": "robust",
+   "pattern": "\\brobust(?:ly|ness)?\\b",
+   "role": "booster",
+   "source": "project",
+   "status": "project_addition",
+   "note": "Project addition (statistical confidence language)."
+  },
+  {
+   "cue": "strongly / strong",
+   "pattern": "\\bstrong(?:ly|er|est)?\\b",
+   "role": "booster",
+   "source": "project",
+   "status": "project_addition",
+   "note": "Project addition."
+  },
+  {
+   "cue": "significant / significantly (statistical)",
+   "pattern": "\\b(?<!not\\s)(?<!non-)(?<!non)significant(?:ly)?\\b",
+   "role": "booster",
+   "source": "project",
+   "status": "project_addition",
+   "note": "Project addition; statistical significance read as a certainty marker. Negated forms are excluded (handled in no_relationship_cues). HEURISTIC."
+  },
+  {
+   "cue": "consistent / consistently",
+   "pattern": "\\bconsistent(?:ly)?\\b",
+   "role": "booster",
+   "source": "project",
+   "status": "project_addition",
+   "note": "Project addition."
+  },
+  {
+   "cue": "substantial / substantially",
+   "pattern": "\\bsubstantial(?:ly)?\\b",
+   "role": "booster",
+   "source": "project",
+   "status": "project_addition",
+   "note": "Project addition."
+  },
+  {
+   "cue": "markedly / marked",
+   "pattern": "\\bmarked(?:ly)?\\b",
+   "role": "booster",
+   "source": "project",
+   "status": "project_addition",
+   "note": "Project addition."
+  },
+  {
+   "cue": "conclude / conclusion",
+   "pattern": "\\bconclu(?:de|des|ded|sion|sions)\\b",
+   "role": "booster",
+   "source": "project",
+   "status": "project_addition",
+   "note": "Project addition; note that the section label CONCLUSIONS is stripped in Notion ① before matching."
+  },
+  {
+   "cue": "well-established / well established",
+   "pattern": "\\bwell[-\\s]established\\b",
+   "role": "booster",
+   "source": "project",
+   "status": "project_addition",
+   "note": ""
+  },
+  {
+   "cue": "evidence (noun, positive)",
+   "pattern": "(?<!\\bno\\s)(?<!\\bof\\s)(?<!\\bany\\s)\\bevidence\\b",
+   "role": "booster",
+   "source": "project",
+   "status": "project_addition",
+   "note": "Positive 'evidence' only; 'no evidence' is a no_relationship cue. HEURISTIC."
+  }
+ ],
+ "associational_cues": [
+  "associated with",
+  "related to",
+  "varies with",
+  "increases as / decreases as",
+  "have higher/lower rates of",
+  "linear relationship",
+  "correlated with",
+  "association (noun)",
+  "relation / relationship with / between",
+  "correlation / correlate",
+  "increased / higher / greater / elevated risk (adjectival, no agent)",
+  "more likely / less likely",
+  "hazard ratio / HR",
+  "odds ratio / OR",
+  "relative risk / RR",
+  "incidence rate ratio / IRR",
+  "95% CI",
+  "P value",
+  "prevalence / incidence of (descriptive)"
+ ],
+ "causal_cues": [
+  "Sumner level-6 verb, present 3rd person, transitive (enhances/increases/decreases/cuts/ameliorates/influences/prevents/raises/reduces/enables/determines/boosts/improves/drives/transforms/encourages)",
+  "Sumner level-6 verb after a modal / 'appears to' (may increase, can reduce, appears to improve …)",
+  "Sumner level-6 verb, past/-ing forms that are rarely adjectival (prevented, enabled, ameliorated, transformed, encouraged, boosted, influenced/influencing, drove, driven by)",
+  "increase / reduce the risk (causal probabilistic: X increases/raises/reduces the risk/chance/rate of Y)",
+  "increased / reduced + outcome noun (past or base form, X increased/reduced weight)",
+  "lead to",
+  "is vital for",
+  "cause",
+  "result in",
+  "induce",
+  "trigger",
+  "lower (verb) + outcome noun",
+  "elevate (verb) the risk",
+  "produce",
+  "responsible for",
+  "due to",
+  "because of",
+  "attributable to",
+  "contribute to",
+  "promote",
+  "protect against"
+ ],
+ "ambiguous_cues": [
+  "linked to",
+  "predicts",
+  "connected to",
+  "more successful",
+  "had difficulty",
+  "linked with / link between (noun)",
+  "connection between / with",
+  "tied to",
+  "predictor / predictive of",
+  "effect of",
+  "affect",
+  "impact",
+  "influence (noun) of / on",
+  "role of / play a role",
+  "implicated in",
+  "adverse event / side effect (noun, attribution implied)"
+ ],
+ "no_relationship_cues": [
+  "no difference",
+  "persists without",
+  "does not result in",
+  "no significant extra risk",
+  "added no benefit",
+  "no association",
+  "not associated / not linked / not related",
+  "was not associated",
+  "no increased risk",
+  "did not increase / did not cause (negated causal verb)",
+  "no evidence of",
+  "not significant / non-significant",
+  "without (negation)",
+  "lack of / absence of (association)",
+  "fail to / failed to (show)",
+  "CI includes 1 / null"
+ ],
+ "sentence_rule": {
+  "description": "1) Run all `entries` patterns (re.IGNORECASE; (?-i:...) groups case-sensitive) on the NFKC view of the sentence (W5 p.29; contractions preserved, W5 p.32 Option 1). Entries whose type is in evidence_flag_types never set the level (evidence_flags only). 2) Per cue, effective level: (a) a level>=2 cue whose span overlaps a level-1 cue ('associated with' inside 'was not associated with') is negated -> 1; (b) else a level>=2 cue that starts within negation_window_tokens tokens AFTER a negation modifier, with no clause boundary (negation_scope_boundary_pattern) in between, is negated -> 1 (review_flag negation_window_applied); (c) else a level-6 cue preceded (anywhere earlier in the sentence, or inside its own span) by may/might/could/appears (or a project level-4 extension) -> 4, else by 'can' -> 5. 3) Sentence level = MAX effective level (Sumner: 'stronger statements trumped weaker ones'). There is NO no-relationship override any more (v2 rule removed). 4) If the sentence has both an effective level-1 cue and an effective level>=2 cue -> review_flag mixed_levels_review (Sumner coded IV–DV pairs by hand; a sentence may hold several). 5) No cue -> 0. 6) collapsed_ko = collapse_map.level_to_collapsed[level]. 7) explicitly_probabilistic per probabilistic_rule (separate binary code). 8) hedges/boosters never change the level; they are counted and listed for the 번역 검수 sheet.",
+  "source": "sumner2014_appendix (levels, modifiers, strongest-statement rule, probabilistic code) + vincze2008 (negation keywords; clause boundary markers) + w5_lecture p.29-33 + notion_plan_v2 ⑤",
+  "status": {
+   "highest_claim_rule": "verified_source_text — sumner2014_appendix: 'Where statements of different levels were made within the analysed segments of text, stronger statements trumped weaker ones.'; article: 'the presence of stronger statements trumped weaker ones'",
+   "modal_modifiers": "verified_source_text — sumner2014_appendix levels 4/5 (may/might/could/appears -> 4; can -> 5)",
+   "modifier_position_rule": "project_operationalisation — 'preceded by' is implemented as: the modifier starts before the end of the level-6 cue anywhere in the same sentence (no window, no clause check). HEURISTIC.",
+   "negated_causal_verb_is_level_1": "verified_source_text for 'does not result in' (appendix level-1 example); other negated verbs are project_extension_of_verified_category",
+   "overlap_negation": "project_operationalisation — a level>=2 cue inside a level-1 cue span is the same statement, not a second claim",
+   "negation_window_tokens": "project_addition — PROJECT HEURISTIC (Sumner coded whole statements by hand; BioScope resolves negation scope syntactically). Report it and check with human validation.",
+   "negation_scope_boundary": "project_extension_of_verified_category — vincze2008: 'Generally, punctuation marks or conjunctions function as scope boundary markers in the corpus'. The specific boundary list (', ; :' followed by space; but/whereas/although/though/while/however) is a project choice.",
+   "mixed_levels_review": "project_addition — review flag only (does not change the level)",
+   "sentence_as_unit": "project_addition — HEURISTIC: see unit_of_analysis (Sumner coded main-claim IV–DV statements, not sentences)",
+   "explicitly_probabilistic": "verified_source_text (separate binary code) + project gating (level >= 1)",
+   "hedge_booster_counts": "hyland2005 lists unverified_from_memory, except hedges verified in vincze2008 (see hedges[*].status)",
+   "evidence_flags_not_levels": "project_addition — effect_measure / descriptive_frequency entries are evidence flags, not levels",
+   "case_sensitive_abbreviations": "project_addition — (?-i:OR|HR|RR|IRR|CI) groups",
+   "removed_in_v3": "no_relationship_precedence (v2: any level-1 cue forced the sentence to 1, overriding the strongest-claim rule; flag no_relationship_overrides_level>=5). Removed because the appendix says stronger statements trump weaker ones."
+  },
+  "negation_window_tokens": 5,
+  "negation_window_direction": "before the cue (negation precedes the relationship word in English: 'was not associated', 'no increased risk', 'did not increase')",
+  "negation_scope_boundary_pattern": "[,;:](?=\\s|$)|\\b(?:but|whereas|although|though|while|however)\\b",
+  "tokenizer_for_window": "W5 lecture p.14 TOKEN_PATTERN = [A-Za-z]+(?:'[A-Za-z]+)+|[A-Za-z]+|\\d+(?:\\.\\d+)? on the NFKC view."
+ },
+ "agreement_evaluation": {
+  "description": "For Notion ⑥: compare collapsed_ko of each English source sentence with the Korean-lexicon label of its translation (same sentence_id). Report simple agreement rate and Cohen's kappa; disagreement rows go to the 번역 검수 sheet.",
+  "status": "project procedure; implemented as preprocess_abstracts.py stage 'agreement' (simple agreement + Cohen's kappa via sklearn.metrics.cohen_kappa_score). The Korean-lexicon label input does not exist yet (no Korean certainty lexicon in the repo); until then the stage reads ko_level_human from review_sheet.csv or --ko-labels JSON and otherwise reports status=deferred."
+ },
+ "evidence_flag_types": [
+  "effect_measure",
+  "descriptive_frequency"
+ ],
+ "evidence_flag_types_note": "project_addition — Sumner 2014 는 관계 '진술'을 코딩하므로 통계량 이름(HR/OR/RR/IRR/95% CI/P value)이나 빈도 기술(prevalence/incidence of)만으로는 level 을 주지 않는다. 확률 단어(risk/rate/odds/hazard/likelihood)는 Sumner 의 별도 이진 코드 'explicitly probabilistic' 으로 probabilistic_cues 에서 처리한다(v3).",
+ "unit_of_analysis": {
+  "sumner2014": "Sumner 등은 사람 코더가 '주장(main claims)' 단위로 IV–DV 쌍과 그 관계 진술을 뽑아 코딩했다. 보도자료·뉴스는 제목+첫 두 문장, 학술논문(JA)은 초록과 논의(abstract and discussion).",
+  "sumner2014_quotes": [
+   "the IV (or pseudo IV in correlational designs), DV and stated relationship between them (if any) were extracted from the main claims, which were operationalized as the title plus first two sentences in PRs and news. For the JA, main claims were defined within the abstract and discussion sections.",
+   "For journal articles we used the abstract and discussion. We used a seven point scale to rate increasing levels of determinism, where the presence of stronger statements trumped weaker ones"
+  ],
+  "this_project": "PROJECT OPERATIONALISATION (heuristic): 초록의 문장마다 정규식으로 단서를 찾아 같은 척도를 적용한다. IV–DV 쌍을 식별하지 않으며, 한 문장에 여러 IV–DV 진술이 있으면 문장 안에서 '가장 강한 진술' 규칙을 적용한다. level 0 은 Sumner 의 'No relationship stated (but could have been)'와 'not applicable'(두 변수가 없음)을 구분하지 않는다.",
+  "status": "project_addition (HEURISTIC; registered in HEURISTICS_LOG)"
+ },
+ "probabilistic_cues": [
+  {
+   "cue": "risk (of)",
+   "pattern": "\\brisks?\\b(?!\\s+factors?\\b)",
+   "source": "sumner2014_appendix",
+   "status": "verified_source_text",
+   "source_quote": "'correlated with the risk of...' (correlational probabilistic)",
+   "note": "'risk factor(s)' excluded (project)."
+  },
+  {
+   "cue": "chance (of)",
+   "pattern": "\\bchances?\\b",
+   "source": "sumner2014_appendix",
+   "status": "verified_source_text",
+   "source_quote": "'raises the chance of...' (causal probabilistic)"
+  },
+  {
+   "cue": "likelihood",
+   "pattern": "\\blikelihoods?\\b",
+   "source": "sumner2014_appendix",
+   "status": "verified_source_text",
+   "source_quote": "Further probabilistic words/phrases included: 'likelihood'"
+  },
+  {
+   "cue": "makes more likely",
+   "pattern": "\\bma(?:ke|kes|de|king)\\s+(?:[a-z-]+\\s+){0,3}?(?:more|less)\\s+likely\\b",
+   "source": "sumner2014_appendix",
+   "status": "verified_source_text",
+   "source_quote": "'makes more likely'",
+   "pattern_status": "project_operationalisation",
+   "pattern_note": "up to 3 words between make and more/less likely; 'less' is a project variant"
+  },
+  {
+   "cue": "tendency",
+   "pattern": "\\btendenc(?:y|ies)\\b",
+   "source": "sumner2014_appendix",
+   "status": "verified_source_text",
+   "source_quote": "'tendency'"
+  },
+  {
+   "cue": "rate",
+   "pattern": "\\brates?\\b",
+   "source": "sumner2014_appendix",
+   "status": "verified_source_text",
+   "source_quote": "'rate'"
+  },
+  {
+   "cue": "more / less likely",
+   "pattern": "\\b(?:more|less)\\s+likely\\b",
+   "source": "project",
+   "status": "project_extension_of_verified_category",
+   "extends_category": "sumner2014_appendix explicitly probabilistic",
+   "extends_quote": "'makes more likely'"
+  },
+  {
+   "cue": "odds / hazard / probability / incidence",
+   "pattern": "\\b(?:odds|hazards?|probabilit(?:y|ies)|incidence)\\b",
+   "source": "project",
+   "status": "project_extension_of_verified_category",
+   "extends_category": "sumner2014_appendix explicitly probabilistic",
+   "extends_quote": "'likelihood'; 'rate'",
+   "note": "Epidemiological probability nouns (odds ratio, hazard ratio, incidence)."
+  }
+ ],
+ "probabilistic_rule": {
+  "description": "Sumner 2014 coded, separately from the 0-6 level, 'whether or not the statement of relationship was explicitly probabilistic' (binary). score_sentence() lists matched probabilistic_cues and sets explicitly_probabilistic = (any matched) AND (sentence level >= 1, i.e. a statement of relationship or of no relationship exists). Probabilistic words never change the level.",
+  "source": "sumner2014_appendix",
+  "status": "verified_source_text",
+  "source_quote": "Separately, we also coded whether or not the statement of relationship was explicitly probabilistic – for example, 'correlated with the risk of...' (correlational probabilistic); 'raises the chance of...' (causal probabilistic); Further probabilistic words/phrases included: 'likelihood'; 'makes more likely'; 'tendency'; 'rate'.",
+  "gating_status": "project_operationalisation — requiring level >= 1 is the project's reading of 'the statement of relationship'; per-sentence regex is a heuristic (see unit_of_analysis)."
+ },
+ "conditional_cues": [
+  "likely to be (implies 'might cause')",
+  "demonstrates potential"
+ ]
 }

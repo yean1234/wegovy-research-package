@@ -1,9 +1,14 @@
 """용어 통일(Notion 계획 ⑨): 사전 기반 엔티티 매칭 모듈.
 
 normalization.json 의 별칭(drug_entities.aliases, side_effects.exact_aliases,
-side_effects.subtypes) 과 standard_terms.json 의 surface_forms_added 를 합쳐
-텍스트에서 엔티티 언급을 찾고, 각 매칭에 표준 어휘 식별자(MeSH/ICD-10/KCD-8/INN/ATC/MFDS)를
-덧붙인다. 원문은 수정하지 않는다.
+side_effects.subtypes) 으로 텍스트에서 엔티티 언급을 찾고, 각 매칭에 표준 어휘 식별자
+(MeSH/ICD-10/KCD-8/INN/ATC/MFDS)를 덧붙인다. 원문은 수정하지 않는다.
+
+standard_terms.json 의 surface_forms_added (기계번역에서 나올 법하다고 작성자가 *예상*한 표기,
+status project_addition_unverified) 는 사용자 규칙(사전은 휴리스틱이면 안 됨)에 따라 기본 매칭표에
+넣지 않는다. normalize_text(text, include_candidate_forms=True) 로만 켜지며, 그 매칭은
+alias_source="standard_terms.json:surface_forms_added" 로 따로 표시되어 사람이 확인한 뒤
+normalization.json 으로 승격하거나 지운다.
 
 매칭 규칙 (standard_terms.json["matching_rule"]):
   * 정규화 뷰 = unicodedata.normalize('NFKC', text).casefold() + 연속 공백 1칸 축약
@@ -11,7 +16,7 @@ side_effects.subtypes) 과 standard_terms.json 의 surface_forms_added 를 합�
   * 영숫자로 시작/끝나는 별칭은 단어 경계 요구, 한글 포함 다단어 별칭은 띄어쓰기 변형 허용
     (normalization.json text_rules 3).
   * 긴 별칭 우선, 비중첩(longest-match-first).
-  * 어간추출 없음: 엔티티 인식은 어간추출 전에 수행 (W5 강의 p.58).
+  * 어간추출 없음: 엔티티 인식은 어간추출 전에 수행 (W5 강의 p.61 'NER can be used before stemming').
 
 expansion_only / do_not_merge 항목은 라벨 확정에 쓰지 않으므로 매칭 대상에서 제외한다.
 GALLBLADDER, GI_SYMPTOMS 처럼 exact_aliases 가 빈 그룹은 하위유형으로만 매칭된다.
@@ -60,10 +65,14 @@ def _vocab_links(entry: dict[str, Any]) -> dict[str, Any]:
     return {k: entry[k] for k in keys if k in entry}
 
 
-def _build_alias_table() -> list[dict[str, Any]]:
-    """(별칭, entity_id, subtype, 출처, vocab_links) 목록. 긴 별칭 먼저."""
+def _build_alias_table(include_candidate_forms: bool = False) -> list[dict[str, Any]]:
+    """(별칭, entity_id, subtype, 출처, vocab_links) 목록. 긴 별칭 먼저.
+
+    include_candidate_forms=False (기본): normalization.json 별칭만.
+    True: standard_terms.json surface_forms_added (project_addition_unverified) 도 추가."""
     rows: list[dict[str, Any]] = []
     std = STANDARD_TERMS["entities"]
+    cand = (lambda e: e.get("surface_forms_added", [])) if include_candidate_forms else (lambda e: [])
 
     def add(alias: str, eid: str, sub: str | None, source: str, links: dict[str, Any]) -> None:
         rows.append({"alias": alias, "entity_id": eid, "subtype": sub, "alias_source": source,
@@ -75,7 +84,7 @@ def _build_alias_table() -> list[dict[str, Any]]:
         links = _vocab_links(std.get(eid, {}))
         for a in ent.get("aliases", []):
             add(a, eid, None, "normalization.json:aliases", links)
-        for a in std.get(eid, {}).get("surface_forms_added", []):
+        for a in cand(std.get(eid, {})):
             add(a, eid, None, "standard_terms.json:surface_forms_added", links)
 
     for ent in NORMALIZATION["side_effects"]:
@@ -84,14 +93,14 @@ def _build_alias_table() -> list[dict[str, Any]]:
         links = _vocab_links(s_ent)
         for a in ent.get("exact_aliases", []):
             add(a, eid, None, "normalization.json:exact_aliases", links)
-        for a in s_ent.get("surface_forms_added", []):
+        for a in cand(s_ent):
             add(a, eid, None, "standard_terms.json:surface_forms_added", links)
         for sub, aliases in ent.get("subtypes", {}).items():
             s_sub = s_ent.get("subtypes", {}).get(sub, {})
             sub_links = _vocab_links(s_sub) or links
             for a in aliases:
                 add(a, eid, sub, "normalization.json:subtypes", sub_links)
-            for a in s_sub.get("surface_forms_added", []):
+            for a in cand(s_sub):
                 add(a, eid, sub, "standard_terms.json:subtypes.surface_forms_added", sub_links)
 
     # 중복 별칭(같은 정규화 형태, 같은 엔티티/하위유형) 제거, normalization.json 출처 우선
@@ -107,20 +116,25 @@ def _build_alias_table() -> list[dict[str, Any]]:
     return uniq
 
 
-ALIAS_TABLE = _build_alias_table()
+ALIAS_TABLE = _build_alias_table()                       # normalization.json only (default)
+ALIAS_TABLE_WITH_CANDIDATES = _build_alias_table(True)   # + standard_terms.json surface_forms_added (opt-in)
 
 
-def normalize_text(text: str) -> list[dict[str, Any]]:
+def normalize_text(text: str, include_candidate_forms: bool = False) -> list[dict[str, Any]]:
     """텍스트에서 엔티티 언급을 찾는다.
+
+    include_candidate_forms=True 이면 standard_terms.json 의 예상 표기(surface_forms_added)도
+    매칭하며, 그 매칭은 alias_source 로 구분된다(사람 확인 대상).
 
     반환: [{entity_id, subtype, matched_alias, matched_text, start, end,
             alias_source, vocab_links}] (start/end 는 normalize_view(text) 기준,
             뷰 안에서 정렬·비중첩).
     """
+    table = ALIAS_TABLE_WITH_CANDIDATES if include_candidate_forms else ALIAS_TABLE
     view = normalize_view(text)
     taken = [False] * len(view)
     out: list[dict[str, Any]] = []
-    for row in ALIAS_TABLE:  # longest first
+    for row in table:  # longest first
         for m in row["pattern"].finditer(view):
             s, e = m.span()
             if e == s or any(taken[s:e]):
@@ -141,9 +155,9 @@ def normalize_text(text: str) -> list[dict[str, Any]]:
     return out
 
 
-def entity_summary(text: str) -> dict[str, Any]:
+def entity_summary(text: str, include_candidate_forms: bool = False) -> dict[str, Any]:
     """문서 단위 요약: 엔티티별 매칭 수와 표준 라벨."""
-    matches = normalize_text(text)
+    matches = normalize_text(text, include_candidate_forms)
     agg: dict[str, dict[str, Any]] = {}
     for m in matches:
         key = m["entity_id"] if m["subtype"] is None else f'{m["entity_id"]}/{m["subtype"]}'
@@ -167,7 +181,7 @@ if __name__ == "__main__":
         "갑상선 수질암, 마비성 장폐색증, 메스꺼움·구토·변비도 언급됐다. Mounjaro is tirzepatide."
     )
     text = (sys.stdin.read() if not sys.stdin.isatty() else "").strip() or demo
-    res = entity_summary(text)
+    res = entity_summary(text, include_candidate_forms="--candidate-surface-forms" in sys.argv)
     print("normalized_view:", res["normalized_view"])
     print()
     for m in res["matches"]:
