@@ -1,366 +1,1049 @@
 {
-  "version": "2026-10-30-standard-terms-v1",
-  "principle": "원문 보존; 표준 식별자는 별도 필드. 식별자는 네트워크가 열리면 MeSH Browser / WHO ICD / KOICD에서 확인해야 함",
-  "companion_file": "normalization.json (version 2026-10-12-pilot-v1). 이 파일은 normalization.json을 수정·대체하지 않고 entity id 단위로 표준 어휘 식별자를 덧붙인다.",
-  "provenance_note": "2026-10-30 작성 환경에서는 meshb.nlm.nih.gov, id.nlm.nih.gov, icd.who.int, koicd.kr, nedrug.mfds.go.kr 모두 접속 불가(curl HTTP 000)여서 아래 모든 식별자는 작성자(LLM)의 기억에서 적은 것이다. status 값 'unverified_from_memory'는 원문 대조를 하지 못했다는 뜻이며, 네트워크가 열리면 docs/standard_terms_source.md §4 절차로 하나씩 확인한 뒤 'verified'로 바꾼다. surface_forms_added는 Notion 계획 ⑨와 기계번역에서 나올 법한 표기 변형을 프로젝트가 추가한 것(project_addition_unverified)으로, 어느 표준 용어집에도 근거를 두지 않는다.",
-  "status_values": {
-    "unverified_from_memory": "식별자·용어를 기억에서 적음. 원문(MeSH/ICD/KCD/MFDS) 대조 안 됨.",
-    "verified": "원문 사이트에서 확인함(확인일·URL을 note에 기록).",
-    "not_applicable": "해당 어휘가 이 엔티티 유형에 적용되지 않음(예: 약물에 ICD 코드 없음).",
-    "project_addition_unverified": "표준 용어집이 아니라 프로젝트가 관찰·예상한 표기 변형."
+ "version": "2026-10-30-standard-terms-v1",
+ "principle": "원문 보존; 표준 식별자는 별도 필드. 식별자는 네트워크가 열리면 MeSH Browser / WHO ICD / KOICD에서 확인해야 함",
+ "companion_file": "normalization.json (version 2026-10-12-pilot-v1). 이 파일은 normalization.json을 수정·대체하지 않고 entity id 단위로 표준 어휘 식별자를 덧붙인다.",
+ "provenance_note": "2026-10-30 작성 환경에서는 meshb.nlm.nih.gov, id.nlm.nih.gov, icd.who.int, koicd.kr, nedrug.mfds.go.kr 모두 접속 불가(curl HTTP 000)여서 아래 모든 식별자는 작성자(LLM)의 기억에서 적은 것이다. status 값 'unverified_from_memory'는 원문 대조를 하지 못했다는 뜻이며, 네트워크가 열리면 docs/standard_terms_source.md §4 절차로 하나씩 확인한 뒤 'verified'로 바꾼다. surface_forms_added는 Notion 계획 ⑨와 기계번역에서 나올 법한 표기 변형을 프로젝트가 추가한 것(project_addition_unverified)으로, 어느 표준 용어집에도 근거를 두지 않는다.",
+ "status_values": {
+  "unverified_from_memory": "식별자·용어를 기억에서 적음. 원문(MeSH/ICD/KCD/MFDS) 대조 안 됨.",
+  "verified": "원문 사이트에서 확인함(확인일·URL을 note에 기록).",
+  "not_applicable": "해당 어휘가 이 엔티티 유형에 적용되지 않음(예: 약물에 ICD 코드 없음).",
+  "project_addition_unverified": "표준 용어집이 아니라 프로젝트가 예상한 표기 변형. 기본 매칭에서 제외(opt-in)."
+ },
+ "vocabularies": {
+  "MESH": {
+   "name": "Medical Subject Headings (NLM)",
+   "url": "https://meshb.nlm.nih.gov/"
   },
-  "vocabularies": {
-    "MESH": {"name": "Medical Subject Headings (NLM)", "url": "https://meshb.nlm.nih.gov/"},
-    "ICD10": {"name": "WHO International Classification of Diseases, 10th Revision", "url": "https://icd.who.int/browse10/2019/en", "note": "ICD-10-CM(미국 임상수정판)의 소수점 둘째 자리 이하 코드는 WHO ICD-10에 없다. 아래 code는 WHO 3~4자리 코드를 기본으로 하고 ICD-10-CM 세부코드는 cm_code에 따로 둔다."},
-    "ATC": {"name": "WHO ATC/DDD Index (Anatomical Therapeutic Chemical classification)", "url": "https://atcddd.fhi.no/atc_ddd_index/", "note": "약물 엔티티용. 질병 엔티티에는 적용하지 않음."},
-    "KCD8": {"name": "한국표준질병·사인분류 8차 (통계청, 2021)", "url": "https://koicd.kr/", "note": "KCD는 WHO ICD-10 체계를 따르므로 code는 대체로 ICD10 code와 같다. name_ko는 KOICD 한글 분류명을 기억으로 적은 것."},
-    "INN": {"name": "WHO International Nonproprietary Name"},
-    "MFDS": {"name": "식품의약품안전처 의약품통합정보시스템 (허가 품목명)", "url": "https://nedrug.mfds.go.kr/"},
-    "KMLE_or_KMA": {"name": "대한의사협회 의학용어집 (6판)", "note": "한국어 표준 용어. 이 환경에서 용어집을 열람하지 못했으므로 preferred_label_ko는 normalization.json의 label을 우선 쓰고, 의학용어집 표기 후보는 kma_term_candidate에 unverified로 둔다."}
+  "ICD10": {
+   "name": "WHO International Classification of Diseases, 10th Revision",
+   "url": "https://icd.who.int/browse10/2019/en",
+   "note": "ICD-10-CM(미국 임상수정판)의 소수점 둘째 자리 이하 코드는 WHO ICD-10에 없다. 아래 code는 WHO 3~4자리 코드를 기본으로 하고 ICD-10-CM 세부코드는 cm_code에 따로 둔다."
   },
-  "entities": {
-    "WEGOVY": {
-      "entity_type": "drug_brand",
-      "preferred_label_en": "Wegovy",
-      "preferred_label_ko": "위고비",
-      "inn": {"name": "semaglutide", "status": "unverified_from_memory"},
-      "atc": {"code": "A10BJ06", "status": "unverified_from_memory"},
-      "mesh": {"descriptor": "Semaglutide", "ui": null, "status": "unverified_from_memory", "note": "브랜드명은 MeSH 디스크립터가 아니며 성분명 Semaglutide로 연결. UI는 기억이 불확실하여 비움."},
-      "icd10": {"status": "not_applicable"},
-      "kcd8": {"status": "not_applicable"},
-      "mfds_product_name_ko": {"name": "위고비프리필드펜", "status": "unverified_from_memory"},
-      "surface_forms_added": ["위고비 프리필드펜", "위고비®", "위고비(세마글루타이드)", "wegovy", "WEGOVY®"],
-      "surface_forms_status": "project_addition_unverified",
-      "linked_ingredient_entity": "SEMAGLUTIDE"
-    },
-    "SEMAGLUTIDE": {
-      "entity_type": "drug_ingredient",
-      "preferred_label_en": "semaglutide",
-      "preferred_label_ko": "세마글루타이드",
-      "inn": {"name": "semaglutide", "status": "unverified_from_memory"},
-      "atc": {"code": "A10BJ06", "status": "unverified_from_memory"},
-      "mesh": {"descriptor": "Semaglutide", "ui": null, "status": "unverified_from_memory", "note": "과거 보충개념(SCR)이었다가 디스크립터로 승격된 것으로 기억하나 UI를 확신할 수 없어 비움."},
-      "icd10": {"status": "not_applicable"},
-      "kcd8": {"status": "not_applicable"},
-      "mfds_product_name_ko": {"status": "not_applicable", "note": "성분명. 품목명은 WEGOVY/OZEMPIC/RYBELSUS 참조."},
-      "kma_term_candidate": {"term": "세마글루티드", "status": "unverified_from_memory", "note": "식약처 허가사항 표기는 '세마글루티드'로 기억함. 표준 라벨은 프로젝트 사전(normalization.json)의 첫 한국어 별칭 '세마글루타이드'를 따름."},
-      "surface_forms_added": ["세마글루타이드", "세마글루티드", "세마글루타이드(semaglutide)", "Semaglutide", "SEMAGLUTIDE", "세마글루타이드 성분"],
-      "surface_forms_status": "project_addition_unverified"
-    },
-    "OZEMPIC": {
-      "entity_type": "drug_brand",
-      "preferred_label_en": "Ozempic",
-      "preferred_label_ko": "오젬픽",
-      "inn": {"name": "semaglutide", "status": "unverified_from_memory"},
-      "atc": {"code": "A10BJ06", "status": "unverified_from_memory"},
-      "mesh": {"descriptor": "Semaglutide", "ui": null, "status": "unverified_from_memory"},
-      "icd10": {"status": "not_applicable"},
-      "kcd8": {"status": "not_applicable"},
-      "mfds_product_name_ko": {"name": "오젬픽프리필드펜", "status": "unverified_from_memory"},
-      "surface_forms_added": ["오젬픽®", "Ozempic®", "ozempic"],
-      "surface_forms_status": "project_addition_unverified",
-      "linked_ingredient_entity": "SEMAGLUTIDE"
-    },
-    "RYBELSUS": {
-      "entity_type": "drug_brand",
-      "preferred_label_en": "Rybelsus",
-      "preferred_label_ko": "리벨서스",
-      "inn": {"name": "semaglutide", "status": "unverified_from_memory"},
-      "atc": {"code": "A10BJ06", "status": "unverified_from_memory", "note": "경구 세마글루타이드도 같은 ATC 코드로 기억함."},
-      "mesh": {"descriptor": "Semaglutide", "ui": null, "status": "unverified_from_memory"},
-      "icd10": {"status": "not_applicable"},
-      "kcd8": {"status": "not_applicable"},
-      "mfds_product_name_ko": {"name": "리벨서스정", "status": "unverified_from_memory"},
-      "surface_forms_added": ["Rybelsus®", "rybelsus", "경구 세마글루타이드"],
-      "surface_forms_status": "project_addition_unverified",
-      "linked_ingredient_entity": "SEMAGLUTIDE"
-    },
-    "GLP1_RA": {
-      "entity_type": "drug_class",
-      "preferred_label_en": "glucagon-like peptide-1 receptor agonist",
-      "preferred_label_ko": "GLP-1 수용체 작용제",
-      "inn": {"status": "not_applicable"},
-      "atc": {"code": "A10BJ", "name": "Glucagon-like peptide-1 (GLP-1) analogues", "status": "unverified_from_memory"},
-      "mesh": {"descriptor": "Glucagon-Like Peptide-1 Receptor Agonists", "ui": null, "status": "unverified_from_memory", "note": "2023년 전후 신설 디스크립터로 기억. UI 불확실."},
-      "icd10": {"status": "not_applicable"},
-      "kcd8": {"status": "not_applicable"},
-      "mfds_product_name_ko": {"status": "not_applicable"},
-      "surface_forms_added": ["GLP-1 RAs", "GLP-1RA", "GLP-1RAs", "GLP1-RA", "GLP-1 작용제", "GLP-1 수용체작용제", "글루카곤 유사 펩타이드-1 수용체 작용제", "글루카곤유사펩타이드-1 수용체 작용제", "GLP-1 계열 약물", "GLP-1 계열"],
-      "surface_forms_status": "project_addition_unverified"
-    },
-    "TIRZEPATIDE": {
-      "entity_type": "drug_ingredient",
-      "preferred_label_en": "tirzepatide",
-      "preferred_label_ko": "티르제파타이드",
-      "inn": {"name": "tirzepatide", "status": "unverified_from_memory"},
-      "atc": {"code": "A10BX16", "status": "unverified_from_memory"},
-      "mesh": {"descriptor": "Tirzepatide", "ui": null, "status": "unverified_from_memory"},
-      "icd10": {"status": "not_applicable"},
-      "kcd8": {"status": "not_applicable"},
-      "mfds_product_name_ko": {"name": "마운자로프리필드펜", "status": "unverified_from_memory"},
-      "surface_forms_added": ["Tirzepatide", "티르제파티드", "터제파티드", "마운자로®", "Mounjaro®", "Zepbound®"],
-      "surface_forms_status": "project_addition_unverified"
-    },
-    "LIRAGLUTIDE": {
-      "entity_type": "drug_ingredient",
-      "preferred_label_en": "liraglutide",
-      "preferred_label_ko": "리라글루타이드",
-      "inn": {"name": "liraglutide", "status": "unverified_from_memory"},
-      "atc": {"code": "A10BJ02", "status": "unverified_from_memory"},
-      "mesh": {"descriptor": "Liraglutide", "ui": "D000069450", "status": "unverified_from_memory"},
-      "icd10": {"status": "not_applicable"},
-      "kcd8": {"status": "not_applicable"},
-      "mfds_product_name_ko": {"name": "삭센다펜주", "alt": "빅토자펜주", "status": "unverified_from_memory"},
-      "surface_forms_added": ["Liraglutide", "삭센다®", "Saxenda®", "Victoza®"],
-      "surface_forms_status": "project_addition_unverified"
-    },
-    "GLP1_CONTEXT": {
-      "entity_type": "ambiguous_related_term",
-      "preferred_label_en": "glucagon-like peptide 1",
-      "preferred_label_ko": "GLP-1",
-      "inn": {"status": "not_applicable"},
-      "atc": {"status": "not_applicable", "note": "호르몬 자체를 가리킬 수 있으므로 약물 분류 코드를 붙이지 않음(normalization.json main_news 규칙)."},
-      "mesh": {"descriptor": "Glucagon-Like Peptide 1", "ui": "D052216", "status": "unverified_from_memory"},
-      "icd10": {"status": "not_applicable"},
-      "kcd8": {"status": "not_applicable"},
-      "mfds_product_name_ko": {"status": "not_applicable"},
-      "surface_forms_added": ["글루카곤 유사 펩타이드-1", "글루카곤유사펩타이드-1", "글루카곤 유사 펩티드-1"],
-      "surface_forms_status": "project_addition_unverified"
-    },
-    "NAION": {
-      "entity_type": "disease",
-      "preferred_label_en": "nonarteritic anterior ischemic optic neuropathy",
-      "preferred_label_ko": "비동맥염성 앞허혈시신경병증",
-      "mesh": {"descriptor": "Optic Neuropathy, Ischemic", "ui": "D018917", "status": "unverified_from_memory", "note": "MeSH에 NAION 전용 디스크립터는 없고 상위 개념 '허혈성 시신경병증'으로 연결됨(기억). 비동맥염성/전방 구분은 entry term 수준일 수 있음."},
-      "icd10": {"code": "H47.0", "name_en": "Disorders of optic nerve, not elsewhere classified", "cm_code": "H47.01-", "cm_name_en": "Ischemic optic neuropathy", "status": "unverified_from_memory"},
-      "kcd8": {"code": "H47.0", "name_ko": "달리 분류되지 않은 시신경의 장애", "status": "unverified_from_memory"},
-      "kma_term_candidate": {"term": "앞허혈시신경병증", "alt": "전방허혈시신경병증", "status": "unverified_from_memory"},
-      "surface_forms_added": [
-        "비동맥염성 전방 허혈성 시신경병증",
-        "비동맥성 전부 허혈성 시신경병증",
-        "비동맥염성 앞허혈시신경병증",
-        "비동맥염성 전방허혈성시신경병증",
-        "비동맥염성 전부 허혈성 시신경병증",
-        "비동맥염 전방 허혈성 시신경병증",
-        "비동맥염성 전방 허혈 시신경병증",
-        "비동맥염성 전방 허혈성 시신경증",
-        "비동맥염성 앞 허혈 시신경병증",
-        "비동맥성 앞허혈시신경병증",
-        "비동맥류성 전방 허혈성 시신경병증",
-        "non-arteritic ischemic optic neuropathy",
-        "nonarteritic ischemic optic neuropathy",
-        "nonarteritic anterior ischaemic optic neuropathy",
-        "anterior ischemic optic neuropathy, nonarteritic"
-      ],
-      "surface_forms_status": "project_addition_unverified"
-    },
-    "GASTROPARESIS": {
-      "entity_type": "disease",
-      "preferred_label_en": "gastroparesis",
-      "preferred_label_ko": "위마비",
-      "mesh": {"descriptor": "Gastroparesis", "ui": "D018589", "status": "unverified_from_memory"},
-      "icd10": {"code": "K31.8", "name_en": "Other specified diseases of stomach and duodenum", "cm_code": "K31.84", "cm_name_en": "Gastroparesis", "status": "unverified_from_memory"},
-      "kcd8": {"code": "K31.8", "name_ko": "위 및 십이지장의 기타 명시된 질환", "status": "unverified_from_memory"},
-      "kma_term_candidate": {"term": "위마비", "alt": "위무력증", "status": "unverified_from_memory"},
-      "surface_forms_added": ["위 마비증", "위마비증", "위부전마비", "위장마비", "위장 마비", "gastric paresis"],
-      "surface_forms_status": "project_addition_unverified"
-    },
-    "BOWEL_OBSTRUCTION": {
-      "entity_type": "disease_group",
-      "preferred_label_en": "intestinal obstruction",
-      "preferred_label_ko": "장폐색",
-      "mesh": {"descriptor": "Intestinal Obstruction", "ui": "D007415", "status": "unverified_from_memory"},
-      "icd10": {"code": "K56", "name_en": "Paralytic ileus and intestinal obstruction without hernia", "status": "unverified_from_memory"},
-      "kcd8": {"code": "K56", "name_ko": "탈장이 없는 마비성 장폐색증 및 장폐색", "status": "unverified_from_memory"},
-      "kma_term_candidate": {"term": "창자막힘", "alt": "장폐색", "status": "unverified_from_memory"},
-      "surface_forms_added": ["장 폐색증", "장폐색증", "창자막힘", "창자 막힘", "소장 폐색", "소장폐색", "대장 폐색", "intestinal blockage", "bowel blockage"],
-      "surface_forms_status": "project_addition_unverified",
-      "subtypes": {
-        "ILEUS": {
-          "preferred_label_en": "ileus",
-          "preferred_label_ko": "장마비",
-          "mesh": {"descriptor": "Ileus", "ui": "D045823", "status": "unverified_from_memory"},
-          "icd10": {"code": "K56.0", "name_en": "Paralytic ileus", "cm_code": "K56.7", "cm_name_en": "Ileus, unspecified", "status": "unverified_from_memory"},
-          "kcd8": {"code": "K56.0", "name_ko": "마비성 장폐색증", "status": "unverified_from_memory"},
-          "surface_forms_added": ["마비성 장폐색증", "마비성 장폐쇄", "장 마비", "창자마비", "일레우스"],
-          "surface_forms_status": "project_addition_unverified"
-        },
-        "PSEUDO_OBSTRUCTION": {
-          "preferred_label_en": "intestinal pseudo-obstruction",
-          "preferred_label_ko": "가성 장폐색",
-          "mesh": {"descriptor": "Intestinal Pseudo-Obstruction", "ui": "D007418", "status": "unverified_from_memory"},
-          "icd10": {"code": "K59.8", "name_en": "Other specified functional intestinal disorders", "status": "unverified_from_memory", "note": "만성 가성폐색을 K59.8로 두는 것으로 기억하나 확신 없음."},
-          "kcd8": {"code": "K59.8", "name_ko": "기타 명시된 기능성 장장애", "status": "unverified_from_memory"},
-          "surface_forms_added": ["가성장폐색", "거짓 장폐색", "거짓창자막힘", "가성 장폐쇄", "pseudo obstruction", "pseudoobstruction"],
-          "surface_forms_status": "project_addition_unverified"
-        }
-      }
-    },
-    "PANCREATITIS": {
-      "entity_type": "disease",
-      "preferred_label_en": "pancreatitis",
-      "preferred_label_ko": "췌장염",
-      "mesh": {"descriptor": "Pancreatitis", "ui": "D010195", "status": "unverified_from_memory"},
-      "icd10": {"code": "K85", "name_en": "Acute pancreatitis", "alt_code": "K86.1", "alt_name_en": "Other chronic pancreatitis", "status": "unverified_from_memory"},
-      "kcd8": {"code": "K85", "name_ko": "급성 췌장염", "status": "unverified_from_memory"},
-      "kma_term_candidate": {"term": "이자염", "alt": "췌장염", "status": "unverified_from_memory"},
-      "surface_forms_added": ["이자염", "급성 이자염", "급성췌장염", "췌장 염증", "acute pancreatitis", "Pancreatitis"],
-      "surface_forms_status": "project_addition_unverified"
-    },
-    "SUICIDALITY": {
-      "entity_type": "disease_group",
-      "preferred_label_en": "suicidal ideation",
-      "preferred_label_ko": "자살사고",
-      "mesh": {"descriptor": "Suicidal Ideation", "ui": "D059020", "status": "unverified_from_memory"},
-      "icd10": {"code": "R45.8", "name_en": "Other symptoms and signs involving emotional state", "cm_code": "R45.851", "cm_name_en": "Suicidal ideations", "status": "unverified_from_memory"},
-      "kcd8": {"code": "R45.8", "name_ko": "정서상태에 관계된 기타 증상 및 징후", "status": "unverified_from_memory"},
-      "kma_term_candidate": {"term": "자살사고", "alt": "자살생각", "status": "unverified_from_memory"},
-      "surface_forms_added": ["자살 생각", "자살생각", "자살 관념", "자살관념", "자살 성향", "자살성향", "자살 경향", "자살 위험", "자살 사고 및 행동", "suicidal ideations", "suicidal ideation and behavior", "suicide-related"],
-      "surface_forms_status": "project_addition_unverified",
-      "subtypes": {
-        "BEHAVIOR": {
-          "preferred_label_en": "suicide attempt",
-          "preferred_label_ko": "자살시도",
-          "mesh": {"descriptor": "Suicide, Attempted", "ui": "D013406", "status": "unverified_from_memory"},
-          "icd10": {"code": "X60-X84", "name_en": "Intentional self-harm", "status": "unverified_from_memory"},
-          "kcd8": {"code": "X60-X84", "name_ko": "고의적 자해", "status": "unverified_from_memory"},
-          "surface_forms_added": ["자살 기도", "자살기도", "자살 행동", "자살 행위", "suicidal behaviour", "attempted suicide"],
-          "surface_forms_status": "project_addition_unverified"
-        },
-        "SELF_HARM": {
-          "preferred_label_en": "self-harm",
-          "preferred_label_ko": "자해",
-          "mesh": {"descriptor": "Self-Injurious Behavior", "ui": "D016728", "status": "unverified_from_memory"},
-          "icd10": {"code": "X60-X84", "name_en": "Intentional self-harm", "status": "unverified_from_memory"},
-          "kcd8": {"code": "X60-X84", "name_ko": "고의적 자해", "status": "unverified_from_memory"},
-          "surface_forms_added": ["자해 행동", "자해행동", "고의적 자해", "self harm", "self injury", "self-injurious behavior"],
-          "surface_forms_status": "project_addition_unverified"
-        }
-      }
-    },
-    "THYROID_CANCER": {
-      "entity_type": "disease_group",
-      "preferred_label_en": "thyroid cancer",
-      "preferred_label_ko": "갑상선암",
-      "mesh": {"descriptor": "Thyroid Neoplasms", "ui": "D013964", "status": "unverified_from_memory"},
-      "icd10": {"code": "C73", "name_en": "Malignant neoplasm of thyroid gland", "status": "unverified_from_memory"},
-      "kcd8": {"code": "C73", "name_ko": "갑상선의 악성 신생물", "status": "unverified_from_memory"},
-      "kma_term_candidate": {"term": "갑상샘암", "alt": "갑상선암", "status": "unverified_from_memory"},
-      "surface_forms_added": ["갑상선 암", "갑상샘 암", "갑상선 악성 종양", "갑상선 악성종양", "갑상샘 악성 종양", "thyroid malignancy", "thyroid cancers", "thyroid carcinomas"],
-      "surface_forms_status": "project_addition_unverified",
-      "subtypes": {
-        "MTC": {
-          "preferred_label_en": "medullary thyroid carcinoma",
-          "preferred_label_ko": "갑상선 수질암",
-          "mesh": {"descriptor": "Carcinoma, Neuroendocrine", "ui": "D018278", "status": "unverified_from_memory", "note": "MeSH에 'Thyroid Cancer, Medullary'가 별도 디스크립터로 있을 수 있음(기억 불확실). 둘 중 무엇이 현행인지 확인 필요."},
-          "icd10": {"code": "C73", "name_en": "Malignant neoplasm of thyroid gland", "status": "unverified_from_memory", "note": "ICD-10은 조직형을 구분하지 않음. 조직형은 ICD-O-3 8510/3 (수질암)로 기억."},
-          "kcd8": {"code": "C73", "name_ko": "갑상선의 악성 신생물", "status": "unverified_from_memory"},
-          "surface_forms_added": ["갑상선수질암", "갑상샘수질암", "수질 갑상선암", "갑상선 수질 암종", "갑상샘 속질암", "갑상선 속질암", "medullary thyroid cancer", "medullary carcinoma of the thyroid"],
-          "surface_forms_status": "project_addition_unverified"
-        },
-        "PTC": {
-          "preferred_label_en": "papillary thyroid carcinoma",
-          "preferred_label_ko": "갑상선 유두암",
-          "mesh": {"descriptor": "Thyroid Cancer, Papillary", "ui": "D000077273", "status": "unverified_from_memory"},
-          "icd10": {"code": "C73", "name_en": "Malignant neoplasm of thyroid gland", "status": "unverified_from_memory"},
-          "kcd8": {"code": "C73", "name_ko": "갑상선의 악성 신생물", "status": "unverified_from_memory"},
-          "surface_forms_added": ["갑상선유두암", "갑상샘유두암", "유두 갑상선암", "갑상선 유두 암종", "갑상샘 유두 암", "papillary thyroid cancer", "PTC"],
-          "surface_forms_status": "project_addition_unverified"
-        }
-      }
-    },
-    "GALLBLADDER": {
-      "entity_type": "disease_group",
-      "preferred_label_en": "gallbladder disease",
-      "preferred_label_ko": "담석·담낭질환",
-      "mesh": {"descriptor": "Gallbladder Diseases", "ui": "D005705", "status": "unverified_from_memory"},
-      "icd10": {"code": "K80-K82", "name_en": "Disorders of gallbladder, biliary tract and pancreas (gallbladder part)", "status": "unverified_from_memory"},
-      "kcd8": {"code": "K80-K82", "name_ko": "담낭, 담도 및 췌장의 장애(담낭 부분)", "status": "unverified_from_memory"},
-      "kma_term_candidate": {"term": "쓸개질환", "alt": "담낭질환", "status": "unverified_from_memory"},
-      "surface_forms_added": [],
-      "surface_forms_status": "project_addition_unverified",
-      "note": "normalization.json에서 exact_aliases가 비어 있고 하위유형만 있으므로 그룹 수준 표면형은 추가하지 않음(담낭질환 등은 expansion_only로 유지).",
-      "subtypes": {
-        "CHOLELITHIASIS": {
-          "preferred_label_en": "cholelithiasis",
-          "preferred_label_ko": "담석증",
-          "mesh": {"descriptor": "Cholelithiasis", "ui": "D002769", "status": "unverified_from_memory"},
-          "icd10": {"code": "K80", "name_en": "Cholelithiasis", "status": "unverified_from_memory"},
-          "kcd8": {"code": "K80", "name_ko": "담석증", "status": "unverified_from_memory"},
-          "surface_forms_added": ["쓸개돌", "쓸개돌증", "담낭 결석", "담낭결석", "쓸개 결석", "담도 결석", "gallstone", "gall stones", "gallstone disease", "biliary stones"],
-          "surface_forms_status": "project_addition_unverified"
-        },
-        "CHOLECYSTITIS": {
-          "preferred_label_en": "cholecystitis",
-          "preferred_label_ko": "담낭염",
-          "mesh": {"descriptor": "Cholecystitis", "ui": "D002764", "status": "unverified_from_memory"},
-          "icd10": {"code": "K81", "name_en": "Cholecystitis", "status": "unverified_from_memory"},
-          "kcd8": {"code": "K81", "name_ko": "담낭염", "status": "unverified_from_memory"},
-          "surface_forms_added": ["쓸개염", "급성 담낭염", "급성담낭염", "acute cholecystitis"],
-          "surface_forms_status": "project_addition_unverified"
-        }
-      }
-    },
-    "GI_SYMPTOMS": {
-      "entity_type": "symptom_group",
-      "preferred_label_en": "gastrointestinal symptoms",
-      "preferred_label_ko": "위장관 증상",
-      "mesh": {"descriptor": "Gastrointestinal Diseases", "ui": "D005767", "status": "unverified_from_memory", "note": "증상군 묶음에 정확히 대응하는 MeSH 디스크립터 없음. 상위 분류만 참고용으로 둠. 분석은 하위유형 단위로."},
-      "icd10": {"code": "R10-R19", "name_en": "Symptoms and signs involving the digestive system and abdomen", "status": "unverified_from_memory"},
-      "kcd8": {"code": "R10-R19", "name_ko": "소화계통 및 복부에 관계된 증상 및 징후", "status": "unverified_from_memory"},
-      "surface_forms_added": [],
-      "surface_forms_status": "project_addition_unverified",
-      "note": "normalization.json 규칙대로 그룹 수준 매칭은 하지 않고 하위유형만 매칭한다.",
-      "subtypes": {
-        "NAUSEA": {
-          "preferred_label_en": "nausea",
-          "preferred_label_ko": "오심",
-          "mesh": {"descriptor": "Nausea", "ui": "D009325", "status": "unverified_from_memory"},
-          "icd10": {"code": "R11", "name_en": "Nausea and vomiting", "cm_code": "R11.0", "cm_name_en": "Nausea", "status": "unverified_from_memory"},
-          "kcd8": {"code": "R11", "name_ko": "오심 및 구토", "status": "unverified_from_memory"},
-          "surface_forms_added": ["구역", "구역질", "메스꺼움", "속 메스꺼움", "nauseous"],
-          "surface_forms_status": "project_addition_unverified"
-        },
-        "VOMITING": {
-          "preferred_label_en": "vomiting",
-          "preferred_label_ko": "구토",
-          "mesh": {"descriptor": "Vomiting", "ui": "D014839", "status": "unverified_from_memory"},
-          "icd10": {"code": "R11", "name_en": "Nausea and vomiting", "cm_code": "R11.1-", "cm_name_en": "Vomiting", "status": "unverified_from_memory"},
-          "kcd8": {"code": "R11", "name_ko": "오심 및 구토", "status": "unverified_from_memory"},
-          "surface_forms_added": ["구토 증상", "토함", "emesis", "vomit"],
-          "surface_forms_status": "project_addition_unverified"
-        },
-        "DIARRHEA": {
-          "preferred_label_en": "diarrhea",
-          "preferred_label_ko": "설사",
-          "mesh": {"descriptor": "Diarrhea", "ui": "D003967", "status": "unverified_from_memory"},
-          "icd10": {"code": "K59.1", "name_en": "Functional diarrhoea", "alt_code": "A09", "alt_name_en": "Other gastroenteritis and colitis of infectious and unspecified origin", "cm_code": "R19.7", "cm_name_en": "Diarrhea, unspecified", "status": "unverified_from_memory"},
-          "kcd8": {"code": "K59.1", "name_ko": "기능성 설사", "status": "unverified_from_memory"},
-          "surface_forms_added": ["설사 증상", "diarrheal", "loose stools"],
-          "surface_forms_status": "project_addition_unverified"
-        },
-        "CONSTIPATION": {
-          "preferred_label_en": "constipation",
-          "preferred_label_ko": "변비",
-          "mesh": {"descriptor": "Constipation", "ui": "D003248", "status": "unverified_from_memory"},
-          "icd10": {"code": "K59.0", "name_en": "Constipation", "status": "unverified_from_memory"},
-          "kcd8": {"code": "K59.0", "name_ko": "변비", "status": "unverified_from_memory"},
-          "surface_forms_added": ["변비 증상", "심한 변비", "constipated"],
-          "surface_forms_status": "project_addition_unverified",
-          "note": "'변비'는 BOWEL_OBSTRUCTION의 expansion_only에도 있다. 매칭 모듈은 exact/subtype 별칭만 쓰므로 변비는 CONSTIPATION으로만 라벨된다(normalization.json 규칙: 변비만으로 장폐색 라벨 확정 금지)."
-        }
-      }
-    }
+  "ATC": {
+   "name": "WHO ATC/DDD Index (Anatomical Therapeutic Chemical classification)",
+   "url": "https://atcddd.fhi.no/atc_ddd_index/",
+   "note": "약물 엔티티용. 질병 엔티티에는 적용하지 않음."
   },
-  "matching_rule": {
-    "description": "exact alias match after NFKC normalization and whitespace collapse (W5 lecture p.29 NFKC); longest alias first; no stemming of entity names (W5 lecture p.58: NER before stemming to protect named entities)",
-    "source": "W5 lecture",
-    "details": [
-      "정규화 뷰 = unicodedata.normalize('NFKC', text).casefold() 후 연속 공백을 한 칸으로 축약. 원문(raw)은 수정하지 않는다(normalization.json text_rules 1·2).",
-      "별칭 집합 = normalization.json의 drug_entities.aliases, side_effects.exact_aliases, side_effects.subtypes[*] + standard_terms.json의 surface_forms_added. expansion_only와 do_not_merge는 매칭에 쓰지 않는다.",
-      "영문·숫자로 시작/끝나는 별칭은 단어 경계(앞뒤가 영숫자가 아님)를 요구한다(normalization.json text_rules 3). 한글이 포함된 다단어 별칭은 띄어쓰기 변형(공백 0개 이상)을 허용한다(같은 규칙).",
-      "길이가 긴 별칭부터 매칭하고, 이미 매칭된 구간과 겹치는 짧은 매칭은 버린다(longest-match-first, 비중첩).",
-      "어간추출·표제어추출을 별칭이나 본문에 적용하지 않는다. 엔티티 인식은 어간추출 전에 끝낸다(W5 lecture p.58)."
-    ]
+  "KCD8": {
+   "name": "한국표준질병·사인분류 8차 (통계청, 2021)",
+   "url": "https://koicd.kr/",
+   "note": "KCD는 WHO ICD-10 체계를 따르므로 code는 대체로 ICD10 code와 같다. name_ko는 KOICD 한글 분류명을 기억으로 적은 것."
+  },
+  "INN": {
+   "name": "WHO International Nonproprietary Name"
+  },
+  "MFDS": {
+   "name": "식품의약품안전처 의약품통합정보시스템 (허가 품목명)",
+   "url": "https://nedrug.mfds.go.kr/"
+  },
+  "KMLE_or_KMA": {
+   "name": "대한의사협회 의학용어집 (6판)",
+   "note": "한국어 표준 용어. 이 환경에서 용어집을 열람하지 못했으므로 preferred_label_ko는 normalization.json의 label을 우선 쓰고, 의학용어집 표기 후보는 kma_term_candidate에 unverified로 둔다."
   }
+ },
+ "entities": {
+  "WEGOVY": {
+   "entity_type": "drug_brand",
+   "preferred_label_en": "Wegovy",
+   "preferred_label_ko": "위고비",
+   "inn": {
+    "name": "semaglutide",
+    "status": "unverified_from_memory"
+   },
+   "atc": {
+    "code": "A10BJ06",
+    "status": "unverified_from_memory"
+   },
+   "mesh": {
+    "descriptor": "Semaglutide",
+    "ui": "D000099194",
+    "status": "verified_nlm_mesh_lookup_2026-10-30",
+    "note": "브랜드명은 MeSH 디스크립터가 아니며 성분명 Semaglutide로 연결. UI는 기억이 불확실하여 비움."
+   },
+   "icd10": {
+    "status": "not_applicable"
+   },
+   "kcd8": {
+    "status": "not_applicable"
+   },
+   "mfds_product_name_ko": {
+    "name": "위고비프리필드펜",
+    "status": "unverified_from_memory"
+   },
+   "surface_forms_added": [
+    "위고비 프리필드펜",
+    "위고비®",
+    "위고비(세마글루타이드)",
+    "wegovy",
+    "WEGOVY®"
+   ],
+   "surface_forms_status": "project_addition_unverified",
+   "linked_ingredient_entity": "SEMAGLUTIDE"
+  },
+  "SEMAGLUTIDE": {
+   "entity_type": "drug_ingredient",
+   "preferred_label_en": "semaglutide",
+   "preferred_label_ko": "세마글루타이드",
+   "inn": {
+    "name": "semaglutide",
+    "status": "unverified_from_memory"
+   },
+   "atc": {
+    "code": "A10BJ06",
+    "status": "unverified_from_memory"
+   },
+   "mesh": {
+    "descriptor": "Semaglutide",
+    "ui": "D000099194",
+    "status": "verified_nlm_mesh_lookup_2026-10-30",
+    "note": "과거 보충개념(SCR)이었다가 디스크립터로 승격된 것으로 기억하나 UI를 확신할 수 없어 비움."
+   },
+   "icd10": {
+    "status": "not_applicable"
+   },
+   "kcd8": {
+    "status": "not_applicable"
+   },
+   "mfds_product_name_ko": {
+    "status": "not_applicable",
+    "note": "성분명. 품목명은 WEGOVY/OZEMPIC/RYBELSUS 참조."
+   },
+   "kma_term_candidate": {
+    "term": "세마글루티드",
+    "status": "unverified_from_memory",
+    "note": "식약처 허가사항 표기는 '세마글루티드'로 기억함. 표준 라벨은 프로젝트 사전(normalization.json)의 첫 한국어 별칭 '세마글루타이드'를 따름."
+   },
+   "surface_forms_added": [
+    "세마글루타이드",
+    "세마글루티드",
+    "세마글루타이드(semaglutide)",
+    "Semaglutide",
+    "SEMAGLUTIDE",
+    "세마글루타이드 성분"
+   ],
+   "surface_forms_status": "project_addition_unverified"
+  },
+  "OZEMPIC": {
+   "entity_type": "drug_brand",
+   "preferred_label_en": "Ozempic",
+   "preferred_label_ko": "오젬픽",
+   "inn": {
+    "name": "semaglutide",
+    "status": "unverified_from_memory"
+   },
+   "atc": {
+    "code": "A10BJ06",
+    "status": "unverified_from_memory"
+   },
+   "mesh": {
+    "descriptor": "Semaglutide",
+    "ui": "D000099194",
+    "status": "verified_nlm_mesh_lookup_2026-10-30"
+   },
+   "icd10": {
+    "status": "not_applicable"
+   },
+   "kcd8": {
+    "status": "not_applicable"
+   },
+   "mfds_product_name_ko": {
+    "name": "오젬픽프리필드펜",
+    "status": "unverified_from_memory"
+   },
+   "surface_forms_added": [
+    "오젬픽®",
+    "Ozempic®",
+    "ozempic"
+   ],
+   "surface_forms_status": "project_addition_unverified",
+   "linked_ingredient_entity": "SEMAGLUTIDE"
+  },
+  "RYBELSUS": {
+   "entity_type": "drug_brand",
+   "preferred_label_en": "Rybelsus",
+   "preferred_label_ko": "리벨서스",
+   "inn": {
+    "name": "semaglutide",
+    "status": "unverified_from_memory"
+   },
+   "atc": {
+    "code": "A10BJ06",
+    "status": "unverified_from_memory",
+    "note": "경구 세마글루타이드도 같은 ATC 코드로 기억함."
+   },
+   "mesh": {
+    "descriptor": "Semaglutide",
+    "ui": "D000099194",
+    "status": "verified_nlm_mesh_lookup_2026-10-30"
+   },
+   "icd10": {
+    "status": "not_applicable"
+   },
+   "kcd8": {
+    "status": "not_applicable"
+   },
+   "mfds_product_name_ko": {
+    "name": "리벨서스정",
+    "status": "unverified_from_memory"
+   },
+   "surface_forms_added": [
+    "Rybelsus®",
+    "rybelsus",
+    "경구 세마글루타이드"
+   ],
+   "surface_forms_status": "project_addition_unverified",
+   "linked_ingredient_entity": "SEMAGLUTIDE"
+  },
+  "GLP1_RA": {
+   "entity_type": "drug_class",
+   "preferred_label_en": "glucagon-like peptide-1 receptor agonist",
+   "preferred_label_ko": "GLP-1 수용체 작용제",
+   "inn": {
+    "status": "not_applicable"
+   },
+   "atc": {
+    "code": "A10BJ",
+    "name": "Glucagon-like peptide-1 (GLP-1) analogues",
+    "status": "unverified_from_memory"
+   },
+   "mesh": {
+    "descriptor": "Glucagon-Like Peptide-1 Receptor Agonists",
+    "ui": "D000097789",
+    "status": "verified_nlm_mesh_lookup_2026-10-30",
+    "note": "2023년 전후 신설 디스크립터로 기억. UI 불확실."
+   },
+   "icd10": {
+    "status": "not_applicable"
+   },
+   "kcd8": {
+    "status": "not_applicable"
+   },
+   "mfds_product_name_ko": {
+    "status": "not_applicable"
+   },
+   "surface_forms_added": [
+    "GLP-1 RAs",
+    "GLP-1RA",
+    "GLP-1RAs",
+    "GLP1-RA",
+    "GLP-1 작용제",
+    "GLP-1 수용체작용제",
+    "글루카곤 유사 펩타이드-1 수용체 작용제",
+    "글루카곤유사펩타이드-1 수용체 작용제",
+    "GLP-1 계열 약물",
+    "GLP-1 계열"
+   ],
+   "surface_forms_status": "project_addition_unverified"
+  },
+  "TIRZEPATIDE": {
+   "entity_type": "drug_ingredient",
+   "preferred_label_en": "tirzepatide",
+   "preferred_label_ko": "티르제파타이드",
+   "inn": {
+    "name": "tirzepatide",
+    "status": "unverified_from_memory"
+   },
+   "atc": {
+    "code": "A10BX16",
+    "status": "unverified_from_memory"
+   },
+   "mesh": {
+    "descriptor": "Tirzepatide",
+    "ui": "D000098860",
+    "status": "verified_nlm_mesh_lookup_2026-10-30"
+   },
+   "icd10": {
+    "status": "not_applicable"
+   },
+   "kcd8": {
+    "status": "not_applicable"
+   },
+   "mfds_product_name_ko": {
+    "name": "마운자로프리필드펜",
+    "status": "unverified_from_memory"
+   },
+   "surface_forms_added": [
+    "Tirzepatide",
+    "티르제파티드",
+    "터제파티드",
+    "마운자로®",
+    "Mounjaro®",
+    "Zepbound®"
+   ],
+   "surface_forms_status": "project_addition_unverified"
+  },
+  "LIRAGLUTIDE": {
+   "entity_type": "drug_ingredient",
+   "preferred_label_en": "liraglutide",
+   "preferred_label_ko": "리라글루타이드",
+   "inn": {
+    "name": "liraglutide",
+    "status": "unverified_from_memory"
+   },
+   "atc": {
+    "code": "A10BJ02",
+    "status": "unverified_from_memory"
+   },
+   "mesh": {
+    "descriptor": "Liraglutide",
+    "ui": "D000069450",
+    "status": "verified_nlm_mesh_lookup_2026-10-30"
+   },
+   "icd10": {
+    "status": "not_applicable"
+   },
+   "kcd8": {
+    "status": "not_applicable"
+   },
+   "mfds_product_name_ko": {
+    "name": "삭센다펜주",
+    "alt": "빅토자펜주",
+    "status": "unverified_from_memory"
+   },
+   "surface_forms_added": [
+    "Liraglutide",
+    "삭센다®",
+    "Saxenda®",
+    "Victoza®"
+   ],
+   "surface_forms_status": "project_addition_unverified"
+  },
+  "GLP1_CONTEXT": {
+   "entity_type": "ambiguous_related_term",
+   "preferred_label_en": "glucagon-like peptide 1",
+   "preferred_label_ko": "GLP-1",
+   "inn": {
+    "status": "not_applicable"
+   },
+   "atc": {
+    "status": "not_applicable",
+    "note": "호르몬 자체를 가리킬 수 있으므로 약물 분류 코드를 붙이지 않음(normalization.json main_news 규칙)."
+   },
+   "mesh": {
+    "descriptor": "Glucagon-Like Peptide 1",
+    "ui": "D052216",
+    "status": "verified_nlm_mesh_lookup_2026-10-30"
+   },
+   "icd10": {
+    "status": "not_applicable"
+   },
+   "kcd8": {
+    "status": "not_applicable"
+   },
+   "mfds_product_name_ko": {
+    "status": "not_applicable"
+   },
+   "surface_forms_added": [
+    "글루카곤 유사 펩타이드-1",
+    "글루카곤유사펩타이드-1",
+    "글루카곤 유사 펩티드-1"
+   ],
+   "surface_forms_status": "project_addition_unverified"
+  },
+  "NAION": {
+   "entity_type": "disease",
+   "preferred_label_en": "nonarteritic anterior ischemic optic neuropathy",
+   "preferred_label_ko": "비동맥염성 앞허혈시신경병증",
+   "mesh": {
+    "descriptor": "Optic Neuropathy, Ischemic",
+    "ui": "D018917",
+    "status": "verified_nlm_mesh_lookup_2026-10-30",
+    "note": "MeSH에 NAION 전용 디스크립터는 없고 상위 개념 '허혈성 시신경병증'으로 연결됨(기억). 비동맥염성/전방 구분은 entry term 수준일 수 있음."
+   },
+   "icd10": {
+    "code": "H47.0",
+    "name_en": "Disorders of optic nerve, not elsewhere classified",
+    "cm_code": "H47.01-",
+    "cm_name_en": "Ischemic optic neuropathy",
+    "status": "verified_who_icd10_2019_inclusion_term",
+    "who_check": "WHO ICD-10 2019 H47.0 Incl.: 'Ischaemic optic neuropathy' (icd.who.int/browse10, 2026-10-30)",
+    "cm_status": "unverified_from_memory (ICD-10-CM은 미국 CDC/CMS 분류, 미대조)"
+   },
+   "kcd8": {
+    "code": "H47.0",
+    "name_ko": "달리 분류되지 않은 시신경의 장애",
+    "status": "unverified_from_memory"
+   },
+   "kma_term_candidate": {
+    "term": "앞허혈시신경병증",
+    "alt": "전방허혈시신경병증",
+    "status": "unverified_from_memory"
+   },
+   "surface_forms_added": [
+    "비동맥염성 전방 허혈성 시신경병증",
+    "비동맥성 전부 허혈성 시신경병증",
+    "비동맥염성 앞허혈시신경병증",
+    "비동맥염성 전방허혈성시신경병증",
+    "비동맥염성 전부 허혈성 시신경병증",
+    "비동맥염 전방 허혈성 시신경병증",
+    "비동맥염성 전방 허혈 시신경병증",
+    "비동맥염성 전방 허혈성 시신경증",
+    "비동맥염성 앞 허혈 시신경병증",
+    "비동맥성 앞허혈시신경병증",
+    "비동맥류성 전방 허혈성 시신경병증",
+    "non-arteritic ischemic optic neuropathy",
+    "nonarteritic ischemic optic neuropathy",
+    "nonarteritic anterior ischaemic optic neuropathy",
+    "anterior ischemic optic neuropathy, nonarteritic"
+   ],
+   "surface_forms_status": "project_addition_unverified"
+  },
+  "GASTROPARESIS": {
+   "entity_type": "disease",
+   "preferred_label_en": "gastroparesis",
+   "preferred_label_ko": "위마비",
+   "mesh": {
+    "descriptor": "Gastroparesis",
+    "ui": "D018589",
+    "status": "verified_nlm_mesh_lookup_2026-10-30"
+   },
+   "icd10": {
+    "code": "K31.8",
+    "name_en": "Other specified diseases of stomach and duodenum",
+    "cm_code": "K31.84",
+    "cm_name_en": "Gastroparesis",
+    "status": "code_title_verified_mapping_unverified",
+    "who_check": "H47 아님. WHO K31.8 제목은 확인했으나 tabular 포함어(Achlorhydria, Gastroptosis, Hourglass contraction)에 gastroparesis 없음. 색인(Alphabetical Index) 배정 미확인.",
+    "cm_status": "unverified_from_memory (ICD-10-CM은 미국 CDC/CMS 분류, 미대조)"
+   },
+   "kcd8": {
+    "code": "K31.8",
+    "name_ko": "위 및 십이지장의 기타 명시된 질환",
+    "status": "unverified_from_memory"
+   },
+   "kma_term_candidate": {
+    "term": "위마비",
+    "alt": "위무력증",
+    "status": "unverified_from_memory"
+   },
+   "surface_forms_added": [
+    "위 마비증",
+    "위마비증",
+    "위부전마비",
+    "위장마비",
+    "위장 마비",
+    "gastric paresis"
+   ],
+   "surface_forms_status": "project_addition_unverified"
+  },
+  "BOWEL_OBSTRUCTION": {
+   "entity_type": "disease_group",
+   "preferred_label_en": "intestinal obstruction",
+   "preferred_label_ko": "장폐색",
+   "preferred_label_ko_note": "normalization.json label '장폐색·장마비' 을 축약한 프로젝트 선택(의학용어집 표준 아님).",
+   "mesh": {
+    "descriptor": "Intestinal Obstruction",
+    "ui": "D007415",
+    "status": "verified_nlm_mesh_lookup_2026-10-30"
+   },
+   "icd10": {
+    "code": "K56",
+    "name_en": "Paralytic ileus and intestinal obstruction without hernia",
+    "status": "verified_who_icd10_2019_title",
+    "who_check": "K56 제목 일치"
+   },
+   "kcd8": {
+    "code": "K56",
+    "name_ko": "탈장이 없는 마비성 장폐색증 및 장폐색",
+    "status": "unverified_from_memory"
+   },
+   "kma_term_candidate": {
+    "term": "창자막힘",
+    "alt": "장폐색",
+    "status": "unverified_from_memory"
+   },
+   "surface_forms_added": [
+    "장 폐색증",
+    "장폐색증",
+    "창자막힘",
+    "창자 막힘",
+    "소장 폐색",
+    "소장폐색",
+    "대장 폐색",
+    "intestinal blockage",
+    "bowel blockage"
+   ],
+   "surface_forms_status": "project_addition_unverified",
+   "subtypes": {
+    "ILEUS": {
+     "preferred_label_en": "ileus",
+     "preferred_label_ko": "장마비",
+     "mesh": {
+      "descriptor": "Ileus",
+      "ui": "D045823",
+      "status": "verified_nlm_mesh_lookup_2026-10-30"
+     },
+     "icd10": {
+      "code": "K56.0",
+      "name_en": "Paralytic ileus",
+      "cm_code": "K56.7",
+      "cm_name_en": "Ileus, unspecified",
+      "status": "verified_who_icd10_2019_title",
+      "who_check": "K56.0 'Paralytic ileus' 제목 일치",
+      "cm_status": "unverified_from_memory (ICD-10-CM은 미국 CDC/CMS 분류, 미대조)"
+     },
+     "kcd8": {
+      "code": "K56.0",
+      "name_ko": "마비성 장폐색증",
+      "status": "unverified_from_memory"
+     },
+     "surface_forms_added": [
+      "마비성 장폐색증",
+      "마비성 장폐쇄",
+      "장 마비",
+      "창자마비",
+      "일레우스"
+     ],
+     "surface_forms_status": "project_addition_unverified"
+    },
+    "PSEUDO_OBSTRUCTION": {
+     "preferred_label_en": "intestinal pseudo-obstruction",
+     "preferred_label_ko": "가성 장폐색",
+     "mesh": {
+      "descriptor": "Intestinal Pseudo-Obstruction",
+      "ui": "D007418",
+      "status": "verified_nlm_mesh_lookup_2026-10-30"
+     },
+     "icd10": {
+      "code": "K59.8",
+      "name_en": "Other specified functional intestinal disorders",
+      "status": "code_title_verified_mapping_unverified",
+      "note": "만성 가성폐색을 K59.8로 두는 것으로 기억하나 확신 없음.",
+      "who_check": "K59.8 제목 일치. 포함어는 'Atony of colon'뿐이라 가성폐색 배정은 미확인."
+     },
+     "kcd8": {
+      "code": "K59.8",
+      "name_ko": "기타 명시된 기능성 장장애",
+      "status": "unverified_from_memory"
+     },
+     "surface_forms_added": [
+      "가성장폐색",
+      "거짓 장폐색",
+      "거짓창자막힘",
+      "가성 장폐쇄",
+      "pseudo obstruction",
+      "pseudoobstruction"
+     ],
+     "surface_forms_status": "project_addition_unverified"
+    }
+   }
+  },
+  "PANCREATITIS": {
+   "entity_type": "disease",
+   "preferred_label_en": "pancreatitis",
+   "preferred_label_ko": "췌장염",
+   "mesh": {
+    "descriptor": "Pancreatitis",
+    "ui": "D010195",
+    "status": "verified_nlm_mesh_lookup_2026-10-30"
+   },
+   "icd10": {
+    "code": "K85",
+    "name_en": "Acute pancreatitis",
+    "alt_code": "K86.1",
+    "alt_name_en": "Other chronic pancreatitis",
+    "status": "verified_who_icd10_2019_inclusion_term",
+    "who_check": "K85 Incl.: 'Pancreatitis: NOS, acute (recurrent) ...'; K86.1 제목 일치"
+   },
+   "kcd8": {
+    "code": "K85",
+    "name_ko": "급성 췌장염",
+    "status": "unverified_from_memory"
+   },
+   "kma_term_candidate": {
+    "term": "이자염",
+    "alt": "췌장염",
+    "status": "unverified_from_memory"
+   },
+   "surface_forms_added": [
+    "이자염",
+    "급성 이자염",
+    "급성췌장염",
+    "췌장 염증",
+    "acute pancreatitis",
+    "Pancreatitis"
+   ],
+   "surface_forms_status": "project_addition_unverified"
+  },
+  "SUICIDALITY": {
+   "entity_type": "disease_group",
+   "preferred_label_en": "suicidal ideation",
+   "preferred_label_ko": "자살사고",
+   "preferred_label_ko_note": "normalization.json label '자살사고·자살행동 관련 안전성' 을 축약한 프로젝트 선택(의학용어집 표준 아님).",
+   "mesh": {
+    "descriptor": "Suicidal Ideation",
+    "ui": "D059020",
+    "status": "verified_nlm_mesh_lookup_2026-10-30"
+   },
+   "icd10": {
+    "code": "R45.8",
+    "name_en": "Other symptoms and signs involving emotional state",
+    "cm_code": "R45.851",
+    "cm_name_en": "Suicidal ideations",
+    "status": "verified_who_icd10_2019_inclusion_term",
+    "who_check": "R45.8 Incl.: 'Suicidal ideation (tendencies)'",
+    "cm_status": "unverified_from_memory (ICD-10-CM은 미국 CDC/CMS 분류, 미대조)"
+   },
+   "kcd8": {
+    "code": "R45.8",
+    "name_ko": "정서상태에 관계된 기타 증상 및 징후",
+    "status": "unverified_from_memory"
+   },
+   "kma_term_candidate": {
+    "term": "자살사고",
+    "alt": "자살생각",
+    "status": "unverified_from_memory"
+   },
+   "surface_forms_added": [
+    "자살 생각",
+    "자살생각",
+    "자살 관념",
+    "자살관념",
+    "자살 성향",
+    "자살성향",
+    "자살 경향",
+    "자살 위험",
+    "자살 사고 및 행동",
+    "suicidal ideations",
+    "suicidal ideation and behavior",
+    "suicide-related"
+   ],
+   "surface_forms_status": "project_addition_unverified",
+   "subtypes": {
+    "BEHAVIOR": {
+     "preferred_label_en": "suicide attempt",
+     "preferred_label_ko": "자살시도",
+     "mesh": {
+      "descriptor": "Suicide, Attempted",
+      "ui": "D013406",
+      "status": "verified_nlm_mesh_lookup_2026-10-30"
+     },
+     "icd10": {
+      "code": "X60-X84",
+      "name_en": "Intentional self-harm",
+      "status": "verified_who_icd10_2019_title",
+      "who_check": "블록 X60-X84 'Intentional self-harm' 제목 일치"
+     },
+     "kcd8": {
+      "code": "X60-X84",
+      "name_ko": "고의적 자해",
+      "status": "unverified_from_memory"
+     },
+     "surface_forms_added": [
+      "자살 기도",
+      "자살기도",
+      "자살 행동",
+      "자살 행위",
+      "suicidal behaviour",
+      "attempted suicide"
+     ],
+     "surface_forms_status": "project_addition_unverified"
+    },
+    "SELF_HARM": {
+     "preferred_label_en": "self-harm",
+     "preferred_label_ko": "자해",
+     "mesh": {
+      "descriptor": "Self-Injurious Behavior",
+      "ui": "D016728",
+      "status": "verified_nlm_mesh_lookup_2026-10-30"
+     },
+     "icd10": {
+      "code": "X60-X84",
+      "name_en": "Intentional self-harm",
+      "status": "verified_who_icd10_2019_title",
+      "who_check": "블록 X60-X84 'Intentional self-harm' 제목 일치"
+     },
+     "kcd8": {
+      "code": "X60-X84",
+      "name_ko": "고의적 자해",
+      "status": "unverified_from_memory"
+     },
+     "surface_forms_added": [
+      "자해 행동",
+      "자해행동",
+      "고의적 자해",
+      "self harm",
+      "self injury",
+      "self-injurious behavior"
+     ],
+     "surface_forms_status": "project_addition_unverified"
+    }
+   }
+  },
+  "THYROID_CANCER": {
+   "entity_type": "disease_group",
+   "preferred_label_en": "thyroid cancer",
+   "preferred_label_ko": "갑상선암",
+   "mesh": {
+    "descriptor": "Thyroid Neoplasms",
+    "ui": "D013964",
+    "status": "verified_nlm_mesh_lookup_2026-10-30"
+   },
+   "icd10": {
+    "code": "C73",
+    "name_en": "Malignant neoplasm of thyroid gland",
+    "status": "verified_who_icd10_2019_title",
+    "who_check": "C73 제목 일치"
+   },
+   "kcd8": {
+    "code": "C73",
+    "name_ko": "갑상선의 악성 신생물",
+    "status": "unverified_from_memory"
+   },
+   "kma_term_candidate": {
+    "term": "갑상샘암",
+    "alt": "갑상선암",
+    "status": "unverified_from_memory"
+   },
+   "surface_forms_added": [
+    "갑상선 암",
+    "갑상샘 암",
+    "갑상선 악성 종양",
+    "갑상선 악성종양",
+    "갑상샘 악성 종양",
+    "thyroid malignancy",
+    "thyroid cancers",
+    "thyroid carcinomas"
+   ],
+   "surface_forms_status": "project_addition_unverified",
+   "subtypes": {
+    "MTC": {
+     "preferred_label_en": "medullary thyroid carcinoma",
+     "preferred_label_ko": "갑상선 수질암",
+     "mesh": {
+      "scr": "Thyroid cancer, medullary",
+      "ui": "C536914",
+      "record_type": "SupplementaryConceptRecord (SCR_Disease)",
+      "related_descriptor": {
+       "descriptor": "Carcinoma, Medullary",
+       "ui": "D018276"
+      },
+      "broader_descriptor_previously_used": {
+       "descriptor": "Carcinoma, Neuroendocrine",
+       "ui": "D018278"
+      },
+      "status": "verified_nlm_mesh_sparql_2026-10-30",
+      "note": "id.nlm.nih.gov SPARQL: term T740853 'Thyroid cancer, medullary' belongs to SCR C536914. Descriptor lookup: 'Carcinoma, Medullary' = D018276. 이전 값(D018278)은 상위 개념이라 교체."
+     },
+     "icd10": {
+      "code": "C73",
+      "name_en": "Malignant neoplasm of thyroid gland",
+      "status": "verified_who_icd10_2019_title",
+      "note": "ICD-10은 조직형을 구분하지 않음. 조직형은 ICD-O-3 8510/3 (수질암)로 기억.",
+      "who_check": "C73 제목 일치 (ICD-10은 조직형 미구분; ICD-O-3 형태 코드는 미대조)"
+     },
+     "kcd8": {
+      "code": "C73",
+      "name_ko": "갑상선의 악성 신생물",
+      "status": "unverified_from_memory"
+     },
+     "surface_forms_added": [
+      "갑상선수질암",
+      "갑상샘수질암",
+      "수질 갑상선암",
+      "갑상선 수질 암종",
+      "갑상샘 속질암",
+      "갑상선 속질암",
+      "medullary thyroid cancer",
+      "medullary carcinoma of the thyroid"
+     ],
+     "surface_forms_status": "project_addition_unverified"
+    },
+    "PTC": {
+     "preferred_label_en": "papillary thyroid carcinoma",
+     "preferred_label_ko": "갑상선 유두암",
+     "mesh": {
+      "descriptor": "Thyroid Cancer, Papillary",
+      "ui": "D000077273",
+      "status": "verified_nlm_mesh_lookup_2026-10-30"
+     },
+     "icd10": {
+      "code": "C73",
+      "name_en": "Malignant neoplasm of thyroid gland",
+      "status": "verified_who_icd10_2019_title",
+      "who_check": "C73 제목 일치 (ICD-10은 조직형 미구분; ICD-O-3 형태 코드는 미대조)"
+     },
+     "kcd8": {
+      "code": "C73",
+      "name_ko": "갑상선의 악성 신생물",
+      "status": "unverified_from_memory"
+     },
+     "surface_forms_added": [
+      "갑상선유두암",
+      "갑상샘유두암",
+      "유두 갑상선암",
+      "갑상선 유두 암종",
+      "갑상샘 유두 암",
+      "papillary thyroid cancer",
+      "PTC"
+     ],
+     "surface_forms_status": "project_addition_unverified"
+    }
+   }
+  },
+  "GALLBLADDER": {
+   "entity_type": "disease_group",
+   "preferred_label_en": "gallbladder disease",
+   "preferred_label_ko": "담석·담낭질환",
+   "mesh": {
+    "descriptor": "Gallbladder Diseases",
+    "ui": "D005705",
+    "status": "verified_nlm_mesh_lookup_2026-10-30"
+   },
+   "icd10": {
+    "code": "K80-K82",
+    "name_en": "Disorders of gallbladder, biliary tract and pancreas (gallbladder part)",
+    "status": "project_grouping_of_verified_categories",
+    "who_check": "'K80-K82'는 WHO 블록이 아님(WHO 블록은 K80-K87). K80·K81 제목은 확인; 묶음은 프로젝트 정의."
+   },
+   "kcd8": {
+    "code": "K80-K82",
+    "name_ko": "담낭, 담도 및 췌장의 장애(담낭 부분)",
+    "status": "unverified_from_memory"
+   },
+   "kma_term_candidate": {
+    "term": "쓸개질환",
+    "alt": "담낭질환",
+    "status": "unverified_from_memory"
+   },
+   "surface_forms_added": [],
+   "surface_forms_status": "project_addition_unverified",
+   "note": "normalization.json에서 exact_aliases가 비어 있고 하위유형만 있으므로 그룹 수준 표면형은 추가하지 않음(담낭질환 등은 expansion_only로 유지).",
+   "subtypes": {
+    "CHOLELITHIASIS": {
+     "preferred_label_en": "cholelithiasis",
+     "preferred_label_ko": "담석증",
+     "mesh": {
+      "descriptor": "Cholelithiasis",
+      "ui": "D002769",
+      "status": "verified_nlm_mesh_lookup_2026-10-30"
+     },
+     "icd10": {
+      "code": "K80",
+      "name_en": "Cholelithiasis",
+      "status": "verified_who_icd10_2019_title",
+      "who_check": "K80 'Cholelithiasis' 제목 일치"
+     },
+     "kcd8": {
+      "code": "K80",
+      "name_ko": "담석증",
+      "status": "unverified_from_memory"
+     },
+     "surface_forms_added": [
+      "쓸개돌",
+      "쓸개돌증",
+      "담낭 결석",
+      "담낭결석",
+      "쓸개 결석",
+      "담도 결석",
+      "gallstone",
+      "gall stones",
+      "gallstone disease",
+      "biliary stones"
+     ],
+     "surface_forms_status": "project_addition_unverified"
+    },
+    "CHOLECYSTITIS": {
+     "preferred_label_en": "cholecystitis",
+     "preferred_label_ko": "담낭염",
+     "mesh": {
+      "descriptor": "Cholecystitis",
+      "ui": "D002764",
+      "status": "verified_nlm_mesh_lookup_2026-10-30"
+     },
+     "icd10": {
+      "code": "K81",
+      "name_en": "Cholecystitis",
+      "status": "verified_who_icd10_2019_title",
+      "who_check": "K81 'Cholecystitis' 제목 일치"
+     },
+     "kcd8": {
+      "code": "K81",
+      "name_ko": "담낭염",
+      "status": "unverified_from_memory"
+     },
+     "surface_forms_added": [
+      "쓸개염",
+      "급성 담낭염",
+      "급성담낭염",
+      "acute cholecystitis"
+     ],
+     "surface_forms_status": "project_addition_unverified"
+    }
+   }
+  },
+  "GI_SYMPTOMS": {
+   "entity_type": "symptom_group",
+   "preferred_label_en": "gastrointestinal symptoms",
+   "preferred_label_ko": "위장관 증상",
+   "preferred_label_ko_note": "normalization.json label '흔한 위장관 증상(확장 후보)' 을 축약한 프로젝트 선택(의학용어집 표준 아님).",
+   "mesh": {
+    "descriptor": "Gastrointestinal Diseases",
+    "ui": "D005767",
+    "status": "verified_nlm_mesh_lookup_2026-10-30",
+    "note": "증상군 묶음에 정확히 대응하는 MeSH 디스크립터 없음. 상위 분류만 참고용으로 둠. 분석은 하위유형 단위로."
+   },
+   "icd10": {
+    "code": "R10-R19",
+    "name_en": "Symptoms and signs involving the digestive system and abdomen",
+    "status": "verified_who_icd10_2019_title",
+    "who_check": "블록 R10-R19 제목 일치"
+   },
+   "kcd8": {
+    "code": "R10-R19",
+    "name_ko": "소화계통 및 복부에 관계된 증상 및 징후",
+    "status": "unverified_from_memory"
+   },
+   "surface_forms_added": [],
+   "surface_forms_status": "project_addition_unverified",
+   "note": "normalization.json 규칙대로 그룹 수준 매칭은 하지 않고 하위유형만 매칭한다.",
+   "subtypes": {
+    "NAUSEA": {
+     "preferred_label_en": "nausea",
+     "preferred_label_ko": "오심",
+     "mesh": {
+      "descriptor": "Nausea",
+      "ui": "D009325",
+      "status": "verified_nlm_mesh_lookup_2026-10-30"
+     },
+     "icd10": {
+      "code": "R11",
+      "name_en": "Nausea and vomiting",
+      "cm_code": "R11.0",
+      "cm_name_en": "Nausea",
+      "status": "verified_who_icd10_2019_title",
+      "who_check": "R11 'Nausea and vomiting' 제목 일치",
+      "cm_status": "unverified_from_memory (ICD-10-CM은 미국 CDC/CMS 분류, 미대조)"
+     },
+     "kcd8": {
+      "code": "R11",
+      "name_ko": "오심 및 구토",
+      "status": "unverified_from_memory"
+     },
+     "surface_forms_added": [
+      "구역",
+      "구역질",
+      "메스꺼움",
+      "속 메스꺼움",
+      "nauseous"
+     ],
+     "surface_forms_status": "project_addition_unverified"
+    },
+    "VOMITING": {
+     "preferred_label_en": "vomiting",
+     "preferred_label_ko": "구토",
+     "mesh": {
+      "descriptor": "Vomiting",
+      "ui": "D014839",
+      "status": "verified_nlm_mesh_lookup_2026-10-30"
+     },
+     "icd10": {
+      "code": "R11",
+      "name_en": "Nausea and vomiting",
+      "cm_code": "R11.1-",
+      "cm_name_en": "Vomiting",
+      "status": "verified_who_icd10_2019_title",
+      "who_check": "R11 'Nausea and vomiting' 제목 일치",
+      "cm_status": "unverified_from_memory (ICD-10-CM은 미국 CDC/CMS 분류, 미대조)"
+     },
+     "kcd8": {
+      "code": "R11",
+      "name_ko": "오심 및 구토",
+      "status": "unverified_from_memory"
+     },
+     "surface_forms_added": [
+      "구토 증상",
+      "토함",
+      "emesis",
+      "vomit"
+     ],
+     "surface_forms_status": "project_addition_unverified"
+    },
+    "DIARRHEA": {
+     "preferred_label_en": "diarrhea",
+     "preferred_label_ko": "설사",
+     "mesh": {
+      "descriptor": "Diarrhea",
+      "ui": "D003967",
+      "status": "verified_nlm_mesh_lookup_2026-10-30"
+     },
+     "icd10": {
+      "code": "K59.1",
+      "name_en": "Functional diarrhoea",
+      "alt_code": "A09",
+      "alt_name_en": "Other gastroenteritis and colitis of infectious and unspecified origin",
+      "cm_code": "R19.7",
+      "cm_name_en": "Diarrhea, unspecified",
+      "status": "verified_who_icd10_2019_title",
+      "who_check": "K59.1 'Functional diarrhoea', A09 제목 일치",
+      "cm_status": "unverified_from_memory (ICD-10-CM은 미국 CDC/CMS 분류, 미대조)"
+     },
+     "kcd8": {
+      "code": "K59.1",
+      "name_ko": "기능성 설사",
+      "status": "unverified_from_memory"
+     },
+     "surface_forms_added": [
+      "설사 증상",
+      "diarrheal",
+      "loose stools"
+     ],
+     "surface_forms_status": "project_addition_unverified"
+    },
+    "CONSTIPATION": {
+     "preferred_label_en": "constipation",
+     "preferred_label_ko": "변비",
+     "mesh": {
+      "descriptor": "Constipation",
+      "ui": "D003248",
+      "status": "verified_nlm_mesh_lookup_2026-10-30"
+     },
+     "icd10": {
+      "code": "K59.0",
+      "name_en": "Constipation",
+      "status": "verified_who_icd10_2019_title",
+      "who_check": "K59.0 'Constipation' 제목 일치"
+     },
+     "kcd8": {
+      "code": "K59.0",
+      "name_ko": "변비",
+      "status": "unverified_from_memory"
+     },
+     "surface_forms_added": [
+      "변비 증상",
+      "심한 변비",
+      "constipated"
+     ],
+     "surface_forms_status": "project_addition_unverified",
+     "note": "'변비'는 BOWEL_OBSTRUCTION의 expansion_only에도 있다. 매칭 모듈은 exact/subtype 별칭만 쓰므로 변비는 CONSTIPATION으로만 라벨된다(normalization.json 규칙: 변비만으로 장폐색 라벨 확정 금지)."
+    }
+   }
+  }
+ },
+ "matching_rule": {
+  "description": "exact alias match after NFKC normalization and whitespace collapse (W5 lecture p.29 NFKC); longest alias first; no stemming of entity names (W5 lecture p.61: 'NER can be used before stemming to protect named entities'; pdftotext 기준)",
+  "source": "W5 lecture",
+  "details": [
+   "정규화 뷰 = unicodedata.normalize('NFKC', text).casefold() 후 연속 공백을 한 칸으로 축약. 원문(raw)은 수정하지 않는다(normalization.json text_rules 1·2).",
+   "별칭 집합(기본) = normalization.json의 drug_entities.aliases, side_effects.exact_aliases, side_effects.subtypes[*]. standard_terms.json의 surface_forms_added(project_addition_unverified)는 기본 매칭표에 넣지 않고 normalize_text(..., include_candidate_forms=True) / --candidate-surface-forms 로만 쓰며 alias_source로 구분한다(사용자 규칙: 사전은 휴리스틱이면 안 됨). expansion_only와 do_not_merge는 매칭에 쓰지 않는다.",
+   "영문·숫자로 시작/끝나는 별칭은 단어 경계(앞뒤가 영숫자가 아님)를 요구한다(normalization.json text_rules 3). 한글이 포함된 다단어 별칭은 띄어쓰기 변형(공백 0개 이상)을 허용한다(같은 규칙).",
+   "길이가 긴 별칭부터 매칭하고, 이미 매칭된 구간과 겹치는 짧은 매칭은 버린다(longest-match-first, 비중첩).",
+   "어간추출·표제어추출을 별칭이나 본문에 적용하지 않는다. 엔티티 인식은 어간추출 전에 끝낸다(W5 lecture p.61, pdftotext 기준; 요약 슬라이드는 p.63)."
+  ]
+ },
+ "verification_log": [
+  {
+   "date": "2026-10-30",
+   "what": "MeSH descriptor names and UIs checked with https://id.nlm.nih.gov/mesh/lookup/descriptor (match=exact)",
+   "result_counts": {
+    "OK": 28,
+    "CORRECTED": 0,
+    "NOT FOUND": 0
+   }
+  },
+  {
+   "date": "2026-10-30",
+   "what": "WHO ICD-10 2019 codes, titles and tabular inclusion terms checked at https://icd.who.int/browse10/2019/en (JsonGetChildrenConcepts, GetConcept). ICD-10-CM cm_code and KCD-8 (koicd.kr 403) not checked."
+  }
+ ]
 }

@@ -1,10 +1,10 @@
 {
- "version": "2026-10-30.1",
+ "version": "2026-10-30.4",
  "source": {
   "primary": "Ripple AM, Mork JG, Knecht LS, Humphreys BL. A retrospective cohort study of structured abstracts in MEDLINE, 1992-2006. J Med Libr Assoc. 2011;99(2):160-163. doi:10.3163/1536-5050.99.2.009; NLM 'Structured Abstracts in MEDLINE' page and its 'Section Heading to Category Mapping' list (https://www.nlm.nih.gov/bsd/policy/structured_abstracts.html, https://structuredabstracts.nlm.nih.gov/)",
   "retrieved": "not retrievable in this environment",
   "status": "unverified_from_memory",
-  "note": "NLM의 5대 범주(BACKGROUND, OBJECTIVE, METHODS, RESULTS, CONCLUSIONS)와 이 범주로의 레이블 매핑은 작성자의 기억에 의존했다. 네트워크가 가능할 때 NLM 공개 매핑 목록과 대조하고 provenance를 nlm_list로 갱신할 것."
+  "note": "NLM의 5대 범주(BACKGROUND, OBJECTIVE, METHODS, RESULTS, CONCLUSIONS)와 이 범주로의 레이블 매핑은 작성자의 기억에 의존했다. 네트워크가 가능할 때 NLM 공개 매핑 목록과 대조하고 provenance를 nlm_list로 갱신할 것. 2026-10-30.2: 23편이 실릴 가능성이 큰 JAMA/BMJ 계열 레이블 CONTEXT, PATIENTS, MEASUREMENTS, MAIN OUTCOME MEASURE(S), DESIGN AND SETTING 추가(기억 의존). 표에 없는 레이블은 report stage 가 unknown_section_labels 로 출력하므로 cues 통계를 쓰기 전에 사람이 표에 추가해야 한다."
  },
  "categories": {
   "BACKGROUND": "drop",
@@ -24,143 +24,334 @@
  "provenance_values": {
   "nlm_list": "NLM 공개 매핑표에서 직접 확인함(현재 없음)",
   "nlm_list_unverified_from_memory": "NLM 매핑표에 있다고 기억하나 원문 대조 못 함",
-  "project_decision": "NLM 매핑이 없거나 불확실하여 프로젝트 규칙(README_ko §5, Notion ②)으로 결정"
+  "project_decision": "NLM 매핑이 없거나 불확실하여 프로젝트 규칙(README_ko §5, Notion ②)으로 결정",
+  "nlm_assigned_in_medline": "NLM이 MEDLINE 레코드에 실제로 부여한 NlmCategory(PubMed XML)를 집계해 다수 범주를 채택. 원 매핑 목록 대신 NLM 자체 부여 결과로 검증함."
  },
  "labels": {
   "IMPORTANCE": {
-   "category": "BACKGROUND",
-   "provenance": "nlm_list_unverified_from_memory",
-   "note": "JAMA 계열 첫 섹션. NLM 매핑표에서 BACKGROUND로 기억하나 원문 확인 불가."
+   "category": "OBJECTIVE",
+   "provenance": "nlm_assigned_in_medline",
+   "note": "JAMA 계열 첫 섹션. NLM 매핑표에서 BACKGROUND로 기억하나 원문 확인 불가.",
+   "previous_category_unverified": "BACKGROUND",
+   "evidence": {
+    "nlm_category_counts": {
+     "OBJECTIVE": 731
+    },
+    "n_records_label_seen": 731,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
   },
   "OBJECTIVE": {
    "category": "OBJECTIVE",
-   "provenance": "nlm_list_unverified_from_memory",
-   "note": "NLM 5대 범주명과 동일."
+   "provenance": "nlm_assigned_in_medline",
+   "note": "NLM 5대 범주명과 동일.",
+   "evidence": {
+    "nlm_category_counts": {
+     "OBJECTIVE": 1188
+    },
+    "n_records_label_seen": 1188,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
   },
   "OBJECTIVES": {
    "category": "OBJECTIVE",
-   "provenance": "nlm_list_unverified_from_memory",
-   "note": "복수형. NLM 매핑표에 포함된 것으로 기억."
+   "provenance": "nlm_assigned_in_medline",
+   "note": "복수형. NLM 매핑표에 포함된 것으로 기억.",
+   "evidence": {
+    "nlm_category_counts": {
+     "OBJECTIVE": 462
+    },
+    "n_records_label_seen": 462,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
   },
   "DESIGN": {
    "category": "METHODS",
-   "provenance": "nlm_list_unverified_from_memory",
-   "note": "JAMA 계열 연구설계 섹션."
+   "provenance": "nlm_assigned_in_medline",
+   "note": "JAMA 계열 연구설계 섹션.",
+   "evidence": {
+    "nlm_category_counts": {
+     "METHODS": 515
+    },
+    "n_records_label_seen": 515,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
   },
   "SETTING": {
    "category": "METHODS",
-   "provenance": "nlm_list_unverified_from_memory",
-   "note": ""
+   "provenance": "nlm_assigned_in_medline",
+   "note": "",
+   "evidence": {
+    "nlm_category_counts": {
+     "METHODS": 335
+    },
+    "n_records_label_seen": 335,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
   },
   "PARTICIPANTS": {
    "category": "METHODS",
-   "provenance": "nlm_list_unverified_from_memory",
-   "note": ""
+   "provenance": "nlm_assigned_in_medline",
+   "note": "",
+   "evidence": {
+    "nlm_category_counts": {
+     "METHODS": 324
+    },
+    "n_records_label_seen": 324,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
   },
   "DESIGN, SETTING, AND PARTICIPANTS": {
    "category": "METHODS",
-   "provenance": "nlm_list_unverified_from_memory",
-   "note": "JAMA 계열 복합 레이블."
+   "provenance": "nlm_assigned_in_medline",
+   "note": "JAMA 계열 복합 레이블.",
+   "evidence": {
+    "nlm_category_counts": {
+     "METHODS": 569
+    },
+    "n_records_label_seen": 569,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
   },
   "DESIGN, SETTING, PARTICIPANTS": {
    "category": "METHODS",
-   "provenance": "nlm_list_unverified_from_memory",
-   "note": "위 레이블의 변형(AND 생략). Europe PMC 텍스트에서 실제 출현 여부는 데이터로 확인."
+   "provenance": "nlm_assigned_in_medline",
+   "note": "위 레이블의 변형(AND 생략). Europe PMC 텍스트에서 실제 출현 여부는 데이터로 확인.",
+   "evidence": {
+    "nlm_category_counts": {
+     "METHODS": 2
+    },
+    "n_records_label_seen": 2,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
   },
   "EXPOSURE": {
    "category": "METHODS",
-   "provenance": "nlm_list_unverified_from_memory",
-   "note": ""
+   "provenance": "nlm_assigned_in_medline",
+   "note": "",
+   "evidence": {
+    "nlm_category_counts": {
+     "METHODS": 16
+    },
+    "n_records_label_seen": 16,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
   },
   "EXPOSURES": {
    "category": "METHODS",
-   "provenance": "nlm_list_unverified_from_memory",
-   "note": ""
+   "provenance": "nlm_assigned_in_medline",
+   "note": "",
+   "evidence": {
+    "nlm_category_counts": {
+     "METHODS": 154
+    },
+    "n_records_label_seen": 154,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
   },
   "INTERVENTION": {
    "category": "METHODS",
-   "provenance": "nlm_list_unverified_from_memory",
-   "note": ""
+   "provenance": "nlm_assigned_in_medline",
+   "note": "",
+   "evidence": {
+    "nlm_category_counts": {
+     "METHODS": 88
+    },
+    "n_records_label_seen": 88,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
   },
   "INTERVENTIONS": {
    "category": "METHODS",
-   "provenance": "nlm_list_unverified_from_memory",
-   "note": ""
+   "provenance": "nlm_assigned_in_medline",
+   "note": "",
+   "evidence": {
+    "nlm_category_counts": {
+     "METHODS": 206
+    },
+    "n_records_label_seen": 206,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
   },
   "MAIN OUTCOME AND MEASURE": {
    "category": "METHODS",
-   "provenance": "nlm_list_unverified_from_memory",
-   "note": "JAMA 계열. 결과변수 정의이므로 NLM은 METHODS로 분류하는 것으로 기억."
+   "provenance": "nlm_assigned_in_medline",
+   "note": "JAMA 계열. 결과변수 정의이므로 NLM은 METHODS로 분류하는 것으로 기억.",
+   "evidence": {
+    "nlm_category_counts": {
+     "METHODS": 5
+    },
+    "n_records_label_seen": 5,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
   },
   "MAIN OUTCOMES AND MEASURES": {
    "category": "METHODS",
-   "provenance": "nlm_list_unverified_from_memory",
-   "note": "JAMA 계열. 위와 동일."
+   "provenance": "nlm_assigned_in_medline",
+   "note": "JAMA 계열. 위와 동일.",
+   "evidence": {
+    "nlm_category_counts": {
+     "METHODS": 634
+    },
+    "n_records_label_seen": 634,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
   },
   "RESULTS": {
    "category": "RESULTS",
-   "provenance": "nlm_list_unverified_from_memory",
-   "note": "NLM 5대 범주명과 동일."
+   "provenance": "nlm_assigned_in_medline",
+   "note": "NLM 5대 범주명과 동일.",
+   "evidence": {
+    "nlm_category_counts": {
+     "RESULTS": 2887
+    },
+    "n_records_label_seen": 2887,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
   },
   "CONCLUSIONS": {
    "category": "CONCLUSIONS",
-   "provenance": "nlm_list_unverified_from_memory",
-   "note": "NLM 5대 범주명과 동일."
+   "provenance": "nlm_assigned_in_medline",
+   "note": "NLM 5대 범주명과 동일.",
+   "evidence": {
+    "nlm_category_counts": {
+     "CONCLUSIONS": 1378
+    },
+    "n_records_label_seen": 1378,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
   },
   "CONCLUSIONS AND RELEVANCE": {
    "category": "CONCLUSIONS",
-   "provenance": "nlm_list_unverified_from_memory",
-   "note": "JAMA 계열 마지막 섹션."
+   "provenance": "nlm_assigned_in_medline",
+   "note": "JAMA 계열 마지막 섹션.",
+   "evidence": {
+    "nlm_category_counts": {
+     "CONCLUSIONS": 721
+    },
+    "n_records_label_seen": 721,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
   },
   "CONCLUSION AND RELEVANCE": {
    "category": "CONCLUSIONS",
-   "provenance": "nlm_list_unverified_from_memory",
-   "note": "단수형 변형."
+   "provenance": "nlm_assigned_in_medline",
+   "note": "단수형 변형.",
+   "evidence": {
+    "nlm_category_counts": {
+     "CONCLUSIONS": 3
+    },
+    "n_records_label_seen": 3,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
   },
   "BACKGROUND": {
    "category": "BACKGROUND",
-   "provenance": "nlm_list_unverified_from_memory",
-   "note": "NLM 5대 범주명과 동일."
+   "provenance": "nlm_assigned_in_medline",
+   "note": "NLM 5대 범주명과 동일.",
+   "evidence": {
+    "nlm_category_counts": {
+     "BACKGROUND": 1282
+    },
+    "n_records_label_seen": 1282,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
   },
   "METHODS": {
    "category": "METHODS",
-   "provenance": "nlm_list_unverified_from_memory",
-   "note": "NLM 5대 범주명과 동일."
+   "provenance": "nlm_assigned_in_medline",
+   "note": "NLM 5대 범주명과 동일.",
+   "evidence": {
+    "nlm_category_counts": {
+     "METHODS": 1855
+    },
+    "n_records_label_seen": 1855,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
   },
   "FINDINGS": {
    "category": "RESULTS",
-   "provenance": "nlm_list_unverified_from_memory",
-   "note": "Lancet 계열의 결과 섹션."
+   "provenance": "nlm_assigned_in_medline",
+   "note": "Lancet 계열의 결과 섹션.",
+   "evidence": {
+    "nlm_category_counts": {
+     "RESULTS": 226
+    },
+    "n_records_label_seen": 226,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
   },
   "INTERPRETATION": {
    "category": "CONCLUSIONS",
-   "provenance": "nlm_list_unverified_from_memory",
-   "note": "Lancet 계열의 결론 섹션."
+   "provenance": "nlm_assigned_in_medline",
+   "note": "Lancet 계열의 결론 섹션.",
+   "evidence": {
+    "nlm_category_counts": {
+     "CONCLUSIONS": 200
+    },
+    "n_records_label_seen": 200,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
   },
   "FUNDING": {
    "category": "BACKGROUND",
-   "provenance": "project_decision",
-   "note": "Lancet 계열 연구비 출처 섹션. NLM 매핑표상의 범주는 기억이 불확실(BACKGROUND로 기억)하여 project_decision으로 표기. 분석 내용(불확실성 표현)이 없는 비본문 섹션이므로 drop. 기본 범주 BACKGROUND의 drop 규칙과 결과가 같다."
+   "provenance": "nlm_assigned_in_medline",
+   "note": "Lancet 계열 연구비 출처 섹션. NLM 매핑표상의 범주는 기억이 불확실(BACKGROUND로 기억)하여 project_decision으로 표기. 분석 내용(불확실성 표현)이 없는 비본문 섹션이므로 drop. 기본 범주 BACKGROUND의 drop 규칙과 결과가 같다.",
+   "evidence": {
+    "nlm_category_counts": {
+     "BACKGROUND": 201
+    },
+    "n_records_label_seen": 201,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
   },
   "AIM": {
    "category": "OBJECTIVE",
-   "provenance": "nlm_list_unverified_from_memory",
-   "note": ""
+   "provenance": "nlm_assigned_in_medline",
+   "note": "",
+   "evidence": {
+    "nlm_category_counts": {
+     "OBJECTIVE": 140
+    },
+    "n_records_label_seen": 140,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
   },
   "AIMS": {
    "category": "OBJECTIVE",
-   "provenance": "nlm_list_unverified_from_memory",
-   "note": ""
+   "provenance": "nlm_assigned_in_medline",
+   "note": "",
+   "evidence": {
+    "nlm_category_counts": {
+     "OBJECTIVE": 283
+    },
+    "n_records_label_seen": 283,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
   },
   "PURPOSE": {
    "category": "OBJECTIVE",
-   "provenance": "nlm_list_unverified_from_memory",
-   "note": ""
+   "provenance": "nlm_assigned_in_medline",
+   "note": "",
+   "evidence": {
+    "nlm_category_counts": {
+     "OBJECTIVE": 192
+    },
+    "n_records_label_seen": 192,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
   },
   "INTRODUCTION": {
    "category": "BACKGROUND",
-   "provenance": "nlm_list_unverified_from_memory",
-   "note": ""
+   "provenance": "nlm_assigned_in_medline",
+   "note": "",
+   "evidence": {
+    "nlm_category_counts": {
+     "BACKGROUND": 303
+    },
+    "n_records_label_seen": 303,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
   },
   "RATIONALE": {
    "category": "BACKGROUND",
@@ -168,44 +359,101 @@
    "note": ""
   },
   "SIGNIFICANCE": {
-   "category": "BACKGROUND",
-   "provenance": "project_decision",
-   "note": "NLM 매핑 범주가 기억에 없음. 프로젝트 결정: 연구 의의(배경) 서술로 보고 BACKGROUND→drop. 단, 초록 말미에 오는 경우 결론적 함의일 수 있으므로 위치가 마지막이면 수작업 확인 권장."
+   "category": "CONCLUSIONS",
+   "provenance": "nlm_assigned_in_medline",
+   "note": "NLM 매핑 범주가 기억에 없음. 프로젝트 결정: 연구 의의(배경) 서술로 보고 BACKGROUND→drop. 단, 초록 말미에 오는 경우 결론적 함의일 수 있으므로 위치가 마지막이면 수작업 확인 권장.",
+   "previous_category_unverified": "BACKGROUND",
+   "evidence": {
+    "nlm_category_counts": {
+     "CONCLUSIONS": 4
+    },
+    "n_records_label_seen": 4,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
   },
   "MATERIALS AND METHODS": {
    "category": "METHODS",
-   "provenance": "nlm_list_unverified_from_memory",
-   "note": ""
+   "provenance": "nlm_assigned_in_medline",
+   "note": "",
+   "evidence": {
+    "nlm_category_counts": {
+     "METHODS": 112
+    },
+    "n_records_label_seen": 112,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
   },
   "PATIENTS AND METHODS": {
    "category": "METHODS",
-   "provenance": "nlm_list_unverified_from_memory",
-   "note": ""
+   "provenance": "nlm_assigned_in_medline",
+   "note": "",
+   "evidence": {
+    "nlm_category_counts": {
+     "METHODS": 9
+    },
+    "n_records_label_seen": 9,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
   },
   "SUBJECTS AND METHODS": {
    "category": "METHODS",
-   "provenance": "nlm_list_unverified_from_memory",
-   "note": ""
+   "provenance": "nlm_assigned_in_medline",
+   "note": "",
+   "evidence": {
+    "nlm_category_counts": {
+     "METHODS": 1
+    },
+    "n_records_label_seen": 1,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
   },
   "RESEARCH DESIGN AND METHODS": {
    "category": "METHODS",
-   "provenance": "nlm_list_unverified_from_memory",
-   "note": "Diabetes Care 계열."
+   "provenance": "nlm_assigned_in_medline",
+   "note": "Diabetes Care 계열.",
+   "evidence": {
+    "nlm_category_counts": {
+     "METHODS": 28
+    },
+    "n_records_label_seen": 28,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
   },
   "STUDY DESIGN": {
    "category": "METHODS",
-   "provenance": "nlm_list_unverified_from_memory",
-   "note": ""
+   "provenance": "nlm_assigned_in_medline",
+   "note": "",
+   "evidence": {
+    "nlm_category_counts": {
+     "METHODS": 3
+    },
+    "n_records_label_seen": 3,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
   },
   "SETTING AND PARTICIPANTS": {
    "category": "METHODS",
-   "provenance": "nlm_list_unverified_from_memory",
-   "note": ""
+   "provenance": "nlm_assigned_in_medline",
+   "note": "",
+   "evidence": {
+    "nlm_category_counts": {
+     "METHODS": 4
+    },
+    "n_records_label_seen": 4,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
   },
   "DATA SOURCES": {
    "category": "METHODS",
-   "provenance": "nlm_list_unverified_from_memory",
-   "note": "체계적 고찰(Annals 구조) 섹션."
+   "provenance": "nlm_assigned_in_medline",
+   "note": "체계적 고찰(Annals 구조) 섹션.",
+   "evidence": {
+    "nlm_category_counts": {
+     "METHODS": 198
+    },
+    "n_records_label_seen": 198,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
   },
   "DATA SOURCES AND METHODS": {
    "category": "METHODS",
@@ -214,23 +462,52 @@
   },
   "STUDY SELECTION": {
    "category": "METHODS",
-   "provenance": "nlm_list_unverified_from_memory",
-   "note": "체계적 고찰 섹션."
+   "provenance": "nlm_assigned_in_medline",
+   "note": "체계적 고찰 섹션.",
+   "evidence": {
+    "nlm_category_counts": {
+     "METHODS": 131
+    },
+    "n_records_label_seen": 131,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
   },
   "DATA EXTRACTION": {
    "category": "METHODS",
-   "provenance": "nlm_list_unverified_from_memory",
-   "note": "체계적 고찰 섹션."
+   "provenance": "nlm_assigned_in_medline",
+   "note": "체계적 고찰 섹션.",
+   "evidence": {
+    "nlm_category_counts": {
+     "METHODS": 90
+    },
+    "n_records_label_seen": 90,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
   },
   "DATA SYNTHESIS": {
    "category": "RESULTS",
-   "provenance": "nlm_list_unverified_from_memory",
-   "note": "Annals 체계적 고찰 구조에서 결과에 해당. NLM은 RESULTS로 분류하는 것으로 기억하나 METHODS일 가능성도 있어 확인 필요."
+   "provenance": "nlm_assigned_in_medline",
+   "note": "Annals 체계적 고찰 구조에서 결과에 해당. NLM은 RESULTS로 분류하는 것으로 기억하나 METHODS일 가능성도 있어 확인 필요.",
+   "evidence": {
+    "nlm_category_counts": {
+     "RESULTS": 80
+    },
+    "n_records_label_seen": 80,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
   },
   "MAIN OUTCOMES": {
-   "category": "METHODS",
-   "provenance": "nlm_list_unverified_from_memory",
-   "note": ""
+   "category": "RESULTS",
+   "provenance": "nlm_assigned_in_medline",
+   "note": "",
+   "previous_category_unverified": "METHODS",
+   "evidence": {
+    "nlm_category_counts": {
+     "RESULTS": 2
+    },
+    "n_records_label_seen": 2,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
   },
   "OUTCOMES": {
    "category": "METHODS",
@@ -239,13 +516,27 @@
   },
   "PRIMARY OUTCOME": {
    "category": "METHODS",
-   "provenance": "nlm_list_unverified_from_memory",
-   "note": ""
+   "provenance": "nlm_assigned_in_medline",
+   "note": "",
+   "evidence": {
+    "nlm_category_counts": {
+     "METHODS": 2
+    },
+    "n_records_label_seen": 2,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
   },
   "MAIN RESULTS": {
    "category": "RESULTS",
-   "provenance": "nlm_list_unverified_from_memory",
-   "note": "Cochrane 구조."
+   "provenance": "nlm_assigned_in_medline",
+   "note": "Cochrane 구조.",
+   "evidence": {
+    "nlm_category_counts": {
+     "RESULTS": 86
+    },
+    "n_records_label_seen": 86,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
   },
   "KEY RESULTS": {
    "category": "RESULTS",
@@ -254,8 +545,15 @@
   },
   "RESULT": {
    "category": "RESULTS",
-   "provenance": "nlm_list_unverified_from_memory",
-   "note": "단수형 변형."
+   "provenance": "nlm_assigned_in_medline",
+   "note": "단수형 변형.",
+   "evidence": {
+    "nlm_category_counts": {
+     "RESULTS": 14
+    },
+    "n_records_label_seen": 14,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
   },
   "FINDING": {
    "category": "RESULTS",
@@ -264,8 +562,15 @@
   },
   "CONCLUSION": {
    "category": "CONCLUSIONS",
-   "provenance": "nlm_list_unverified_from_memory",
-   "note": "단수형 변형."
+   "provenance": "nlm_assigned_in_medline",
+   "note": "단수형 변형.",
+   "evidence": {
+    "nlm_category_counts": {
+     "CONCLUSIONS": 969
+    },
+    "n_records_label_seen": 969,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
   },
   "IMPLICATIONS": {
    "category": "CONCLUSIONS",
@@ -279,54 +584,117 @@
   },
   "CLINICAL RELEVANCE": {
    "category": "CONCLUSIONS",
-   "provenance": "nlm_list_unverified_from_memory",
-   "note": ""
+   "provenance": "nlm_assigned_in_medline",
+   "note": "",
+   "evidence": {
+    "nlm_category_counts": {
+     "CONCLUSIONS": 2
+    },
+    "n_records_label_seen": 2,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
   },
   "DISCUSSION": {
    "category": "CONCLUSIONS",
-   "provenance": "project_decision",
-   "note": "NLM 매핑표에서 DISCUSSION은 CONCLUSIONS 범주로 기억되나 불확실. 프로젝트 결정: 저자가 결과를 해석·단정/완화하는 섹션이므로 본 연구의 불확실성 표현 분석 대상에 포함(keep)."
+   "provenance": "nlm_assigned_in_medline",
+   "note": "NLM 매핑표에서 DISCUSSION은 CONCLUSIONS 범주로 기억되나 불확실. 프로젝트 결정: 저자가 결과를 해석·단정/완화하는 섹션이므로 본 연구의 불확실성 표현 분석 대상에 포함(keep).",
+   "evidence": {
+    "nlm_category_counts": {
+     "CONCLUSIONS": 12
+    },
+    "n_records_label_seen": 12,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
   },
   "LIMITATIONS": {
    "category": "CONCLUSIONS",
-   "provenance": "project_decision",
-   "note": "NLM 범주 기억 불확실. 프로젝트 결정: 한계 서술은 헤징(완화) 표현의 핵심 출처이므로 keep."
+   "provenance": "nlm_assigned_in_medline",
+   "note": "NLM 범주 기억 불확실. 프로젝트 결정: 한계 서술은 헤징(완화) 표현의 핵심 출처이므로 keep.",
+   "evidence": {
+    "nlm_category_counts": {
+     "CONCLUSIONS": 68
+    },
+    "n_records_label_seen": 68,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
   },
   "TRIAL REGISTRATION": {
-   "category": "UNKNOWN",
-   "provenance": "project_decision",
+   "category": "BACKGROUND",
+   "provenance": "nlm_assigned_in_medline",
    "note": "등록번호만 포함하는 비본문 섹션. NLM 매핑표의 범주는 기억 불확실. 프로젝트 결정: 분석 텍스트에서 제외(drop)하고 메타데이터로만 보존. category는 UNKNOWN 대신 규칙상 drop 처리하도록 action 필드로 명시.",
-   "action": "drop_non_content"
+   "previous_category_unverified": "UNKNOWN",
+   "evidence": {
+    "nlm_category_counts": {
+     "BACKGROUND": 183
+    },
+    "n_records_label_seen": 183,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
   },
   "REGISTRATION": {
-   "category": "UNKNOWN",
-   "provenance": "project_decision",
+   "category": "BACKGROUND",
+   "provenance": "nlm_assigned_in_medline",
    "note": "TRIAL REGISTRATION과 동일 처리.",
-   "action": "drop_non_content"
+   "previous_category_unverified": "UNKNOWN",
+   "evidence": {
+    "nlm_category_counts": {
+     "BACKGROUND": 6
+    },
+    "n_records_label_seen": 6,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
   },
   "SYSTEMATIC REVIEW REGISTRATION": {
-   "category": "UNKNOWN",
-   "provenance": "project_decision",
+   "category": "BACKGROUND",
+   "provenance": "nlm_assigned_in_medline",
    "note": "PROSPERO 등록번호. TRIAL REGISTRATION과 동일 처리.",
-   "action": "drop_non_content"
+   "previous_category_unverified": "UNKNOWN",
+   "evidence": {
+    "nlm_category_counts": {
+     "BACKGROUND": 16
+    },
+    "n_records_label_seen": 16,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
   },
   "CASE PRESENTATION": {
-   "category": "UNKNOWN",
-   "provenance": "project_decision",
+   "category": "METHODS",
+   "provenance": "nlm_assigned_in_medline",
    "note": "증례보고 구조. NLM 5대 범주에 자연스럽게 대응하지 않음(METHODS 또는 RESULTS로 매핑될 수 있음). 프로젝트 결정: 증례 경과 서술은 결과에 해당하므로 keep. 범주 확정은 NLM 표 확인 후.",
-   "action": "keep_as_results"
+   "previous_category_unverified": "UNKNOWN",
+   "evidence": {
+    "nlm_category_counts": {
+     "METHODS": 2
+    },
+    "n_records_label_seen": 2,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
   },
   "CASE REPORT": {
-   "category": "UNKNOWN",
-   "provenance": "project_decision",
+   "category": "METHODS",
+   "provenance": "nlm_assigned_in_medline",
    "note": "CASE PRESENTATION과 동일 처리.",
-   "action": "keep_as_results"
+   "previous_category_unverified": "UNKNOWN",
+   "evidence": {
+    "nlm_category_counts": {
+     "METHODS": 2
+    },
+    "n_records_label_seen": 2,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
   },
   "CASE DESCRIPTION": {
-   "category": "UNKNOWN",
-   "provenance": "project_decision",
+   "category": "METHODS",
+   "provenance": "nlm_assigned_in_medline",
    "note": "CASE PRESENTATION과 동일 처리.",
-   "action": "keep_as_results"
+   "previous_category_unverified": "UNKNOWN",
+   "evidence": {
+    "nlm_category_counts": {
+     "METHODS": 4
+    },
+    "n_records_label_seen": 4,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
   },
   "KEY POINTS": {
    "category": "UNKNOWN",
@@ -339,9 +707,17 @@
    "note": "Elsevier Highlights는 초록이 아닌 별도 요약. needs_human."
   },
   "SUMMARY": {
-   "category": "UNKNOWN",
-   "provenance": "project_decision",
-   "note": "저널에 따라 초록 전체 또는 결론을 뜻함. needs_human."
+   "category": "CONCLUSIONS",
+   "provenance": "nlm_assigned_in_medline",
+   "note": "저널에 따라 초록 전체 또는 결론을 뜻함. needs_human.",
+   "previous_category_unverified": "UNKNOWN",
+   "evidence": {
+    "nlm_category_counts": {
+     "CONCLUSIONS": 3
+    },
+    "n_records_label_seen": 3,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
   },
   "LAY SUMMARY": {
    "category": "UNKNOWN",
@@ -353,6 +729,218 @@
    "provenance": "project_decision",
    "note": "그림 초록 캡션. 비본문. drop_non_content.",
    "action": "drop_non_content"
+  },
+  "CONTEXT": {
+   "category": "BACKGROUND",
+   "provenance": "nlm_assigned_in_medline",
+   "note": "JAMA 계열(JAMA, JAMA Internal Medicine 등) 첫 섹션. NLM 매핑표에서 BACKGROUND로 기억하나 원문 확인 불가.",
+   "evidence": {
+    "nlm_category_counts": {
+     "BACKGROUND": 24
+    },
+    "n_records_label_seen": 24,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
+  },
+  "PATIENTS": {
+   "category": "METHODS",
+   "provenance": "nlm_assigned_in_medline",
+   "note": "JAMA/Annals 계열 대상자 섹션.",
+   "evidence": {
+    "nlm_category_counts": {
+     "METHODS": 86
+    },
+    "n_records_label_seen": 86,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
+  },
+  "MEASUREMENTS": {
+   "category": "METHODS",
+   "provenance": "nlm_assigned_in_medline",
+   "note": "Annals 계열 측정 섹션.",
+   "evidence": {
+    "nlm_category_counts": {
+     "METHODS": 149
+    },
+    "n_records_label_seen": 149,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
+  },
+  "MAIN OUTCOME MEASURE": {
+   "category": "METHODS",
+   "provenance": "nlm_assigned_in_medline",
+   "note": "JAMA 계열 단수형. 결과변수 정의이므로 METHODS로 기억.",
+   "evidence": {
+    "nlm_category_counts": {
+     "METHODS": 41
+    },
+    "n_records_label_seen": 41,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
+  },
+  "MAIN OUTCOME MEASURES": {
+   "category": "METHODS",
+   "provenance": "nlm_assigned_in_medline",
+   "note": "JAMA 계열 복수형. 위와 동일.",
+   "evidence": {
+    "nlm_category_counts": {
+     "METHODS": 226
+    },
+    "n_records_label_seen": 226,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
+  },
+  "DESIGN AND SETTING": {
+   "category": "METHODS",
+   "provenance": "nlm_assigned_in_medline",
+   "note": "JAMA 계열 복합 레이블(PARTICIPANTS 생략).",
+   "evidence": {
+    "nlm_category_counts": {
+     "METHODS": 10
+    },
+    "n_records_label_seen": 10,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
+  },
+  "BACKGROUND AND AIM": {
+   "category": "OBJECTIVE",
+   "provenance": "nlm_assigned_in_medline",
+   "note": "실제 초록(2026-10-30 수집)에서 관찰. 결합 라벨은 첫 범주(BACKGROUND)로 분류하는 것으로 기억하나 미확인. OBJECTIVE로 분류돼도 둘 다 drop이라 분석 텍스트는 같음.",
+   "previous_category_unverified": "BACKGROUND",
+   "evidence": {
+    "nlm_category_counts": {
+     "OBJECTIVE": 19
+    },
+    "n_records_label_seen": 19,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
+  },
+  "BACKGROUND AND AIMS": {
+   "category": "OBJECTIVE",
+   "provenance": "nlm_assigned_in_medline",
+   "note": "BACKGROUND AND AIM과 동일 처리.",
+   "previous_category_unverified": "BACKGROUND",
+   "evidence": {
+    "nlm_category_counts": {
+     "OBJECTIVE": 36
+    },
+    "n_records_label_seen": 36,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
+  },
+  "DATA EXTRACTION AND SYNTHESIS": {
+   "category": "METHODS",
+   "provenance": "nlm_assigned_in_medline",
+   "note": "실제 초록에서 관찰(JAMA 체계적 고찰 구조). 자료 추출·합성 방법을 기술하는 섹션이라 METHODS로 기억. 미확인.",
+   "evidence": {
+    "nlm_category_counts": {
+     "METHODS": 44
+    },
+    "n_records_label_seen": 44,
+    "how": "PubMed efetch XML AbstractText@NlmCategory, 6,011 records from 22 journal queries, harvested 2026-10-30"
+   }
+  },
+  "FINANCIAL DISCLOSURE(S)": {
+   "category": "UNKNOWN",
+   "provenance": "project_decision",
+   "note": "실제 초록에서 관찰. 이해상충·재정 공개 문구로 연구 주장을 담지 않음. TRIAL REGISTRATION과 같은 비본문 처리(프로젝트 결정).",
+   "action": "drop_non_content"
+  },
+  "FINANCIAL DISCLOSURES": {
+   "category": "UNKNOWN",
+   "provenance": "project_decision",
+   "note": "FINANCIAL DISCLOSURE(S)와 동일.",
+   "action": "drop_non_content"
+  },
+  "PROSPERO REGISTRATION": {
+   "category": "UNKNOWN",
+   "provenance": "project_decision",
+   "note": "실제 초록에서 관찰. SYSTEMATIC REVIEW REGISTRATION과 동일 처리(등록번호, 비본문).",
+   "action": "drop_non_content"
   }
- }
+ },
+ "verification_log": [
+  {
+   "date": "2026-10-30",
+   "method": "Harvest AbstractText Label/NlmCategory pairs from PubMed E-utilities efetch for 6,011 structured-abstract records (journals of the 23 study papers plus JAMA/BMJ/Lancet/Annals/Cochrane, 2012-2025); compare with this dictionary.",
+   "script": "scripts/verify_section_labels.py",
+   "result": {
+    "labels_with_nlm_data": 62,
+    "changed": [
+     {
+      "label": "IMPORTANCE",
+      "from": "BACKGROUND",
+      "action_removed": null,
+      "to": "OBJECTIVE"
+     },
+     {
+      "label": "SIGNIFICANCE",
+      "from": "BACKGROUND",
+      "action_removed": null,
+      "to": "CONCLUSIONS"
+     },
+     {
+      "label": "MAIN OUTCOMES",
+      "from": "METHODS",
+      "action_removed": null,
+      "to": "RESULTS"
+     },
+     {
+      "label": "TRIAL REGISTRATION",
+      "from": "UNKNOWN",
+      "action_removed": "drop_non_content",
+      "to": "BACKGROUND"
+     },
+     {
+      "label": "REGISTRATION",
+      "from": "UNKNOWN",
+      "action_removed": "drop_non_content",
+      "to": "BACKGROUND"
+     },
+     {
+      "label": "SYSTEMATIC REVIEW REGISTRATION",
+      "from": "UNKNOWN",
+      "action_removed": "drop_non_content",
+      "to": "BACKGROUND"
+     },
+     {
+      "label": "CASE PRESENTATION",
+      "from": "UNKNOWN",
+      "action_removed": "keep_as_results",
+      "to": "METHODS"
+     },
+     {
+      "label": "CASE REPORT",
+      "from": "UNKNOWN",
+      "action_removed": "keep_as_results",
+      "to": "METHODS"
+     },
+     {
+      "label": "CASE DESCRIPTION",
+      "from": "UNKNOWN",
+      "action_removed": "keep_as_results",
+      "to": "METHODS"
+     },
+     {
+      "label": "SUMMARY",
+      "from": "UNKNOWN",
+      "action_removed": null,
+      "to": "CONCLUSIONS"
+     },
+     {
+      "label": "BACKGROUND AND AIM",
+      "from": "BACKGROUND",
+      "action_removed": null,
+      "to": "OBJECTIVE"
+     },
+     {
+      "label": "BACKGROUND AND AIMS",
+      "from": "BACKGROUND",
+      "action_removed": null,
+      "to": "OBJECTIVE"
+     }
+    ]
+   }
+  }
+ ]
 }
