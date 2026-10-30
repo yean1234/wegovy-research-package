@@ -1,0 +1,1670 @@
+[
+  {
+    "side_effect": "NAION",
+    "selection_role": "main",
+    "pmid": "38958939",
+    "doi": "10.1001/jamaophthalmol.2024.2296",
+    "title": "Risk of Nonarteritic Anterior Ischemic Optic Neuropathy in Patients Prescribed Semaglutide.",
+    "repo_indexed_date": "2024-08-01",
+    "date_candidates": {
+      "epmc_firstPublicationDate": "2024-08-01",
+      "epmc_printPublicationDate": "2024-08-01",
+      "crossref_published-print": "2024-08-01",
+      "crossref_issued": "2024-08-01",
+      "crossref_created": "2024-07-03",
+      "pubmed_pubdate": "2024-08-01",
+      "pubmed_entrez": "2024-07-03"
+    },
+    "online_first_date": "2024-07-03",
+    "online_first_source": [
+      "crossref_created",
+      "pubmed_entrez"
+    ],
+    "journal_title": "JAMA ophthalmology",
+    "journal_iso": "JAMA Ophthalmol",
+    "authors": [
+      {
+        "last": "Hathaway",
+        "full": "Hathaway JT",
+        "affiliation": "Harvard T.H. Chan School of Public Health, Boston, Massachusetts.; Department of Ophthalmology, Massachusetts Eye and Ear, Harvard Medical School, Boston.; Neuro-Ophthalmology Service, Massachusetts Eye and Ear, Harvard Medical School, Boston."
+      },
+      {
+        "last": "Shah",
+        "full": "Shah MP",
+        "affiliation": "Department of Ophthalmology, Massachusetts Eye and Ear, Harvard Medical School, Boston.; Neuro-Ophthalmology Service, Massachusetts Eye and Ear, Harvard Medical School, Boston."
+      },
+      {
+        "last": "Hathaway",
+        "full": "Hathaway DB",
+        "affiliation": "Department of Psychiatry, Brigham and Women's Hospital, Boston, Massachusetts."
+      },
+      {
+        "last": "Zekavat",
+        "full": "Zekavat SM",
+        "affiliation": "Department of Ophthalmology, Massachusetts Eye and Ear, Harvard Medical School, Boston."
+      },
+      {
+        "last": "Krasniqi",
+        "full": "Krasniqi D",
+        "affiliation": "Department of Ophthalmology, Massachusetts Eye and Ear, Harvard Medical School, Boston.; Neuro-Ophthalmology Service, Massachusetts Eye and Ear, Harvard Medical School, Boston."
+      },
+      {
+        "last": "Gittinger",
+        "full": "Gittinger JW Jr",
+        "affiliation": "Department of Ophthalmology, Massachusetts Eye and Ear, Harvard Medical School, Boston.; Neuro-Ophthalmology Service, Massachusetts Eye and Ear, Harvard Medical School, Boston."
+      },
+      {
+        "last": "Cestari",
+        "full": "Cestari D",
+        "affiliation": "Department of Ophthalmology, Massachusetts Eye and Ear, Harvard Medical School, Boston.; Neuro-Ophthalmology Service, Massachusetts Eye and Ear, Harvard Medical School, Boston."
+      },
+      {
+        "last": "Mallery",
+        "full": "Mallery R",
+        "affiliation": "Department of Ophthalmology, Massachusetts Eye and Ear, Harvard Medical School, Boston.; Neuro-Ophthalmology Service, Massachusetts Eye and Ear, Harvard Medical School, Boston."
+      },
+      {
+        "last": "Abbasi",
+        "full": "Abbasi B",
+        "affiliation": "Department of Ophthalmology, Massachusetts Eye and Ear, Harvard Medical School, Boston.; Neuro-Ophthalmology Service, Massachusetts Eye and Ear, Harvard Medical School, Boston."
+      },
+      {
+        "last": "Bouffard",
+        "full": "Bouffard M",
+        "affiliation": "Department of Ophthalmology, Massachusetts Eye and Ear, Harvard Medical School, Boston.; Neuro-Ophthalmology Service, Massachusetts Eye and Ear, Harvard Medical School, Boston."
+      },
+      {
+        "last": "Chwalisz",
+        "full": "Chwalisz BK",
+        "affiliation": "Department of Ophthalmology, Massachusetts Eye and Ear, Harvard Medical School, Boston.; Neuro-Ophthalmology Service, Massachusetts Eye and Ear, Harvard Medical School, Boston."
+      },
+      {
+        "last": "Estrela",
+        "full": "Estrela T",
+        "affiliation": "Department of Ophthalmology, Massachusetts Eye and Ear, Harvard Medical School, Boston.; Neuro-Ophthalmology Service, Massachusetts Eye and Ear, Harvard Medical School, Boston."
+      },
+      {
+        "last": "Rizzo",
+        "full": "Rizzo JF 3rd",
+        "affiliation": "Department of Ophthalmology, Massachusetts Eye and Ear, Harvard Medical School, Boston.; Neuro-Ophthalmology Service, Massachusetts Eye and Ear, Harvard Medical School, Boston."
+      }
+    ],
+    "fetched_at": "2026-10-28T19:15:43.785188+00:00"
+  },
+  {
+    "side_effect": "NAION",
+    "selection_role": "main",
+    "pmid": "39976940",
+    "doi": "10.1001/jamaophthalmol.2024.6555",
+    "title": "Semaglutide and Nonarteritic Anterior Ischemic Optic Neuropathy.",
+    "repo_indexed_date": "2025-04-01",
+    "date_candidates": {
+      "epmc_firstPublicationDate": "2025-04-01",
+      "epmc_printPublicationDate": "2025-04-01",
+      "crossref_published-print": "2025-04-01",
+      "crossref_issued": "2025-04-01",
+      "crossref_created": "2025-02-20",
+      "pubmed_pubdate": "2025-04-01",
+      "pubmed_entrez": "2025-02-20"
+    },
+    "online_first_date": "2025-02-20",
+    "online_first_source": [
+      "crossref_created",
+      "pubmed_entrez"
+    ],
+    "journal_title": "JAMA ophthalmology",
+    "journal_iso": "JAMA Ophthalmol",
+    "authors": [
+      {
+        "last": "Cai",
+        "full": "Cai CX",
+        "affiliation": "Wilmer Eye Institute, Johns Hopkins School of Medicine, Baltimore, Maryland.; Biomedical Informatics and Data Science, Division of General Internal Medicine, Department of Medicine, Johns Hopkins University School of Medicine, Baltimore, Maryland."
+      },
+      {
+        "last": "Hribar",
+        "full": "Hribar M",
+        "affiliation": "National Eye Institute, National Institutes of Health, Bethesda, Maryland.; Casey Eye Institute, Department of Medical Informatics and Clinical Epidemiology, Oregon Health & Science University, Portland."
+      },
+      {
+        "last": "Baxter",
+        "full": "Baxter S",
+        "affiliation": "Viterbi Family Department of Ophthalmology and Shiley Eye Institute, University of California San Diego, La Jolla.; Division of Biomedical Informatics, Department of Medicine, University of California San Diego, La Jolla."
+      },
+      {
+        "last": "Goetz",
+        "full": "Goetz K",
+        "affiliation": "National Eye Institute, National Institutes of Health, Bethesda, Maryland."
+      },
+      {
+        "last": "Swaminathan",
+        "full": "Swaminathan SS",
+        "affiliation": "Department of Ophthalmology, Bascom Palmer Eye Institute, University of Miami Miller School of Medicine, Miami, Florida."
+      },
+      {
+        "last": "Flowers",
+        "full": "Flowers A",
+        "affiliation": "Vanderbilt Eye Institute, Department of Neurology, Vanderbilt University Medical Center, Nashville, Tennessee.; Vanderbilt Eye Institute, Department of Ophthalmology, Vanderbilt University Medical Center, Nashville, Tennessee."
+      },
+      {
+        "last": "Brown",
+        "full": "Brown EN",
+        "affiliation": "Vanderbilt Eye Institute, Department of Ophthalmology, Vanderbilt University Medical Center, Nashville, Tennessee."
+      },
+      {
+        "last": "Toy",
+        "full": "Toy B",
+        "affiliation": "Roski Eye Institute, Keck School of Medicine, University of Southern California, Los Angeles, California."
+      },
+      {
+        "last": "Xu",
+        "full": "Xu B",
+        "affiliation": "Roski Eye Institute, Keck School of Medicine, University of Southern California, Los Angeles, California."
+      },
+      {
+        "last": "Chen",
+        "full": "Chen J",
+        "affiliation": "Department of Ophthalmology, Mayo Clinic, Rochester, Minnesota.; Department of Neurology, Mayo Clinic, Rochester, Minnesota."
+      },
+      {
+        "last": "Chen",
+        "full": "Chen A",
+        "affiliation": "Casey Eye Institute, Department of Medical Informatics and Clinical Epidemiology, Oregon Health & Science University, Portland."
+      },
+      {
+        "last": "Wang",
+        "full": "Wang S",
+        "affiliation": "Byers Eye Institute, Department of Ophthalmology, Stanford University, Palo Alto, California."
+      },
+      {
+        "last": "Lee",
+        "full": "Lee C",
+        "affiliation": "Department of Ophthalmology, University of Washington, Seattle.; Karalis Johnson Retina Center, Seattle, Washington."
+      },
+      {
+        "last": "Leng",
+        "full": "Leng T",
+        "affiliation": "Byers Eye Institute at Stanford, Stanford University School of Medicine, Palo Alto, California."
+      },
+      {
+        "last": "Ehrlich",
+        "full": "Ehrlich JR",
+        "affiliation": "Department of Ophthalmology and Visual Sciences, University of Michigan, Ann Arbor.; Survey Research Center, Institute for Social Research, University of Michigan, Ann Arbor."
+      },
+      {
+        "last": "Barkmeier",
+        "full": "Barkmeier A",
+        "affiliation": "Department of Ophthalmology, Mayo Clinic, Rochester, Minnesota."
+      },
+      {
+        "last": "Armbrust",
+        "full": "Armbrust KR",
+        "affiliation": "Department of Ophthalmology and Visual Neurosciences, University of Minnesota, Minneapolis, Minnesota."
+      },
+      {
+        "last": "Boland",
+        "full": "Boland MV",
+        "affiliation": "Department of Ophthalmology, Mass Eye and Ear and Harvard Medical School, Boston, Massachusetts."
+      },
+      {
+        "last": "Dorr",
+        "full": "Dorr D",
+        "affiliation": "Department of Medical Informatics & Clinical Epidemiology, Portland, Oregon."
+      },
+      {
+        "last": "Boyce",
+        "full": "Boyce D",
+        "affiliation": "Johns Hopkins University School of Medicine, Baltimore, Maryland.; Tufts University School of Medicine, Boston, Massachusetts."
+      },
+      {
+        "last": "Alshammari",
+        "full": "Alshammari T",
+        "affiliation": "Department of Clinical Practice, Faculty of Pharmacy, Jazan University, Jazan, Saudi Arabia.; Pharmacy Practice Research Unit, Faculty of Pharmacy, Jazan University, Jazan, Saudi Arabia."
+      },
+      {
+        "last": "Swerdel",
+        "full": "Swerdel J",
+        "affiliation": "Janssen Research and Development, Titusville, New Jersey."
+      },
+      {
+        "last": "Suchard",
+        "full": "Suchard MA",
+        "affiliation": "Department of Biostatistics, UCLA School of Public Health, University of California, Los Angeles, Los Angeles.; VA Informatics and Computing Infrastructure, US Department of Veterans Affairs, Salt Lake City, Utah."
+      },
+      {
+        "last": "Schuemie",
+        "full": "Schuemie M",
+        "affiliation": "Janssen Research and Development, Titusville, New Jersey.; Department of Biostatistics, UCLA School of Public Health, University of California, Los Angeles, Los Angeles."
+      },
+      {
+        "last": "Bu",
+        "full": "Bu F",
+        "affiliation": "Department of Biostatistics, University of Michigan, Ann Arbor."
+      },
+      {
+        "last": "Sena",
+        "full": "Sena AG",
+        "affiliation": "Janssen Research and Development, Titusville, New Jersey.; Department of Medical Informatics, Erasmus University Medical Center, Rotterdam, the Netherlands."
+      },
+      {
+        "last": "Hripcsak",
+        "full": "Hripcsak G",
+        "affiliation": "Department of Biomedical Informatics, Columbia University, New York, New York."
+      },
+      {
+        "last": "Nishimura",
+        "full": "Nishimura A",
+        "affiliation": "Department of Biostatistics, Johns Hopkins Bloomberg School of Public Health, Baltimore, Maryland."
+      },
+      {
+        "last": "Nagy",
+        "full": "Nagy P",
+        "affiliation": "Department of Biomedical Informatics and Data Science, Johns Hopkins School of Medicine, Johns Hopkins University, Baltimore, Maryland."
+      },
+      {
+        "last": "Falconer",
+        "full": "Falconer T",
+        "affiliation": "Department of Biomedical Informatics, Columbia University, New York, New York."
+      },
+      {
+        "last": "DuVall",
+        "full": "DuVall SL",
+        "affiliation": "VA Informatics and Computing Infrastructure, US Department of Veterans Affairs, Salt Lake City, Utah.; Department of Internal Medicine, University of Utah School of Medicine, Salt Lake City."
+      },
+      {
+        "last": "Matheny",
+        "full": "Matheny M",
+        "affiliation": "VA Informatics and Computing Infrastructure, US Department of Veterans Affairs, Nashville, Tennessee."
+      },
+      {
+        "last": "Viernes",
+        "full": "Viernes B",
+        "affiliation": "VA Informatics and Computing Infrastructure, US Department of Veterans Affairs, Salt Lake City, Utah."
+      },
+      {
+        "last": "O'Brien",
+        "full": "O'Brien W",
+        "affiliation": "VA Informatics and Computing Infrastructure, US Department of Veterans Affairs, Salt Lake City, Utah."
+      },
+      {
+        "last": "Zhang",
+        "full": "Zhang L",
+        "affiliation": "Institute for Informatics, Data Science and Biostatistics, Department of Medicine, Washington University in St Louis, St Louis, Missouri."
+      },
+      {
+        "last": "Martin",
+        "full": "Martin B",
+        "affiliation": "Biomedical Informatics and Data Science, Division of General Internal Medicine, Department of Medicine, Johns Hopkins University School of Medicine, Baltimore, Maryland."
+      },
+      {
+        "last": "Westlund",
+        "full": "Westlund E",
+        "affiliation": "Department of Biostatistics, Johns Hopkins Bloomberg School of Public Health, Baltimore, Maryland."
+      },
+      {
+        "last": "Mathioudakis",
+        "full": "Mathioudakis N",
+        "affiliation": "Department of Medicine, Johns Hopkins University School of Medicine, Baltimore, Maryland."
+      },
+      {
+        "last": "Fan",
+        "full": "Fan R",
+        "affiliation": "Institute for Informatics, Data Science and Biostatistics, Department of Medicine, Washington University in St Louis, St Louis, Missouri."
+      },
+      {
+        "last": "Wilcox",
+        "full": "Wilcox A",
+        "affiliation": "Department of Medicine, Washington University in St Louis, St Louis, Missouri."
+      },
+      {
+        "last": "Lai",
+        "full": "Lai A",
+        "affiliation": "Department of Medicine, Washington University in St Louis, St Louis, Missouri."
+      },
+      {
+        "last": "Stocking",
+        "full": "Stocking JC",
+        "affiliation": "Department of Internal Medicine, University of California Davis, Sacramento."
+      },
+      {
+        "last": "Takkouche",
+        "full": "Takkouche S",
+        "affiliation": "Department of Medicine, Division of Diabetes and Endocrinology, Vanderbilt University, Nashville, Tennessee."
+      },
+      {
+        "last": "Lee",
+        "full": "Lee LH",
+        "affiliation": "Vanderbilt University School of Medicine, Nashville, Tennessee."
+      },
+      {
+        "last": "Xie",
+        "full": "Xie Y",
+        "affiliation": "Vanderbilt University School of Medicine, Nashville, Tennessee."
+      },
+      {
+        "last": "Humes",
+        "full": "Humes I",
+        "affiliation": "Oregon Clinical and Translational Research Institute, Oregon Health & Science University, Portland."
+      },
+      {
+        "last": "McCoy",
+        "full": "McCoy DB",
+        "affiliation": "Oregon Clinical and Translational Research Institute, Oregon Health & Science University, Portland."
+      },
+      {
+        "last": "Adibuzzaman",
+        "full": "Adibuzzaman M",
+        "affiliation": "Oregon Clinical and Translational Research Institute, Oregon Health & Science University, Portland."
+      },
+      {
+        "last": "Areaux",
+        "full": "Areaux RG Jr",
+        "affiliation": "Department of Ophthalmology and Visual Neurosciences, University of Minnesota, Minneapolis, Minnesota."
+      },
+      {
+        "last": "Rojas-Carabali",
+        "full": "Rojas-Carabali W",
+        "affiliation": "Lee Kong Chian School of Medicine, Nanyang Technological University, Singapore."
+      },
+      {
+        "last": "Brash",
+        "full": "Brash J",
+        "affiliation": "IQVIA, Real World Solutions, Brighton, United Kingdom."
+      },
+      {
+        "last": "Lee",
+        "full": "Lee DA",
+        "affiliation": "Ruiz Department of Ophthalmology and Visual Science, The University of Texas Health Science Center at Houston, McGovern Medical School, Houston."
+      },
+      {
+        "last": "Weiskopf",
+        "full": "Weiskopf NG",
+        "affiliation": "Department of Medical Informatics and Clinical Epidemiology, Oregon Health & Science University, Portland."
+      },
+      {
+        "last": "Mawn",
+        "full": "Mawn L",
+        "affiliation": "Vanderbilt University Medical Center, Nashville, Tennessee."
+      },
+      {
+        "last": "Agrawal",
+        "full": "Agrawal R",
+        "affiliation": "Tan Tock Seng Hospital, Singapore."
+      },
+      {
+        "last": "Morgan-Cooper",
+        "full": "Morgan-Cooper H",
+        "affiliation": "Stanford School of Medicine and Stanford Health Care, Palo Alto, California."
+      },
+      {
+        "last": "Desai",
+        "full": "Desai P",
+        "affiliation": "Stanford School of Medicine and Stanford Health Care, Palo Alto, California."
+      },
+      {
+        "last": "Ryan",
+        "full": "Ryan PB",
+        "affiliation": "Columbia University Irving Medical Center, New York, New York.; Johnson & Johnson, Horsham, Pennsylvania."
+      }
+    ],
+    "fetched_at": "2026-10-28T19:15:45.907613+00:00"
+  },
+  {
+    "side_effect": "NAION",
+    "selection_role": "main",
+    "pmid": "39491755",
+    "doi": "10.1016/j.ophtha.2024.10.030",
+    "title": "Association between Semaglutide and Nonarteritic Anterior Ischemic Optic Neuropathy: A Multinational Population-Based Study.",
+    "repo_indexed_date": "2024-11-02",
+    "date_candidates": {
+      "epmc_electronicPublicationDate": "2024-11-02",
+      "epmc_firstPublicationDate": "2024-11-02",
+      "epmc_printPublicationDate": "2025-04-01",
+      "crossref_published-print": "2025-04-01 (partial:2)",
+      "crossref_issued": "2025-04-01 (partial:2)",
+      "crossref_created": "2024-11-02",
+      "pubmed_epubdate": "2024-11-02",
+      "pubmed_entrez": "2024-11-04"
+    },
+    "online_first_date": "2024-11-02",
+    "online_first_source": [
+      "crossref_created",
+      "epmc_electronicPublicationDate",
+      "pubmed_epubdate"
+    ],
+    "journal_title": "Ophthalmology",
+    "journal_iso": "Ophthalmology",
+    "authors": [
+      {
+        "last": "Chou",
+        "full": "Chou CC",
+        "affiliation": "School of Medicine, College of Medicine, National Yang Ming Chiao Tung University, Taipei, Taiwan; Department of Ophthalmology, Taichung Veterans General Hospital, Taichung, Taiwan; Department of Post-Baccalaureate Medicine, College of Medicine, National Chung Hsing University, Taichung, Taiwan."
+      },
+      {
+        "last": "Pan",
+        "full": "Pan SY",
+        "affiliation": "School of Medicine, College of Medicine, National Yang Ming Chiao Tung University, Taipei, Taiwan; Department of Ophthalmology, Taichung Veterans General Hospital, Taichung, Taiwan."
+      },
+      {
+        "last": "Sheen",
+        "full": "Sheen YJ",
+        "affiliation": "School of Medicine, College of Medicine, National Yang Ming Chiao Tung University, Taipei, Taiwan; Department of Post-Baccalaureate Medicine, College of Medicine, National Chung Hsing University, Taichung, Taiwan; Division of Endocrinology and Metabolism, Department of Internal Medicine, Taichung Veterans General Hospital, Taichung City, Taiwan; Center for Quantitative Imaging in Medicine, Department of Medical Research, Taichung Veterans General Hospital, Taichung, Taiwan."
+      },
+      {
+        "last": "Lin",
+        "full": "Lin JF",
+        "affiliation": "Department of Medical Research, Taichung Veterans General Hospital, Taichung, Taiwan."
+      },
+      {
+        "last": "Lin",
+        "full": "Lin CH",
+        "affiliation": "Department of Medical Research, Taichung Veterans General Hospital, Taichung, Taiwan; Department of Public Health, College of Medicine, Fu Jen Catholic University, New Taipei City, Taiwan; Department of Industrial Engineering and Enterprise Information, Tunghai University, Taichung, Taiwan; Institute of Public Health and Community Medicine Research Center, National Yang Ming Chiao Tung University, Taipei, Taiwan."
+      },
+      {
+        "last": "Lin",
+        "full": "Lin HJ",
+        "affiliation": "Eye Center, China Medical University Hospital, Taichung, Taiwan; School of Chinese Medicine, College of Chinese Medicine, China Medical University, Taichung, Taiwan."
+      },
+      {
+        "last": "Wang",
+        "full": "Wang IJ",
+        "affiliation": "Graduate Institute of Biomedical Sciences, China Medical University, Taichung, Taiwan; Department of Ophthalmology, National Taiwan University Hospital, Taipei, Taiwan."
+      },
+      {
+        "last": "Weng",
+        "full": "Weng CH",
+        "affiliation": "Department of Family Medicine, Brown University Warren Alpert Medical School, Providence, Rhode Island; Coastal Medical Lifespan, Providence, Rhode Island. Electronic address: chien-hsiang_weng@brown.edu."
+      }
+    ],
+    "fetched_at": "2026-10-28T19:15:47.553842+00:00"
+  },
+  {
+    "side_effect": "GASTROPARESIS",
+    "selection_role": "main",
+    "pmid": "40175094",
+    "doi": "10.1136/bmjgast-2024-001704",
+    "title": "Comparing the risk of gastroparesis following different modalities for treating obesity: semaglutide versus bupropion-naltrexone versus sleeve gastrectomy - a retrospective cohort study.",
+    "repo_indexed_date": "2025-04-02",
+    "date_candidates": {
+      "epmc_electronicPublicationDate": "2025-04-02",
+      "epmc_firstPublicationDate": "2025-04-02",
+      "epmc_printPublicationDate": "2025-04-01",
+      "crossref_published-online": "2025-04-02",
+      "crossref_published-print": "2025-04-01 (partial:2)",
+      "crossref_issued": "2025-04-01 (partial:2)",
+      "crossref_created": "2025-04-02",
+      "pubmed_epubdate": "2025-04-02",
+      "pubmed_pubdate": "2025-04-02",
+      "pubmed_entrez": "2025-04-02"
+    },
+    "online_first_date": "2025-04-02",
+    "online_first_source": [
+      "crossref_created",
+      "crossref_published-online",
+      "epmc_electronicPublicationDate",
+      "pubmed_entrez",
+      "pubmed_epubdate"
+    ],
+    "journal_title": "BMJ open gastroenterology",
+    "journal_iso": "BMJ Open Gastroenterol",
+    "authors": [
+      {
+        "last": "Aneke-Nash",
+        "full": "Aneke-Nash C",
+        "affiliation": "Gastroenterology & Hepatology, Weill Cornell Medical College, New York, New York, USA."
+      },
+      {
+        "last": "Hung",
+        "full": "Hung KS",
+        "affiliation": "Department of Surgery, Stanford University School of Medicine, Stanford, California, USA kayhung@stanford.edu.; Global Health Economics & Outcomes Research, Intuitive Surgical Inc, Sunnyvale, California, USA."
+      },
+      {
+        "last": "Wall-Wieler",
+        "full": "Wall-Wieler E",
+        "affiliation": "Global Health Economics & Outcomes Research, Intuitive Surgical Inc, Sunnyvale, California, USA."
+      },
+      {
+        "last": "Zheng",
+        "full": "Zheng F",
+        "affiliation": "Global Health Economics & Outcomes Research, Intuitive Surgical Inc, Sunnyvale, California, USA.; Michael E. DeBakey Department of Surgery, Baylor College of Medicine, Houston, Texas, USA."
+      },
+      {
+        "last": "Sharaiha",
+        "full": "Sharaiha RZ",
+        "affiliation": "Gastroenterology & Hepatology, Weill Cornell Medical College, New York, New York, USA."
+      }
+    ],
+    "fetched_at": "2026-10-28T19:15:49.396751+00:00"
+  },
+  {
+    "side_effect": "GASTROPARESIS",
+    "selection_role": "main",
+    "pmid": "38371020",
+    "doi": "10.7759/cureus.52564",
+    "title": "Tendency of Semaglutide to Induce Gastroparesis: A Case Report.",
+    "repo_indexed_date": "2024-01-19",
+    "date_candidates": {
+      "epmc_electronicPublicationDate": "2024-01-19",
+      "epmc_firstPublicationDate": "2024-01-19",
+      "epmc_printPublicationDate": "2024-01-01",
+      "crossref_published-print": "2024-01-19",
+      "crossref_issued": "2024-01-19",
+      "crossref_created": "2024-01-19",
+      "pubmed_epubdate": "2024-01-19",
+      "pubmed_entrez": "2024-02-19"
+    },
+    "online_first_date": "2024-01-19",
+    "online_first_source": [
+      "crossref_created",
+      "epmc_electronicPublicationDate",
+      "pubmed_epubdate"
+    ],
+    "journal_title": "Cureus",
+    "journal_iso": "Cureus",
+    "authors": [
+      {
+        "last": "Chaudhry",
+        "full": "Chaudhry A",
+        "affiliation": "Internal Medicine, St. Dominic Hospital, Jackson, USA."
+      },
+      {
+        "last": "Gabriel",
+        "full": "Gabriel B",
+        "affiliation": "Internal Medicine, St. Dominic Hospital, Jackson, USA."
+      },
+      {
+        "last": "Noor",
+        "full": "Noor J",
+        "affiliation": "Internal Medicine, St. Dominic Hospital, Jackson, USA."
+      },
+      {
+        "last": "Jawad",
+        "full": "Jawad S",
+        "affiliation": "Internal Medicine, Nishtar Medical University, Multan, USA."
+      },
+      {
+        "last": "Challa",
+        "full": "Challa SR",
+        "affiliation": "Gastroenterology, Howard University Hospital, Washington, USA."
+      }
+    ],
+    "fetched_at": "2026-10-28T19:15:51.034151+00:00"
+  },
+  {
+    "side_effect": "GASTROPARESIS",
+    "selection_role": "background",
+    "pmid": "34663102",
+    "doi": "10.1177/23247096211051919",
+    "title": "Medication-Induced Gastroparesis: A Case Report.",
+    "repo_indexed_date": "2021-01-01",
+    "date_candidates": {
+      "epmc_firstPublicationDate": "2021-01-01",
+      "epmc_printPublicationDate": "2021-01-01",
+      "crossref_published-online": "2021-10-18",
+      "crossref_published-print": "2021-01-01 (partial:2)",
+      "crossref_issued": "2021-01-01 (partial:2)",
+      "crossref_created": "2021-10-19",
+      "pubmed_entrez": "2021-10-19"
+    },
+    "online_first_date": "2021-10-18",
+    "online_first_source": [
+      "crossref_published-online"
+    ],
+    "journal_title": "Journal of investigative medicine high impact case reports",
+    "journal_iso": "J Investig Med High Impact Case Rep",
+    "authors": [
+      {
+        "last": "Kalas",
+        "full": "Kalas MA",
+        "affiliation": "Texas Tech University Health Sciences Center, El Paso, USA."
+      },
+      {
+        "last": "Galura",
+        "full": "Galura GM",
+        "affiliation": "Texas Tech University Health Sciences Center, El Paso, USA."
+      },
+      {
+        "last": "McCallum",
+        "full": "McCallum RW",
+        "affiliation": "Texas Tech University Health Sciences Center, El Paso, USA."
+      }
+    ],
+    "fetched_at": "2026-10-28T19:15:52.670622+00:00"
+  },
+  {
+    "side_effect": "PANCREATITIS",
+    "selection_role": "main",
+    "pmid": "38555109",
+    "doi": "10.1016/j.endien.2024.03.012",
+    "title": "Acute pancreatitis due to different semaglutide regimens: An updated meta-analysis.",
+    "repo_indexed_date": "2024-03-01",
+    "date_candidates": {
+      "epmc_firstPublicationDate": "2024-03-01",
+      "epmc_printPublicationDate": "2024-03-01",
+      "crossref_published-print": "2024-03-01 (partial:2)",
+      "crossref_issued": "2024-03-01 (partial:2)",
+      "crossref_created": "2024-03-28",
+      "pubmed_entrez": "2024-03-30"
+    },
+    "online_first_date": "2024-03-28",
+    "online_first_source": [
+      "crossref_created"
+    ],
+    "journal_title": "Endocrinologia, diabetes y nutricion",
+    "journal_iso": "Endocrinol Diabetes Nutr (Engl Ed)",
+    "authors": [
+      {
+        "last": "Masson",
+        "full": "Masson W",
+        "affiliation": "Department of Cardiology, Hospital Italiano de Buenos Aires, Buenos Aires, Argentina. Electronic address: walter.masson@hospitalitaliano.org.ar."
+      },
+      {
+        "last": "Lobo",
+        "full": "Lobo M",
+        "affiliation": "Department of Cardiology, Hospital Militar Campo de Mayo, Buenos Aires, Argentina."
+      },
+      {
+        "last": "Barbagelata",
+        "full": "Barbagelata L",
+        "affiliation": "Department of Cardiology, Hospital Italiano de Buenos Aires, Buenos Aires, Argentina."
+      },
+      {
+        "last": "Lavalle-Cobo",
+        "full": "Lavalle-Cobo A",
+        "affiliation": "Department of Cardiology, Sanatorio Otamendi, Buenos Aires, Argentina."
+      },
+      {
+        "last": "Nogueira",
+        "full": "Nogueira JP",
+        "affiliation": "Endocrinology, Nutrition and Metabolism Research Center, Faculty of Health Sciences, Universidad Nacional de Formosa, Argentina; International University of the Americas, San José, Costa Rica."
+      }
+    ],
+    "fetched_at": "2026-10-28T19:15:54.490329+00:00"
+  },
+  {
+    "side_effect": "PANCREATITIS",
+    "selection_role": "main",
+    "pmid": "39332263",
+    "doi": "10.1016/j.dsx.2024.103116",
+    "title": "Decreased risk of recurrent acute pancreatitis with semaglutide and tirzepatide in people with type 2 diabetes or obesity with a history of acute pancreatitis: A propensity matched global federated TriNetX database-based retrospective cohort study.",
+    "repo_indexed_date": "2024-09-19",
+    "date_candidates": {
+      "epmc_electronicPublicationDate": "2024-09-19",
+      "epmc_firstPublicationDate": "2024-09-19",
+      "epmc_printPublicationDate": "2024-09-01",
+      "crossref_published-print": "2024-09-01 (partial:2)",
+      "crossref_issued": "2024-09-01 (partial:2)",
+      "crossref_created": "2024-09-19",
+      "pubmed_epubdate": "2024-09-19",
+      "pubmed_entrez": "2024-09-27"
+    },
+    "online_first_date": "2024-09-19",
+    "online_first_source": [
+      "crossref_created",
+      "epmc_electronicPublicationDate",
+      "pubmed_epubdate"
+    ],
+    "journal_title": "Diabetes & metabolic syndrome",
+    "journal_iso": "Diabetes Metab Syndr",
+    "authors": [
+      {
+        "last": "Nassar",
+        "full": "Nassar M",
+        "affiliation": "Department of Medicine, Division of Endocrinology, Diabetes and Metabolism, Jacobs School of Medicine and Biomedical Sciences, University at Buffalo, Buffalo, New York, USA; American Society for Inclusion, Diversity, and Equity in Healthcare (ASIDE), Delaware, USA. Electronic address: Dr.Nassar@aucegypt.edu."
+      },
+      {
+        "last": "Nassar",
+        "full": "Nassar O",
+        "affiliation": "Williamsville East High School, Buffalo, NY, USA. Electronic address: omarmfn2000@gmail.com."
+      },
+      {
+        "last": "Abosheaishaa",
+        "full": "Abosheaishaa H",
+        "affiliation": "Department of Internal Medicine, Icahn School of Medicine at Mount Sinai, NY, New York, USA. Electronic address: hazemabosheaishaa@gmail.com."
+      },
+      {
+        "last": "Misra",
+        "full": "Misra A",
+        "affiliation": "Fortis-C-DOC Centre of Excellence for Diabetes, Metabolic Diseases and Endocrinology, National Diabetes, Obesity and Cholesterol Foundation (N-DOC), Diabetes Foundation (India) (DFI) India, India. Electronic address: anoopmisra@gmail.com."
+      }
+    ],
+    "fetched_at": "2026-10-28T19:15:56.144130+00:00"
+  },
+  {
+    "side_effect": "PANCREATITIS",
+    "selection_role": "main",
+    "pmid": "37731423",
+    "doi": "10.7759/cureus.43773",
+    "title": "Acute Pancreatitis in a Patient Taking Semaglutide.",
+    "repo_indexed_date": "2023-08-19",
+    "date_candidates": {
+      "epmc_electronicPublicationDate": "2023-08-19",
+      "epmc_firstPublicationDate": "2023-08-19",
+      "epmc_printPublicationDate": "2023-08-01",
+      "crossref_published-print": "2023-08-19",
+      "crossref_issued": "2023-08-19",
+      "crossref_created": "2023-08-20",
+      "pubmed_epubdate": "2023-08-19",
+      "pubmed_entrez": "2023-09-21"
+    },
+    "online_first_date": "2023-08-19",
+    "online_first_source": [
+      "epmc_electronicPublicationDate",
+      "pubmed_epubdate"
+    ],
+    "journal_title": "Cureus",
+    "journal_iso": "Cureus",
+    "authors": [
+      {
+        "last": "Patel",
+        "full": "Patel F",
+        "affiliation": "Internal Medicine, University of California Riverside, Riverside, USA."
+      },
+      {
+        "last": "Gan",
+        "full": "Gan A",
+        "affiliation": "Internal Medicine, University of Southern California, Los Angeles, USA."
+      },
+      {
+        "last": "Chang",
+        "full": "Chang K",
+        "affiliation": "Gastroenterology and Hepatology, University of California Riverside School of Medicine, San Bernardino, USA."
+      },
+      {
+        "last": "Vega",
+        "full": "Vega KJ",
+        "affiliation": "Gastroenterology and Hepatology, Augusta University Medical College of Georgia, Augusta, USA."
+      }
+    ],
+    "fetched_at": "2026-10-28T19:15:57.795404+00:00"
+  },
+  {
+    "side_effect": "SUICIDALITY",
+    "selection_role": "main",
+    "pmid": "38182782",
+    "doi": "10.1038/s41591-023-02672-2",
+    "title": "Association of semaglutide with risk of suicidal ideation in a real-world cohort.",
+    "repo_indexed_date": "2024-01-05",
+    "date_candidates": {
+      "epmc_electronicPublicationDate": "2024-01-05",
+      "epmc_firstPublicationDate": "2024-01-05",
+      "epmc_printPublicationDate": "2024-01-01",
+      "crossref_published-online": "2024-01-05",
+      "crossref_published-print": "2024-01-01 (partial:2)",
+      "crossref_issued": "2024-01-01 (partial:2)",
+      "crossref_created": "2024-01-05",
+      "pubmed_epubdate": "2024-01-05",
+      "pubmed_entrez": "2024-01-05"
+    },
+    "online_first_date": "2024-01-05",
+    "online_first_source": [
+      "crossref_created",
+      "crossref_published-online",
+      "epmc_electronicPublicationDate",
+      "pubmed_entrez",
+      "pubmed_epubdate"
+    ],
+    "journal_title": "Nature medicine",
+    "journal_iso": "Nat Med",
+    "authors": [
+      {
+        "last": "Wang",
+        "full": "Wang W",
+        "affiliation": "Center for Science, Health, and Society, Case Western Reserve University School of Medicine, Cleveland, OH, USA."
+      },
+      {
+        "last": "Volkow",
+        "full": "Volkow ND",
+        "affiliation": "National Institute on Drug Abuse, National Institutes of Health, Bethesda, MD, USA. nvolkow@nida.nih.gov."
+      },
+      {
+        "last": "Berger",
+        "full": "Berger NA",
+        "affiliation": "Center for Science, Health, and Society, Case Western Reserve University School of Medicine, Cleveland, OH, USA."
+      },
+      {
+        "last": "Davis",
+        "full": "Davis PB",
+        "affiliation": "Center for Community Health Integration, Case Western Reserve University School of Medicine, Cleveland, OH, USA."
+      },
+      {
+        "last": "Kaelber",
+        "full": "Kaelber DC",
+        "affiliation": "Center for Clinical Informatics Research and Education, The MetroHealth System, Cleveland, OH, USA."
+      },
+      {
+        "last": "Xu",
+        "full": "Xu R",
+        "affiliation": "Center for Artificial Intelligence in Drug Discovery, Case Western Reserve University School of Medicine, Cleveland, OH, USA. rxx@case.edu."
+      }
+    ],
+    "fetched_at": "2026-10-28T19:15:59.674983+00:00"
+  },
+  {
+    "side_effect": "SUICIDALITY",
+    "selection_role": "main",
+    "pmid": "39163046",
+    "doi": "10.1001/jamanetworkopen.2024.23385",
+    "title": "Disproportionality Analysis From World Health Organization Data on Semaglutide, Liraglutide, and Suicidality.",
+    "repo_indexed_date": "2024-08-01",
+    "date_candidates": {
+      "epmc_electronicPublicationDate": "2024-08-01",
+      "epmc_firstPublicationDate": "2024-08-01",
+      "epmc_printPublicationDate": "2024-08-01",
+      "crossref_published-online": "2024-08-20",
+      "crossref_issued": "2024-08-20",
+      "crossref_created": "2024-08-20",
+      "pubmed_epubdate": "2024-08-01",
+      "pubmed_pubdate": "2024-08-01",
+      "pubmed_entrez": "2024-08-20"
+    },
+    "online_first_date": "2024-08-20",
+    "online_first_source": [
+      "crossref_created",
+      "crossref_published-online",
+      "pubmed_entrez"
+    ],
+    "journal_title": "JAMA network open",
+    "journal_iso": "JAMA Netw Open",
+    "authors": [
+      {
+        "last": "Schoretsanitis",
+        "full": "Schoretsanitis G",
+        "affiliation": "The Zucker Hillside Hospital, Department of Psychiatry, Northwell Health, Glen Oaks, New York.; Department of Psychiatry, Zucker School of Medicine at Northwell/Hofstra, Hempstead, Glen Oaks, New York.; Department of Psychiatry, Psychotherapy and Psychosomatics, Hospital of Psychiatry, University of Zurich, Zurich, Switzerland."
+      },
+      {
+        "last": "Weiler",
+        "full": "Weiler S",
+        "affiliation": "Institute of Pharmaceutical Sciences, Department of Chemistry and Applied Biosciences, ETH Zurich, Zurich, Switzerland.; Institute of Primary Care, University of Zurich and University Hospital Zurich, Zurich, Switzerland."
+      },
+      {
+        "last": "Barbui",
+        "full": "Barbui C",
+        "affiliation": "WHO Collaborating Centre for Research and Training in Mental Health and Service Evaluation, Department of Neuroscience, Biomedicine and Movement Sciences, Section of Psychiatry, University of Verona, Verona, Italy."
+      },
+      {
+        "last": "Raschi",
+        "full": "Raschi E",
+        "affiliation": "Pharmacology Unit, Department of Medical and Surgical Sciences, University of Bologna, Bologna, Italy."
+      },
+      {
+        "last": "Gastaldon",
+        "full": "Gastaldon C",
+        "affiliation": "WHO Collaborating Centre for Research and Training in Mental Health and Service Evaluation, Department of Neuroscience, Biomedicine and Movement Sciences, Section of Psychiatry, University of Verona, Verona, Italy.; Institute of Social and Preventive Medicine, University of Bern, Bern, Switzerland."
+      }
+    ],
+    "fetched_at": "2026-10-28T19:16:01.521027+00:00"
+  },
+  {
+    "side_effect": "SUICIDALITY",
+    "selection_role": "main",
+    "pmid": "39226070",
+    "doi": "10.1001/jamainternmed.2024.4346",
+    "title": "Psychiatric Safety of Semaglutide for Weight Management in People Without Known Major Psychopathology: Post Hoc Analysis of the STEP 1, 2, 3, and 5 Trials.",
+    "repo_indexed_date": "2024-11-01",
+    "date_candidates": {
+      "epmc_firstPublicationDate": "2024-11-01",
+      "epmc_printPublicationDate": "2024-11-01",
+      "crossref_published-print": "2024-11-01",
+      "crossref_issued": "2024-11-01",
+      "crossref_created": "2024-09-03",
+      "pubmed_pubdate": "2024-11-01",
+      "pubmed_entrez": "2024-09-03"
+    },
+    "online_first_date": "2024-09-03",
+    "online_first_source": [
+      "crossref_created",
+      "pubmed_entrez"
+    ],
+    "journal_title": "JAMA internal medicine",
+    "journal_iso": "JAMA Intern Med",
+    "authors": [
+      {
+        "last": "Wadden",
+        "full": "Wadden TA",
+        "affiliation": "Department of Psychiatry, Perelman School of Medicine, University of Pennsylvania, Philadelphia."
+      },
+      {
+        "last": "Brown",
+        "full": "Brown GK",
+        "affiliation": "Department of Psychiatry, Perelman School of Medicine, University of Pennsylvania, Philadelphia."
+      },
+      {
+        "last": "Egebjerg",
+        "full": "Egebjerg C",
+        "affiliation": "Novo Nordisk A/S, Søborg, Denmark."
+      },
+      {
+        "last": "Frenkel",
+        "full": "Frenkel O",
+        "affiliation": "Novo Nordisk A/S, Søborg, Denmark."
+      },
+      {
+        "last": "Goldman",
+        "full": "Goldman B",
+        "affiliation": "Novo Nordisk Inc, Plainsboro, New Jersey."
+      },
+      {
+        "last": "Kushner",
+        "full": "Kushner RF",
+        "affiliation": "Department of Medicine and Medical Education, Feinberg School of Medicine, Northwestern University, Chicago, Illinois."
+      },
+      {
+        "last": "McGowan",
+        "full": "McGowan B",
+        "affiliation": "Cleveland Clinic London Hospital, Portland Place Outpatient Centre, London, England."
+      },
+      {
+        "last": "Overvad",
+        "full": "Overvad M",
+        "affiliation": "Novo Nordisk A/S, Søborg, Denmark."
+      },
+      {
+        "last": "Fink-Jensen",
+        "full": "Fink-Jensen A",
+        "affiliation": "Mental Health Centre Copenhagen and Department of Clinical Medicine, University of Copenhagen, Copenhagen, Denmark."
+      }
+    ],
+    "fetched_at": "2026-10-28T19:16:03.382190+00:00"
+  },
+  {
+    "side_effect": "THYROID_CANCER",
+    "selection_role": "main",
+    "pmid": "38673931",
+    "doi": "10.3390/ijms25084346",
+    "title": "Assessment of Thyroid Carcinogenic Risk and Safety Profile of GLP1-RA Semaglutide (Ozempic) Therapy for Diabetes Mellitus and Obesity: A Systematic Literature Review.",
+    "repo_indexed_date": "2024-04-15",
+    "date_candidates": {
+      "epmc_electronicPublicationDate": "2024-04-15",
+      "epmc_firstPublicationDate": "2024-04-15",
+      "epmc_printPublicationDate": "2024-04-01",
+      "crossref_published-online": "2024-04-15",
+      "crossref_issued": "2024-04-15",
+      "crossref_created": "2024-04-15",
+      "pubmed_epubdate": "2024-04-15",
+      "pubmed_pubdate": "2024-04-15",
+      "pubmed_entrez": "2024-04-27"
+    },
+    "online_first_date": "2024-04-15",
+    "online_first_source": [
+      "crossref_created",
+      "crossref_published-online",
+      "epmc_electronicPublicationDate",
+      "pubmed_epubdate"
+    ],
+    "journal_title": "International journal of molecular sciences",
+    "journal_iso": "Int J Mol Sci",
+    "authors": [
+      {
+        "last": "Feier",
+        "full": "Feier CVI",
+        "affiliation": "First Discipline of Surgery, Department X-Surgery, \"Victor Babes\" University of Medicine and Pharmacy, 2 E. Murgu Sq., 300041 Timisoara, Romania.; First Surgery Clinic, \"Pius Brinzeu\" Clinical Emergency Hospital, 300723 Timisoara, Romania."
+      },
+      {
+        "last": "Vonica",
+        "full": "Vonica RC",
+        "affiliation": "Preclinical Department, Discipline of Physiology, Faculty of General Medicine, \"Lucian Blaga\" University of Sibiu, 550169 Sibiu, Romania."
+      },
+      {
+        "last": "Faur",
+        "full": "Faur AM",
+        "affiliation": "Faculty of Medicine, \"Victor Babes\" University of Medicine and Pharmacy, 2 E. Murgu Sq., 300041 Timisoara, Romania."
+      },
+      {
+        "last": "Streinu",
+        "full": "Streinu DR",
+        "affiliation": "Department of Doctoral Studies, \"Victor Babes\" University of Medicine and Pharmacy, 2 E. Murgu Sq., 300041 Timisoara, Romania."
+      },
+      {
+        "last": "Muntean",
+        "full": "Muntean C",
+        "affiliation": "Medical Informatics and Biostatistics, Department III-Functional Sciences, \"Victor Babes\" University of Medicine and Pharmacy, 2 E. Murgu Sq., 300041 Timisoara, Romania."
+      }
+    ],
+    "fetched_at": "2026-10-28T19:16:05.228360+00:00"
+  },
+  {
+    "side_effect": "THYROID_CANCER",
+    "selection_role": "main",
+    "pmid": "37531876",
+    "doi": "10.1016/j.dsx.2023.102834",
+    "title": "Semaglutide and cancer: A systematic review and meta-analysis.",
+    "repo_indexed_date": "2023-07-26",
+    "date_candidates": {
+      "epmc_electronicPublicationDate": "2023-07-26",
+      "epmc_firstPublicationDate": "2023-07-26",
+      "epmc_printPublicationDate": "2023-09-01",
+      "crossref_published-print": "2023-09-01 (partial:2)",
+      "crossref_issued": "2023-09-01 (partial:2)",
+      "crossref_created": "2023-07-27",
+      "pubmed_epubdate": "2023-07-26",
+      "pubmed_entrez": "2023-08-02"
+    },
+    "online_first_date": "2023-07-26",
+    "online_first_source": [
+      "epmc_electronicPublicationDate",
+      "pubmed_epubdate"
+    ],
+    "journal_title": "Diabetes & metabolic syndrome",
+    "journal_iso": "Diabetes Metab Syndr",
+    "authors": [
+      {
+        "last": "Nagendra",
+        "full": "Nagendra L",
+        "affiliation": "Department of Endocrinology, JSS Academy of Higher Education and Research, Mysore, India. Electronic address: drlakshminagendra@gmail.com."
+      },
+      {
+        "last": "Bg",
+        "full": "Bg H",
+        "affiliation": "Department of Anaesthesiology, JSS Academy of Higher Education and Research, Mysore, India. Electronic address: bgharish07@gmail.com."
+      },
+      {
+        "last": "Sharma",
+        "full": "Sharma M",
+        "affiliation": "Department of Rheumatology, Center for Endocrinology Diabetes Arthritis & Rheumatism (CEDAR) Superspeciality Healthcare, Dwarka, New Delhi, India. Electronic address: docmsharma@gmail.com."
+      },
+      {
+        "last": "Dutta",
+        "full": "Dutta D",
+        "affiliation": "Department of Endocrinology, Center for Endocrinology Diabetes Arthritis & Rheumatism (CEDAR) Superspeciality Healthcare, Dwarka, New Delhi, India. Electronic address: deepdutta2000@yahoo.com."
+      }
+    ],
+    "fetched_at": "2026-10-28T19:16:07.038512+00:00"
+  },
+  {
+    "side_effect": "THYROID_CANCER",
+    "selection_role": "background",
+    "pmid": "38683947",
+    "doi": "10.1136/bmj-2023-078225",
+    "title": "Glucagon-like peptide 1 receptor agonist use and risk of thyroid cancer: Scandinavian cohort study.",
+    "repo_indexed_date": "2024-04-10",
+    "date_candidates": {
+      "epmc_electronicPublicationDate": "2024-04-10",
+      "epmc_firstPublicationDate": "2024-04-10",
+      "epmc_printPublicationDate": "2024-04-01",
+      "crossref_published-online": "2024-04-10",
+      "crossref_issued": "2024-04-10",
+      "crossref_created": "2024-04-10",
+      "pubmed_epubdate": "2024-04-10",
+      "pubmed_pubdate": "2024-04-10",
+      "pubmed_entrez": "2024-04-29"
+    },
+    "online_first_date": "2024-04-10",
+    "online_first_source": [
+      "crossref_created",
+      "crossref_published-online",
+      "epmc_electronicPublicationDate",
+      "pubmed_epubdate"
+    ],
+    "journal_title": "BMJ (Clinical research ed.)",
+    "journal_iso": "BMJ",
+    "authors": [
+      {
+        "last": "Pasternak",
+        "full": "Pasternak B",
+        "affiliation": "Clinical Epidemiology Division, Department of Medicine, Solna, Karolinska Institutet, Stockholm, Sweden.; Department of Epidemiology Research, Statens Serum Institut, Copenhagen, Denmark."
+      },
+      {
+        "last": "Wintzell",
+        "full": "Wintzell V",
+        "affiliation": "Clinical Epidemiology Division, Department of Medicine, Solna, Karolinska Institutet, Stockholm, Sweden."
+      },
+      {
+        "last": "Hviid",
+        "full": "Hviid A",
+        "affiliation": "Department of Epidemiology Research, Statens Serum Institut, Copenhagen, Denmark.; Pharmacovigilance Research Center, Department of Drug Design and Pharmacology, Faculty of Health and Medical Sciences, University of Copenhagen, Copenhagen, Denmark."
+      },
+      {
+        "last": "Eliasson",
+        "full": "Eliasson B",
+        "affiliation": "Department of Medicine, Sahlgrenska University Hospital, Gothenburg, Sweden.; The Swedish National Diabetes Register, Västra Götalandsregionen, Gothenburg, Sweden."
+      },
+      {
+        "last": "Gudbjörnsdottir",
+        "full": "Gudbjörnsdottir S",
+        "affiliation": "The Swedish National Diabetes Register, Västra Götalandsregionen, Gothenburg, Sweden.; Department of Molecular and Clinical Medicine, Institute of Medicine, University of Gothenburg, Gothenburg, Sweden."
+      },
+      {
+        "last": "Jonasson",
+        "full": "Jonasson C",
+        "affiliation": "HUNT Center for Molecular and Clinical Epidemiology, Department of Public Health and Nursing, Faculty of Medicine and Health Science, NTNU-Norwegian University of Science and Technology, Trondheim, Norway.; HUNT Research Center, Faculty of Medicine, NTNU-Norwegian University of Science and Technology, Levanger, Norway."
+      },
+      {
+        "last": "Hveem",
+        "full": "Hveem K",
+        "affiliation": "HUNT Center for Molecular and Clinical Epidemiology, Department of Public Health and Nursing, Faculty of Medicine and Health Science, NTNU-Norwegian University of Science and Technology, Trondheim, Norway.; HUNT Research Center, Faculty of Medicine, NTNU-Norwegian University of Science and Technology, Levanger, Norway."
+      },
+      {
+        "last": "Svanström",
+        "full": "Svanström H",
+        "affiliation": "Clinical Epidemiology Division, Department of Medicine, Solna, Karolinska Institutet, Stockholm, Sweden.; Department of Epidemiology Research, Statens Serum Institut, Copenhagen, Denmark."
+      },
+      {
+        "last": "Melbye",
+        "full": "Melbye M",
+        "affiliation": "HUNT Center for Molecular and Clinical Epidemiology, Department of Public Health and Nursing, Faculty of Medicine and Health Science, NTNU-Norwegian University of Science and Technology, Trondheim, Norway.; Department of Clinical Medicine, University of Copenhagen, Copenhagen, Denmark.; Department of Genetics, Stanford University School of Medicine, Stanford, CA, USA.; Danish Cancer Institute, Copenhagen, Denmark."
+      },
+      {
+        "last": "Ueda",
+        "full": "Ueda P",
+        "affiliation": "Clinical Epidemiology Division, Department of Medicine, Solna, Karolinska Institutet, Stockholm, Sweden."
+      }
+    ],
+    "fetched_at": "2026-10-28T19:16:08.751658+00:00"
+  },
+  {
+    "side_effect": "GALLBLADDER",
+    "selection_role": "main",
+    "pmid": "39633496",
+    "doi": "10.1186/s13098-024-01526-2",
+    "title": "The relative risk of clinically relevant cholelithiasis among glucagon-like peptide-1 receptor agonists in patients with type 2 diabetes mellitus, real-world study.",
+    "repo_indexed_date": "2024-12-04",
+    "date_candidates": {
+      "epmc_electronicPublicationDate": "2024-12-04",
+      "epmc_firstPublicationDate": "2024-12-04",
+      "epmc_printPublicationDate": "2024-12-01",
+      "crossref_published-online": "2024-12-04",
+      "crossref_issued": "2024-12-04",
+      "crossref_created": "2024-12-04",
+      "pubmed_epubdate": "2024-12-04",
+      "pubmed_pubdate": "2024-12-04",
+      "pubmed_entrez": "2024-12-05"
+    },
+    "online_first_date": "2024-12-04",
+    "online_first_source": [
+      "crossref_created",
+      "crossref_published-online",
+      "epmc_electronicPublicationDate",
+      "pubmed_epubdate"
+    ],
+    "journal_title": "Diabetology & metabolic syndrome",
+    "journal_iso": "Diabetol Metab Syndr",
+    "authors": [
+      {
+        "last": "Gameil",
+        "full": "Gameil MA",
+        "affiliation": "Endocrinology Unit, Internal Medicine Department, Faculty of Medicine, Mansoura University, Mansoura, Dakahlia, Egypt. dr_maligameil79@mans.edu.eg."
+      },
+      {
+        "last": "Yousef",
+        "full": "Yousef EAAM",
+        "affiliation": "Nephrology Unit, Internal Medicine Department, Faculty of Medicine, Mansoura University, Mansoura, Dakahlia, Egypt."
+      },
+      {
+        "last": "Marzouk",
+        "full": "Marzouk RE",
+        "affiliation": "Medical Biochemistry and Molecular Biology Department, Faculty of Medicine, Helwan University, Helwan, Cairo, Egypt."
+      },
+      {
+        "last": "Emara",
+        "full": "Emara MH",
+        "affiliation": "Hepatology, Gastroenterology, Infectious Diseases Department, Faculty of Medicine, Kafrelsheikh University, Kafrelsheikh, Egypt.; Department of Internal Medicine, Alyousif Hospital, Alkhobar, Kingdom of Saudi Arabia."
+      },
+      {
+        "last": "Abdelkader",
+        "full": "Abdelkader AH",
+        "affiliation": "Tropical Medicine Department, Faculty of Medicine, Zagazig University, Zagazig, Alsharqia, Egypt."
+      },
+      {
+        "last": "Salama",
+        "full": "Salama RI",
+        "affiliation": "Tropical Medicine Department, Faculty of Medicine, Zagazig University, Zagazig, Alsharqia, Egypt."
+      }
+    ],
+    "fetched_at": "2026-10-28T19:16:10.617278+00:00"
+  },
+  {
+    "side_effect": "GALLBLADDER",
+    "selection_role": "conditional",
+    "pmid": "40697657",
+    "doi": "10.3389/fphar.2025.1557691",
+    "title": "Glucagon-like peptide-1 receptor agonist-induced cholecystitis and cholelithiasis: a real-world pharmacovigilance analysis using the FAERS database.",
+    "repo_indexed_date": "2025-07-08",
+    "date_candidates": {
+      "epmc_electronicPublicationDate": "2025-07-08",
+      "epmc_firstPublicationDate": "2025-07-08",
+      "epmc_printPublicationDate": "2025-01-01",
+      "crossref_published-online": "2025-07-08",
+      "crossref_issued": "2025-07-08",
+      "crossref_created": "2025-07-08",
+      "pubmed_epubdate": "2025-07-08",
+      "pubmed_entrez": "2025-07-23"
+    },
+    "online_first_date": "2025-07-08",
+    "online_first_source": [
+      "crossref_created",
+      "crossref_published-online",
+      "epmc_electronicPublicationDate",
+      "pubmed_epubdate"
+    ],
+    "journal_title": "Frontiers in pharmacology",
+    "journal_iso": "Front Pharmacol",
+    "authors": [
+      {
+        "last": "Tao",
+        "full": "Tao C",
+        "affiliation": "Department of Pharmacy, The Affiliated Hospital, Southwest Medical University, Luzhou, China.; Department of Clinical Pharmacy, School of Pharmacy, Southwest Medical University, Luzhou, China."
+      },
+      {
+        "last": "Zhang",
+        "full": "Zhang Y",
+        "affiliation": "Department of Pharmacy, The Affiliated Hospital, Southwest Medical University, Luzhou, China.; Department of Clinical Pharmacy, School of Pharmacy, Southwest Medical University, Luzhou, China."
+      },
+      {
+        "last": "Wan",
+        "full": "Wan T",
+        "affiliation": "Department of Rehabilitation, The Affiliated Hospital of Southwest Medical University, Luzhou, China."
+      },
+      {
+        "last": "Zhao",
+        "full": "Zhao W",
+        "affiliation": "Department of Clinical Pharmacy, School of Pharmacy, Southwest Medical University, Luzhou, China."
+      },
+      {
+        "last": "Chen",
+        "full": "Chen J",
+        "affiliation": "Department of Clinical Pharmacy, The Third Hospital of Mianyang, Sichuan Mental Health Center, Mianyang, China."
+      },
+      {
+        "last": "Wang",
+        "full": "Wang K",
+        "affiliation": "Department of Pharmacy, The Affiliated Hospital, Southwest Medical University, Luzhou, China.; Department of Clinical Pharmacy, School of Pharmacy, Southwest Medical University, Luzhou, China."
+      },
+      {
+        "last": "Yang",
+        "full": "Yang L",
+        "affiliation": "Department of Pharmacy, The Affiliated Hospital, Southwest Medical University, Luzhou, China."
+      },
+      {
+        "last": "Wang",
+        "full": "Wang G",
+        "affiliation": "Department of Pharmacy, The Affiliated Hospital, Southwest Medical University, Luzhou, China."
+      },
+      {
+        "last": "Ding",
+        "full": "Ding Q",
+        "affiliation": "Department of Clinical Pharmacy, The Third Hospital of Mianyang, Sichuan Mental Health Center, Mianyang, China."
+      },
+      {
+        "last": "Shang",
+        "full": "Shang J",
+        "affiliation": "Department of Pharmacy, West China Hospital Sichuan University Jintang Hospital, Chengdu, China."
+      },
+      {
+        "last": "Zhou",
+        "full": "Zhou M",
+        "affiliation": "Department of Pharmacy, The Affiliated Hospital, Southwest Medical University, Luzhou, China."
+      }
+    ],
+    "fetched_at": "2026-10-28T19:16:12.511417+00:00"
+  },
+  {
+    "side_effect": "GALLBLADDER",
+    "selection_role": "background",
+    "pmid": "35344001",
+    "doi": "10.1001/jamainternmed.2022.0338",
+    "title": "Association of Glucagon-Like Peptide-1 Receptor Agonist Use With Risk of Gallbladder and Biliary Diseases: A Systematic Review and Meta-analysis of Randomized Clinical Trials.",
+    "repo_indexed_date": "2022-05-01",
+    "date_candidates": {
+      "epmc_firstPublicationDate": "2022-05-01",
+      "epmc_printPublicationDate": "2022-05-01",
+      "crossref_published-print": "2022-05-01",
+      "crossref_issued": "2022-05-01",
+      "crossref_created": "2022-03-28",
+      "pubmed_pubdate": "2022-05-01",
+      "pubmed_entrez": "2022-03-28"
+    },
+    "online_first_date": "2022-03-28",
+    "online_first_source": [
+      "crossref_created",
+      "pubmed_entrez"
+    ],
+    "journal_title": "JAMA internal medicine",
+    "journal_iso": "JAMA Intern Med",
+    "authors": [
+      {
+        "last": "He",
+        "full": "He L",
+        "affiliation": "Department of Endocrinology, Key Laboratory of Endocrinology of the National Health Commission, Peking Union Medical College Hospital, Chinese Academy of Medical Sciences and Peking Union Medical College, Beijing, China."
+      },
+      {
+        "last": "Wang",
+        "full": "Wang J",
+        "affiliation": "Department of Endocrinology, Key Laboratory of Endocrinology of the National Health Commission, Peking Union Medical College Hospital, Chinese Academy of Medical Sciences and Peking Union Medical College, Beijing, China."
+      },
+      {
+        "last": "Ping",
+        "full": "Ping F",
+        "affiliation": "Department of Endocrinology, Key Laboratory of Endocrinology of the National Health Commission, Peking Union Medical College Hospital, Chinese Academy of Medical Sciences and Peking Union Medical College, Beijing, China."
+      },
+      {
+        "last": "Yang",
+        "full": "Yang N",
+        "affiliation": "Department of Endocrinology, Key Laboratory of Endocrinology of the National Health Commission, Peking Union Medical College Hospital, Chinese Academy of Medical Sciences and Peking Union Medical College, Beijing, China."
+      },
+      {
+        "last": "Huang",
+        "full": "Huang J",
+        "affiliation": "Department of Endocrinology, Key Laboratory of Endocrinology of the National Health Commission, Peking Union Medical College Hospital, Chinese Academy of Medical Sciences and Peking Union Medical College, Beijing, China."
+      },
+      {
+        "last": "Li",
+        "full": "Li Y",
+        "affiliation": "Department of Endocrinology, Key Laboratory of Endocrinology of the National Health Commission, Peking Union Medical College Hospital, Chinese Academy of Medical Sciences and Peking Union Medical College, Beijing, China."
+      },
+      {
+        "last": "Xu",
+        "full": "Xu L",
+        "affiliation": "Department of Endocrinology, Key Laboratory of Endocrinology of the National Health Commission, Peking Union Medical College Hospital, Chinese Academy of Medical Sciences and Peking Union Medical College, Beijing, China."
+      },
+      {
+        "last": "Li",
+        "full": "Li W",
+        "affiliation": "Department of Endocrinology, Key Laboratory of Endocrinology of the National Health Commission, Peking Union Medical College Hospital, Chinese Academy of Medical Sciences and Peking Union Medical College, Beijing, China."
+      },
+      {
+        "last": "Zhang",
+        "full": "Zhang H",
+        "affiliation": "Department of Endocrinology, Key Laboratory of Endocrinology of the National Health Commission, Peking Union Medical College Hospital, Chinese Academy of Medical Sciences and Peking Union Medical College, Beijing, China."
+      }
+    ],
+    "fetched_at": "2026-10-28T19:16:14.347519+00:00"
+  },
+  {
+    "side_effect": "BOWEL_OBSTRUCTION",
+    "selection_role": "main",
+    "pmid": "39469548",
+    "doi": "10.1007/s13340-024-00751-4",
+    "title": "Food-induced small bowel obstruction observed in a patient with inappropriate use of semaglutide.",
+    "repo_indexed_date": "2024-09-09",
+    "date_candidates": {
+      "epmc_electronicPublicationDate": "2024-09-09",
+      "epmc_firstPublicationDate": "2024-09-09",
+      "epmc_printPublicationDate": "2024-10-01",
+      "crossref_published-online": "2024-09-09",
+      "crossref_published-print": "2024-10-01 (partial:2)",
+      "crossref_issued": "2024-09-09",
+      "crossref_created": "2024-09-09",
+      "pubmed_epubdate": "2024-09-09",
+      "pubmed_entrez": "2024-10-29"
+    },
+    "online_first_date": "2024-09-09",
+    "online_first_source": [
+      "crossref_created",
+      "crossref_published-online",
+      "epmc_electronicPublicationDate",
+      "pubmed_epubdate"
+    ],
+    "journal_title": "Diabetology international",
+    "journal_iso": "Diabetol Int",
+    "authors": [
+      {
+        "last": "Itoh",
+        "full": "Itoh Y",
+        "affiliation": "Departments of Endocrinology and Metabolism, Sumitomo Hospital, 5-3-20 Nakanoshima, Kita-ku, Osaka, 530-0005 Japan."
+      },
+      {
+        "last": "Tani",
+        "full": "Tani M",
+        "affiliation": "Departments of Surgery, Sumitomo Hospital, Osaka, Japan."
+      },
+      {
+        "last": "Takahashi",
+        "full": "Takahashi R",
+        "affiliation": "Departments of Surgery, Sumitomo Hospital, Osaka, Japan."
+      },
+      {
+        "last": "Yamamoto",
+        "full": "Yamamoto K",
+        "affiliation": "Departments of Endocrinology and Metabolism, Sumitomo Hospital, 5-3-20 Nakanoshima, Kita-ku, Osaka, 530-0005 Japan."
+      }
+    ],
+    "fetched_at": "2026-10-28T19:16:16.134437+00:00"
+  },
+  {
+    "side_effect": "BOWEL_OBSTRUCTION",
+    "selection_role": "main",
+    "pmid": "40861748",
+    "doi": "10.7759/cureus.88589",
+    "title": "Weighing the Risks: Small Bowel Obstruction Associated With Semaglutide Use in the Postoperative Abdomen.",
+    "repo_indexed_date": "2025-07-23",
+    "date_candidates": {
+      "epmc_electronicPublicationDate": "2025-07-23",
+      "epmc_firstPublicationDate": "2025-07-23",
+      "epmc_printPublicationDate": "2025-07-01",
+      "crossref_published-print": "2025-07-23",
+      "crossref_issued": "2025-07-23",
+      "crossref_created": "2025-07-23",
+      "pubmed_epubdate": "2025-07-23",
+      "pubmed_entrez": "2025-08-27"
+    },
+    "online_first_date": "2025-07-23",
+    "online_first_source": [
+      "crossref_created",
+      "epmc_electronicPublicationDate",
+      "pubmed_epubdate"
+    ],
+    "journal_title": "Cureus",
+    "journal_iso": "Cureus",
+    "authors": [
+      {
+        "last": "Nagib",
+        "full": "Nagib N",
+        "affiliation": "Medicine, Lake Erie College of Osteopathic Medicine, Bradenton, USA."
+      },
+      {
+        "last": "Avila",
+        "full": "Avila D",
+        "affiliation": "Medicine, Lake Erie College of Osteopathic Medicine, Bradenton, USA."
+      },
+      {
+        "last": "Partyka",
+        "full": "Partyka J",
+        "affiliation": "General Surgery, AdventHealth Sebring, Sebring, USA."
+      },
+      {
+        "last": "Kamyab",
+        "full": "Kamyab A",
+        "affiliation": "General Surgery, AdventHealth Sebring, Sebring, USA."
+      }
+    ],
+    "fetched_at": "2026-10-28T19:16:17.781526+00:00"
+  },
+  {
+    "side_effect": "BOWEL_OBSTRUCTION",
+    "selection_role": "background",
+    "pmid": "39964295",
+    "doi": "10.1080/14740338.2025.2465870",
+    "title": "Evaluating bowel obstruction and ileus events in patients on GLP-1 receptor agonists: a systematic review and meta-analysis.",
+    "repo_indexed_date": "2025-02-22",
+    "date_candidates": {
+      "epmc_electronicPublicationDate": "2025-02-22",
+      "epmc_firstPublicationDate": "2025-02-22",
+      "epmc_printPublicationDate": "2026-06-01",
+      "crossref_published-online": "2025-02-22",
+      "crossref_published-print": "2026-06-03",
+      "crossref_issued": "2025-02-22",
+      "crossref_created": "2025-02-18",
+      "pubmed_epubdate": "2025-02-22",
+      "pubmed_entrez": "2025-02-18"
+    },
+    "online_first_date": "2025-02-18",
+    "online_first_source": [
+      "crossref_created",
+      "pubmed_entrez"
+    ],
+    "journal_title": "Expert opinion on drug safety",
+    "journal_iso": "Expert Opin Drug Saf",
+    "authors": [
+      {
+        "last": "Alfehaid",
+        "full": "Alfehaid L",
+        "affiliation": "Department of Pharmacy Practice, College of Pharmacy, King Saud bin Abdulaziz University for Health Sciences, Riyadh, Saudi Arabia.; Pharmaceutical Care Department, King Abdulaziz Medical City, Riyadh, Saudi Arabia.; King Abdullah International Medical Research Center, Riyadh, Saudi Arabia."
+      },
+      {
+        "last": "Alyami",
+        "full": "Alyami M",
+        "affiliation": "Department of Pharmacy Practice, College of Pharmacy, King Saud bin Abdulaziz University for Health Sciences, Riyadh, Saudi Arabia.; Pharmaceutical Care Department, King Abdulaziz Medical City, Riyadh, Saudi Arabia.; King Abdullah International Medical Research Center, Riyadh, Saudi Arabia."
+      },
+      {
+        "last": "Almohareb",
+        "full": "Almohareb S",
+        "affiliation": "Department of Pharmacy Practice, College of Pharmacy, King Saud bin Abdulaziz University for Health Sciences, Riyadh, Saudi Arabia.; Pharmaceutical Care Department, King Abdulaziz Medical City, Riyadh, Saudi Arabia.; King Abdullah International Medical Research Center, Riyadh, Saudi Arabia."
+      },
+      {
+        "last": "Alshaya",
+        "full": "Alshaya O",
+        "affiliation": "Department of Pharmacy Practice, College of Pharmacy, King Saud bin Abdulaziz University for Health Sciences, Riyadh, Saudi Arabia.; Pharmaceutical Care Department, King Abdulaziz Medical City, Riyadh, Saudi Arabia.; King Abdullah International Medical Research Center, Riyadh, Saudi Arabia."
+      },
+      {
+        "last": "Almutairi",
+        "full": "Almutairi A",
+        "affiliation": "Drug Safety and Risk Management, Saudi Food and Drug Authority, Riyadh, Saudi Arabia."
+      }
+    ],
+    "fetched_at": "2026-10-28T19:16:19.446863+00:00"
+  },
+  {
+    "side_effect": "GI_SYMPTOMS",
+    "selection_role": "main",
+    "pmid": "34514682",
+    "doi": "10.1111/dom.14551",
+    "title": "Gastrointestinal tolerability of once-weekly semaglutide 2.4 mg in adults with overweight or obesity, and the relationship between gastrointestinal adverse events and weight loss.",
+    "repo_indexed_date": "2021-10-04",
+    "date_candidates": {
+      "epmc_electronicPublicationDate": "2021-10-04",
+      "epmc_firstPublicationDate": "2021-10-04",
+      "epmc_printPublicationDate": "2022-01-01",
+      "crossref_published-online": "2021-10-04",
+      "crossref_published-print": "2022-01-01 (partial:2)",
+      "crossref_issued": "2021-10-04",
+      "crossref_created": "2021-09-13",
+      "pubmed_epubdate": "2021-10-04",
+      "pubmed_entrez": "2021-09-13"
+    },
+    "online_first_date": "2021-09-13",
+    "online_first_source": [
+      "crossref_created",
+      "pubmed_entrez"
+    ],
+    "journal_title": "Diabetes, obesity & metabolism",
+    "journal_iso": "Diabetes Obes Metab",
+    "authors": [
+      {
+        "last": "Wharton",
+        "full": "Wharton S",
+        "affiliation": "York University, McMaster University and Wharton Weight Management Clinic, Toronto, Ontario, Canada."
+      },
+      {
+        "last": "Calanna",
+        "full": "Calanna S",
+        "affiliation": "Novo Nordisk A/S, Søborg, Denmark."
+      },
+      {
+        "last": "Davies",
+        "full": "Davies M",
+        "affiliation": "Diabetes Research Centre, University of Leicester, Leicester, UK.; NIHR Leicester Biomedical Research Centre, Leicester, UK."
+      },
+      {
+        "last": "Dicker",
+        "full": "Dicker D",
+        "affiliation": "Internal Medicine Department & Obesity Clinic, Hasharon Hospital-Rabin Medical Center, Petach-Tikva, Sackler Faculty of Medicine, Tel Aviv University, Tel Aviv, Israel."
+      },
+      {
+        "last": "Goldman",
+        "full": "Goldman B",
+        "affiliation": "Novo Nordisk A/S, Søborg, Denmark."
+      },
+      {
+        "last": "Lingvay",
+        "full": "Lingvay I",
+        "affiliation": "Departments of Internal Medicine/Endocrinology and Population and Data Sciences, University of Texas Southwestern Medical Center, Dallas, Texas, USA."
+      },
+      {
+        "last": "Mosenzon",
+        "full": "Mosenzon O",
+        "affiliation": "Diabetes Unit, Department of Endocrinology and Metabolism, Hadassah Medical Center; Faculty of Medicine, Hebrew University of Jerusalem, Jerusalem, Israel."
+      },
+      {
+        "last": "Rubino",
+        "full": "Rubino DM",
+        "affiliation": "Washington Center for Weight Management and Research, Arlington, Virginia, USA."
+      },
+      {
+        "last": "Thomsen",
+        "full": "Thomsen M",
+        "affiliation": "Novo Nordisk A/S, Søborg, Denmark."
+      },
+      {
+        "last": "Wadden",
+        "full": "Wadden TA",
+        "affiliation": "Department of Psychiatry, Perelman School of Medicine, University of Pennsylvania, Philadelphia, Pennsylvania, USA."
+      },
+      {
+        "last": "Pedersen",
+        "full": "Pedersen SD",
+        "affiliation": "C-ENDO Diabetes & Endocrinology Clinic Calgary, Calgary, Alberta, Canada."
+      }
+    ],
+    "fetched_at": "2026-10-28T19:16:21.100989+00:00"
+  },
+  {
+    "side_effect": "GI_SYMPTOMS",
+    "selection_role": "main",
+    "pmid": "36339230",
+    "doi": "10.3389/fpubh.2022.996179",
+    "title": "Gastrointestinal adverse events associated with semaglutide: A pharmacovigilance study based on FDA adverse event reporting system.",
+    "repo_indexed_date": "2022-10-20",
+    "date_candidates": {
+      "epmc_electronicPublicationDate": "2022-10-20",
+      "epmc_firstPublicationDate": "2022-10-20",
+      "epmc_printPublicationDate": "2022-01-01",
+      "crossref_published-online": "2022-10-20",
+      "crossref_issued": "2022-10-20",
+      "crossref_created": "2022-10-20",
+      "pubmed_epubdate": "2022-10-20",
+      "pubmed_entrez": "2022-11-07"
+    },
+    "online_first_date": "2022-10-20",
+    "online_first_source": [
+      "crossref_created",
+      "crossref_published-online",
+      "epmc_electronicPublicationDate",
+      "pubmed_epubdate"
+    ],
+    "journal_title": "Frontiers in public health",
+    "journal_iso": "Front Public Health",
+    "authors": [
+      {
+        "last": "Shu",
+        "full": "Shu Y",
+        "affiliation": "Department of Pharmacy, Tongji Hospital, Tongji Medical College, Huazhong University of Science and Technology, Wuhan, China."
+      },
+      {
+        "last": "He",
+        "full": "He X",
+        "affiliation": "Department of Pharmacy, Pengzhou Second People's Hospital, Pengzhou, China."
+      },
+      {
+        "last": "Wu",
+        "full": "Wu P",
+        "affiliation": "Department of Pharmacy, Chengfei Hospital, Chengdu, China."
+      },
+      {
+        "last": "Liu",
+        "full": "Liu Y",
+        "affiliation": "Department of Pharmacy, Pengzhou People's Hospital, Pengzhou, China."
+      },
+      {
+        "last": "Ding",
+        "full": "Ding Y",
+        "affiliation": "Department of Pharmacy, Tongji Hospital, Tongji Medical College, Huazhong University of Science and Technology, Wuhan, China."
+      },
+      {
+        "last": "Zhang",
+        "full": "Zhang Q",
+        "affiliation": "Department of Pharmacy, Union Hospital, Tongji Medical College, Huazhong University of Science and Technology, Wuhan, China."
+      }
+    ],
+    "fetched_at": "2026-10-28T19:16:22.946792+00:00"
+  }
+]

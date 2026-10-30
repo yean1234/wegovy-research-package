@@ -1,0 +1,274 @@
+{
+  "collect_days": 183,
+  "run_at": "2026-10-28T22:22:03.141754+00:00",
+  "log": [
+    {
+      "group": "NAION",
+      "query": "위고비 NAION",
+      "window": "2024-07-03~2025-08-22",
+      "pmids": [
+        "38958939",
+        "39491755",
+        "39976940"
+      ],
+      "path": "naver_api",
+      "rows": 96,
+      "reached_window_start": true
+    },
+    {
+      "group": "NAION",
+      "query": "위고비 실명",
+      "window": "2024-07-03~2025-08-22",
+      "pmids": [
+        "38958939",
+        "39491755",
+        "39976940"
+      ],
+      "path": "naver_api",
+      "rows": 123,
+      "reached_window_start": true
+    },
+    {
+      "group": "NAION",
+      "query": "세마글루타이드 시신경",
+      "window": "2024-07-03~2025-08-22",
+      "pmids": [
+        "38958939",
+        "39491755",
+        "39976940"
+      ],
+      "path": "naver_api",
+      "rows": 115,
+      "reached_window_start": true
+    },
+    {
+      "group": "GASTROPARESIS",
+      "query": "위고비 위마비",
+      "window": "2024-01-19~2024-07-20",
+      "pmids": [
+        "38371020"
+      ],
+      "path": "naver_api",
+      "rows": 2,
+      "reached_window_start": true
+    },
+    {
+      "group": "GASTROPARESIS",
+      "query": "위고비 위 무력증",
+      "window": "2024-01-19~2024-07-20",
+      "pmids": [
+        "38371020"
+      ],
+      "path": "naver_api",
+      "rows": 6,
+      "reached_window_start": true
+    },
+    {
+      "group": "GASTROPARESIS",
+      "query": "세마글루타이드 위마비",
+      "window": "2024-01-19~2024-07-20",
+      "pmids": [
+        "38371020"
+      ],
+      "path": "naver_api",
+      "rows": 2,
+      "reached_window_start": true
+    },
+    {
+      "group": "GASTROPARESIS",
+      "query": "위고비 위마비",
+      "window": "2025-04-02~2025-10-02",
+      "pmids": [
+        "40175094"
+      ],
+      "path": "naver_api",
+      "rows": 3,
+      "reached_window_start": true
+    },
+    {
+      "group": "GASTROPARESIS",
+      "query": "위고비 위 무력증",
+      "window": "2025-04-02~2025-10-02",
+      "pmids": [
+        "40175094"
+      ],
+      "path": "naver_api",
+      "rows": 3,
+      "reached_window_start": true
+    },
+    {
+      "group": "GASTROPARESIS",
+      "query": "세마글루타이드 위마비",
+      "window": "2025-04-02~2025-10-02",
+      "pmids": [
+        "40175094"
+      ],
+      "path": "naver_api",
+      "rows": 3,
+      "reached_window_start": true
+    },
+    {
+      "group": "PANCREATITIS",
+      "query": "위고비 췌장염",
+      "window": "2023-08-19~2024-02-18",
+      "pmids": [
+        "37731423"
+      ],
+      "path": "naver_api",
+      "rows": 0,
+      "reached_window_start": false
+    },
+    {
+      "group": "PANCREATITIS",
+      "query": "위고비 췌장염",
+      "window": "2023-08-19~2024-02-18",
+      "pmids": [
+        "37731423"
+      ],
+      "path": "naver_web_daterange",
+      "reason": "api_1000_cap_before_window_start",
+      "rows": 68,
+      "pages": 6
+    },
+    {
+      "group": "PANCREATITIS",
+      "query": "세마글루타이드 췌장염",
+      "window": "2023-08-19~2024-02-18",
+      "pmids": [
+        "37731423"
+      ],
+      "path": "naver_api",
+      "rows": 33,
+      "reached_window_start": true
+    },
+    {
+      "group": "PANCREATITIS",
+      "query": "세마글루티드 췌장염",
+      "window": "2023-08-19~2024-02-18",
+      "pmids": [
+        "37731423"
+      ],
+      "path": "naver_api",
+      "rows": 30,
+      "reached_window_start": true
+    },
+    {
+      "group": "PANCREATITIS",
+      "query": "위고비 췌장염",
+      "window": "2024-03-28~2025-03-21",
+      "pmids": [
+        "38555109",
+        "39332263"
+      ],
+      "path": "naver_api",
+      "rows": 0,
+      "reached_window_start": false
+    },
+    {
+      "group": "PANCREATITIS",
+      "query": "위고비 췌장염",
+      "window": "2024-03-28~2025-03-21",
+      "pmids": [
+        "38555109",
+        "39332263"
+      ],
+      "path": "naver_web_daterange",
+      "reason": "api_1000_cap_before_window_start",
+      "rows": 146,
+      "pages": 11
+    },
+    {
+      "group": "PANCREATITIS",
+      "query": "세마글루타이드 췌장염",
+      "window": "2024-03-28~2025-03-21",
+      "pmids": [
+        "38555109",
+        "39332263"
+      ],
+      "path": "naver_api",
+      "rows": 208,
+      "reached_window_start": true
+    },
+    {
+      "group": "PANCREATITIS",
+      "query": "세마글루티드 췌장염",
+      "window": "2024-03-28~2025-03-21",
+      "pmids": [
+        "38555109",
+        "39332263"
+      ],
+      "path": "naver_api",
+      "rows": 50,
+      "reached_window_start": true
+    },
+    {
+      "group": "SUICIDALITY",
+      "query": "위고비 자살",
+      "window": "2024-01-05~2024-07-06",
+      "pmids": [
+        "38182782"
+      ],
+      "path": "naver_api",
+      "rows": 74,
+      "reached_window_start": true
+    },
+    {
+      "group": "SUICIDALITY",
+      "query": "위고비 자살 충동",
+      "window": "2024-01-05~2024-07-06",
+      "pmids": [
+        "38182782"
+      ],
+      "path": "naver_api",
+      "rows": 64,
+      "reached_window_start": true
+    },
+    {
+      "group": "SUICIDALITY",
+      "query": "세마글루타이드 자살",
+      "window": "2024-01-05~2024-07-06",
+      "pmids": [
+        "38182782"
+      ],
+      "path": "naver_api",
+      "rows": 41,
+      "reached_window_start": true
+    },
+    {
+      "group": "SUICIDALITY",
+      "query": "위고비 자살",
+      "window": "2024-08-20~2025-03-05",
+      "pmids": [
+        "39163046",
+        "39226070"
+      ],
+      "path": "naver_api",
+      "rows": 112,
+      "reached_window_start": true
+    },
+    {
+      "group": "SUICIDALITY",
+      "query": "위고비 자살 충동",
+      "window": "2024-08-20~2025-03-05",
+      "pmids": [
+        "39163046",
+        "39226070"
+      ],
+      "path": "naver_api",
+      "rows": 79,
+      "reached_window_start": true
+    },
+    {
+      "group": "SUICIDALITY",
+      "query": "세마글루타이드 자살",
+      "window": "2024-08-20~2025-03-05",
+      "pmids": [
+        "39163046",
+        "39226070"
+      ],
+      "path": "naver_api",
+      "rows": 54,
+      "reached_window_start": true
+    }
+  ]
+}

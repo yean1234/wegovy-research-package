@@ -1,0 +1,300 @@
+{
+ "primary_window_days": 90,
+ "sensitivity_days": [
+  30,
+  180
+ ],
+ "unique_articles_with_priority_topic": 764,
+ "primary_window": {
+  "articles": 424,
+  "research_report_yes": 109,
+  "cited_paper": {
+   "OTHER_STUDY": 61,
+   "38958939": 24,
+   "39163046": 2,
+   "uncertain": 17,
+   "39226070": 1,
+   "38182782": 3,
+   "39976940": 1
+  },
+  "collection_paths": {
+   "naver_web_daterange": 294,
+   "pilot_web_2026-10-12": 78,
+   "naver_api": 52
+  }
+ },
+ "auxiliary_not_research_triggered": 655,
+ "trigger_categories_all": {
+  "other_or_enterprise": 236,
+  "newsmaker_action_nongovt": 122,
+  "judicial_action": 42,
+  "research_report_released": 156,
+  "govt_agency_action": 208
+ },
+ "per_paper": [
+  {
+   "pmid": "38958939",
+   "group": "NAION",
+   "online_first_date": "2024-07-03",
+   "repo_indexed_date": "2024-08-01",
+   "30d": {
+    "topic_articles_in_window": 34,
+    "research_report_yes": 30,
+    "cited_this_paper": 25,
+    "bundle_fit_yes": 31
+   },
+   "90d": {
+    "topic_articles_in_window": 35,
+    "research_report_yes": 30,
+    "cited_this_paper": 25,
+    "bundle_fit_yes": 31
+   },
+   "180d": {
+    "topic_articles_in_window": 40,
+    "research_report_yes": 33,
+    "cited_this_paper": 25,
+    "bundle_fit_yes": 34
+   }
+  },
+  {
+   "pmid": "39976940",
+   "group": "NAION",
+   "online_first_date": "2025-02-20",
+   "repo_indexed_date": "2025-04-01",
+   "30d": {
+    "topic_articles_in_window": 1,
+    "research_report_yes": 1,
+    "cited_this_paper": 1,
+    "bundle_fit_yes": 1
+   },
+   "90d": {
+    "topic_articles_in_window": 1,
+    "research_report_yes": 1,
+    "cited_this_paper": 1,
+    "bundle_fit_yes": 1
+   },
+   "180d": {
+    "topic_articles_in_window": 52,
+    "research_report_yes": 9,
+    "cited_this_paper": 1,
+    "bundle_fit_yes": 29
+   }
+  },
+  {
+   "pmid": "39491755",
+   "group": "NAION",
+   "online_first_date": "2024-11-02",
+   "repo_indexed_date": "2024-11-02",
+   "30d": {
+    "topic_articles_in_window": 0,
+    "research_report_yes": 0,
+    "cited_this_paper": 0,
+    "bundle_fit_yes": 0
+   },
+   "90d": {
+    "topic_articles_in_window": 8,
+    "research_report_yes": 4,
+    "cited_this_paper": 0,
+    "bundle_fit_yes": 7
+   },
+   "180d": {
+    "topic_articles_in_window": 13,
+    "research_report_yes": 9,
+    "cited_this_paper": 0,
+    "bundle_fit_yes": 10
+   }
+  },
+  {
+   "pmid": "40175094",
+   "group": "GASTROPARESIS",
+   "online_first_date": "2025-04-02",
+   "repo_indexed_date": "2025-04-02",
+   "30d": {
+    "topic_articles_in_window": 2,
+    "research_report_yes": 0,
+    "cited_this_paper": 0,
+    "bundle_fit_yes": 0
+   },
+   "90d": {
+    "topic_articles_in_window": 4,
+    "research_report_yes": 0,
+    "cited_this_paper": 0,
+    "bundle_fit_yes": 1
+   },
+   "180d": {
+    "topic_articles_in_window": 6,
+    "research_report_yes": 0,
+    "cited_this_paper": 0,
+    "bundle_fit_yes": 1
+   }
+  },
+  {
+   "pmid": "38371020",
+   "group": "GASTROPARESIS",
+   "online_first_date": "2024-01-19",
+   "repo_indexed_date": "2024-01-19",
+   "30d": {
+    "topic_articles_in_window": 2,
+    "research_report_yes": 1,
+    "cited_this_paper": 0,
+    "bundle_fit_yes": 0
+   },
+   "90d": {
+    "topic_articles_in_window": 5,
+    "research_report_yes": 2,
+    "cited_this_paper": 0,
+    "bundle_fit_yes": 1
+   },
+   "180d": {
+    "topic_articles_in_window": 10,
+    "research_report_yes": 2,
+    "cited_this_paper": 0,
+    "bundle_fit_yes": 2
+   }
+  },
+  {
+   "pmid": "38555109",
+   "group": "PANCREATITIS",
+   "online_first_date": "2024-03-28",
+   "repo_indexed_date": "2024-03-01",
+   "30d": {
+    "topic_articles_in_window": 0,
+    "research_report_yes": 0,
+    "cited_this_paper": 0,
+    "bundle_fit_yes": 0
+   },
+   "90d": {
+    "topic_articles_in_window": 7,
+    "research_report_yes": 1,
+    "cited_this_paper": 0,
+    "bundle_fit_yes": 1
+   },
+   "180d": {
+    "topic_articles_in_window": 25,
+    "research_report_yes": 2,
+    "cited_this_paper": 0,
+    "bundle_fit_yes": 1
+   }
+  },
+  {
+   "pmid": "39332263",
+   "group": "PANCREATITIS",
+   "online_first_date": "2024-09-19",
+   "repo_indexed_date": "2024-09-19",
+   "30d": {
+    "topic_articles_in_window": 71,
+    "research_report_yes": 4,
+    "cited_this_paper": 0,
+    "bundle_fit_yes": 8
+   },
+   "90d": {
+    "topic_articles_in_window": 219,
+    "research_report_yes": 24,
+    "cited_this_paper": 0,
+    "bundle_fit_yes": 36
+   },
+   "180d": {
+    "topic_articles_in_window": 251,
+    "research_report_yes": 30,
+    "cited_this_paper": 0,
+    "bundle_fit_yes": 38
+   }
+  },
+  {
+   "pmid": "37731423",
+   "group": "PANCREATITIS",
+   "online_first_date": "2023-08-19",
+   "repo_indexed_date": "2023-08-19",
+   "30d": {
+    "topic_articles_in_window": 3,
+    "research_report_yes": 0,
+    "cited_this_paper": 0,
+    "bundle_fit_yes": 0
+   },
+   "90d": {
+    "topic_articles_in_window": 55,
+    "research_report_yes": 24,
+    "cited_this_paper": 0,
+    "bundle_fit_yes": 21
+   },
+   "180d": {
+    "topic_articles_in_window": 72,
+    "research_report_yes": 26,
+    "cited_this_paper": 0,
+    "bundle_fit_yes": 22
+   }
+  },
+  {
+   "pmid": "38182782",
+   "group": "SUICIDALITY",
+   "online_first_date": "2024-01-05",
+   "repo_indexed_date": "2024-01-05",
+   "30d": {
+    "topic_articles_in_window": 33,
+    "research_report_yes": 8,
+    "cited_this_paper": 6,
+    "bundle_fit_yes": 25
+   },
+   "90d": {
+    "topic_articles_in_window": 41,
+    "research_report_yes": 8,
+    "cited_this_paper": 6,
+    "bundle_fit_yes": 26
+   },
+   "180d": {
+    "topic_articles_in_window": 63,
+    "research_report_yes": 12,
+    "cited_this_paper": 6,
+    "bundle_fit_yes": 39
+   }
+  },
+  {
+   "pmid": "39163046",
+   "group": "SUICIDALITY",
+   "online_first_date": "2024-08-20",
+   "repo_indexed_date": "2024-08-01",
+   "30d": {
+    "topic_articles_in_window": 21,
+    "research_report_yes": 10,
+    "cited_this_paper": 2,
+    "bundle_fit_yes": 14
+   },
+   "90d": {
+    "topic_articles_in_window": 77,
+    "research_report_yes": 17,
+    "cited_this_paper": 2,
+    "bundle_fit_yes": 25
+   },
+   "180d": {
+    "topic_articles_in_window": 103,
+    "research_report_yes": 24,
+    "cited_this_paper": 2,
+    "bundle_fit_yes": 27
+   }
+  },
+  {
+   "pmid": "39226070",
+   "group": "SUICIDALITY",
+   "online_first_date": "2024-09-03",
+   "repo_indexed_date": "2024-11-01",
+   "30d": {
+    "topic_articles_in_window": 16,
+    "research_report_yes": 3,
+    "cited_this_paper": 1,
+    "bundle_fit_yes": 8
+   },
+   "90d": {
+    "topic_articles_in_window": 71,
+    "research_report_yes": 10,
+    "cited_this_paper": 1,
+    "bundle_fit_yes": 17
+   },
+   "180d": {
+    "topic_articles_in_window": 95,
+    "research_report_yes": 17,
+    "cited_this_paper": 1,
+    "bundle_fit_yes": 19
+   }
+  }
+ ]
+}
