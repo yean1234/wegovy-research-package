@@ -1,0 +1,13 @@
+# Europe PMC abstracts and derived per-paper text are not redistributed (README_ko §7).
+# Only the aggregate report and the heuristics log are tracked.
+raw/
+clean/
+analysis_text/
+sentences/
+translations/
+cues/
+tokens/
+entities/
+review_sheet.csv
+!preprocessing_report.json
+!HEURISTICS_LOG.md
