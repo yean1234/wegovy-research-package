@@ -1,0 +1,58 @@
+[
+  {
+    "group": "NAION",
+    "search_unique_urls": 213,
+    "queried_urls_body_extracted": 192,
+    "union_exact_topic_dedup": 157,
+    "strict_provisional_research_candidates": 78
+  },
+  {
+    "group": "GASTROPARESIS",
+    "search_unique_urls": 47,
+    "queried_urls_body_extracted": 47,
+    "union_exact_topic_dedup": 101,
+    "strict_provisional_research_candidates": 53
+  },
+  {
+    "group": "BOWEL_OBSTRUCTION",
+    "search_unique_urls": 55,
+    "queried_urls_body_extracted": 52,
+    "union_exact_topic_dedup": 162,
+    "strict_provisional_research_candidates": 71
+  },
+  {
+    "group": "PANCREATITIS",
+    "search_unique_urls": 441,
+    "queried_urls_body_extracted": 405,
+    "union_exact_topic_dedup": 485,
+    "strict_provisional_research_candidates": 190
+  },
+  {
+    "group": "SUICIDALITY",
+    "search_unique_urls": 230,
+    "queried_urls_body_extracted": 215,
+    "union_exact_topic_dedup": 243,
+    "strict_provisional_research_candidates": 96
+  },
+  {
+    "group": "THYROID_CANCER",
+    "search_unique_urls": 44,
+    "queried_urls_body_extracted": 42,
+    "union_exact_topic_dedup": 105,
+    "strict_provisional_research_candidates": 37
+  },
+  {
+    "group": "GALLBLADDER",
+    "search_unique_urls": 46,
+    "queried_urls_body_extracted": 43,
+    "union_exact_topic_dedup": 264,
+    "strict_provisional_research_candidates": 98
+  },
+  {
+    "group": "GI_SYMPTOMS",
+    "search_unique_urls": 29,
+    "queried_urls_body_extracted": 25,
+    "union_exact_topic_dedup": 447,
+    "strict_provisional_research_candidates": 183
+  }
+]

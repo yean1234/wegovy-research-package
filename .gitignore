@@ -3,3 +3,10 @@
 !.env.example
 __pycache__/
 raw_news/
+# article bodies / excerpts are not redistributed (README §7)
+scripts/screening_internal.json
+scripts/review_queue.txt
+scripts/*.out
+validation/sample.json
+validation/index.html
+scripts/window_candidates*.json

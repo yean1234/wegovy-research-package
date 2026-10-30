@@ -1,0 +1,270 @@
+{
+  "collect_days": 183,
+  "run_at": "2026-10-28T19:19:24.417898+00:00",
+  "log": [
+    {
+      "group": "NAION",
+      "query": "위고비 NAION",
+      "window": "2024-07-03~2025-08-22",
+      "pmids": [
+        "38958939",
+        "39491755",
+        "39976940"
+      ],
+      "path": "naver_web_daterange",
+      "reason": "api_http_401",
+      "rows": 74,
+      "pages": 5
+    },
+    {
+      "group": "NAION",
+      "query": "위고비 실명",
+      "window": "2024-07-03~2025-08-22",
+      "pmids": [
+        "38958939",
+        "39491755",
+        "39976940"
+      ],
+      "path": "naver_web_daterange",
+      "reason": "api_key_unavailable_or_rejected",
+      "rows": 90,
+      "pages": 7
+    },
+    {
+      "group": "NAION",
+      "query": "세마글루타이드 시신경",
+      "window": "2024-07-03~2025-08-22",
+      "pmids": [
+        "38958939",
+        "39491755",
+        "39976940"
+      ],
+      "path": "naver_web_daterange",
+      "reason": "api_key_unavailable_or_rejected",
+      "rows": 89,
+      "pages": 7
+    },
+    {
+      "group": "GASTROPARESIS",
+      "query": "위고비 위마비",
+      "window": "2024-01-19~2024-07-20",
+      "pmids": [
+        "38371020"
+      ],
+      "path": "naver_web_daterange",
+      "reason": "api_key_unavailable_or_rejected",
+      "rows": 2,
+      "pages": 1
+    },
+    {
+      "group": "GASTROPARESIS",
+      "query": "위고비 위 무력증",
+      "window": "2024-01-19~2024-07-20",
+      "pmids": [
+        "38371020"
+      ],
+      "path": "naver_web_daterange",
+      "reason": "api_key_unavailable_or_rejected",
+      "rows": 6,
+      "pages": 1
+    },
+    {
+      "group": "GASTROPARESIS",
+      "query": "세마글루타이드 위마비",
+      "window": "2024-01-19~2024-07-20",
+      "pmids": [
+        "38371020"
+      ],
+      "path": "naver_web_daterange",
+      "reason": "api_key_unavailable_or_rejected",
+      "rows": 2,
+      "pages": 1
+    },
+    {
+      "group": "GASTROPARESIS",
+      "query": "위고비 위마비",
+      "window": "2025-04-02~2025-10-02",
+      "pmids": [
+        "40175094"
+      ],
+      "path": "naver_web_daterange",
+      "reason": "api_key_unavailable_or_rejected",
+      "rows": 3,
+      "pages": 1
+    },
+    {
+      "group": "GASTROPARESIS",
+      "query": "위고비 위 무력증",
+      "window": "2025-04-02~2025-10-02",
+      "pmids": [
+        "40175094"
+      ],
+      "path": "naver_web_daterange",
+      "reason": "api_key_unavailable_or_rejected",
+      "rows": 3,
+      "pages": 1
+    },
+    {
+      "group": "GASTROPARESIS",
+      "query": "세마글루타이드 위마비",
+      "window": "2025-04-02~2025-10-02",
+      "pmids": [
+        "40175094"
+      ],
+      "path": "naver_web_daterange",
+      "reason": "api_key_unavailable_or_rejected",
+      "rows": 3,
+      "pages": 1
+    },
+    {
+      "group": "PANCREATITIS",
+      "query": "위고비 췌장염",
+      "window": "2023-08-19~2024-02-18",
+      "pmids": [
+        "37731423"
+      ],
+      "path": "naver_web_daterange",
+      "reason": "api_key_unavailable_or_rejected",
+      "rows": 68,
+      "pages": 6
+    },
+    {
+      "group": "PANCREATITIS",
+      "query": "세마글루타이드 췌장염",
+      "window": "2023-08-19~2024-02-18",
+      "pmids": [
+        "37731423"
+      ],
+      "path": "naver_web_daterange",
+      "reason": "api_key_unavailable_or_rejected",
+      "rows": 33,
+      "pages": 3
+    },
+    {
+      "group": "PANCREATITIS",
+      "query": "세마글루티드 췌장염",
+      "window": "2023-08-19~2024-02-18",
+      "pmids": [
+        "37731423"
+      ],
+      "path": "naver_web_daterange",
+      "reason": "api_key_unavailable_or_rejected",
+      "rows": 22,
+      "pages": 2
+    },
+    {
+      "group": "PANCREATITIS",
+      "query": "위고비 췌장염",
+      "window": "2024-03-28~2025-03-21",
+      "pmids": [
+        "38555109",
+        "39332263"
+      ],
+      "path": "naver_web_daterange",
+      "reason": "api_key_unavailable_or_rejected",
+      "rows": 146,
+      "pages": 11
+    },
+    {
+      "group": "PANCREATITIS",
+      "query": "세마글루타이드 췌장염",
+      "window": "2024-03-28~2025-03-21",
+      "pmids": [
+        "38555109",
+        "39332263"
+      ],
+      "path": "naver_web_daterange",
+      "reason": "api_key_unavailable_or_rejected",
+      "rows": 150,
+      "pages": 14
+    },
+    {
+      "group": "PANCREATITIS",
+      "query": "세마글루티드 췌장염",
+      "window": "2024-03-28~2025-03-21",
+      "pmids": [
+        "38555109",
+        "39332263"
+      ],
+      "path": "naver_web_daterange",
+      "reason": "api_key_unavailable_or_rejected",
+      "rows": 49,
+      "pages": 4
+    },
+    {
+      "group": "SUICIDALITY",
+      "query": "위고비 자살",
+      "window": "2024-01-05~2024-07-06",
+      "pmids": [
+        "38182782"
+      ],
+      "path": "naver_web_daterange",
+      "reason": "api_key_unavailable_or_rejected",
+      "rows": 74,
+      "pages": 6
+    },
+    {
+      "group": "SUICIDALITY",
+      "query": "위고비 자살 충동",
+      "window": "2024-01-05~2024-07-06",
+      "pmids": [
+        "38182782"
+      ],
+      "path": "naver_web_daterange",
+      "reason": "api_key_unavailable_or_rejected",
+      "rows": 64,
+      "pages": 5
+    },
+    {
+      "group": "SUICIDALITY",
+      "query": "세마글루타이드 자살",
+      "window": "2024-01-05~2024-07-06",
+      "pmids": [
+        "38182782"
+      ],
+      "path": "naver_web_daterange",
+      "reason": "api_key_unavailable_or_rejected",
+      "rows": 41,
+      "pages": 4
+    },
+    {
+      "group": "SUICIDALITY",
+      "query": "위고비 자살",
+      "window": "2024-08-20~2025-03-05",
+      "pmids": [
+        "39163046",
+        "39226070"
+      ],
+      "path": "naver_web_daterange",
+      "reason": "api_key_unavailable_or_rejected",
+      "rows": 112,
+      "pages": 10
+    },
+    {
+      "group": "SUICIDALITY",
+      "query": "위고비 자살 충동",
+      "window": "2024-08-20~2025-03-05",
+      "pmids": [
+        "39163046",
+        "39226070"
+      ],
+      "path": "naver_web_daterange",
+      "reason": "api_key_unavailable_or_rejected",
+      "rows": 78,
+      "pages": 7
+    },
+    {
+      "group": "SUICIDALITY",
+      "query": "세마글루타이드 자살",
+      "window": "2024-08-20~2025-03-05",
+      "pmids": [
+        "39163046",
+        "39226070"
+      ],
+      "path": "naver_web_daterange",
+      "reason": "api_key_unavailable_or_rejected",
+      "rows": 53,
+      "pages": 5
+    }
+  ]
+}

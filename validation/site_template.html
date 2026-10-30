@@ -1,0 +1,330 @@
+<title>위고비 보도 검증</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one working column — sticky header with coder + save state, tabs, one item card at a time; results as compact tables. */
+:root{
+ --bg:#f4f6f8;--surface:#ffffff;--fg:#17212b;--muted:#5b6876;--line:#dde3ea;
+ --accent:#2c5b8a;--accent-soft:#e3ecf5;--yes:#23714f;--yes-soft:#e1f1e9;--no:#a8364a;--no-soft:#f7e4e8;--warn:#9a6a14;--warn-soft:#f6ecd8;
+ --sans:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+ --bg:#0f151b;--surface:#18212a;--fg:#e4eaf0;--muted:#9aa8b6;--line:#2a3643;
+ --accent:#86b3e0;--accent-soft:#1e3247;--yes:#6cc79c;--yes-soft:#16342a;--no:#ec8a9b;--no-soft:#3a1d25;--warn:#e0b45e;--warn-soft:#3a2f17;color-scheme:dark}}
+:root[data-theme="dark"]{
+ --bg:#0f151b;--surface:#18212a;--fg:#e4eaf0;--muted:#9aa8b6;--line:#2a3643;
+ --accent:#86b3e0;--accent-soft:#1e3247;--yes:#6cc79c;--yes-soft:#16342a;--no:#ec8a9b;--no-soft:#3a1d25;--warn:#e0b45e;--warn-soft:#3a2f17;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:15px;line-height:1.6}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+.wrap{max-width:860px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 48px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surface);border-bottom:1px solid var(--line)}
+.hrow{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding-block:12px}
+h1{font-size:18px;margin:0;font-weight:700;letter-spacing:-.01em}
+.who{margin-left:auto;display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted)}
+.who img{width:22px;height:22px;border-radius:50%}
+.save{font-family:var(--mono);font-size:12px;padding:2px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+.save.err{background:var(--no-soft);color:var(--no)}
+nav{display:flex;gap:4px;overflow-x:auto;padding-bottom:8px}
+nav button{font:inherit;font-size:14px;border:0;background:none;color:var(--muted);padding:6px 12px;border-radius:8px;cursor:pointer;white-space:nowrap}
+nav button[aria-selected="true"]{background:var(--accent-soft);color:var(--accent);font-weight:600}
+nav .cnt{font-family:var(--mono);font-size:11px;margin-left:6px}
+main{padding-top:20px;display:grid;gap:16px}
+h2{font-size:17px;margin:8px 0 0;text-wrap:balance}
+h3{font-size:15px;margin:0}
+p{margin:0}
+.muted{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;display:grid;gap:12px;min-width:0}
+.meta{display:flex;flex-wrap:wrap;gap:8px 14px;font-size:12.5px;color:var(--muted);font-family:var(--mono)}
+.chip{display:inline-block;font-size:12px;padding:1px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent);font-family:var(--sans)}
+.title{font-size:17px;font-weight:600;line-height:1.45;text-wrap:balance}
+.excerpt{white-space:pre-wrap;font-size:14.5px;line-height:1.75;max-height:420px;overflow:auto;padding:12px 14px;border-radius:8px;background:var(--bg);border:1px solid var(--line)}
+.excerpt mark{background:var(--warn-soft);color:inherit;border-radius:3px;padding:0 2px}
+a{color:var(--accent)}
+.q{display:grid;gap:8px;border-top:1px solid var(--line);padding-top:12px}
+.q label.qt{font-weight:600}
+.q .hint{font-size:13px;color:var(--muted)}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--surface);color:var(--fg);padding:8px 14px;border-radius:8px;cursor:pointer}
+.opt:hover{border-color:var(--accent)}
+.opt[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft);color:var(--accent);font-weight:600}
+.opt.y[aria-pressed="true"]{border-color:var(--yes);background:var(--yes-soft);color:var(--yes)}
+.opt.n[aria-pressed="true"]{border-color:var(--no);background:var(--no-soft);color:var(--no)}
+.opt kbd{font-family:var(--mono);font-size:11px;color:var(--muted);margin-left:6px}
+select,textarea,input{font:inherit;font-size:14px;color:var(--fg);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 10px;max-width:100%}
+textarea{width:100%;min-height:56px;resize:vertical}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.navrow{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.btn{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--surface);color:var(--fg);padding:8px 14px;border-radius:8px;cursor:pointer}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+.btn:disabled{opacity:.45;cursor:default}
+.progress{flex:1;min-width:120px;height:6px;background:var(--line);border-radius:999px;overflow:hidden}
+.progress i{display:block;height:100%;background:var(--accent)}
+.pos{font-family:var(--mono);font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.pilot{font-size:12px;color:var(--warn);background:var(--warn-soft);padding:1px 8px;border-radius:999px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:13.5px;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:600;color:var(--muted);font-size:12.5px}
+td.num{font-family:var(--mono);text-align:right;white-space:nowrap}
+.verdict{font-size:12px;font-weight:600;padding:1px 8px;border-radius:999px;white-space:nowrap}
+.verdict.ok{background:var(--yes-soft);color:var(--yes)}.verdict.mid{background:var(--warn-soft);color:var(--warn)}.verdict.bad{background:var(--no-soft);color:var(--no)}
+.note{font-size:13px;color:var(--muted);border-left:3px solid var(--line);padding-left:10px}
+ul.plain{margin:0;padding-left:18px;display:grid;gap:4px}
+.abstract{font-size:13.5px;line-height:1.7;max-height:260px;overflow:auto;padding:10px 12px;border-radius:8px;background:var(--bg);border:1px solid var(--line)}
+@media (max-width:520px){.who span.label{display:none}.card{padding:14px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<header><div class="wrap">
+ <div class="hrow"><h1>위고비 보도 검증</h1>
+  <div class="who"><img id="avatar" alt="" hidden><span id="me">확인 중…</span><span id="save" class="save">불러오는 중</span></div></div>
+ <nav role="tablist" id="tabs"></nav>
+</div></header>
+<div class="wrap"><main id="view"></main></div>
+
+<script type="application/json" id="data">/*DATA*/</script>
+<script>
+const D=JSON.parse(document.getElementById('data').textContent);
+const PAPER_LABEL=Object.fromEntries(D.main_papers.map(p=>[p.pmid,p.label]));
+const TASKS={
+ T:{key:'T',name:'검증 1 · 기사 묶음',items:D.v1_articles,blurb:'기사가 그 부작용을 주된 주제로 다루는지 판단합니다.'},
+ P:{key:'P',name:'검증 1 · 논문',items:D.v1_papers,blurb:'논문이 세마글루타이드와 그 부작용을 다루는지, 주 분석 논문인지 판단합니다.'},
+ R:{key:'R',name:'검증 2 · 연구 보도',items:D.v2,blurb:'기사가 새 연구 결과를 계기로 쓰였는지, 어떤 논문을 보도했는지 판단합니다.'},
+};
+const TRIG=[['research','새 연구 결과','1'],['judicial','소송·고발','2'],['agency','규제기관 발표','3'],['company','기업 소식(주가·출시 등)','4'],['other','기타·기획·해설','5']];
+const TRIG_RULE={research_report_released:'research',judicial_action:'judicial',govt_agency_action:'agency',newsmaker_action_nongovt:'company',other_or_enterprise:'other'};
+let state={tab:'guide',idx:{T:0,P:0,R:0},answers:{},others:{},uid:null,isOwner:false,db:null,mode:'local'};
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function store(k,v){try{v===undefined?localStorage.removeItem(k):localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+function load(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}}
+
+/* ---------- persistence: db (shared, per coder) or this browser ---------- */
+let saveTimer=null,saving=false,dirty=false;
+function setSave(t,err){const s=$('#save');s.textContent=t;s.classList.toggle('err',!!err)}
+function scheduleSave(){dirty=true;clearTimeout(saveTimer);saveTimer=setTimeout(flush,700);setSave('저장 대기')}
+async function flush(){
+ if(saving||!dirty)return;saving=true;dirty=false;
+ const body={answers:state.answers,updatedAt:new Date().toISOString()};
+ try{
+  if(state.db&&state.uid){await state.db.doc('codes/'+state.uid).set(body);setSave('저장됨 · 팀 공유')}
+  else{store('wegovy-validation-local',body);setSave('저장됨 · 이 브라우저')}
+ }catch(e){setSave('저장 실패 — 다시 시도 중',true);dirty=true;setTimeout(flush,4000)}
+ saving=false;if(dirty)flush();
+}
+async function init(){
+ const local=load('wegovy-validation-local');if(local&&local.answers)state.answers=local.answers;
+ const ui=load('wegovy-validation-ui');if(ui){state.tab=ui.tab||state.tab;Object.assign(state.idx,ui.idx||{})}
+ render();setSave('이 브라우저에 저장');$('#me').textContent='로컬 모드';
+ if(!window.claude||!claude.use)return;
+ const [user,db]=await Promise.all([claude.use('user'),claude.use('db')]);
+ if(user){const me=await user.me();state.uid=me.id;state.isOwner=me.isOwner;
+  $('#me').textContent=me.name||'나';const a=$('#avatar');a.src=me.avatarUrl;a.hidden=false}
+ if(db&&state.uid){
+  state.db=db;state.mode='db';
+  const mine=await db.doc('codes/'+state.uid).get().catch(()=>null);
+  if(mine&&mine.exists){state.answers={...state.answers,...(mine.data().answers||{})}}
+  else if(Object.keys(state.answers).length){dirty=true;flush()}
+  setSave('팀 공유 저장');
+  db.collection('codes').onSnapshot(snap=>{
+   state.others={};snap.docs.forEach(d=>{if(d.id!==state.uid)state.others[d.id]=d.data().answers||{}});
+   if(state.tab==='results')render();
+  },e=>setSave('공유 데이터 연결 끊김',true));
+ }
+ state.user=user;render();
+}
+
+/* ---------- statistics ---------- */
+function wilson(k,n,z=1.96){if(!n)return[NaN,NaN];const p=k/n,d=1+z*z/n,c=(p+z*z/(2*n))/d,h=z*Math.sqrt(p*(1-p)/n+z*z/(4*n*n))/d;return[Math.max(0,c-h),Math.min(1,c+h)]}
+function binStats(pairs){ // pairs: [rule,human] with 'yes'/'no'
+ let tp=0,fp=0,fn=0,tn=0;pairs.forEach(([r,h])=>{if(r==='yes'&&h==='yes')tp++;else if(r==='yes')fp++;else if(h==='yes')fn++;else tn++});
+ const n=tp+fp+fn+tn,acc=n?(tp+tn)/n:NaN,prec=tp+fp?tp/(tp+fp):NaN,rec=tp+fn?tp/(tp+fn):NaN,f1=prec+rec?2*prec*rec/(prec+rec):NaN;
+ const po=acc,pe=n?((tp+fp)*(tp+fn)+(fn+tn)*(fp+tn))/(n*n):NaN,kappa=pe<1?(po-pe)/(1-pe):NaN;
+ const ppos=2*tp+fp+fn?2*tp/(2*tp+fp+fn):NaN,pneg=2*tn+fp+fn?2*tn/(2*tn+fp+fn):NaN;
+ return{tp,fp,fn,tn,n,acc,accCI:wilson(tp+tn,n),prec,precCI:wilson(tp,tp+fp),rec,recCI:wilson(tp,tp+fn),f1,kappa,ppos,pneg};
+}
+function multiAgree(pairs){const n=pairs.length,k=pairs.filter(([a,b])=>a===b).length;return{n,k,acc:n?k/n:NaN,accCI:wilson(k,n)}}
+function krippAlpha(units){ // nominal; units: arrays of values from different coders
+ const o={},cats=new Set();
+ units.forEach(vals=>{const m=vals.length;if(m<2)return;vals.forEach((a,i)=>vals.forEach((b,j)=>{if(i===j)return;cats.add(a);cats.add(b);o[a]=o[a]||{};o[a][b]=(o[a][b]||0)+1/(m-1)}))});
+ const C=[...cats],nc=Object.fromEntries(C.map(c=>[c,C.reduce((s,k)=>s+((o[c]||{})[k]||0),0)])),n=C.reduce((s,c)=>s+nc[c],0);
+ if(n<2||C.length<2)return{alpha:C.length===1&&n>=2?1:NaN,units:units.filter(u=>u.length>=2).length};
+ let Do=0,De=0;C.forEach(c=>C.forEach(k=>{if(c!==k){Do+=(o[c]||{})[k]||0;De+=nc[c]*nc[k]}}));
+ return{alpha:1-(n-1)*Do/De,units:units.filter(u=>u.length>=2).length};
+}
+const pct=x=>isFinite(x)?(x*100).toFixed(1)+'%':'–';
+const ci=c=>isFinite(c[0])?`${(c[0]*100).toFixed(1)}–${(c[1]*100).toFixed(1)}%`:'–';
+const f3=x=>isFinite(x)?x.toFixed(3):'–';
+function verdictPR(x){return !isFinite(x)?'':x>.8?'<span class="verdict ok">기준 충족 (&gt;.80)</span>':'<span class="verdict bad">기준 미달 (≤.80)</span>'}
+function verdictAlpha(a){return !isFinite(a)?'':a>=.8?'<span class="verdict ok">채택 (α≥.800)</span>':a>=.667?'<span class="verdict mid">잠정 결론만 (.667–.800)</span>':'<span class="verdict bad">규칙·지침 수정 (&lt;.667)</span>'}
+
+/* ---------- answers helpers ---------- */
+const ans=id=>state.answers[id]||{};
+function setAns(id,patch){state.answers[id]={...ans(id),...patch};scheduleSave();render()}
+function humanBinary(task,a){
+ if(task==='T')return a.v==='yes'||a.v==='no'?a.v:null;
+ if(task==='R')return a.trig&&a.trig!=='unsure'?(a.trig==='research'?'yes':'no'):null;
+ return null;
+}
+function done(task,a){if(task==='P')return!!(a.elig&&a.role);if(task==='R')return!!a.trig&&(a.trig!=='research'||!!a.cited);return!!a.v}
+const doneCount=t=>TASKS[t].items.filter(it=>done(t,ans(it.id))).length;
+
+/* ---------- rendering ---------- */
+function renderTabs(){
+ const tabs=[['guide','안내',''],['T',TASKS.T.name,`${doneCount('T')}/${TASKS.T.items.length}`],['P',TASKS.P.name,`${doneCount('P')}/${TASKS.P.items.length}`],['R',TASKS.R.name,`${doneCount('R')}/${TASKS.R.items.length}`],['results','결과','']];
+ $('#tabs').innerHTML=tabs.map(([k,l,c])=>`<button role="tab" aria-selected="${state.tab===k}" data-tab="${k}">${esc(l)}${c?`<span class="cnt">${c}</span>`:''}</button>`).join('');
+}
+function render(){
+ renderTabs();store('wegovy-validation-ui',{tab:state.tab,idx:state.idx});
+ const v=$('#view');
+ if(state.tab==='guide')v.innerHTML=guide();
+ else if(state.tab==='results')v.innerHTML=results();
+ else v.innerHTML=itemView(state.tab);
+}
+function guide(){
+ const m=D.meta;
+ return `<section class="card"><h2>이 페이지에서 하는 일</h2>
+ <p>컴퓨터 규칙이 매긴 판정을 사람이 따로 판정해서, 규칙이 몇 % 맞는지 계산합니다. 화면에는 컴퓨터 판정을 보여 주지 않습니다. 한 과제를 끝까지 판정하면 결과 탭에서 비교가 열립니다.</p>
+ <ul class="plain">
+  <li><b>${esc(TASKS.T.name)}</b> — ${TASKS.T.items.length}건 (모집단 ${m.v1_articles.population_N}건 중 무작위)</li>
+  <li><b>${esc(TASKS.P.name)}</b> — ${TASKS.P.items.length}편 전부</li>
+  <li><b>${esc(TASKS.R.name)}</b> — ${TASKS.R.items.length}건 (모집단 ${m.v2.population_N}건 중 무작위)</li></ul>
+ <p class="note">표본 크기는 Lacy & Riffe(1996) 공식(예상 일치율 .90, 최소 허용 .85, 95% 단측)과 Lombard 외(2002)의 하한(50건 또는 10% 이상)으로 정했습니다. 앞 30건은 원래 계획의 파일럿 크기라서 결과 탭에 따로 보여 줍니다. 순서는 이미 무작위(seed ${m.seed})이므로 앞에서부터 차례로 판정해 주세요.</p></section>
+ <section class="card"><h3>판정 기준</h3>
+ <ul class="plain">
+  <li><b>묶음이 알맞은가</b>: 그 부작용이 기사의 <i>주된 주제</i>이면 "예", 지나가며 언급하거나 비교용으로만 나오면 "아니오" (Mahl 외 2023의 관련성 정의).</li>
+  <li><b>연구 보도인가</b>: 기사가 쓰인 <i>계기</i>를 고릅니다. "무엇이 이 일을 처음 뉴스로 만들었나" (Pew/PEJ Story Trigger). 소송·규제기관 발표가 계기이고 예전 연구는 배경으로만 나오면 "새 연구 결과"가 아닙니다.</li>
+  <li><b>논문 적격성</b>: 세마글루타이드(위고비)를 다루고(I), 그 부작용을 결과로 보는가(O) (Cochrane Handbook 3·19장). <b>역할</b>: 세마글루타이드 자체의 1차 연구·그 체계적 고찰이면 "주 분석", 약물 계열(GLP-1 전체) 수준이거나 기전 설명이면 "배경" (OCEBM 2011 harms).</li></ul>
+ <p class="note">발췌만으로 판단이 어려우면 "원문 열기"로 기사 전체를 읽고 판정하세요. 둘 이상이 같은 표본을 각자 판정하면 코더 간 Krippendorff α도 계산됩니다. ${state.mode==='db'?'판정은 팀 공유 저장소에 사람별로 저장됩니다.':'지금은 이 브라우저에만 저장됩니다. 팀 공유 저장은 claude.ai에서 이 페이지를 열 때 켜집니다.'}</p>
+ <p class="muted" style="font-size:13px">단축키: Y·N(예/아니오), 1–5(계기), ←·→(이전/다음).</p></section>`;
+}
+function highlight(text,group){
+ const pats={'비동맥염성 앞허혈시신경병증(NAION)':/NAION|비동맥.{0,18}(?:시신경|허혈)|허혈성.{0,8}시신경/gi,'위마비':/위\s*마비|위장?\s*무력증|gastroparesis/gi,'췌장염':/췌장염|pancreatitis/gi,'자살사고·자살행동':/자살|자해|suicid/gi};
+ let h=esc(text);if(group&&pats[group])h=h.replace(pats[group],m=>`<mark>${m}</mark>`);return h;
+}
+function itemView(t){
+ const T=TASKS[t],items=T.items,i=Math.min(state.idx[t],items.length-1),it=items[i],a=ans(it.id),dc=doneCount(t);
+ const nav=`<div class="navrow"><button class="btn" data-act="prev" ${i===0?'disabled':''}>← 이전</button>
+  <span class="pos">${i+1} / ${items.length}</span><div class="progress" aria-label="진행률"><i style="width:${dc/items.length*100}%"></i></div>
+  <span class="pos">완료 ${dc}</span><button class="btn" data-act="jump">다음 미완료</button><button class="btn primary" data-act="next" ${i===items.length-1?'disabled':''}>다음 →</button></div>`;
+ let body='';
+ if(t==='P'){
+  body=`<div class="meta"><span>${esc(it.id)}</span><span>${esc(it.journal)}</span><span>온라인 공개 ${esc(it.online_first_date)}</span><span class="chip">${esc(it.group)}</span></div>
+  <div class="title">${esc(it.title)}</div><div class="meta">${(it.pub_types||[]).map(x=>`<span>${esc(x)}</span>`).join('')}</div>
+  <div class="abstract">${esc(it.abstract||'초록 없음 — 원문 링크로 확인')}</div><a href="${esc(it.doi_url)}" target="_blank" rel="noopener">원문(DOI) 열기 ↗</a>
+  <div class="q"><label class="qt">세마글루타이드를 다루고 이 부작용(${esc(it.group)})을 결과로 보는 연구인가?</label>
+  <div class="opts">${opt('elig','yes','예','y',a.elig)}${opt('elig','no','아니오','n',a.elig)}${opt('elig','unsure','판단 불가','',a.elig)}</div></div>
+  <div class="q"><label class="qt">역할</label><span class="hint">주 분석: 세마글루타이드 자체의 1차 연구(RCT·사후분석·코호트·약물감시·증례) 또는 그 체계적 고찰 · 배경: GLP-1 계열 전체 수준, 기전 설명</span>
+  <div class="opts">${opt('role','main','주 분석','',a.role)}${opt('role','background','배경','',a.role)}${opt('role','unsure','판단 불가','',a.role)}</div></div>`;
+ }else{
+  const grp=t==='T'?it.group_ko:null;
+  body=`<div class="meta"><span>${esc(it.id)}</span><span>${esc(it.date||'날짜 없음')}</span><span>${esc((it.url.match(/\/\/([^/]+)/)||[])[1]||'')}</span>${i<30?'<span class="pilot">파일럿 30</span>':''}${(t==='T'?[it.group_ko]:it.groups_ko).map(g=>`<span class="chip">${esc(g)}</span>`).join('')}</div>
+  <div class="title">${esc(it.title)}</div><div class="excerpt">${highlight(it.excerpt,grp)}</div>
+  <a href="${esc(it.url)}" target="_blank" rel="noopener">원문 열기 ↗</a>`;
+  if(t==='T')body+=`<div class="q"><label class="qt">${esc(it.group_ko)}이(가) 이 기사의 주된 주제인가?</label><span class="hint">지나가며 언급, 다른 부작용 나열 속 한 항목, 비교용 언급이면 "아니오"</span>
+   <div class="opts">${opt('v','yes','예','y',a.v,'Y')}${opt('v','no','아니오','n',a.v,'N')}${opt('v','unsure','판단 불가','',a.v)}</div></div>`;
+  else{
+   body+=`<div class="q"><label class="qt">이 기사를 쓰게 한 계기는?</label><span class="hint">새 연구가 계기면 "새 연구 결과". 예전 연구가 배경으로만 나오면 실제 계기를 고르세요.</span>
+   <div class="opts">${TRIG.map(([k,l,key])=>opt('trig',k,l,k==='research'?'y':'',a.trig,key)).join('')}${opt('trig','unsure','판단 불가','',a.trig)}</div></div>`;
+   if(a.trig==='research')body+=`<div class="q"><label class="qt" for="cited">보도한 논문</label>
+    <select id="cited" data-field="cited"><option value="">선택…</option>${D.main_papers.map(p=>`<option value="${p.pmid}" ${a.cited===p.pmid?'selected':''}>${esc(p.label)} · ${esc(p.group)}</option>`).join('')}
+    <option value="OTHER_STUDY" ${a.cited==='OTHER_STUDY'?'selected':''}>목록에 없는 다른 연구</option><option value="unknown" ${a.cited==='unknown'?'selected':''}>알 수 없음</option></select></div>`;
+  }
+ }
+ body+=`<div class="q"><label class="qt" for="note">메모 (선택)</label><textarea id="note" data-field="note" placeholder="애매했던 이유 등">${esc(a.note||'')}</textarea></div>`;
+ return `<section class="card"><h2>${esc(T.name)}</h2><p class="muted">${esc(T.blurb)}</p></section>${nav}<section class="card">${body}</section>${nav}`;
+}
+function opt(field,val,label,cls,cur,key){return `<button class="opt ${cls}" data-field="${field}" data-val="${val}" aria-pressed="${cur===val}">${esc(label)}${key?`<kbd>${key}</kbd>`:''}</button>`}
+
+/* ---------- results ---------- */
+function coders(){const c={};if(state.uid||Object.keys(state.answers).length)c[state.uid||'local']=state.answers;Object.assign(c,state.others);return c}
+function results(){
+ const C=coders(),ids=Object.keys(C);
+ const names=id=>id===state.uid||id==='local'?'나':(state.names&&state.names[id])||'팀원';
+ if(state.user&&ids.some(id=>id!==state.uid))state.user.profiles(ids.filter(id=>id!=='local')).then(ps=>{const n={};for(const k in ps)n[k]=ps[k].name||'팀원';if(JSON.stringify(n)!==JSON.stringify(state.names||{})){state.names=n;if(state.tab==='results')render()}});
+ let h=`<section class="card"><h2>결과</h2><p class="muted">사람 판정을 기준으로 컴퓨터 규칙의 정확도를 계산합니다. 합격선은 결과를 보기 전에 정해 두었습니다: 정밀도·재현율 &gt; .80 (Mahl 외 2023), 코더 간 α ≥ .800 채택 · .667–.800 잠정 (Krippendorff 2004). κ는 참고용입니다 (Landis & Koch 1977의 등급은 저자도 임의적이라고 밝힘). 신뢰구간은 Wilson 95%.</p></section>`;
+ for(const t of ['T','R','P']){
+  const T=TASKS[t],complete=doneCount(t)===T.items.length,canSee=complete||state.isOwner;
+  h+=`<section class="card"><h3>${esc(T.name)}</h3>`;
+  // inter-coder reliability
+  const field=t==='P'?['elig','role']:[t==='T'?'v':'trig'];
+  field.forEach(f=>{
+   const units=T.items.map(it=>ids.map(id=>(C[id][it.id]||{})[f]).filter(x=>x&&x!=='unsure'));
+   const k=krippAlpha(units);
+   h+=`<p>코더 ${ids.length}명 · ${t==='P'?(f==='elig'?'적격성':'역할')+' ':''}코더 간 α = <b>${f3(k.alpha)}</b> (2명 이상 판정한 항목 ${k.units}개) ${k.units?verdictAlpha(k.alpha):''}</p>`;
+  });
+  if(!canSee){h+=`<p class="note">이 과제를 끝까지 판정하면(${doneCount(t)}/${T.items.length}) 컴퓨터 규칙과의 비교가 열립니다. 판정 중에 규칙 결과를 보면 판정이 흔들릴 수 있어서 가려 둡니다.</p></section>`;continue}
+  if(t==='P'){h+=paperResults(C,ids,names);h+='</section>';continue}
+  h+=`<div class="tbl"><table><thead><tr><th>기준(사람)</th><th>n</th><th>정확도 (95% CI)</th><th>정밀도 (95% CI)</th><th>재현율 (95% CI)</th><th>F1</th><th>κ</th></tr></thead><tbody>`;
+  const rows=[];
+  ids.forEach(id=>{const pairs=T.items.map((it,i)=>[it.rule,humanBinary(t,C[id][it.id]||{}),i]).filter(p=>p[1]);rows.push([names(id),pairs])});
+  if(ids.length>1){const pairs=T.items.map((it,i)=>{const hs=ids.map(id=>humanBinary(t,C[id][it.id]||{})).filter(Boolean);return hs.length===ids.length&&hs.every(x=>x===hs[0])?[it.rule,hs[0],i]:null}).filter(Boolean);rows.push(['코더 전원 일치 항목',pairs])}
+  rows.forEach(([nm,pairs])=>{[['전체',pairs],['파일럿 30',pairs.filter(p=>p[2]<30)]].forEach(([lab,ps])=>{const s=binStats(ps);
+   h+=`<tr><td>${esc(nm)} · ${lab}</td><td class="num">${s.n}</td><td class="num">${pct(s.acc)} (${ci(s.accCI)})</td><td class="num">${pct(s.prec)} (${ci(s.precCI)}) ${lab==='전체'?verdictPR(s.prec):''}</td><td class="num">${pct(s.rec)} (${ci(s.recCI)}) ${lab==='전체'?verdictPR(s.rec):''}</td><td class="num">${f3(s.f1)}</td><td class="num">${f3(s.kappa)}</td></tr>`})});
+  h+=`</tbody></table></div>`;
+  const me=rows[0]?binStats(rows[0][1]):null;
+  if(me)h+=`<p class="note">2×2 (${esc(rows[0][0])}): 규칙 예·사람 예 ${me.tp} · 규칙 예·사람 아니오 ${me.fp} · 규칙 아니오·사람 예 ${me.fn} · 둘 다 아니오 ${me.tn}. 양성 일치 ${f3(me.ppos)} · 음성 일치 ${f3(me.pneg)} (Cicchetti & Feinstein 1990).</p>`;
+  if(t==='R'){ // cited paper + trigger category
+   ids.forEach(id=>{
+    const sub=T.items.filter(it=>it.rule==='yes'&&(C[id][it.id]||{}).trig==='research'&&(C[id][it.id]||{}).cited&&(C[id][it.id]||{}).cited!=='unknown');
+    const ok=sub.filter(it=>it.rule_cited.split(/[:,]/).includes(C[id][it.id].cited)&&!it.rule_cited.startsWith('uncertain')).length;
+    const unc=sub.filter(it=>it.rule_cited.startsWith('uncertain')).length;
+    const tc=multiAgree(T.items.map(it=>[TRIG_RULE[it.rule_trigger],(C[id][it.id]||{}).trig]).filter(p=>p[1]&&p[1]!=='unsure'));
+    h+=`<p>${esc(names(id))} · 인용 논문 일치: 둘 다 연구 보도로 본 ${sub.length}건 중 ${ok}건 (${pct(ok/sub.length)}, ${ci(wilson(ok,sub.length))}). 규칙이 '불확실'로 남긴 것 ${unc}건. 계기 5분류 일치 ${pct(tc.acc)} (${ci(tc.accCI)}, n=${tc.n}).</p>`;
+   });
+  }
+  h+=mismatches(t,C,ids,names)+'</section>';
+ }
+ h+=`<section class="card"><h3>내보내기</h3><p class="muted">판정 원자료(모든 코더)와 규칙 판정을 CSV로 저장합니다. 보고서와 레포에 넣을 때 씁니다.</p><div class="navrow"><button class="btn primary" data-act="export">CSV 저장</button></div><textarea id="exportbox" hidden readonly></textarea></section>`;
+ return h;
+}
+function mismatches(t,C,ids,names){
+ const id=ids[0];if(!id)return'';const T=TASKS[t];
+ const list=T.items.filter(it=>{const hb=humanBinary(t,C[id][it.id]||{});return hb&&hb!==it.rule});
+ if(!list.length)return'';
+ return `<details><summary>규칙과 다르게 판정한 항목 ${list.length}건 (${esc(names(id))})</summary><div class="tbl"><table><thead><tr><th>ID</th><th>제목</th><th>규칙</th><th>사람</th><th>메모</th></tr></thead><tbody>${list.map(it=>{const a=C[id][it.id]||{};return`<tr><td class="num">${esc(it.id)}</td><td><a href="${esc(it.url)}" target="_blank" rel="noopener">${esc(it.title)}</a></td><td>${esc(t==='R'?it.rule_trigger+(it.rule_cited?' · '+it.rule_cited:''):it.rule)}</td><td>${esc(t==='R'?(a.trig+(a.cited?' · '+a.cited:'')):a.v)}</td><td>${esc(a.note||'')}</td></tr>`}).join('')}</tbody></table></div></details>`;
+}
+function paperResults(C,ids,names){
+ const id=ids[0],T=TASKS.P;let h='';
+ const e=multiAgree(T.items.map(it=>[it.rule_eligible,(C[id][it.id]||{}).elig]).filter(p=>p[1]&&p[1]!=='unsure'));
+ const r=multiAgree(T.items.map(it=>[it.rule_role,(C[id][it.id]||{}).role]).filter(p=>p[1]&&p[1]!=='unsure'));
+ h+=`<p>${esc(names(id))} · 적격성 일치 ${e.k}/${e.n} (${pct(e.acc)}, ${ci(e.accCI)}) · 역할 일치 ${r.k}/${r.n} (${pct(r.acc)}, ${ci(r.accCI)})</p>`;
+ h+=`<div class="tbl"><table><thead><tr><th>PMID</th><th>묶음</th><th>레포 역할</th><th>규칙 적격·역할</th><th>사람 적격·역할</th></tr></thead><tbody>${T.items.map(it=>{const a=C[id][it.id]||{};const diff=a.role&&a.role!==it.rule_role||a.elig&&a.elig!==it.rule_eligible;return`<tr><td class="num"><a href="${esc(it.doi_url)}" target="_blank" rel="noopener">${esc(it.pmid)}</a></td><td>${esc(it.group)}</td><td>${esc(it.repo_role)}</td><td>${esc(it.rule_eligible)} · ${esc(it.rule_role)}</td><td>${diff?'<b>':''}${esc(a.elig||'–')} · ${esc(a.role||'–')}${diff?'</b>':''}</td></tr>`}).join('')}</tbody></table></div>`;
+ return h;
+}
+function csv(){
+ const C=coders(),rows=[['task','item_id','article_or_pmid','coder','human_v','human_trig','human_cited','human_elig','human_role','note','rule','rule_trigger','rule_cited','rule_eligible','rule_role','title','url']];
+ for(const t of ['T','R','P'])TASKS[t].items.forEach(it=>Object.entries(C).forEach(([cid,A])=>{const a=A[it.id];if(!a)return;
+  rows.push([t,it.id,it.article_id||it.pmid,cid,a.v||'',a.trig||'',a.cited||'',a.elig||'',a.role||'',a.note||'',it.rule||'',it.rule_trigger||'',it.rule_cited||'',it.rule_eligible||'',it.rule_role||'',it.title,it.url||it.doi_url])}));
+ return '﻿'+rows.map(r=>r.map(x=>'"'+String(x).replace(/"/g,'""')+'"').join(',')).join('\r\n');
+}
+
+/* ---------- events ---------- */
+document.addEventListener('click',async e=>{
+ const tab=e.target.closest('[data-tab]');if(tab){state.tab=tab.dataset.tab;render();scrollTo(0,0);return}
+ const o=e.target.closest('.opt');if(o){const t=state.tab,it=TASKS[t].items[state.idx[t]];const patch={[o.dataset.field]:o.dataset.val};if(o.dataset.field==='trig'&&o.dataset.val!=='research')patch.cited='';setAns(it.id,patch);return}
+ const b=e.target.closest('[data-act]');if(!b)return;const t=state.tab;
+ if(b.dataset.act==='prev'){state.idx[t]--;render();scrollTo(0,0)}
+ if(b.dataset.act==='next'){state.idx[t]++;render();scrollTo(0,0)}
+ if(b.dataset.act==='jump'){const items=TASKS[t].items,n=items.length;for(let k=1;k<=n;k++){const j=(state.idx[t]+k)%n;if(!done(t,ans(items[j].id))){state.idx[t]=j;break}}render();scrollTo(0,0)}
+ if(b.dataset.act==='export'){
+  const data=csv(),dl=window.claude&&claude.use?await claude.use('downloads'):null;
+  if(dl){try{await dl.save({filename:'validation_codes.csv',data});return}catch(err){}}
+  const box=$('#exportbox');box.hidden=false;box.value=data;box.select();
+  try{await navigator.clipboard.writeText(data);b.textContent='클립보드에 복사됨'}catch(err){b.textContent='아래 칸을 복사하세요'}
+ }
+});
+document.addEventListener('change',e=>{if(e.target.id==='cited'){const t=state.tab;setAns(TASKS[t].items[state.idx[t]].id,{cited:e.target.value})}});
+let noteTimer;document.addEventListener('input',e=>{if(e.target.id==='note'){const t=state.tab,id=TASKS[t].items[state.idx[t]].id;state.answers[id]={...ans(id),note:e.target.value};clearTimeout(noteTimer);noteTimer=setTimeout(scheduleSave,400)}});
+document.addEventListener('keydown',e=>{
+ if(!TASKS[state.tab]||/TEXTAREA|SELECT|INPUT/.test(e.target.tagName)||e.metaKey||e.ctrlKey||e.altKey)return;
+ const t=state.tab,it=TASKS[t].items[state.idx[t]],k=e.key.toLowerCase();
+ if(k==='arrowright'&&state.idx[t]<TASKS[t].items.length-1){state.idx[t]++;render()}
+ else if(k==='arrowleft'&&state.idx[t]>0){state.idx[t]--;render()}
+ else if(t==='T'&&(k==='y'||k==='n'))setAns(it.id,{v:k==='y'?'yes':'no'});
+ else if(t==='R'&&/^[1-5]$/.test(k)){const v=TRIG[+k-1][0];setAns(it.id,v==='research'?{trig:v}:{trig:v,cited:''})}
+});
+init();
+</script>

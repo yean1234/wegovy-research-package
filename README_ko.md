@@ -128,3 +128,17 @@ main은 성분·주제상 주 분석 후보, conditional은 추가 확인 필요
 키나 Client Secret을 채팅·노션·공개 저장소에 붙이지 않는다. 사용자 PC의 환경변수 또는 접근을 제한한 .env에 저장하고 코드는 환경변수를 읽도록 구성한다. .env는 암호화 보관함이 아니므로 파일 공유도 피한다. .gitignore에 등록해도 이미 커밋한 비밀이 삭제되는 것은 아니다. 예시 파일의 YOUR_... 값은 자리표시자이며 실제 키가 없다. 이미 외부에 공개된 키는 발급 서비스에서 폐기·교체한다.
 
 네이버는 Client Secret을 외부에 노출하지 않도록 안내한다. [네이버 공식 FAQ](https://developers.naver.com/products/intro/faq/faq.md). 발급 서비스가 확인되면 그 서비스의 설정 방식에 맞춰 연결한다. 이 패키지의 공개 검색 파일럿에는 키가 필요하지 않았다.
+
+## 9. 시기별 수집과 사람 검증 (2026-10-29)
+
+판정 기준과 근거는 `docs/criteria_sources.md`에 있다. 우선 4개 묶음의 주 분석 논문 11편을 대상으로 했다.
+
+1. `fix_paper_dates.py` → `paper_dates.json`: 온라인 최초 공개일과 그 출처를 기록한다. 레포 날짜와 달라진 논문은 5편이다. 예를 들어 NAION 38958939는 2024-08-01에서 2024-07-03으로 바뀌었다.
+2. 기간은 온라인 공개일부터 +90일로 정했고, 민감도 분석은 30일과 180일로 한다. 수집은 가장 넓은 183일 창으로 했다.
+3. `rescrape_existing.py`: 기존 345건의 본문을 그대로의 코드로 다시 추출한다. 결과는 추출 323, 본문 부족 10, 실패 12다. 언론사 페이지가 바뀌어 파일럿(330/12/3)과 차이가 있다.
+4. `collect_windows.py`: 네이버 API를 최신순으로 받고, 기간 시작일보다 오래된 기사가 나오면 멈춘다. 1,000건 상한에 걸리거나 API가 실패하면 웹 검색의 날짜 범위로 보충한다. 기사마다 `collection_paths`와 `web_fallback_reason`을 남긴다. 검색 API는 NAVER API HUB(`naverapihub.apigw.ntruss.com/search/v1/news`, 헤더 `X-NCP-APIGW-API-KEY-ID`/`X-NCP-APIGW-API-KEY`)를 쓴다. 키는 `.env`의 `NAVER_CLIENT_ID`/`NAVER_CLIENT_SECRET`에서 읽는다. 옛 개발자센터 주소(`openapi.naver.com`)에서는 이 키가 401로 거부된다. 2026-10-29 실행 결과, 질의·기간 21건 가운데 19건은 API만으로 기간 시작일까지 도달했다. '위고비 췌장염' 2건은 1,000건 상한에 걸려 웹 날짜 범위로 보충했다(`api_1000_cap_before_window_start`). 고유 URL은 714개다. 앞선 웹 전용 실행 결과(638개)는 `scripts/*_webonly_20261029.json`에 남겨 두었다.
+5. `scrape_windows.py` → `merge_candidates.py` → 기존 `analyze_pilot.py`를 그대로 실행한다. 대상은 946건이고, 본문 추출 867건, 본문 부족 34건, 실패 46건, 유사 중복 22건이다. Windows에서는 `PYTHONUTF8=1`을 설정한다. `analyze_pilot.py`는 수집 경로를 처음 본문을 추출할 때의 값으로 남긴다. 그래서 `label_articles.py`가 병합 파일에서 경로를 다시 읽는다.
+6. `label_articles.py`: 기간 배정, 묶음 적합성, 계기, 연구 보도 여부, 인용한 논문을 판정한다. `summarize_windows.py`는 `window_summary.json`을 만든다.
+7. `make_validation_sample.py` → `validation/build_site.py`: 검증 표본(검증 1 기사 N=456에서 81쌍, 논문 23편, 검증 2 N=424에서 80건)을 뽑고 검증 페이지를 만든다.
+
+기사 본문과 발췌가 든 파일(`screening_internal.json`, `validation/sample.json`, `validation/index.html`)은 배포하지 않는다.

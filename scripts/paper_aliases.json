@@ -1,0 +1,14 @@
+{
+  "_note": "Altmetric text-mining identifiers per main paper (Altmetric Help Center 'Text mining': author + journal + date). Korean articles usually name the institution instead of the author, so 'team' also accepts institution aliases; this substitution is the team's extension (Fleerackers et al. 2022 found institution mentions not associated with detection) and is reported separately in validation. Aliases were taken from author lists in paper_dates.json and the spellings observed in the collected Korean bodies.",
+  "38958939": {"journal": "JAMA\\s*Ophthalmol|(?:JAMA|자마|미국\\s*의(?:사|학)\\s*협회|미\\s*의학협회).{0,15}안과", "team": "하버드|Harvard|매사추세츠\\s*안|매스\\s*아이|Mass(?:achusetts)?\\s*Eye|리조|Rizzo|해서웨이|Hathaway"},
+  "39976940": {"journal": "JAMA\\s*Ophthalmol|(?:JAMA|자마|미국\\s*의(?:사|학)\\s*협회|미\\s*의학협회).{0,15}안과", "team": "존스\\s*홉킨스|Johns\\s*Hopkins|윌머|Wilmer|OHDSI|오디시"},
+  "39491755": {"journal": "(?<!JAMA )(?<!JAMA)Ophthalmology|미국\\s*안과학회.{0,4}(?:지|저널|학술지)|오프탈몰로지", "team": "대만|Taiwan|타이중|Taichung|양밍|Yang\\s*Ming|브라운\\s*대|Brown\\s*University|TriNetX|트라이넷"},
+  "40175094": {"journal": "BMJ\\s*Open\\s*Gastro|BMJ\\s*오픈.{0,6}소화기|영국의학저널.{0,10}소화기", "team": "[웨와]일\\s*코넬|Weill\\s*Cornell|코넬\\s*의대|코넬대|샤라이하|Sharaiha"},
+  "38371020": {"journal": "Cureus|큐레우스", "team": "세인트\\s*도미닉|St\\.?\\s*Dominic|하워드\\s*대|Howard\\s*University|Chaudhry|차우드리"},
+  "38555109": {"journal": "Endocrinolog[ií]a,?\\s*Diabetes\\s*y\\s*Nutrici|Endocrinol\\s*Diabetes\\s*Nutr", "team": "부에노스\\s*아이레스|Buenos\\s*Aires|아르헨티나|Hospital\\s*Italiano|마손|Masson"},
+  "39332263": {"journal": "Diabetes\\s*(?:&|and)\\s*Metabolic\\s*Syndrome|Diabetes\\s*Metab\\s*Syndr|당뇨병\\s*(?:및|과|&)?\\s*대사증후군.{0,8}(?:저널|학술지|임상)", "team": "버팔로|Buffalo|나사르|Nassar|미스라|Misra"},
+  "37731423": {"journal": "Cureus|큐레우스", "team": "리버사이드|Riverside|오거스타|Augusta|조지아\\s*의대"},
+  "38182782": {"journal": "Nature\\s*Medicine|네이처\\s*메디[신슨선]", "team": "케이스\\s*웨스턴|Case\\s*Western|룽\\s*쉬|Rong\\s*Xu|윌리엄\\s*왕|William\\s*Wang"},
+  "39163046": {"journal": "JAMA\\s*Netw(?:ork)?\\s*Open|(?:JAMA|자마)\\s*네트워크\\s*오픈", "team": "베로나|Verona|노스웰|Northwell|저커|Zucker|쇼레차니티스|Schoretsanitis|가스탈돈|Gastaldon|VigiBase|비지베이스"},
+  "39226070": {"journal": "JAMA\\s*Intern(?:al)?\\s*Med|(?:JAMA|자마|미국\\s*의(?:사|학)\\s*협회).{0,15}내과", "team": "펜실베이니아\\s*대|펜실베이니아\\s*의대|University\\s*of\\s*Pennsylvania|UPenn|페렐만|Perelman|와든|Wadden|코펜하겐\\s*대"}
+}
