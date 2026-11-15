@@ -10,3 +10,6 @@ scripts/*.out
 validation/sample.json
 validation/index.html
 scripts/window_candidates*.json
+scripts/round2_bodies.json
+validation/sample_round2.json
+validation/index_round2.html

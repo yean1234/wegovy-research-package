@@ -142,3 +142,15 @@ main은 성분·주제상 주 분석 후보, conditional은 추가 확인 필요
 7. `make_validation_sample.py` → `validation/build_site.py`: 검증 표본(검증 1 기사 N=456에서 81쌍, 논문 23편, 검증 2 N=424에서 80건)을 뽑고 검증 페이지를 만든다.
 
 기사 본문과 발췌가 든 파일(`screening_internal.json`, `validation/sample.json`, `validation/index.html`)은 배포하지 않는다.
+
+## 10. 2차 사람 검증 (2026-11-16)
+
+1차 검증(§9)은 코더 3명의 일치도가 낮았다. Krippendorff α는 기사 주제 0.709, 계기 5분류 0.549, 연구 보도 여부(2분류) 0.795, 논문 적격성 −0.217, 논문 역할 −0.007이다. 그래서 판정 기준을 고치고 새 표본으로 다시 검증한다.
+
+1. `make_validation_sample_round2.py` → `validation/sample_round2.json`: 1차와 같은 무작위 순서(seed 20261029)를 재현해 1차 표본 뒤에서 이어 뽑는다. 1차에 나온 기사 150건은 제외한다. 표본 크기는 1차와 같다(기사 주제 81쌍, 연구 보도 80건, 논문 23편 전부).
+2. 기사 본문은 저장소에 없으므로 후보 기사를 다시 받아 발췌를 만든다. 본문을 받지 못한 후보는 건너뛴다(기사 주제 5건, 연구 보도 7건). 컴퓨터 판정은 `article_labels_internal.json`의 값(10월 29일 본문 기준)을 그대로 쓴다.
+3. `validation/build_site_round2.py`: `site_template_round2.html`에 표본을 넣어 `index_round2.html`을 만든다.
+
+1차와 달라진 점은 세 가지다. "어떤 논문을 보도했나" 문항을 뺐다. 계기 문항은 "제목·리드에 사건이 있는가 → 누가 했는가" 두 단계로 묻는다. 논문은 적격성과 역할을 따로 묻는다. 논문 23편은 1차와 같은 논문이라 "기준 수정 후 재판정"으로 보고한다.
+
+`sample_round2.json`, `index_round2.html`, `scripts/round2_bodies.json`은 기사 발췌·본문이 들어 있어 배포하지 않는다.
