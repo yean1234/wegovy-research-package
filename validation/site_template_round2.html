@@ -80,7 +80,7 @@ ul.plain{margin:0;padding-left:18px;display:grid;gap:4px}
 .rule b{color:var(--fg)}
 .warnbox{font-size:13px;color:var(--warn);background:var(--warn-soft);border-radius:8px;padding:6px 10px}
 .step{font-family:var(--mono);font-size:11px;color:var(--accent);background:var(--accent-soft);border-radius:999px;padding:1px 8px;margin-right:6px}
-.abstract{font-size:13.5px;line-height:1.7;max-height:260px;overflow:auto;padding:10px 12px;border-radius:8px;background:var(--bg);border:1px solid var(--line)}
+.abstract{font-size:13.5px;line-height:1.7;max-height:440px;overflow:auto;padding:10px 12px;border-radius:8px;background:var(--bg);border:1px solid var(--line)}
 @media (max-width:520px){.who span.label{display:none}.card{padding:14px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
@@ -224,12 +224,14 @@ function guide(){
   <li><b>R-6.</b> 사망 사례 보도는 근거가 학술지 증례 보고이면 "새 연구", 아니면 "기타". 소송 제기가 리드에 있을 때만 "소송".</li></ul></section>
  <section class="card"><h3>검증 1 · 논문</h3>
  <ul class="plain">
-  <li><b>Q-1 적격성.</b> 세마글루타이드가 포함됐고, 그 연구가 화면의 부작용을 결과로 측정해 보고했는가. 서론에서 언급만 했으면 "아니오".</li>
-  <li><b>Q-2 역할.</b> 세마글루타이드만의 결과가 따로 있으면 "주 분석", 없으면 "배경".</li></ul>
+  <li><b>판단은 초록으로 합니다.</b> 본문까지 찾아보지 않습니다.</li>
+  <li><b>Q-1 적격성.</b> 초록에 세마글루타이드가 나오고, 그 연구가 화면의 부작용을 결과로 측정해 보고했는가. 초록에 세마글루타이드가 명시되지 않으면 "아니오". 서론에서 부작용을 언급만 했어도 "아니오".</li>
+  <li><b>Q-2 역할.</b> 초록에 세마글루타이드만의 결과(위험비, 발생률, 사례 수 등)가 따로 있으면 "주 분석", 없으면 "배경".</li></ul>
  <div class="tbl"><table><thead><tr><th>논문 유형</th><th>적격성</th><th>역할</th></tr></thead><tbody>
-  <tr><td>세마글루타이드 단독 연구·증례 보고</td><td>예</td><td>주 분석</td></tr>
-  <tr><td>GLP-1 계열을 묶어 분석, 세마글루타이드 포함</td><td>예</td><td>배경</td></tr>
-  <tr><td>세마글루타이드가 없거나 그 부작용을 재지 않음</td><td>아니오</td><td>배경</td></tr></tbody></table></div>
+  <tr><td>세마글루타이드 단독 연구·증례 보고, 또는 그 체계적 고찰·메타분석</td><td>예</td><td>주 분석</td></tr>
+  <tr><td>GLP-1 계열 연구지만 초록에 세마글루타이드만의 수치가 따로 있음</td><td>예</td><td>주 분석</td></tr>
+  <tr><td>GLP-1 계열 연구이고 초록에 세마글루타이드가 나오지만 따로 된 수치는 없음</td><td>예</td><td>배경</td></tr>
+  <tr><td>초록에 세마글루타이드가 없거나, 그 부작용을 재지 않음</td><td>아니오</td><td>배경</td></tr></tbody></table></div>
  <p class="note">${state.mode==='db'?'판정은 팀 공유 저장소에 사람별로 저장됩니다.':'지금은 이 브라우저에만 저장됩니다. 팀 공유 저장은 claude.ai에서 내 계정으로 이 페이지를 열 때 켜집니다.'}</p>
  <p class="muted" style="font-size:13px">단축키: Y·N(예/아니오), 0(사건 없음), 1–5(행위자), ←·→(이전/다음).</p></section>`;
 }
@@ -247,12 +249,12 @@ function itemView(t){
   body=`<div class="meta"><span>${esc(it.id)}</span><span>${esc(it.journal)}</span><span>온라인 공개 ${esc(it.online_first_date)}</span><span class="chip">${esc(it.group)}</span></div>
   <div class="title">${esc(it.title)}</div><div class="meta">${(it.pub_types||[]).map(x=>`<span>${esc(x)}</span>`).join('')}</div>
   <div class="abstract">${esc(it.abstract||'초록 없음 — 원문 링크로 확인')}</div><a href="${esc(it.doi_url)}" target="_blank" rel="noopener">원문(DOI) 열기 ↗</a>
-  <div class="q"><label class="qt"><span class="step">질문 1</span>적격성: 세마글루타이드가 포함됐고, 이 연구가 ${esc(it.group)}을(를) 결과로 측정해 보고했는가?</label>
-  <div class="rule"><b>Q-1.</b> 약과 결과 두 가지만 봅니다. GLP-1 계열을 묶은 연구도 세마글루타이드가 들어 있으면 약은 "있음"입니다. 서론에서 부작용을 언급만 했으면 "아니오". 역할은 여기서 생각하지 않습니다.</div>
-  <div class="opts">${opt('elig','yes','예','y',a.elig)}${opt('elig','no','아니오','n',a.elig)}${opt('elig','unsure','판단 불가 (초록·원문이 안 열림)','',a.elig)}</div></div>
-  <div class="q"><label class="qt"><span class="step">질문 2</span>역할: 세마글루타이드만의 결과가 따로 있는가?</label>
-  <div class="rule"><b>Q-2.</b> 세마글루타이드 단독 연구·증례 보고 → 주 분석. GLP-1 계열 전체의 결과만 있음 → 배경. 세마글루타이드가 없거나 그 부작용을 재지 않음(질문 1이 "아니오") → 배경.</div>
-  <div class="opts">${opt('role','main','주 분석','',a.role)}${opt('role','background','배경','',a.role)}${opt('role','unsure','판단 불가 (초록·원문이 안 열림)','',a.role)}</div>
+  <div class="q"><label class="qt"><span class="step">질문 1</span>적격성: 초록에 세마글루타이드가 나오고, 이 연구가 ${esc(it.group)}을(를) 결과로 측정해 보고했는가?</label>
+  <div class="rule"><b>Q-1.</b> 초록만 보고, 약과 결과 두 가지만 봅니다. 초록에 세마글루타이드가 명시되지 않으면 "아니오"입니다. GLP-1 계열 연구라도 초록에 세마글루타이드가 나오면 약은 "있음"입니다. 서론에서 부작용을 언급만 했으면 "아니오". 역할은 여기서 생각하지 않습니다.</div>
+  <div class="opts">${opt('elig','yes','예','y',a.elig)}${opt('elig','no','아니오','n',a.elig)}${opt('elig','unsure','판단 불가 (초록이 없음)','',a.elig)}</div></div>
+  <div class="q"><label class="qt"><span class="step">질문 2</span>역할: 초록에 세마글루타이드만의 수치가 따로 있는가?</label>
+  <div class="rule"><b>Q-2.</b> 초록에 세마글루타이드만의 수치(위험비, 발생률, 사례 수 등)가 따로 있는가. 세마글루타이드 단독 연구·증례 보고·그 체계적 고찰 → 주 분석. GLP-1 계열 연구라도 세마글루타이드만의 수치가 있음 → 주 분석. 계열 결과만 있고 세마글루타이드 수치가 따로 없음 → 배경. 질문 1이 "아니오" → 배경.</div>
+  <div class="opts">${opt('role','main','주 분석','',a.role)}${opt('role','background','배경','',a.role)}${opt('role','unsure','판단 불가 (초록이 없음)','',a.role)}</div>
   ${a.elig==='no'&&a.role==='main'?'<div class="warnbox">질문 1이 "아니오"이면 기준표에서 역할은 "배경"입니다. 의도한 답이면 메모에 이유를 적어 주세요.</div>':''}</div>`;
  }else{
   const grp=t==='T'?it.group_ko:null;
