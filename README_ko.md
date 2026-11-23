@@ -142,3 +142,40 @@ main은 성분·주제상 주 분석 후보, conditional은 추가 확인 필요
 7. `make_validation_sample.py` → `validation/build_site.py`: 검증 표본(검증 1 기사 N=456에서 81쌍, 논문 23편, 검증 2 N=424에서 80건)을 뽑고 검증 페이지를 만든다.
 
 기사 본문과 발췌가 든 파일(`screening_internal.json`, `validation/sample.json`, `validation/index.html`)은 배포하지 않는다.
+
+## 10. 교수님 피드백 반영: 전체 기간 수집, 논문 확장, 3차 검증, 분석 (2026-11-24)
+
+피드백(11/17)에 따라 논문 집단을 늘리고, 기사는 논문별 기간 창 대신 전체 기간으로 수집한다. 논문과 기사의 직접 연결은 한계로 보고한다. 90일 창은 민감도 분석으로만 남는다. 묶음은 우선 4개(NAION, 췌장염, 자살사고·자살행동, 위마비)다.
+
+### 실행 순서
+
+| 단계 | 스크립트 | 산출물 | 이 저장소에 포함 |
+|---|---|---|---|
+| 논문 검색·자동 선별 | `collect_papers_v2.py` | `paper_flow_v2.json`, `paper_screening_v2.json`, `scripts/papers_v2_internal.json` | 앞의 둘만 (초록은 제외) |
+| 기사 전체 기간 수집 | `collect_fullperiod.py` | `scripts/news_candidates_fullperiod.json` | 아니오 |
+| 본문 추출 | `scrape_articles.py` | `scripts/raw_news/`, `scripts/raw_html/` | 아니오 |
+| 병합·중복·규칙 선별 | `merge_candidates.py` → `analyze_pilot.py` → `label_articles.py` | `scripts/article_labels_internal.json` | 예 (본문 없음) |
+| 3차 검증 표본·사이트 | `make_validation_sample_round3.py` → `validation/build_site_round3.py` | `validation/index_round3.html` | 아니오 |
+| 규칙 대 분류기 비교 | `compare_classifiers.py <판정 CSV>` | `classifier_comparison.json` | 예 |
+| 초록 번역 | `translate_abstracts.py --provider deepl` | `scripts/abstract_translations.json` | 아니오 |
+| RQ1~3 | `analyze_rq.py --articles <확정 목록>` | `results/rq_results.json`, 그림 2장 | 확정 목록으로 돌린 결과만 |
+
+수집 코드의 검토 내용과 바뀐 점은 `docs/crawling_review.md`, 사전의 수정 내역은 `docs/lexicon_changes.md`에 있다. 필요한 패키지는 `requirements.txt`다. 테스트는 `python -m pytest scripts/tests -q`로 돌린다(네트워크 불필요).
+
+### 2026-11-24에 실제로 돌린 것
+
+- **논문:** Europe PMC 검색 397건(NAION 82, 위마비 139, 췌장염 104, 자살사고 72). 자동 제외 뒤 159건이 남았고(51, 10, 56, 42), 묶음당 25건까지 사람 검증 대상으로 뽑아 85건(고유 82편)이다. 1차 분석의 주 분석 논문 11편은 모두 포함했다. 위마비는 "위 배출"만 다룬 69건을 빼서 10건이다.
+- **기사 본문 재추출:** 기존 후보 158건 가운데 89건을 받았다. 결과와 추출 방법 비교는 `docs/crawling_review.md` 5장에 있다.
+- **3차 검증 사이트:** 논문 85건과 기사 파일럿 30건으로 만들었다.
+- **분석:** `analyze_rq.py`는 컴퓨터가 통과시킨 기사 49건으로 시험 실행만 했다. 사람이 확정한 목록이 아니고 초록 번역도 없으므로 결과로 쓰지 않는다.
+
+### 돌리지 못한 것
+
+- 네이버 검색 API를 쓰는 `collect_fullperiod.py`: 이 환경에 API 키가 없다.
+- `translate_abstracts.py`의 실제 번역: 번역 API 키가 없다. 문장 분리까지만 돌렸다(82편, 902문장, 약 13만 3천 자).
+- `compare_classifiers.py`: 1차 사람 판정 파일(`validation_codes.csv`)이 저장소에 없어 모의 판정으로 실행 여부만 확인했다.
+
+### 시험 실행에서 보인 것 (결과 아님, 설계 참고용)
+
+- 제목에는 약 이름과 진단명이 함께 나오는 경우가 적다. 좁은 주장 문장 필터로는 제목 49개 가운데 11개만 남는다. 넓은 용어 목록('비만약', '실명' 등)을 쓴 민감도 분석을 세 집단 모두에 함께 낸다.
+- 본문 군집은 대부분 부작용 묶음을 그대로 따라간다. 그래서 부작용 단어를 뺀 군집화를 함께 낸다.

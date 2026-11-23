@@ -1,0 +1,67 @@
+{
+ "meta": {
+  "run_date": "2026-11-23",
+  "period_start": "2021-01-01",
+  "seed": 20261124,
+  "source": "Europe PMC REST search (SRC:MED, HAS_ABSTRACT:y)",
+  "rule": "abstract names semaglutide and reports the bundle adverse event as an outcome; see module docstring"
+ },
+ "flow": {
+  "NAION": {
+   "query": "TITLE_ABS:(semaglutide OR Wegovy OR Ozempic OR Rybelsus) AND TITLE_ABS:(NAION OR \"ischemic optic neuropathy\" OR \"ischaemic optic neuropathy\") AND FIRST_PDATE:[2021-01-01 TO 2026-11-23] AND SRC:MED AND HAS_ABSTRACT:y",
+   "identified": 82,
+   "with_pmid_and_abstract": 82,
+   "excluded": {
+    "not_a_study": 22,
+    "outcome_not_reported": 2,
+    "semaglutide_in_passing": 7
+   },
+   "passed_auto_screen": 51,
+   "shortlist_for_human_screening": 25,
+   "of_which_retained_from_first_analysis": 3,
+   "cap": 25
+  },
+  "GASTROPARESIS": {
+   "query": "TITLE_ABS:(semaglutide OR Wegovy OR Ozempic OR Rybelsus) AND TITLE_ABS:(gastroparesis OR \"gastric paralysis\" OR \"gastric emptying\") AND FIRST_PDATE:[2021-01-01 TO 2026-11-23] AND SRC:MED AND HAS_ABSTRACT:y",
+   "identified": 139,
+   "with_pmid_and_abstract": 139,
+   "excluded": {
+    "not_a_study": 52,
+    "outcome_not_reported": 69,
+    "semaglutide_in_passing": 8
+   },
+   "passed_auto_screen": 10,
+   "shortlist_for_human_screening": 10,
+   "of_which_retained_from_first_analysis": 2,
+   "cap": 25
+  },
+  "PANCREATITIS": {
+   "query": "TITLE_ABS:(semaglutide OR Wegovy OR Ozempic OR Rybelsus) AND TITLE_ABS:(pancreatitis) AND FIRST_PDATE:[2021-01-01 TO 2026-11-23] AND SRC:MED AND HAS_ABSTRACT:y",
+   "identified": 104,
+   "with_pmid_and_abstract": 104,
+   "excluded": {
+    "not_a_study": 30,
+    "outcome_not_reported": 0,
+    "semaglutide_in_passing": 18
+   },
+   "passed_auto_screen": 56,
+   "shortlist_for_human_screening": 25,
+   "of_which_retained_from_first_analysis": 3,
+   "cap": 25
+  },
+  "SUICIDALITY": {
+   "query": "TITLE_ABS:(semaglutide OR Wegovy OR Ozempic OR Rybelsus) AND TITLE_ABS:(suicid*) AND FIRST_PDATE:[2021-01-01 TO 2026-11-23] AND SRC:MED AND HAS_ABSTRACT:y",
+   "identified": 72,
+   "with_pmid_and_abstract": 72,
+   "excluded": {
+    "not_a_study": 8,
+    "outcome_not_reported": 3,
+    "semaglutide_in_passing": 19
+   },
+   "passed_auto_screen": 42,
+   "shortlist_for_human_screening": 25,
+   "of_which_retained_from_first_analysis": 3,
+   "cap": 25
+  }
+ }
+}
