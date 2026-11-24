@@ -7,5 +7,8 @@ kiwipiepy>=0.17         # Korean morphological analysis; scripts degrade to simp
 scikit-learn>=1.3
 numpy>=1.24
 matplotlib>=3.7         # optional: figures in analyze_rq.py
+# English abstract preprocessing (preprocess_abstracts.py)
+beautifulsoup4>=4.9
+nltk>=3.9               # PunktTokenizer; also run once: python -m nltk.downloader punkt_tab
 # Tests
 pytest>=7.4
