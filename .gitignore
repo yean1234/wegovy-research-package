@@ -10,3 +10,12 @@ scripts/*.out
 validation/sample.json
 validation/index.html
 scripts/window_candidates*.json
+# analyze_rq.py output: commit only runs on the human-confirmed article list, not dry runs
+results/
+# round 3 (2026-11-24): abstracts, article bodies and raw pages are not redistributed
+scripts/papers_v2_internal.json
+scripts/raw_html/
+scripts/news_candidates_fullperiod.json
+scripts/abstract_translations.json
+validation/sample_round3.json
+validation/index_round3.html

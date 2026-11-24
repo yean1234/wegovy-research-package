@@ -13,7 +13,7 @@ from lxml import html
 from collect_news import GROUPS,canon,fetch
 ROOT=pathlib.Path(__file__).parent;REPO=ROOT.parent
 PRIORITY=['NAION','GASTROPARESIS','PANCREATITIS','SUICIDALITY']
-COLLECT_DAYS=int(sys.argv[1]) if len(sys.argv)>1 else 183
+COLLECT_DAYS=int(sys.argv[1]) if len(sys.argv)>1 and sys.argv[1].isdigit() else 183  # isdigit: importable from scripts with other flags
 def env():
  p=REPO/'.env'
  return {k.strip():v.strip().strip('"\'') for k,_,v in (l.partition('=') for l in p.read_text(encoding='utf-8-sig').splitlines()) if k.strip()} if p.exists() else {}

@@ -1,0 +1,11 @@
+# Collection and screening (scripts/collect_*.py, scrape_articles.py, label_articles.py)
+lxml>=4.9
+trafilatura>=1.8        # main-text extraction and htmldate; scrape_articles.py falls back to selectors without it
+# Analysis (claims.py, compare_classifiers.py, analyze_rq.py)
+PyYAML>=6.0
+kiwipiepy>=0.17         # Korean morphological analysis; scripts degrade to simpler tokens without it
+scikit-learn>=1.3
+numpy>=1.24
+matplotlib>=3.7         # optional: figures in analyze_rq.py
+# Tests
+pytest>=7.4

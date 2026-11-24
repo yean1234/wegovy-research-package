@@ -24,7 +24,7 @@ for p in sorted((ROOT/'raw_news').glob('*.json')):
  try:
   parts=re.findall(r'\d+',date.group()) if date else []
   day=datetime.date(*map(int,parts))
-  r['date_verified']=datetime.date(2021,1,1)<=day<=datetime.date(2026,10,12)
+  r['date_verified']=datetime.date(2021,1,1)<=day<=datetime.date.today()  # was fixed to the pilot date 2026-10-12; full-period collection runs later
  except (ValueError,TypeError):r['date_verified']=False
  r['specific_body_selector']=bool(r.get('selector') and r['selector']!='body_fallback')
  r['research_context_groups']=[]
