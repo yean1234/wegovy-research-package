@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>위고비 기사 수집·선별 과정</title>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--fg:#17212b;--muted:#5b6876;--line:#dde3ea;--keep:#2c5b8a;--keep-soft:#e3ecf5;--drop:#9aa5b1;--hl:#fbe7a8;--ok:#23714f;--ok-soft:#e1f1e9;--no:#a8364a;--no-soft:#f7e4e8}
+@media (prefers-color-scheme:dark){:root{--bg:#0f151b;--card:#18212a;--fg:#e4eaf0;--muted:#9aa8b6;--line:#2a3643;--keep:#86b3e0;--keep-soft:#1e3247;--drop:#5d6a78;--hl:#5a4a16;--ok:#6cc79c;--ok-soft:#16342a;--no:#ec8a9b;--no-soft:#3a1d25}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",system-ui,sans-serif;font-size:15px;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:28px 20px 40px;display:grid;gap:18px}
+h1{font-size:22px;margin:0}
+h2{font-size:17px;margin:0 0 4px}
+p{margin:0}
+.muted{color:var(--muted);font-size:13.5px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px}
+.row{display:grid;grid-template-columns:150px 1fr 250px;gap:14px;align-items:center;padding:9px 0}
+.row+.row{border-top:1px dashed var(--line)}
+.stage{font-weight:700}
+.stage small{display:block;font-weight:400;color:var(--muted);font-size:12px;font-family:ui-monospace,Consolas,monospace}
+.bar{height:34px;border-radius:6px;background:var(--keep);display:flex;align-items:center;min-width:44px}
+.bar b{color:var(--card);padding:0 10px;font-size:15px;font-variant-numeric:tabular-nums}
+.track{display:flex;align-items:center;gap:8px}
+.rule{font-size:13px;color:var(--muted)}
+.rule b{color:var(--fg)}
+.out{font-size:12.5px;color:var(--muted)}
+.final .bar{background:var(--ok)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.art{border:1px solid var(--line);border-radius:8px;padding:12px 14px;font-size:14px;display:grid;gap:6px}
+.lead{background:var(--keep-soft);border-radius:6px;padding:8px 10px;display:grid;gap:6px}
+.tag{font-size:11.5px;font-weight:700;color:var(--keep);letter-spacing:.02em}
+mark{background:var(--hl);color:inherit;border-radius:3px;padding:0 2px}
+mark.r{background:var(--ok-soft);outline:1px solid var(--ok)}
+.rest{color:var(--muted)}
+.check{display:grid;gap:8px;font-size:14px}
+.check div{border-radius:8px;padding:10px 12px;border:1px solid var(--line)}
+.yes{color:var(--ok);font-weight:700}.nope{color:var(--no);font-weight:700}
+table{border-collapse:collapse;width:100%;font-size:13.5px;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line)}
+th{color:var(--muted);font-weight:600;font-size:12.5px}
+td.n,th.n{text-align:right}
+@media (max-width:760px){.row{grid-template-columns:1fr}.grid2{grid-template-columns:1fr}}
+</style>
+<div class="wrap">
+ <div><h1>위고비 기사 수집·선별 과정</h1>
+ <p class="muted">우선 4개 부작용 묶음(NAION, 자살사고, 위마비, 췌장염), 2026-10-29 실행 결과. 막대 길이는 기사 수에 비례합니다.</p></div>
+
+ <section class="card">
+  <h2>1. 기사 946건이 109건으로 줄어드는 과정</h2>
+  <p class="muted">파란 막대는 다음 단계로 넘어간 기사, 오른쪽은 그 단계에서 적용한 규칙과 빠진 기사입니다.</p>
+  <div class="row"><div class="stage">검색<small>collect_windows.py</small></div>
+   <div class="track"><div class="bar" style="width:100%"><b>946</b></div></div>
+   <div class="rule"><b>"위고비 + 부작용 키워드"</b>로 네이버 뉴스 검색. 논문 공개일부터 183일까지</div></div>
+  <div class="row"><div class="stage">본문 추출<small>scrape_windows.py</small></div>
+   <div class="track"><div class="bar" style="width:91.6%"><b>867</b></div></div>
+   <div class="rule">언론사 페이지에서 본문 추출<div class="out">빠짐 79건: 본문 부족·접근 실패</div></div></div>
+  <div class="row"><div class="stage">중복 제거<small>analyze_pilot.py</small></div>
+   <div class="track"><div class="bar" style="width:89.3%"><b>845</b></div></div>
+   <div class="rule">본문이 거의 같은 기사 묶기. 본문의 부작용 단어로 묶음 표시<div class="out">빠짐 22건: 유사 중복</div></div></div>
+  <div class="row"><div class="stage">90일 창<small>label_articles.py</small></div>
+   <div class="track"><div class="bar" style="width:44.8%"><b>424</b></div></div>
+   <div class="rule">같은 묶음 논문의 <b>온라인 공개일부터 90일 안</b>에 나온 기사<div class="out">빠짐 421건: 기간 밖. 보조 자료로 보관</div></div></div>
+  <div class="row final"><div class="stage">연구 보도<small>label_articles.py 76–86행</small></div>
+   <div class="track"><div class="bar" style="width:11.5%"><b>109</b></div></div>
+   <div class="rule"><b>제목·리드에 연구 단어</b>가 있고 다른 계기가 없음<div class="out">빠짐 315건: 규제기관 101, 기업 100, 기타 106, 소송 8</div></div></div>
+  <div class="row final"><div class="stage">그중 주된 주제<small>label_articles.py 52–57행</small></div>
+   <div class="track"><div class="bar" style="width:9.2%"><b>87</b></div></div>
+   <div class="rule">부작용 단어가 <b>제목·리드</b>에 있거나 <b>문단의 1/3 이상</b>에 나옴<div class="out">109건 중 22건은 부작용이 지나가는 언급</div></div></div>
+ </section>
+
+ <section class="card">
+  <h2>2. 컴퓨터가 기사 한 건을 판정하는 방법</h2>
+  <p class="muted">가상의 기사로 보인 예시입니다. 컴퓨터는 뜻을 읽지 않고 단어의 위치와 횟수만 봅니다.</p>
+  <div class="grid2" style="margin-top:12px">
+   <div class="art">
+    <div class="lead"><span class="tag">제목 + 리드 (첫 3문단)</span>
+     <b>"위고비, <mark>시신경 질환</mark> 위험 높여"…美 <mark class="r">연구팀</mark> 발표</b>
+     <span>미국 하버드 의대 <mark class="r">연구팀</mark>은 3일 <mark class="r">국제 학술지</mark>에 위고비 사용자의 <mark>허혈성 시신경병증</mark> 위험을 분석한 결과를 실었다.</span>
+     <span><mark class="r">연구진</mark>은 환자 1만 6천여 명의 기록을 분석했다.</span>
+     <span>당뇨병 환자에서 위험이 4배 높았다고 밝혔다.</span></div>
+    <span class="rest">4문단: 다만 관찰연구라 인과관계는 확인되지 않았다.</span>
+    <span class="rest">5문단: 위고비는 지난달 국내에 출시됐다.</span>
+    <span class="rest">6문단: 제조사는 추가 연구가 필요하다고 밝혔다.</span>
+   </div>
+   <div class="check">
+    <div><b>질문 1. 이 부작용이 주된 주제인가?</b><br>
+     <mark>부작용 단어</mark>가 제목·리드에 있는가 → 있음<br>
+     없다면: 전체 문단의 1/3 이상에 나오는가<br><span class="yes">판정: 주된 주제 맞음</span></div>
+    <div><b>질문 2. 연구 보도인가?</b><br>
+     <mark class="r">연구 단어</mark>가 제목·리드에 있는가 → 있음<br>
+     소송·규제·기업 단어도 리드에 있는가 → 없음<br><span class="yes">판정: 연구 보도</span></div>
+    <div><b>반대 예</b><br>제목이 "위고비 국내 출시…가격은?"이고 6문단에만 연구가 나오면, 연구는 배경으로 보고 <span class="nope">연구 보도 아님</span></div>
+   </div>
+  </div>
+ </section>
+
+ <section class="card">
+  <h2>3. 이 규칙이 맞는지 사람이 확인한 결과 (1차)</h2>
+  <p class="muted">90일 창 기사에서 무작위로 뽑은 표본을 팀원 3명이 따로 판정했습니다. 컴퓨터 답은 가렸습니다.</p>
+  <table style="margin-top:10px"><thead><tr><th>확인한 규칙</th><th class="n">표본</th><th class="n">코더 간 일치도 α</th><th class="n">컴퓨터 정밀도</th><th class="n">컴퓨터 재현율</th></tr></thead><tbody>
+   <tr><td>주된 주제인가</td><td class="n">81</td><td class="n">0.709</td><td class="n">0.96</td><td class="n">0.78</td></tr>
+   <tr><td>연구 보도인가</td><td class="n">80</td><td class="n">0.795</td><td class="n">1.00</td><td class="n">0.84</td></tr></tbody></table>
+  <p class="muted" style="margin-top:8px">α는 0.800 이상이면 채택, 0.667~0.800이면 잠정입니다 (Krippendorff 2004). 정밀도·재현율은 3명 다수결을 기준으로 계산했습니다.</p>
+ </section>
+</div>
+</html>

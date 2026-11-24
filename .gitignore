@@ -19,3 +19,7 @@ scripts/news_candidates_fullperiod.json
 scripts/abstract_translations.json
 validation/sample_round3.json
 validation/index_round3.html
+# round 2 (2026-11-16)
+scripts/round2_bodies.json
+validation/sample_round2.json
+validation/index_round2.html
