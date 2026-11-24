@@ -12,14 +12,17 @@
   "drug_in_title": true,
   "drug_mentions_abstract": 6,
   "outcome_in_title": true,
-  "outcome_in_results": false,
+  "outcome_in_results": true,
   "evidence_synthesis": false,
   "pub_types": [
    "Journal Article",
    "Observational Study"
   ],
   "exclude": "",
-  "shortlist": true,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": false,
   "retained_from_first_analysis": false
  },
  {
@@ -43,7 +46,10 @@
    "case-report"
   ],
   "exclude": "",
-  "shortlist": true,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": false,
   "retained_from_first_analysis": false
  },
  {
@@ -66,7 +72,10 @@
    "Case Reports"
   ],
   "exclude": "",
-  "shortlist": true,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": false,
   "retained_from_first_analysis": false
  },
  {
@@ -88,6 +97,9 @@
    "Editorial"
   ],
   "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -114,6 +126,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -136,7 +151,10 @@
    "Journal Article"
   ],
   "exclude": "",
-  "shortlist": true,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": false,
   "retained_from_first_analysis": false
  },
  {
@@ -159,6 +177,9 @@
    "Journal Article"
   ],
   "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -182,6 +203,9 @@
    "Journal Article"
   ],
   "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -204,28 +228,9 @@
    "Journal Article"
   ],
   "exclude": "",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "42890826",
-  "side_effect": "NAION",
-  "title": "Semaglutide Use and Risk of Diabetic Retinopathy and Non-Arteritic Anterior Ischemic Optic Neuropathy in Type 2 Diabetes: A Single-Center Retrospective Cohort Study",
-  "journal_title": "Clinical ophthalmology (Auckland, N.Z.)",
-  "doi": "10.2147/opth.s629343",
-  "first_publication_date": "2026-10-12",
-  "electronic_publication_date": "2026-10-12",
-  "first_author": "Kemchoknatee",
-  "structured_abstract": true,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 3,
-  "outcome_in_title": true,
-  "outcome_in_results": true,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Journal Article"
-  ],
-  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -248,7 +253,35 @@
    "research-article",
    "Journal Article"
   ],
-  "exclude": "not_a_study",
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": true,
+  "retained_from_first_analysis": false
+ },
+ {
+  "pmid": "42890826",
+  "side_effect": "NAION",
+  "title": "Semaglutide Use and Risk of Diabetic Retinopathy and Non-Arteritic Anterior Ischemic Optic Neuropathy in Type 2 Diabetes: A Single-Center Retrospective Cohort Study",
+  "journal_title": "Clinical ophthalmology (Auckland, N.Z.)",
+  "doi": "10.2147/opth.s629343",
+  "first_publication_date": "2026-10-12",
+  "electronic_publication_date": "2026-10-12",
+  "first_author": "Kemchoknatee",
+  "structured_abstract": true,
+  "drug_in_title": true,
+  "drug_mentions_abstract": 3,
+  "outcome_in_title": true,
+  "outcome_in_results": true,
+  "evidence_synthesis": false,
+  "pub_types": [
+   "Journal Article"
+  ],
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -273,6 +306,9 @@
    "Observational Study"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": true,
   "retained_from_first_analysis": false
  },
@@ -297,6 +333,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": true,
   "retained_from_first_analysis": false
  },
@@ -321,7 +360,10 @@
    "Journal Article"
   ],
   "exclude": "",
-  "shortlist": false,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": true,
   "retained_from_first_analysis": false
  },
  {
@@ -344,7 +386,10 @@
    "Journal Article"
   ],
   "exclude": "",
-  "shortlist": false,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": true,
   "retained_from_first_analysis": false
  },
  {
@@ -367,6 +412,9 @@
    "Case Reports"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -391,6 +439,9 @@
    "case-report"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -413,7 +464,10 @@
    "Consensus Statement",
    "Journal Article"
   ],
-  "exclude": "semaglutide_in_passing",
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -439,6 +493,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -463,6 +520,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": true,
   "retained_from_first_analysis": false
  },
@@ -487,7 +547,10 @@
    "Observational Study"
   ],
   "exclude": "",
-  "shortlist": false,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": true,
   "retained_from_first_analysis": false
  },
  {
@@ -511,6 +574,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -535,6 +601,9 @@
    "case-report"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": true,
   "retained_from_first_analysis": false
  },
@@ -557,6 +626,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -580,6 +652,9 @@
    "Journal Article"
   ],
   "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -604,6 +679,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": true,
   "retained_from_first_analysis": false
  },
@@ -627,6 +705,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -650,6 +731,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -673,6 +757,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -696,7 +783,10 @@
    "Journal Article"
   ],
   "exclude": "",
-  "shortlist": true,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": false,
   "retained_from_first_analysis": false
  },
  {
@@ -717,8 +807,11 @@
   "pub_types": [
    "Journal Article"
   ],
-  "exclude": "semaglutide_in_passing",
-  "shortlist": false,
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
+  "shortlist": true,
   "retained_from_first_analysis": false
  },
  {
@@ -741,6 +834,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": true,
   "retained_from_first_analysis": false
  },
@@ -766,6 +862,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": true,
   "retained_from_first_analysis": false
  },
@@ -790,31 +889,10 @@
    "Journal Article"
   ],
   "exclude": "",
-  "shortlist": true,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "40843891",
-  "side_effect": "NAION",
-  "title": "Is Semaglutide Linked to NAION? A Case Report on a Rare Ocular Complication",
-  "journal_title": "Reports (MDPI)",
-  "doi": "10.3390/reports8030149",
-  "first_publication_date": "2025-08-20",
-  "electronic_publication_date": "2025-08-20",
-  "first_author": "Lešin Gaćina",
-  "structured_abstract": false,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 5,
-  "outcome_in_title": true,
-  "outcome_in_results": true,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Journal Article",
-   "Case Reports",
-   "case-report"
-  ],
-  "exclude": "",
-  "shortlist": true,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": false,
   "retained_from_first_analysis": false
  },
  {
@@ -838,6 +916,36 @@
    "Journal Article"
   ],
   "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": false,
+  "retained_from_first_analysis": false
+ },
+ {
+  "pmid": "40843891",
+  "side_effect": "NAION",
+  "title": "Is Semaglutide Linked to NAION? A Case Report on a Rare Ocular Complication",
+  "journal_title": "Reports (MDPI)",
+  "doi": "10.3390/reports8030149",
+  "first_publication_date": "2025-08-20",
+  "electronic_publication_date": "2025-08-20",
+  "first_author": "Lešin Gaćina",
+  "structured_abstract": false,
+  "drug_in_title": true,
+  "drug_mentions_abstract": 5,
+  "outcome_in_title": true,
+  "outcome_in_results": true,
+  "evidence_synthesis": false,
+  "pub_types": [
+   "Journal Article",
+   "Case Reports",
+   "case-report"
+  ],
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -862,6 +970,9 @@
    "Journal Article"
   ],
   "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -886,7 +997,10 @@
    "case-report"
   ],
   "exclude": "",
-  "shortlist": true,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": false,
   "retained_from_first_analysis": false
  },
  {
@@ -910,6 +1024,9 @@
    "Case Reports"
   ],
   "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -934,6 +1051,9 @@
    "Journal Article"
   ],
   "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -950,13 +1070,16 @@
   "drug_in_title": true,
   "drug_mentions_abstract": 2,
   "outcome_in_title": true,
-  "outcome_in_results": false,
+  "outcome_in_results": true,
   "evidence_synthesis": false,
   "pub_types": [
    "Journal Article",
    "Case Reports"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -980,6 +1103,9 @@
    "Journal Article"
   ],
   "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -1002,8 +1128,11 @@
    "Journal Article",
    "Case Reports"
   ],
-  "exclude": "semaglutide_in_passing",
-  "shortlist": false,
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
+  "shortlist": true,
   "retained_from_first_analysis": false
  },
  {
@@ -1027,6 +1156,9 @@
    "case-report"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -1043,7 +1175,7 @@
   "drug_in_title": true,
   "drug_mentions_abstract": 2,
   "outcome_in_title": true,
-  "outcome_in_results": false,
+  "outcome_in_results": true,
   "evidence_synthesis": true,
   "pub_types": [
    "review-article",
@@ -1051,6 +1183,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": true,
   "retained_from_first_analysis": false
  },
@@ -1076,6 +1211,9 @@
    "Research Support, N.I.H., Extramural"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -1100,6 +1238,9 @@
    "case-report"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -1123,6 +1264,9 @@
    "Comment"
   ],
   "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -1146,6 +1290,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -1171,6 +1318,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": true,
   "retained_from_first_analysis": false
  },
@@ -1193,7 +1343,10 @@
    "Comparative Study",
    "Journal Article"
   ],
-  "exclude": "outcome_not_reported",
+  "exclude": "",
+  "auto_outcome_reported": false,
+  "auto_semaglutide_focus": true,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -1216,6 +1369,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -1239,6 +1395,9 @@
    "Journal Article"
   ],
   "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -1264,6 +1423,9 @@
    "Observational Study"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": true,
   "retained_from_first_analysis": true
  },
@@ -1286,29 +1448,9 @@
    "Journal Article"
   ],
   "exclude": "",
-  "shortlist": true,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "39696569",
-  "side_effect": "NAION",
-  "title": "Once-weekly semaglutide doubles the five-year risk of nonarteritic anterior ischemic optic neuropathy in a Danish cohort of 424,152 persons with type 2 diabetes",
-  "journal_title": "International journal of retina and vitreous",
-  "doi": "10.1186/s40942-024-00620-x",
-  "first_publication_date": "2024-12-18",
-  "electronic_publication_date": "2024-12-18",
-  "first_author": "Grauslund",
-  "structured_abstract": true,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 5,
-  "outcome_in_title": true,
-  "outcome_in_results": true,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "research-article",
-   "Journal Article"
-  ],
-  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -1333,29 +1475,35 @@
    "Journal Article"
   ],
   "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
  {
-  "pmid": "42543940",
+  "pmid": "39696569",
   "side_effect": "NAION",
-  "title": "Glucagon Agonist Therapies and Vision Loss: Balancing Promise with Prudence in India",
-  "journal_title": "The Journal of the Association of Physicians of India",
-  "doi": "10.59556/japi.74.1507",
-  "first_publication_date": "2026-06-01",
-  "electronic_publication_date": "",
-  "first_author": "Saxena",
-  "structured_abstract": false,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 1,
-  "outcome_in_title": false,
+  "title": "Once-weekly semaglutide doubles the five-year risk of nonarteritic anterior ischemic optic neuropathy in a Danish cohort of 424,152 persons with type 2 diabetes",
+  "journal_title": "International journal of retina and vitreous",
+  "doi": "10.1186/s40942-024-00620-x",
+  "first_publication_date": "2024-12-18",
+  "electronic_publication_date": "2024-12-18",
+  "first_author": "Grauslund",
+  "structured_abstract": true,
+  "drug_in_title": true,
+  "drug_mentions_abstract": 5,
+  "outcome_in_title": true,
   "outcome_in_results": true,
   "evidence_synthesis": false,
   "pub_types": [
-   "Review",
+   "research-article",
    "Journal Article"
   ],
-  "exclude": "not_a_study",
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -1379,7 +1527,36 @@
    "systematic-review",
    "Journal Article"
   ],
-  "exclude": "semaglutide_in_passing",
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
+  "shortlist": true,
+  "retained_from_first_analysis": false
+ },
+ {
+  "pmid": "42543940",
+  "side_effect": "NAION",
+  "title": "Glucagon Agonist Therapies and Vision Loss: Balancing Promise with Prudence in India",
+  "journal_title": "The Journal of the Association of Physicians of India",
+  "doi": "10.59556/japi.74.1507",
+  "first_publication_date": "2026-06-01",
+  "electronic_publication_date": "",
+  "first_author": "Saxena",
+  "structured_abstract": false,
+  "drug_in_title": false,
+  "drug_mentions_abstract": 1,
+  "outcome_in_title": false,
+  "outcome_in_results": true,
+  "evidence_synthesis": false,
+  "pub_types": [
+   "Review",
+   "Journal Article"
+  ],
+  "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -1402,6 +1579,9 @@
    "Editorial"
   ],
   "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -1426,7 +1606,10 @@
    "case-report"
   ],
   "exclude": "",
-  "shortlist": false,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": true,
   "retained_from_first_analysis": false
  },
  {
@@ -1448,6 +1631,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -1472,6 +1658,9 @@
    "Journal Article"
   ],
   "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -1496,7 +1685,10 @@
    "Journal Article"
   ],
   "exclude": "",
-  "shortlist": true,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": false,
   "retained_from_first_analysis": false
  },
  {
@@ -1519,6 +1711,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": true,
   "retained_from_first_analysis": true
  },
@@ -1543,6 +1738,9 @@
    "Journal Article"
   ],
   "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -1566,6 +1764,9 @@
    "Journal Article"
   ],
   "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -1590,6 +1791,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": true,
   "retained_from_first_analysis": true
  },
@@ -1614,6 +1818,9 @@
    "Journal Article"
   ],
   "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -1638,6 +1845,9 @@
    "Journal Article"
   ],
   "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -1659,7 +1869,36 @@
   "pub_types": [
    "Journal Article"
   ],
-  "exclude": "semaglutide_in_passing",
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
+  "shortlist": true,
+  "retained_from_first_analysis": false
+ },
+ {
+  "pmid": "39883468",
+  "side_effect": "NAION",
+  "title": "Ophthalmic Complications Associated With the Antidiabetic Drugs Semaglutide and Tirzepatide",
+  "journal_title": "JAMA ophthalmology",
+  "doi": "10.1001/jamaophthalmol.2024.6058",
+  "first_publication_date": "2025-03-01",
+  "electronic_publication_date": "",
+  "first_author": "Katz",
+  "structured_abstract": true,
+  "drug_in_title": true,
+  "drug_mentions_abstract": 4,
+  "outcome_in_title": false,
+  "outcome_in_results": true,
+  "evidence_synthesis": false,
+  "pub_types": [
+   "research-article",
+   "Journal Article"
+  ],
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -1683,29 +1922,9 @@
    "Journal Article"
   ],
   "exclude": "not_a_study",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "39883468",
-  "side_effect": "NAION",
-  "title": "Ophthalmic Complications Associated With the Antidiabetic Drugs Semaglutide and Tirzepatide",
-  "journal_title": "JAMA ophthalmology",
-  "doi": "10.1001/jamaophthalmol.2024.6058",
-  "first_publication_date": "2025-03-01",
-  "electronic_publication_date": "",
-  "first_author": "Katz",
-  "structured_abstract": true,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 4,
-  "outcome_in_title": false,
-  "outcome_in_results": true,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "research-article",
-   "Journal Article"
-  ],
-  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -1729,6 +1948,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -1750,8 +1972,11 @@
   "pub_types": [
    "Journal Article"
   ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
+  "exclude": "",
+  "auto_outcome_reported": false,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
+  "shortlist": true,
   "retained_from_first_analysis": false
  },
  {
@@ -1775,6 +2000,9 @@
    "Journal Article"
   ],
   "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -1797,7 +2025,10 @@
    "Journal Article"
   ],
   "exclude": "",
-  "shortlist": false,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": true,
   "retained_from_first_analysis": false
  },
  {
@@ -1819,7 +2050,10 @@
    "research-article",
    "Journal Article"
   ],
-  "exclude": "semaglutide_in_passing",
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -1843,6 +2077,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": true,
   "retained_from_first_analysis": false
  },
@@ -1864,7 +2101,10 @@
   "pub_types": [
    "Journal Article"
   ],
-  "exclude": "semaglutide_in_passing",
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -1889,7 +2129,10 @@
    "Observational Study"
   ],
   "exclude": "",
-  "shortlist": true,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": false,
   "retained_from_first_analysis": false
  },
  {
@@ -1912,29 +2155,10 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": true,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "42989430",
-  "side_effect": "GASTROPARESIS",
-  "title": "Similar Tolerance of Glucagon-Like PEPTIDE-1 Agonist Therapy in Patients With Delayed and Normal Gastric Emptying",
-  "journal_title": "Neurogastroenterology and motility",
-  "doi": "10.1111/nmo.70448",
-  "first_publication_date": "2026-11-01",
-  "electronic_publication_date": "",
-  "first_author": "Rolak",
-  "structured_abstract": true,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 1,
-  "outcome_in_title": false,
-  "outcome_in_results": true,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Journal Article"
-  ],
-  "exclude": "semaglutide_in_passing",
-  "shortlist": false,
   "retained_from_first_analysis": false
  },
  {
@@ -1958,635 +2182,10 @@
    "case-report"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": true,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "43054650",
-  "side_effect": "GASTROPARESIS",
-  "title": "Quantitative Evaluation of Semaglutide-Associated Changes in Gastric Antral Motility Using Oral Contrast-Enhanced Gastric Ultrasonography",
-  "journal_title": "Risk management and healthcare policy",
-  "doi": "10.2147/rmhp.s626020",
-  "first_publication_date": "2026-11-14",
-  "electronic_publication_date": "2026-11-14",
-  "first_author": "Xu",
-  "structured_abstract": true,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 5,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "research-article",
-   "Journal Article"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "42871459",
-  "side_effect": "GASTROPARESIS",
-  "title": "Indication-specific adverse event profiles of semaglutide and liraglutide: a FAERS disproportionality analysis",
-  "journal_title": "Frontiers in pharmacology",
-  "doi": "10.3389/fphar.2026.1936967",
-  "first_publication_date": "2026-09-29",
-  "electronic_publication_date": "2026-09-29",
-  "first_author": "Fisch",
-  "structured_abstract": true,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 5,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Journal Article"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "39421913",
-  "side_effect": "GASTROPARESIS",
-  "title": "Pulmonary aspiration during upper endoscopy in a patient prescribed semaglutide",
-  "journal_title": "Revista espanola de enfermedades digestivas",
-  "doi": "10.17235/reed.2024.10844/2024",
-  "first_publication_date": "2026-09-01",
-  "electronic_publication_date": "",
-  "first_author": "Dong",
-  "structured_abstract": false,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 2,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Letter",
-   "Case Reports"
-  ],
-  "exclude": "not_a_study",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "43042167",
-  "side_effect": "GASTROPARESIS",
-  "title": "Perioperative Management of a Breastfed Child Whose Mother Was Receiving Injectable Semaglutide: A Case Report Outlining Use of Gastric Point-of-Care Ultrasound",
-  "journal_title": "Journal of medical cases",
-  "doi": "10.14740/jmc5407",
-  "first_publication_date": "2026-11-09",
-  "electronic_publication_date": "2026-11-09",
-  "first_author": "Akhter",
-  "structured_abstract": false,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 2,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Journal Article",
-   "Case Reports",
-   "case-report"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "37541662",
-  "side_effect": "GASTROPARESIS",
-  "title": "Implications of Ozempic and Other Semaglutide Medications for Facial Plastic Surgeons",
-  "journal_title": "Facial plastic surgery : FPS",
-  "doi": "10.1055/a-2148-6321",
-  "first_publication_date": "2023-08-04",
-  "electronic_publication_date": "2023-08-04",
-  "first_author": "Humphrey",
-  "structured_abstract": false,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 10,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Journal Article"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "41573454",
-  "side_effect": "GASTROPARESIS",
-  "title": "Unanticipated Residual Gastric Contents in an Appropriately Fasted Pediatric Patient on Glucagon-Like Peptide-1 Receptor Agonist Therapy: A Case Report and Review of Perioperative Considerations",
-  "journal_title": "Cureus",
-  "doi": "10.7759/cureus.99731",
-  "first_publication_date": "2025-12-20",
-  "electronic_publication_date": "2025-12-20",
-  "first_author": "Lookabaugh",
-  "structured_abstract": false,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 4,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Journal Article",
-   "Case Reports",
-   "case-report"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "42955519",
-  "side_effect": "GASTROPARESIS",
-  "title": "Comparative adverse-event reporting patterns of semaglutide and tirzepatide: a disproportionality analysis of FAERS",
-  "journal_title": "Endocrine",
-  "doi": "10.1007/s12020-026-04840-z",
-  "first_publication_date": "2026-10-29",
-  "electronic_publication_date": "2026-10-29",
-  "first_author": "Arslan",
-  "structured_abstract": true,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 7,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Comparative Study",
-   "Journal Article"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "42594084",
-  "side_effect": "GASTROPARESIS",
-  "title": "Gastroparesis induced by glucagon-like peptide-1 receptor agonists: A systematic review of clinical features, diagnosis, management, and outcomes",
-  "journal_title": "PloS one",
-  "doi": "10.1371/journal.pone.0354497",
-  "first_publication_date": "2026-08-13",
-  "electronic_publication_date": "2026-08-13",
-  "first_author": "Olubodun",
-  "structured_abstract": true,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 1,
-  "outcome_in_title": true,
-  "outcome_in_results": true,
-  "evidence_synthesis": true,
-  "pub_types": [
-   "research-article",
-   "Systematic Review",
-   "Journal Article"
-  ],
-  "exclude": "semaglutide_in_passing",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "42823892",
-  "side_effect": "GASTROPARESIS",
-  "title": "Detection and Excretion Profiling of Semaglutide Use in Human Urine by UHPLC-HRMS for Anti-Doping Purpose",
-  "journal_title": "Drug testing and analysis",
-  "doi": "10.1002/dta.70160",
-  "first_publication_date": "2026-10-02",
-  "electronic_publication_date": "2026-10-02",
-  "first_author": "Tian",
-  "structured_abstract": false,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 5,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Journal Article"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "43064885",
-  "side_effect": "GASTROPARESIS",
-  "title": "Recognition and management of semaglutide overdose and intoxi​cation: a narrative review for clinicians",
-  "journal_title": "Daru : journal of Faculty of Pharmacy, Tehran University of Medical Sciences",
-  "doi": "10.1007/s40199-026-00673-3",
-  "first_publication_date": "2026-11-21",
-  "electronic_publication_date": "2026-11-21",
-  "first_author": "Girgin",
-  "structured_abstract": true,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 3,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Review",
-   "Journal Article"
-  ],
-  "exclude": "not_a_study",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "42523990",
-  "side_effect": "GASTROPARESIS",
-  "title": "Adult Annular Pancreas Presenting With Gastric Outlet Obstruction Following Semaglutide Initiation: A Case Report",
-  "journal_title": "Cureus",
-  "doi": "10.7759/cureus.111636",
-  "first_publication_date": "2026-06-27",
-  "electronic_publication_date": "2026-06-27",
-  "first_author": "Gamaleldin",
-  "structured_abstract": false,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 2,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Journal Article",
-   "Case Reports",
-   "case-report"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "42863671",
-  "side_effect": "GASTROPARESIS",
-  "title": "Characterizing the adverse event profile of semaglutide: A comprehensive U.S. food and drug administration adverse event reporting system-based pharmacovigilance study",
-  "journal_title": "Clinical nutrition ESPEN",
-  "doi": "10.1016/j.clnesp.2026.105169",
-  "first_publication_date": "2026-10-12",
-  "electronic_publication_date": "2026-10-12",
-  "first_author": "Thawkar",
-  "structured_abstract": true,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 5,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Journal Article"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "41967795",
-  "side_effect": "GASTROPARESIS",
-  "title": "Oral Health Considerations and Dental Management Guidelines for Semaglutide Medications",
-  "journal_title": "Canadian journal of diabetes",
-  "doi": "10.1016/j.jcjd.2026.03.008",
-  "first_publication_date": "2026-04-10",
-  "electronic_publication_date": "2026-04-10",
-  "first_author": "Kofman",
-  "structured_abstract": false,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 4,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Review",
-   "Journal Article"
-  ],
-  "exclude": "not_a_study",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "42076118",
-  "side_effect": "GASTROPARESIS",
-  "title": "Is Oral Semaglutide a Good Fit for Patients After Metabolic Bariatric Surgery? A Biopharmaceutical Mechanistic Perspective",
-  "journal_title": "Pharmaceutics",
-  "doi": "10.3390/pharmaceutics18040466",
-  "first_publication_date": "2026-04-10",
-  "electronic_publication_date": "2026-04-10",
-  "first_author": "Dahan",
-  "structured_abstract": false,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 6,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "other",
-   "Journal Article"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "41631344",
-  "side_effect": "GASTROPARESIS",
-  "title": "Gastric ultrasound in patients receiving semaglutide: a prospective, multicentre, matched control study",
-  "journal_title": "Anaesthesia",
-  "doi": "10.1111/anae.70129",
-  "first_publication_date": "2026-02-03",
-  "electronic_publication_date": "2026-02-03",
-  "first_author": "Vlaeminck",
-  "structured_abstract": true,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 8,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Research Support, Non-U.S. Gov't",
-   "Multicenter Study",
-   "Journal Article"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "40729307",
-  "side_effect": "GASTROPARESIS",
-  "title": "Worsening vasomotor symptoms in the setting of estradiol and semaglutide: a case report",
-  "journal_title": "Menopause (New York, N.Y.)",
-  "doi": "10.1097/gme.0000000000002621",
-  "first_publication_date": "2025-12-01",
-  "electronic_publication_date": "2025-12-01",
-  "first_author": "Parker",
-  "structured_abstract": true,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 5,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Journal Article",
-   "Case Reports"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "42928739",
-  "side_effect": "GASTROPARESIS",
-  "title": "Perioperative Safety Considerations and Surgical Outcomes Associated With GLP-1-Based Therapies: A Systematic Review",
-  "journal_title": "Cureus",
-  "doi": "10.7759/cureus.116901",
-  "first_publication_date": "2026-09-25",
-  "electronic_publication_date": "2026-09-25",
-  "first_author": "Rodrigues da Cunha",
-  "structured_abstract": false,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 1,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": true,
-  "pub_types": [
-   "review-article",
-   "Review",
-   "Journal Article"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "42536519",
-  "side_effect": "GASTROPARESIS",
-  "title": "Effectiveness &amp; safety of semaglutide in weight reduction in obese nondiabetic patients: A systematic review and meta-analysis",
-  "journal_title": "Medicine",
-  "doi": "10.1097/md.0000000000049986",
-  "first_publication_date": "2026-07-01",
-  "electronic_publication_date": "",
-  "first_author": "Naz",
-  "structured_abstract": true,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 8,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": true,
-  "pub_types": [
-   "Meta-Analysis",
-   "research-article",
-   "Systematic Review",
-   "Journal Article"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "40761333",
-  "side_effect": "GASTROPARESIS",
-  "title": "Impact of GLP-1 Receptor Agonists on Whole-Gut Gastrointestinal Motility Using Wireless Motility Capsule: A Descriptive Single-Center Case Series",
-  "journal_title": "ACG case reports journal",
-  "doi": "10.14309/crj.0000000000001789",
-  "first_publication_date": "2025-08-04",
-  "electronic_publication_date": "2025-08-04",
-  "first_author": "Cymbal",
-  "structured_abstract": false,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 1,
-  "outcome_in_title": false,
-  "outcome_in_results": true,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Journal Article",
-   "Case Reports",
-   "case-report"
-  ],
-  "exclude": "semaglutide_in_passing",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "38241775",
-  "side_effect": "GASTROPARESIS",
-  "title": "GLP-1 agonists: A review for emergency clinicians",
-  "journal_title": "The American journal of emergency medicine",
-  "doi": "10.1016/j.ajem.2024.01.010",
-  "first_publication_date": "2024-01-12",
-  "electronic_publication_date": "2024-01-12",
-  "first_author": "Long",
-  "structured_abstract": true,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 5,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Review",
-   "Journal Article"
-  ],
-  "exclude": "not_a_study",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "42794619",
-  "side_effect": "GASTROPARESIS",
-  "title": "GLP-1 and Dual GIP/GLP-1 Receptor Agonists in Pediatric Obesity: From Neuroendocrine Mechanisms to Clinical Application",
-  "journal_title": "International journal of molecular sciences",
-  "doi": "10.3390/ijms27188191",
-  "first_publication_date": "2026-09-15",
-  "electronic_publication_date": "2026-09-15",
-  "first_author": "Myśliwczyk",
-  "structured_abstract": false,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 2,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "review-article",
-   "Review",
-   "Journal Article"
-  ],
-  "exclude": "not_a_study",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "41364333",
-  "side_effect": "GASTROPARESIS",
-  "title": "Identification of semaglutide use through detection of U6 and U7 metabolites in human urine",
-  "journal_title": "Analytical and bioanalytical chemistry",
-  "doi": "10.1007/s00216-025-06263-7",
-  "first_publication_date": "2025-12-09",
-  "electronic_publication_date": "2025-12-09",
-  "first_author": "Timms",
-  "structured_abstract": false,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 3,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Journal Article"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "42286576",
-  "side_effect": "GASTROPARESIS",
-  "title": "Boerhaave's syndrome associated with glucagon-like peptide-1 receptor agonist use: a case report",
-  "journal_title": "Journal of cardiothoracic surgery",
-  "doi": "10.1186/s13019-026-04214-6",
-  "first_publication_date": "2026-06-12",
-  "electronic_publication_date": "2026-06-12",
-  "first_author": "Aubrey",
-  "structured_abstract": true,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 2,
-  "outcome_in_title": false,
-  "outcome_in_results": true,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Journal Article",
-   "Case Reports",
-   "case-report"
-  ],
-  "exclude": "",
-  "shortlist": true,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "42284324",
-  "side_effect": "GASTROPARESIS",
-  "title": "Drug-induced gastric motility disorders: A disproportionality analysis from the FAERS and CVARD databases",
-  "journal_title": "PloS one",
-  "doi": "10.1371/journal.pone.0351731",
-  "first_publication_date": "2026-06-12",
-  "electronic_publication_date": "2026-06-12",
-  "first_author": "Qian",
-  "structured_abstract": true,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 1,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "research-article",
-   "Journal Article"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "41322896",
-  "side_effect": "GASTROPARESIS",
-  "title": "Semaglutide in Metabolic Dysfunction-Associated Steatohepatitis: A Narrative Review",
-  "journal_title": "Cureus",
-  "doi": "10.7759/cureus.95632",
-  "first_publication_date": "2025-10-28",
-  "electronic_publication_date": "2025-10-28",
-  "first_author": "Zacharia",
-  "structured_abstract": false,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 7,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "review-article",
-   "Review",
-   "Journal Article"
-  ],
-  "exclude": "not_a_study",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "42748969",
-  "side_effect": "GASTROPARESIS",
-  "title": "[GLP-1 Receptor Agonists in Urology and Andrology: Indications, Opportunities and Clinically Relevant Adverse Effects]",
-  "journal_title": "Zentralblatt fur Chirurgie",
-  "doi": "10.1055/a-2943-1080",
-  "first_publication_date": "2026-09-16",
-  "electronic_publication_date": "2026-09-16",
-  "first_author": "Klotz",
-  "structured_abstract": true,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 2,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Journal Article",
-   "English Abstract"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "42232176",
-  "side_effect": "GASTROPARESIS",
-  "title": "Risk factors for drug-related impaired gastric emptying: a pharmacovigilance analysis of the FDA adverse event reporting system",
-  "journal_title": "Frontiers in pharmacology",
-  "doi": "10.3389/fphar.2026.1844057",
-  "first_publication_date": "2026-05-18",
-  "electronic_publication_date": "2026-05-18",
-  "first_author": "Chen",
-  "structured_abstract": true,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 1,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "research-article",
-   "Journal Article"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
   "retained_from_first_analysis": false
  },
  {
@@ -2609,30 +2208,37 @@
    "Case Reports"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": true,
   "retained_from_first_analysis": false
  },
  {
-  "pmid": "41239945",
+  "pmid": "42594084",
   "side_effect": "GASTROPARESIS",
-  "title": "The Ozempic Generation: What the Interventional Radiologist Needs to Know About GLP-1 Agonists",
-  "journal_title": "Journal of medical imaging and radiation oncology",
-  "doi": "10.1111/1754-9485.70045",
-  "first_publication_date": "2025-11-15",
-  "electronic_publication_date": "2025-11-15",
-  "first_author": "Wani",
-  "structured_abstract": false,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 0,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
+  "title": "Gastroparesis induced by glucagon-like peptide-1 receptor agonists: A systematic review of clinical features, diagnosis, management, and outcomes",
+  "journal_title": "PloS one",
+  "doi": "10.1371/journal.pone.0354497",
+  "first_publication_date": "2026-08-13",
+  "electronic_publication_date": "2026-08-13",
+  "first_author": "Olubodun",
+  "structured_abstract": true,
+  "drug_in_title": false,
+  "drug_mentions_abstract": 1,
+  "outcome_in_title": true,
+  "outcome_in_results": true,
+  "evidence_synthesis": true,
   "pub_types": [
-   "Review",
+   "research-article",
+   "Systematic Review",
    "Journal Article"
   ],
-  "exclude": "not_a_study",
-  "shortlist": false,
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
+  "shortlist": true,
   "retained_from_first_analysis": false
  },
  {
@@ -2656,196 +2262,35 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": true,
   "retained_from_first_analysis": true
  },
  {
-  "pmid": "40625884",
+  "pmid": "42989430",
   "side_effect": "GASTROPARESIS",
-  "title": "Semaglutide-Induced Silent Aspiration: An Unrecognised Cause of Organising Pneumonia",
-  "journal_title": "Respirology case reports",
-  "doi": "10.1002/rcr2.70249",
-  "first_publication_date": "2025-07-04",
-  "electronic_publication_date": "2025-07-04",
-  "first_author": "Essilfie-Quaye",
-  "structured_abstract": false,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 3,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "case-study",
-   "Journal Article"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "38817502",
-  "side_effect": "GASTROPARESIS",
-  "title": "Interaction of Semaglutide and Ziprasidone in a Patient With Schizophrenia: A Case Report",
-  "journal_title": "Cureus",
-  "doi": "10.7759/cureus.59319",
-  "first_publication_date": "2024-04-29",
-  "electronic_publication_date": "2024-04-29",
-  "first_author": "Hejdak",
-  "structured_abstract": false,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 4,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Journal Article",
-   "Case Reports",
-   "case-report"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "42397318",
-  "side_effect": "GASTROPARESIS",
-  "title": "Current Concepts in Perioperative Guidance and Outcomes in Hand Surgery Patients Taking Glucagon-Like Peptide-1 Receptor Agonists",
-  "journal_title": "The Journal of hand surgery",
-  "doi": "10.1016/j.jhsa.2026.05.008",
-  "first_publication_date": "2026-07-03",
-  "electronic_publication_date": "2026-07-03",
-  "first_author": "Song",
-  "structured_abstract": false,
+  "title": "Similar Tolerance of Glucagon-Like PEPTIDE-1 Agonist Therapy in Patients With Delayed and Normal Gastric Emptying",
+  "journal_title": "Neurogastroenterology and motility",
+  "doi": "10.1111/nmo.70448",
+  "first_publication_date": "2026-11-01",
+  "electronic_publication_date": "",
+  "first_author": "Rolak",
+  "structured_abstract": true,
   "drug_in_title": false,
   "drug_mentions_abstract": 1,
   "outcome_in_title": false,
-  "outcome_in_results": false,
+  "outcome_in_results": true,
   "evidence_synthesis": false,
   "pub_types": [
-   "Review",
    "Journal Article"
   ],
-  "exclude": "not_a_study",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "41025030",
-  "side_effect": "GASTROPARESIS",
-  "title": "Semaglutide-associated drug-induced liver injury: a case report and review of the literature",
-  "journal_title": "Oxford medical case reports",
-  "doi": "10.1093/omcr/omaf177",
-  "first_publication_date": "2025-09-28",
-  "electronic_publication_date": "2025-09-28",
-  "first_author": "Kempster",
-  "structured_abstract": false,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 3,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Journal Article",
-   "Case Reports",
-   "case-report"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "41794178",
-  "side_effect": "GASTROPARESIS",
-  "title": "Semaglutide use in a patient with a long-term ileostomy: A case report highlighting clinical risks and evidence gaps",
-  "journal_title": "Journal of the American Pharmacists Association : JAPhA",
-  "doi": "10.1016/j.japh.2026.103069",
-  "first_publication_date": "2026-03-05",
-  "electronic_publication_date": "2026-03-05",
-  "first_author": "Gaytan",
-  "structured_abstract": true,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 5,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Journal Article",
-   "Case Reports"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "39082206",
-  "side_effect": "GASTROPARESIS",
-  "title": "Effect of oral semaglutide on energy intake, appetite, control of eating and gastric emptying in adults living with obesity: A randomized controlled trial",
-  "journal_title": "Diabetes, obesity & metabolism",
-  "doi": "10.1111/dom.15802",
-  "first_publication_date": "2024-07-31",
-  "electronic_publication_date": "2024-07-31",
-  "first_author": "Gabe",
-  "structured_abstract": true,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 6,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Research Support, Non-U.S. Gov't",
-   "Randomized Controlled Trial",
-   "Journal Article"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "42481928",
-  "side_effect": "GASTROPARESIS",
-  "title": "Safety Signals of GLP-1 Receptor Agonists: A Multi-Method Pharmacovigilance Analysis of FAERS (2018-2025) With Sensitivity-Stratified Prioritisation, Notoriety-Bias Assessment, and Cross-Database Validation",
-  "journal_title": "Diabetes, obesity & metabolism",
-  "doi": "10.1111/dom.71138",
-  "first_publication_date": "2026-07-21",
-  "electronic_publication_date": "2026-07-21",
-  "first_author": "Xu",
-  "structured_abstract": true,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 3,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "research-article",
-   "Journal Article"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "40999647",
-  "side_effect": "GASTROPARESIS",
-  "title": "Lithium Toxicity and Altered Clearance Following Initiation of Semaglutide in Patients With Bipolar Disorder: A Case Series and Literature Review",
-  "journal_title": "Journal of clinical psychopharmacology",
-  "doi": "10.1097/jcp.0000000000002090",
-  "first_publication_date": "2025-09-26",
-  "electronic_publication_date": "2025-09-26",
-  "first_author": "Al-Soleiti",
-  "structured_abstract": true,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 8,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "research-article",
-   "Review",
-   "Journal Article",
-   "Case Reports"
-  ],
-  "exclude": "not_a_study",
-  "shortlist": false,
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
+  "shortlist": true,
   "retained_from_first_analysis": false
  },
  {
@@ -2869,286 +2314,10 @@
    "case-report"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": true,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "42687799",
-  "side_effect": "GASTROPARESIS",
-  "title": "Postmarketing Safety Signals and Medication-Use Risks of GLP-1-Based Therapies in Diabetes and Obesity: A Multi-Source Pharmacovigilance and Regulatory Evidence-Mapping Study",
-  "journal_title": "Diabetes, obesity & metabolism",
-  "doi": "10.1111/dom.71303",
-  "first_publication_date": "2026-09-03",
-  "electronic_publication_date": "2026-09-03",
-  "first_author": "Ren",
-  "structured_abstract": true,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 2,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Journal Article"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "39734391",
-  "side_effect": "GASTROPARESIS",
-  "title": "Semaglutide-Associated Gastric Pneumatosis",
-  "journal_title": "ACG case reports journal",
-  "doi": "10.14309/crj.0000000000001579",
-  "first_publication_date": "2024-12-27",
-  "electronic_publication_date": "2024-12-27",
-  "first_author": "Turunen",
-  "structured_abstract": false,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 4,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Journal Article",
-   "Case Reports",
-   "case-report"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "42461204",
-  "side_effect": "GASTROPARESIS",
-  "title": "GLP-1 and Alcohol-Related Behaviors: Insights From Preclinical Studies",
-  "journal_title": "Biological psychiatry",
-  "doi": "10.1016/j.biopsych.2026.04.022",
-  "first_publication_date": "2026-07-15",
-  "electronic_publication_date": "2026-07-15",
-  "first_author": "Jerlhag",
-  "structured_abstract": false,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 1,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Review",
-   "Journal Article"
-  ],
-  "exclude": "not_a_study",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "42441883",
-  "side_effect": "GASTROPARESIS",
-  "title": "GLP-1 Receptor Agonists and Fertility: What Is Known So Far?",
-  "journal_title": "JBRA assisted reproduction",
-  "doi": "10.5935/1518-0557.20260028",
-  "first_publication_date": "2026-07-01",
-  "electronic_publication_date": "",
-  "first_author": "Becker",
-  "structured_abstract": false,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 2,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "review-article",
-   "Review",
-   "Journal Article"
-  ],
-  "exclude": "not_a_study",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "42342489",
-  "side_effect": "GASTROPARESIS",
-  "title": "Glucagon-like peptide-1 receptor agonists as a metabolic optimization strategy in surgical prehabilitation: a translational perspective",
-  "journal_title": "Surgery for obesity and related diseases : official journal of the American Society for Bariatric Surgery",
-  "doi": "10.1016/j.soard.2026.05.027",
-  "first_publication_date": "2026-06-01",
-  "electronic_publication_date": "2026-06-01",
-  "first_author": "Rouse",
-  "structured_abstract": false,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 1,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Review",
-   "Journal Article"
-  ],
-  "exclude": "not_a_study",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "42423951",
-  "side_effect": "GASTROPARESIS",
-  "title": "Special Considerations When Using GLP-1 Receptor Agonists in the Treatment of Obesity and Diabetes Mellitus Type 2 in Older Adults",
-  "journal_title": "Advances in therapy",
-  "doi": "10.1007/s12325-026-03702-4",
-  "first_publication_date": "2026-07-09",
-  "electronic_publication_date": "2026-07-09",
-  "first_author": "Pendrey",
-  "structured_abstract": false,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 1,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "review-article",
-   "Review",
-   "Journal Article"
-  ],
-  "exclude": "not_a_study",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "41248895",
-  "side_effect": "GASTROPARESIS",
-  "title": "Bimagrumab: Novel Medical Therapy for Inclusion Body Myositis, Sarcopenia, and Medication-Induced Lean Body Mass Loss",
-  "journal_title": "Cardiology in review",
-  "doi": "10.1097/crd.0000000000001113",
-  "first_publication_date": "2025-11-03",
-  "electronic_publication_date": "2025-11-03",
-  "first_author": "Kaiser",
-  "structured_abstract": false,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 4,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Journal Article"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "42133868",
-  "side_effect": "GASTROPARESIS",
-  "title": "Esophageal Motility Patterns Are Not Impacted By Glucagon-Like Peptide-1 Receptor Agonist Use",
-  "journal_title": "Journal of clinical gastroenterology",
-  "doi": "10.1097/mcg.0000000000002395",
-  "first_publication_date": "2026-10-01",
-  "electronic_publication_date": "2026-10-01",
-  "first_author": "Wang",
-  "structured_abstract": true,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 1,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Journal Article"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "41445996",
-  "side_effect": "GASTROPARESIS",
-  "title": "Glucagon-Like Peptide-1 Receptor Agonists in Plastic Surgery: Perioperative Considerations and Safety Protocols",
-  "journal_title": "Cureus",
-  "doi": "10.7759/cureus.99865",
-  "first_publication_date": "2025-12-22",
-  "electronic_publication_date": "2025-12-22",
-  "first_author": "Davila Diaz",
-  "structured_abstract": false,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 5,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "review-article",
-   "Review",
-   "Journal Article"
-  ],
-  "exclude": "not_a_study",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "41137050",
-  "side_effect": "GASTROPARESIS",
-  "title": "Perioperative bronchoaspiration in a semaglutide user on a residue-free diet: a case report and insights from a complication",
-  "journal_title": "Perioperative medicine (London, England)",
-  "doi": "10.1186/s13741-025-00603-y",
-  "first_publication_date": "2025-10-24",
-  "electronic_publication_date": "2025-10-24",
-  "first_author": "Barbosa Santos",
-  "structured_abstract": true,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 3,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "research-article",
-   "Journal Article"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "40342457",
-  "side_effect": "GASTROPARESIS",
-  "title": "GLP-1 Receptor Agonists in Diabetes and Obesity: A Case Report and Review of Bowel Obstruction Risks and Management",
-  "journal_title": "Cureus",
-  "doi": "10.7759/cureus.81891",
-  "first_publication_date": "2025-04-08",
-  "electronic_publication_date": "2025-04-08",
-  "first_author": "Jones",
-  "structured_abstract": false,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 1,
-  "outcome_in_title": false,
-  "outcome_in_results": true,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Journal Article",
-   "Case Reports",
-   "case-report"
-  ],
-  "exclude": "semaglutide_in_passing",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "41646202",
-  "side_effect": "GASTROPARESIS",
-  "title": "Lithium toxicity following a change from semaglutide to tirzepatide for weight loss management",
-  "journal_title": "The mental health clinician",
-  "doi": "10.9740/mhc.2026.02.034",
-  "first_publication_date": "2026-02-03",
-  "electronic_publication_date": "2026-02-03",
-  "first_author": "Burson",
-  "structured_abstract": true,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 2,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Journal Article",
-   "Case Reports",
-   "case-report"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
   "retained_from_first_analysis": false
  },
  {
@@ -3173,445 +2342,10 @@
    "Research Support, N.I.H., Extramural"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": true,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "40228539",
-  "side_effect": "GASTROPARESIS",
-  "title": "Therapeutic Potential of the Novel GLP-1 Receptor Agonist Semaglutide in Alcohol Use Disorder",
-  "journal_title": "Pharmacopsychiatry",
-  "doi": "10.1055/a-2550-6470",
-  "first_publication_date": "2025-04-14",
-  "electronic_publication_date": "2025-04-14",
-  "first_author": "Liu",
-  "structured_abstract": false,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 4,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Review",
-   "Journal Article"
-  ],
-  "exclude": "not_a_study",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "41324524",
-  "side_effect": "GASTROPARESIS",
-  "title": "GLP1 and GIP Receptor Agonists: Effects on the Gastrointestinal Tract and Management Strategies for Primary Care Physicians",
-  "journal_title": "Mayo Clinic proceedings",
-  "doi": "10.1016/j.mayocp.2025.09.017",
-  "first_publication_date": "2025-12-01",
-  "electronic_publication_date": "2025-12-01",
-  "first_author": "Saha",
-  "structured_abstract": false,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 1,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Review",
-   "Journal Article"
-  ],
-  "exclude": "not_a_study",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "40656422",
-  "side_effect": "GASTROPARESIS",
-  "title": "Role of Gastric Point-of-Care Ultrasound in Perioperative Management of Semaglutide",
-  "journal_title": "Cureus",
-  "doi": "10.7759/cureus.85791",
-  "first_publication_date": "2025-06-11",
-  "electronic_publication_date": "2025-06-11",
-  "first_author": "Muranaka",
-  "structured_abstract": false,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 8,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "research-article",
-   "Journal Article"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "42452898",
-  "side_effect": "GASTROPARESIS",
-  "title": "Amylin Analogs: The Next Major Class of Weight Loss Therapy: A Review of Experimental Data and Early-Phase Clinical Trials",
-  "journal_title": "Diabetes, obesity & metabolism",
-  "doi": "10.1111/dom.71074",
-  "first_publication_date": "2026-07-14",
-  "electronic_publication_date": "2026-07-14",
-  "first_author": "Alhazmi",
-  "structured_abstract": true,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 1,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "research-article",
-   "Review",
-   "Journal Article"
-  ],
-  "exclude": "not_a_study",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "40767957",
-  "side_effect": "GASTROPARESIS",
-  "title": "[Rapid weight loss through GLP-1 receptor agonists as lifestyle phenomenon and implications for plastic esthetic medicine]",
-  "journal_title": "HNO",
-  "doi": "10.1007/s00106-025-01653-w",
-  "first_publication_date": "2025-08-06",
-  "electronic_publication_date": "2025-08-06",
-  "first_author": "Seidel",
-  "structured_abstract": true,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 2,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Review",
-   "Journal Article",
-   "English Abstract"
-  ],
-  "exclude": "not_a_study",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "42108205",
-  "side_effect": "GASTROPARESIS",
-  "title": "What obgyns need to know about GLP-1 receptor agonists",
-  "journal_title": "Current opinion in obstetrics & gynecology",
-  "doi": "10.1097/gco.0000000000001116",
-  "first_publication_date": "2026-05-12",
-  "electronic_publication_date": "2026-05-12",
-  "first_author": "Chauhan",
-  "structured_abstract": true,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 1,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Review",
-   "Journal Article"
-  ],
-  "exclude": "not_a_study",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "38126547",
-  "side_effect": "GASTROPARESIS",
-  "title": "Risk of pulmonary aspiration during semaglutide use and anesthesia in a fasting patient: a case report with tomographic evidence",
-  "journal_title": "Einstein (Sao Paulo, Brazil)",
-  "doi": "10.31744/einstein_journal/2023rc0628",
-  "first_publication_date": "2023-12-15",
-  "electronic_publication_date": "2023-12-15",
-  "first_author": "Queiroz",
-  "structured_abstract": false,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 3,
-  "outcome_in_title": false,
-  "outcome_in_results": true,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Journal Article",
-   "Case Reports"
-  ],
-  "exclude": "",
-  "shortlist": true,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "42808923",
-  "side_effect": "GASTROPARESIS",
-  "title": "Gastrointestinal adverse effects of GLP-1 receptor agonists and dual GIP/GLP-1 receptor agonists: A narrative expert review of approved therapies, oral formulations, and pipeline agents",
-  "journal_title": "Nutrition in clinical practice : official publication of the American Society for Parenteral and Enteral Nutrition",
-  "doi": "10.1002/ncp.70180",
-  "first_publication_date": "2026-10-01",
-  "electronic_publication_date": "",
-  "first_author": "Singhani",
-  "structured_abstract": true,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 1,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "review-article",
-   "Review",
-   "Journal Article"
-  ],
-  "exclude": "not_a_study",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "42434480",
-  "side_effect": "GASTROPARESIS",
-  "title": "Direct effects of glucagon-like Peptide-1 receptor agonists on mitochondrial function in human-derived in vitro models: A systematic review and meta-analysis",
-  "journal_title": "Metabolism open",
-  "doi": "10.1016/j.metop.2026.100484",
-  "first_publication_date": "2026-07-02",
-  "electronic_publication_date": "2026-07-02",
-  "first_author": "Greenblatt",
-  "structured_abstract": false,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 1,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": true,
-  "pub_types": [
-   "research-article",
-   "Journal Article"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "40986735",
-  "side_effect": "GASTROPARESIS",
-  "title": "Glucagon-Like Peptide-1 (GLP-1a) Receptor Agonist Use in Patients Presenting for Gastroenterology Procedures: A Review of Concerns",
-  "journal_title": "Gastroenterology nursing : the official journal of the Society of Gastroenterology Nurses and Associates",
-  "doi": "10.1097/sga.0000000000000891",
-  "first_publication_date": "2025-09-23",
-  "electronic_publication_date": "2025-09-23",
-  "first_author": "Wunder",
-  "structured_abstract": false,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 1,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Review",
-   "Journal Article"
-  ],
-  "exclude": "not_a_study",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "39902055",
-  "side_effect": "GASTROPARESIS",
-  "title": "Semaglutide: Double-edged Sword with Risks and Benefits",
-  "journal_title": "Archives of internal medicine research",
-  "doi": "10.26502/aimr.0189",
-  "first_publication_date": "2025-01-10",
-  "electronic_publication_date": "2025-01-10",
-  "first_author": "Pillarisetti",
-  "structured_abstract": false,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 12,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "research-article",
-   "Journal Article"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "36198436",
-  "side_effect": "GASTROPARESIS",
-  "title": "Frequency of GLP-1 receptor agonists use in diabetic patients diagnosed with delayed gastric emptying and their demographic profile",
-  "journal_title": "Journal of investigative medicine : the official publication of the American Federation for Clinical Research",
-  "doi": "10.1136/jim-2022-002480",
-  "first_publication_date": "2023-01-01",
-  "electronic_publication_date": "",
-  "first_author": "Kalas",
-  "structured_abstract": false,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 1,
-  "outcome_in_title": false,
-  "outcome_in_results": true,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Journal Article"
-  ],
-  "exclude": "semaglutide_in_passing",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "39093237",
-  "side_effect": "GASTROPARESIS",
-  "title": "Update on Perioperative Medication Management for the Hand Surgeon: A Focus on Diabetes, Weight Loss, Rheumatologic, and Antithrombotic Medications",
-  "journal_title": "The Journal of hand surgery",
-  "doi": "10.1016/j.jhsa.2024.05.018",
-  "first_publication_date": "2024-08-02",
-  "electronic_publication_date": "2024-08-02",
-  "first_author": "Xu",
-  "structured_abstract": false,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 3,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Review",
-   "Journal Article"
-  ],
-  "exclude": "not_a_study",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "39096914",
-  "side_effect": "GASTROPARESIS",
-  "title": "Gastrointestinal effects of GLP-1 receptor agonists: mechanisms, management, and future directions",
-  "journal_title": "The lancet. Gastroenterology & hepatology",
-  "doi": "10.1016/s2468-1253(24)00188-2",
-  "first_publication_date": "2024-08-01",
-  "electronic_publication_date": "2024-08-01",
-  "first_author": "Jalleh",
-  "structured_abstract": false,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 1,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Research Support, Non-U.S. Gov't",
-   "Review",
-   "Journal Article"
-  ],
-  "exclude": "not_a_study",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "39578156",
-  "side_effect": "GASTROPARESIS",
-  "title": "Glucagon-like peptide-1 receptor agonists and impaired gastric emptying: a pharmacovigilance analysis of the US Food and Drug Administration adverse event reporting system",
-  "journal_title": "British journal of anaesthesia",
-  "doi": "10.1016/j.bja.2024.10.013",
-  "first_publication_date": "2024-11-21",
-  "electronic_publication_date": "2024-11-21",
-  "first_author": "Huang",
-  "structured_abstract": true,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 2,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Journal Article"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "42716982",
-  "side_effect": "GASTROPARESIS",
-  "title": "Anesthetic Safety and Perioperative Outcomes in GLP-1 Receptor Agonist-Treated Patients Undergoing Lipoabdominoplasty",
-  "journal_title": "Aesthetic plastic surgery",
-  "doi": "10.1007/s00266-026-06232-0",
-  "first_publication_date": "2026-09-09",
-  "electronic_publication_date": "2026-09-09",
-  "first_author": "Albanese",
-  "structured_abstract": true,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 1,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Journal Article"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "42298156",
-  "side_effect": "GASTROPARESIS",
-  "title": "GLP-1 Receptor Agonists in Aesthetic Surgery: A Narrative Review on Perioperative Safety, Sarcopenic Morphologies, and Adapted Body Contouring Strategies",
-  "journal_title": "Aesthetic plastic surgery",
-  "doi": "10.1007/s00266-026-05980-3",
-  "first_publication_date": "2026-06-15",
-  "electronic_publication_date": "2026-06-15",
-  "first_author": "Venza",
-  "structured_abstract": true,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 1,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Review",
-   "Journal Article"
-  ],
-  "exclude": "not_a_study",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "39710901",
-  "side_effect": "GASTROPARESIS",
-  "title": "Glucagon-like Peptide-1 Receptor Agonists in the Management of Diabetic Retinopathy",
-  "journal_title": "International ophthalmology clinics",
-  "doi": "10.1097/iio.0000000000000541",
-  "first_publication_date": "2024-12-23",
-  "electronic_publication_date": "2024-12-23",
-  "first_author": "Samanta",
-  "structured_abstract": false,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 3,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Review",
-   "Journal Article"
-  ],
-  "exclude": "not_a_study",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "39254757",
-  "side_effect": "GASTROPARESIS",
-  "title": "Use of glucagon-like-peptide 1 receptor agonist in the treatment of childhood obesity",
-  "journal_title": "Current opinion in pediatrics",
-  "doi": "10.1097/mop.0000000000001379",
-  "first_publication_date": "2024-06-13",
-  "electronic_publication_date": "2024-06-13",
-  "first_author": "Kavarian",
-  "structured_abstract": true,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 2,
-  "outcome_in_title": false,
-  "outcome_in_results": true,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Review",
-   "Journal Article"
-  ],
-  "exclude": "not_a_study",
-  "shortlist": false,
   "retained_from_first_analysis": false
  },
  {
@@ -3636,380 +2370,37 @@
    "Research Support, N.I.H., Extramural"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": true,
   "retained_from_first_analysis": false
  },
  {
-  "pmid": "41549912",
+  "pmid": "42286576",
   "side_effect": "GASTROPARESIS",
-  "title": "Micronutrient and Nutritional Deficiencies Associated With GLP-1 Receptor Agonist Therapy: A Narrative Review",
-  "journal_title": "Clinical obesity",
-  "doi": "10.1111/cob.70070",
-  "first_publication_date": "2026-02-01",
-  "electronic_publication_date": "",
-  "first_author": "Urbina",
-  "structured_abstract": false,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 1,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Review",
-   "Journal Article"
-  ],
-  "exclude": "not_a_study",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "42734711",
-  "side_effect": "GASTROPARESIS",
-  "title": "Obstructive sleep apnea, GLP-1 receptor agonist pharmacotherapy, and the oral microbiome: competing biological influences and implications for oral health monitoring",
-  "journal_title": "Clinical oral investigations",
-  "doi": "10.1007/s00784-026-07135-9",
-  "first_publication_date": "2026-09-14",
-  "electronic_publication_date": "2026-09-14",
-  "first_author": "Comisi",
-  "structured_abstract": true,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 1,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Review",
-   "Journal Article"
-  ],
-  "exclude": "not_a_study",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "39435967",
-  "side_effect": "GASTROPARESIS",
-  "title": "Relationship between residual gastric content and peri-operative semaglutide use assessed by gastric ultrasound: a prospective observational study",
-  "journal_title": "Anaesthesia",
-  "doi": "10.1111/anae.16454",
-  "first_publication_date": "2024-10-22",
-  "electronic_publication_date": "2024-10-22",
-  "first_author": "Nersessian",
-  "structured_abstract": true,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 12,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Research Support, Non-U.S. Gov't",
-   "Journal Article",
-   "Observational Study"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "41930687",
-  "side_effect": "GASTROPARESIS",
-  "title": "Preoperative GLP-1 Receptor Agonist Use and Postoperative Outcomes in Orthopaedic Surgery: A Scoping Review of Perioperative and Recovery Outcomes",
-  "journal_title": "The Journal of the American Academy of Orthopaedic Surgeons",
-  "doi": "10.5435/jaaos-d-25-01571",
-  "first_publication_date": "2026-04-03",
-  "electronic_publication_date": "2026-04-03",
-  "first_author": "Strickler",
+  "title": "Boerhaave's syndrome associated with glucagon-like peptide-1 receptor agonist use: a case report",
+  "journal_title": "Journal of cardiothoracic surgery",
+  "doi": "10.1186/s13019-026-04214-6",
+  "first_publication_date": "2026-06-12",
+  "electronic_publication_date": "2026-06-12",
+  "first_author": "Aubrey",
   "structured_abstract": true,
   "drug_in_title": false,
   "drug_mentions_abstract": 2,
   "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Scoping Review",
-   "Journal Article"
-  ],
-  "exclude": "not_a_study",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "42155603",
-  "side_effect": "GASTROPARESIS",
-  "title": "GLP-1 receptor agonists and surgical care: implications for bariatric Procedures, perioperative Outcomes, and nutritional optimization",
-  "journal_title": "Diabetes research and clinical practice",
-  "doi": "10.1016/j.diabres.2026.113332",
-  "first_publication_date": "2026-05-20",
-  "electronic_publication_date": "2026-05-20",
-  "first_author": "Elawa",
-  "structured_abstract": true,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 1,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Review",
-   "Journal Article"
-  ],
-  "exclude": "not_a_study",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "39343660",
-  "side_effect": "GASTROPARESIS",
-  "title": "Evaluation of gastric content in fasting patient during semaglutide use: an observational study",
-  "journal_title": "Surgery for obesity and related diseases : official journal of the American Society for Bariatric Surgery",
-  "doi": "10.1016/j.soard.2024.08.039",
-  "first_publication_date": "2024-09-10",
-  "electronic_publication_date": "2024-09-10",
-  "first_author": "Queiroz",
-  "structured_abstract": true,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 9,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Journal Article",
-   "Observational Study"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "38498670",
-  "side_effect": "GASTROPARESIS",
-  "title": "Point-of-Care Ultrasound Aids in the Management of Patient Taking Semaglutide Before Surgery: A Case Report",
-  "journal_title": "A&A practice",
-  "doi": "10.1213/xaa.0000000000001762",
-  "first_publication_date": "2024-03-18",
-  "electronic_publication_date": "2024-03-18",
-  "first_author": "Hodgson",
-  "structured_abstract": false,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 1,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Journal Article",
-   "Case Reports"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "39902748",
-  "side_effect": "GASTROPARESIS",
-  "title": "Improvement in Helicobacter pylori Eradication Among Adults Receiving Semaglutide: A Population-Based Propensity-Score-Adjusted Analysis",
-  "journal_title": "Helicobacter",
-  "doi": "10.1111/hel.70014",
-  "first_publication_date": "2025-01-01",
-  "electronic_publication_date": "",
-  "first_author": "Ness",
-  "structured_abstract": true,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 3,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "research-article",
-   "Journal Article"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "39109559",
-  "side_effect": "GASTROPARESIS",
-  "title": "Problematic Pharmacokinetics: A Case of Recurrent Pancreatitis Post Discontinuation of a Glucagon-Like Peptide 1 Receptor Agonists",
-  "journal_title": "Journal of pharmacy practice",
-  "doi": "10.1177/08971900241273188",
-  "first_publication_date": "2024-08-07",
-  "electronic_publication_date": "2024-08-07",
-  "first_author": "Morehouse",
-  "structured_abstract": false,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 4,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Journal Article",
-   "Case Reports"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "37602101",
-  "side_effect": "GASTROPARESIS",
-  "title": "Anesthesia Considerations for a Patient on Semaglutide and Delayed Gastric Emptying",
-  "journal_title": "Cureus",
-  "doi": "10.7759/cureus.42153",
-  "first_publication_date": "2023-07-19",
-  "electronic_publication_date": "2023-07-19",
-  "first_author": "Fujino",
-  "structured_abstract": false,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 4,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
+  "outcome_in_results": true,
   "evidence_synthesis": false,
   "pub_types": [
    "Journal Article",
    "Case Reports",
    "case-report"
   ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "39286601",
-  "side_effect": "GASTROPARESIS",
-  "title": "Glucagon-like Receptor-1 agonists for obesity: Weight loss outcomes, tolerability, side effects, and risks",
-  "journal_title": "Obesity pillars",
-  "doi": "10.1016/j.obpill.2024.100127",
-  "first_publication_date": "2024-08-31",
-  "electronic_publication_date": "2024-08-31",
-  "first_author": "Ghusn",
-  "structured_abstract": true,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 2,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "review-article",
-   "Review",
-   "Journal Article"
-  ],
-  "exclude": "not_a_study",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "39959551",
-  "side_effect": "GASTROPARESIS",
-  "title": "A Case of Intussusception With Bowel Obstruction in a Gastric Roux-en-Y Patient Prescribed Semaglutide",
-  "journal_title": "Journal of the American College of Emergency Physicians open",
-  "doi": "10.1016/j.acepjo.2025.100045",
-  "first_publication_date": "2025-01-30",
-  "electronic_publication_date": "2025-01-30",
-  "first_author": "Pavuluri",
-  "structured_abstract": false,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 1,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Journal Article",
-   "Case Reports",
-   "case-report"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "39767190",
-  "side_effect": "GASTROPARESIS",
-  "title": "Gastrointestinal Safety Assessment of GLP-1 Receptor Agonists in the US: A Real-World Adverse Events Analysis from the FAERS Database",
-  "journal_title": "Diagnostics (Basel, Switzerland)",
-  "doi": "10.3390/diagnostics14242829",
-  "first_publication_date": "2024-12-16",
-  "electronic_publication_date": "2024-12-16",
-  "first_author": "Osei",
-  "structured_abstract": false,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 3,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "research-article",
-   "Journal Article"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "40522403",
-  "side_effect": "GASTROPARESIS",
-  "title": "Psychiatric adverse events linked to glucagon-like peptide 1 analogues: a disproportionality analysis in American, Canadian and Australian adverse event databases",
-  "journal_title": "International journal of clinical pharmacy",
-  "doi": "10.1007/s11096-025-01943-x",
-  "first_publication_date": "2025-06-16",
-  "electronic_publication_date": "2025-06-16",
-  "first_author": "Katranski",
-  "structured_abstract": true,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 2,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "research-article",
-   "Journal Article"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "39989027",
-  "side_effect": "GASTROPARESIS",
-  "title": "GLP-1RA-induced delays in gastrointestinal motility: Predicted effects on coadministered drug absorption by PBPK analysis",
-  "journal_title": "Pharmacotherapy",
-  "doi": "10.1002/phar.70007",
-  "first_publication_date": "2025-02-23",
-  "electronic_publication_date": "2025-02-23",
-  "first_author": "Hooper",
-  "structured_abstract": true,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 1,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "research-article",
-   "Journal Article"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "40678871",
-  "side_effect": "GASTROPARESIS",
-  "title": "An overview of randomized clinical trials of fixed-ratio combinations of basal insulin plus GLP-1RA (injectable therapy): Lessons for advancing therapy in people with type 2 diabetes",
-  "journal_title": "Diabetes, obesity & metabolism",
-  "doi": "10.1111/dom.16616",
-  "first_publication_date": "2025-07-17",
-  "electronic_publication_date": "2025-07-17",
-  "first_author": "Bolli",
-  "structured_abstract": false,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 2,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "research-article",
-   "Review",
-   "Journal Article"
-  ],
-  "exclude": "not_a_study",
-  "shortlist": false,
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": true,
   "retained_from_first_analysis": false
  },
  {
@@ -4030,218 +2421,11 @@
   "pub_types": [
    "Journal Article"
   ],
-  "exclude": "semaglutide_in_passing",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "35799471",
-  "side_effect": "GASTROPARESIS",
-  "title": "Population pharmacokinetic of paracetamol and atorvastatin with co-administration of semaglutide",
-  "journal_title": "Pharmacology research & perspectives",
-  "doi": "10.1002/prp2.962",
-  "first_publication_date": "2022-08-01",
-  "electronic_publication_date": "",
-  "first_author": "Langeskov",
-  "structured_abstract": false,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 9,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "research-article",
-   "Journal Article"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "38315575",
-  "side_effect": "GASTROPARESIS",
-  "title": "Beneficial effects of simultaneously targeting calorie intake and calorie efficiency in diet-induced obese mice",
-  "journal_title": "Clinical science (London, England : 1979)",
-  "doi": "10.1042/cs20231016",
-  "first_publication_date": "2024-02-01",
-  "electronic_publication_date": "",
-  "first_author": "Chen",
-  "structured_abstract": false,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 9,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Research Support, Non-U.S. Gov't",
-   "research-article",
-   "Journal Article",
-   "Research Support, N.I.H., Extramural"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "41329155",
-  "side_effect": "GASTROPARESIS",
-  "title": "Nutritional Challenges in Post-Massive Weight Loss Body Contouring: Guidance for Plastic Surgeons on GLP-1 Agonists and Sleeve Gastrectomy",
-  "journal_title": "Plastic and reconstructive surgery",
-  "doi": "10.1097/prs.0000000000012672",
-  "first_publication_date": "2025-12-02",
-  "electronic_publication_date": "2025-12-02",
-  "first_author": "Mehta",
-  "structured_abstract": true,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 1,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Review",
-   "Journal Article"
-  ],
-  "exclude": "not_a_study",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "38225986",
-  "side_effect": "GASTROPARESIS",
-  "title": "Pulmonary aspiration of gastric contents in two patients taking semaglutide for weight loss",
-  "journal_title": "Anaesthesia reports",
-  "doi": "10.1002/anr3.12278",
-  "first_publication_date": "2024-01-14",
-  "electronic_publication_date": "2024-01-14",
-  "first_author": "Avraham",
-  "structured_abstract": false,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 3,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Journal Article",
-   "Case Reports",
-   "case-report"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "36977934",
-  "side_effect": "GASTROPARESIS",
-  "title": "Semaglutide, delayed gastric emptying, and intraoperative pulmonary aspiration: a case report",
-  "journal_title": "Canadian journal of anaesthesia = Journal canadien d'anesthesie",
-  "doi": "10.1007/s12630-023-02440-3",
-  "first_publication_date": "2023-03-28",
-  "electronic_publication_date": "2023-03-28",
-  "first_author": "Klein",
-  "structured_abstract": true,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 3,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Journal Article",
-   "Case Reports"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "31644235",
-  "side_effect": "GASTROPARESIS",
-  "title": "Weight Loss Agents",
-  "journal_title": "",
-  "doi": "",
-  "first_publication_date": "2025-07-01",
-  "electronic_publication_date": "",
-  "first_author": "Hoofnagle",
-  "structured_abstract": false,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 1,
-  "outcome_in_title": false,
-  "outcome_in_results": true,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Review"
-  ],
-  "exclude": "not_a_study",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "39933677",
-  "side_effect": "GASTROPARESIS",
-  "title": "β-Glucan-based superabsorbent hydrogel ameliorates obesity-associated metabolic disorders via delaying gastric emptying, improving intestinal barrier function, and modulating gut microbiota",
-  "journal_title": "International journal of biological macromolecules",
-  "doi": "10.1016/j.ijbiomac.2025.140846",
-  "first_publication_date": "2025-02-09",
-  "electronic_publication_date": "2025-02-09",
-  "first_author": "Jiang",
-  "structured_abstract": false,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 1,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Journal Article"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "42730115",
-  "side_effect": "GASTROPARESIS",
-  "title": "Oral Adverse Effects of Semaglutide Therapy: A Narrative Review",
-  "journal_title": "Journal of International Society of Preventive & Community Dentistry",
-  "doi": "10.4103/jispcd.jispcd_5_26",
-  "first_publication_date": "2024-07-01",
-  "electronic_publication_date": "2026-07-09",
-  "first_author": "Al-Zawawi",
-  "structured_abstract": true,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 5,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "review-article",
-   "Review",
-   "Journal Article"
-  ],
-  "exclude": "not_a_study",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "40869064",
-  "side_effect": "GASTROPARESIS",
-  "title": "GLP-1 Receptor Agonists in Breast Cancer: A New Frontier in Obesity and Prognosis Management",
-  "journal_title": "International journal of molecular sciences",
-  "doi": "10.3390/ijms26167744",
-  "first_publication_date": "2025-08-11",
-  "electronic_publication_date": "2025-08-11",
-  "first_author": "Xande",
-  "structured_abstract": false,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 1,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "review-article",
-   "Review",
-   "Journal Article"
-  ],
-  "exclude": "not_a_study",
-  "shortlist": false,
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
+  "shortlist": true,
   "retained_from_first_analysis": false
  },
  {
@@ -4265,122 +2449,90 @@
    "case-report"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": true,
   "retained_from_first_analysis": true
  },
  {
-  "pmid": "37466909",
+  "pmid": "40761333",
   "side_effect": "GASTROPARESIS",
-  "title": "Influence of semaglutide use on the presence of residual gastric solids on gastric ultrasound: a prospective observational study in volunteers without obesity recently started on semaglutide",
-  "journal_title": "Canadian journal of anaesthesia = Journal canadien d'anesthesie",
-  "doi": "10.1007/s12630-023-02549-5",
-  "first_publication_date": "2023-07-19",
-  "electronic_publication_date": "2023-07-19",
-  "first_author": "Sherwin",
-  "structured_abstract": true,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 3,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Journal Article",
-   "Observational Study"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "40798976",
-  "side_effect": "GASTROPARESIS",
-  "title": "An Insight into Pharmaceutical Design and Pharmacokinetic Characteristics of GLP-1 RAs",
-  "journal_title": "Current pharmaceutical design",
-  "doi": "10.2174/0113816128375766250720234005",
-  "first_publication_date": "2026-01-01",
-  "electronic_publication_date": "",
-  "first_author": "Zayed",
-  "structured_abstract": true,
+  "title": "Impact of GLP-1 Receptor Agonists on Whole-Gut Gastrointestinal Motility Using Wireless Motility Capsule: A Descriptive Single-Center Case Series",
+  "journal_title": "ACG case reports journal",
+  "doi": "10.14309/crj.0000000000001789",
+  "first_publication_date": "2025-08-04",
+  "electronic_publication_date": "2025-08-04",
+  "first_author": "Cymbal",
+  "structured_abstract": false,
   "drug_in_title": false,
   "drug_mentions_abstract": 1,
   "outcome_in_title": false,
-  "outcome_in_results": false,
+  "outcome_in_results": true,
   "evidence_synthesis": false,
   "pub_types": [
-   "Review",
-   "Journal Article"
+   "Journal Article",
+   "Case Reports",
+   "case-report"
   ],
-  "exclude": "not_a_study",
-  "shortlist": false,
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
+  "shortlist": true,
   "retained_from_first_analysis": false
  },
  {
-  "pmid": "40330819",
+  "pmid": "40342457",
   "side_effect": "GASTROPARESIS",
-  "title": "A Comprehensive Review on the Pharmacokinetics and Drug-Drug Interactions of Approved GLP-1 Receptor Agonists and a Dual GLP-1/GIP Receptor Agonist",
-  "journal_title": "Drug design, development and therapy",
-  "doi": "10.2147/dddt.s506957",
-  "first_publication_date": "2025-04-30",
-  "electronic_publication_date": "2025-04-30",
-  "first_author": "Min",
+  "title": "GLP-1 Receptor Agonists in Diabetes and Obesity: A Case Report and Review of Bowel Obstruction Risks and Management",
+  "journal_title": "Cureus",
+  "doi": "10.7759/cureus.81891",
+  "first_publication_date": "2025-04-08",
+  "electronic_publication_date": "2025-04-08",
+  "first_author": "Jones",
   "structured_abstract": false,
   "drug_in_title": false,
-  "drug_mentions_abstract": 2,
+  "drug_mentions_abstract": 1,
   "outcome_in_title": false,
-  "outcome_in_results": false,
+  "outcome_in_results": true,
   "evidence_synthesis": false,
   "pub_types": [
-   "review-article",
-   "Review",
-   "Journal Article"
+   "Journal Article",
+   "Case Reports",
+   "case-report"
   ],
-  "exclude": "not_a_study",
-  "shortlist": false,
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
+  "shortlist": true,
   "retained_from_first_analysis": false
  },
  {
-  "pmid": "38776037",
+  "pmid": "38126547",
   "side_effect": "GASTROPARESIS",
-  "title": "Adverse Events of Oral GLP-1 Receptor Agonist (Semaglutide Tablets): A Real-World Study Based on FAERS from 2019 to 2023",
-  "journal_title": "Diabetes therapy : research, treatment and education of diabetes and related disorders",
-  "doi": "10.1007/s13300-024-01594-7",
-  "first_publication_date": "2024-05-22",
-  "electronic_publication_date": "2024-05-22",
-  "first_author": "Xiong",
-  "structured_abstract": true,
+  "title": "Risk of pulmonary aspiration during semaglutide use and anesthesia in a fasting patient: a case report with tomographic evidence",
+  "journal_title": "Einstein (Sao Paulo, Brazil)",
+  "doi": "10.31744/einstein_journal/2023rc0628",
+  "first_publication_date": "2023-12-15",
+  "electronic_publication_date": "2023-12-15",
+  "first_author": "Queiroz",
+  "structured_abstract": false,
   "drug_in_title": true,
-  "drug_mentions_abstract": 6,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "research-article",
-   "Journal Article"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "36883831",
-  "side_effect": "GASTROPARESIS",
-  "title": "Cagrilintide: A Long-Acting Amylin Analog for the Treatment of Obesity",
-  "journal_title": "Cardiology in review",
-  "doi": "10.1097/crd.0000000000000513",
-  "first_publication_date": "2023-10-20",
-  "electronic_publication_date": "2023-10-20",
-  "first_author": "D'Ascanio",
-  "structured_abstract": false,
-  "drug_in_title": false,
   "drug_mentions_abstract": 3,
   "outcome_in_title": false,
-  "outcome_in_results": false,
+  "outcome_in_results": true,
   "evidence_synthesis": false,
   "pub_types": [
-   "Journal Article"
+   "Journal Article",
+   "Case Reports"
   ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": true,
   "retained_from_first_analysis": false
  },
  {
@@ -4403,387 +2555,35 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": true,
   "retained_from_first_analysis": false
  },
  {
-  "pmid": "36511825",
+  "pmid": "39254757",
   "side_effect": "GASTROPARESIS",
-  "title": "Semaglutide delays 4-hour gastric emptying in women with polycystic ovary syndrome and obesity",
-  "journal_title": "Diabetes, obesity & metabolism",
-  "doi": "10.1111/dom.14944",
-  "first_publication_date": "2023-01-03",
-  "electronic_publication_date": "2023-01-03",
-  "first_author": "Jensterle",
-  "structured_abstract": true,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 6,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Research Support, Non-U.S. Gov't",
-   "Randomized Controlled Trial",
-   "Journal Article"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "38992739",
-  "side_effect": "GASTROPARESIS",
-  "title": "Suppressed thyroid stimulating hormone levels after initiation of a subcutaneous glucagon-like peptide-1 receptor agonist in a post-thyroidectomy patient managed with levothyroxine case report",
-  "journal_title": "Journal of the American Pharmacists Association : JAPhA",
-  "doi": "10.1016/j.japh.2024.102185",
-  "first_publication_date": "2024-07-09",
-  "electronic_publication_date": "2024-07-09",
-  "first_author": "Wilcox",
-  "structured_abstract": true,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 3,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Journal Article",
-   "Case Reports"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "36465574",
-  "side_effect": "GASTROPARESIS",
-  "title": "Efficacy and Safety of Semaglutide, a Glucagon-Like Peptide-1 Receptor Agonist in Real-Life: A Case Series of Patients in Maintenance Incremental Hemodialysis",
-  "journal_title": "Case reports in nephrology and dialysis",
-  "doi": "10.1159/000527919",
-  "first_publication_date": "2022-09-01",
-  "electronic_publication_date": "2022-11-22",
-  "first_author": "De la Flor",
-  "structured_abstract": false,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 3,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Journal Article",
-   "Case Reports",
-   "case-report"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "40895987",
-  "side_effect": "GASTROPARESIS",
-  "title": "GLP-1 Receptor Agonist Use in Patients Undergoing Distal Radius Fracture Surgery: A Retrospective Review of Perioperative Considerations",
-  "journal_title": "Cureus",
-  "doi": "10.7759/cureus.89183",
-  "first_publication_date": "2025-07-31",
-  "electronic_publication_date": "2025-07-31",
-  "first_author": "Khak",
-  "structured_abstract": true,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 1,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "research-article",
-   "Journal Article"
-  ],
-  "exclude": "not_a_study",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "39861067",
-  "side_effect": "GASTROPARESIS",
-  "title": "Glucose-Lowering Agents Developed in the Last Two Decades and Their Perioperative Implications",
-  "journal_title": "Pharmaceuticals (Basel, Switzerland)",
-  "doi": "10.3390/ph18010004",
-  "first_publication_date": "2024-12-24",
-  "electronic_publication_date": "2024-12-24",
-  "first_author": "Goudra",
-  "structured_abstract": false,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 1,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "review-article",
-   "Review",
-   "Journal Article"
-  ],
-  "exclude": "not_a_study",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "39203917",
-  "side_effect": "GASTROPARESIS",
-  "title": "Update on Obesity and Cardiovascular Risk: From Pathophysiology to Clinical Management",
-  "journal_title": "Nutrients",
-  "doi": "10.3390/nu16162781",
-  "first_publication_date": "2024-08-20",
-  "electronic_publication_date": "2024-08-20",
-  "first_author": "Gallo",
-  "structured_abstract": false,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 2,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "review-article",
-   "Review",
-   "Journal Article"
-  ],
-  "exclude": "not_a_study",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "37280458",
-  "side_effect": "GASTROPARESIS",
-  "title": "Regurgitation under anesthesia in a fasted patient prescribed semaglutide for weight loss: a case report",
-  "journal_title": "Canadian journal of anaesthesia = Journal canadien d'anesthesie",
-  "doi": "10.1007/s12630-023-02521-3",
-  "first_publication_date": "2023-06-06",
-  "electronic_publication_date": "2023-06-06",
-  "first_author": "Gulak",
-  "structured_abstract": true,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 4,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Journal Article",
-   "Case Reports"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "37917871",
-  "side_effect": "GASTROPARESIS",
-  "title": "Newer pharmacological interventions directed at gut hormones for obesity",
-  "journal_title": "British journal of pharmacology",
-  "doi": "10.1111/bph.16278",
-  "first_publication_date": "2023-11-30",
-  "electronic_publication_date": "2023-11-30",
-  "first_author": "Camilleri",
-  "structured_abstract": false,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 2,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "research-article",
-   "Review",
-   "Journal Article",
-   "Research Support, N.I.H., Extramural"
-  ],
-  "exclude": "not_a_study",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "38503415",
-  "side_effect": "GASTROPARESIS",
-  "title": "Home-based Intervention with Semaglutide Treatment of Neuroleptic-Related Prediabetes (HISTORI): protocol describing a prospective, randomised, placebo controlled and double-blinded multicentre trial",
-  "journal_title": "BMJ open",
-  "doi": "10.1136/bmjopen-2023-077173",
-  "first_publication_date": "2024-03-18",
-  "electronic_publication_date": "2024-03-18",
-  "first_author": "Ganeshalingam",
-  "structured_abstract": true,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 3,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Clinical Trial Protocol",
-   "Research Support, Non-U.S. Gov't",
-   "research-article",
-   "Journal Article"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "39592891",
-  "side_effect": "GASTROPARESIS",
-  "title": "Why does GLP-1 agonist combined with GIP and/or GCG agonist have greater weight loss effect than GLP-1 agonist alone in obese adults without type 2 diabetes?",
-  "journal_title": "Diabetes, obesity & metabolism",
-  "doi": "10.1111/dom.16106",
-  "first_publication_date": "2024-11-26",
-  "electronic_publication_date": "2024-11-26",
-  "first_author": "Jiang",
-  "structured_abstract": false,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 1,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Review",
-   "Journal Article"
-  ],
-  "exclude": "not_a_study",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "39293069",
-  "side_effect": "GASTROPARESIS",
-  "title": "Glucagon-Like Peptide-1 Agonists: A Practical Overview for Plastic and Reconstructive Surgeons",
-  "journal_title": "Annals of plastic surgery",
-  "doi": "10.1097/sap.0000000000004089",
-  "first_publication_date": "2024-09-04",
-  "electronic_publication_date": "2024-09-04",
-  "first_author": "Stanton",
+  "title": "Use of glucagon-like-peptide 1 receptor agonist in the treatment of childhood obesity",
+  "journal_title": "Current opinion in pediatrics",
+  "doi": "10.1097/mop.0000000000001379",
+  "first_publication_date": "2024-06-13",
+  "electronic_publication_date": "2024-06-13",
+  "first_author": "Kavarian",
   "structured_abstract": true,
   "drug_in_title": false,
   "drug_mentions_abstract": 2,
   "outcome_in_title": false,
-  "outcome_in_results": false,
+  "outcome_in_results": true,
   "evidence_synthesis": false,
   "pub_types": [
-   "Research Support, Non-U.S. Gov't",
    "Review",
    "Journal Article"
   ],
   "exclude": "not_a_study",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "33710717",
-  "side_effect": "GASTROPARESIS",
-  "title": "Oral semaglutide improves postprandial glucose and lipid metabolism, and delays gastric emptying, in subjects with type 2 diabetes",
-  "journal_title": "Diabetes, obesity & metabolism",
-  "doi": "10.1111/dom.14373",
-  "first_publication_date": "2021-03-29",
-  "electronic_publication_date": "2021-03-29",
-  "first_author": "Dahl",
-  "structured_abstract": true,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 9,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Research Support, Non-U.S. Gov't",
-   "research-article",
-   "Randomized Controlled Trial",
-   "Journal Article"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "38525540",
-  "side_effect": "GASTROPARESIS",
-  "title": "The role of nanosystems in the delivery of glucose-lowering drugs for the preemption and treatment of diabetes-associated atherosclerosis",
-  "journal_title": "American journal of physiology. Cell physiology",
-  "doi": "10.1152/ajpcell.00695.2023",
-  "first_publication_date": "2024-03-25",
-  "electronic_publication_date": "2024-03-25",
-  "first_author": "Conroy",
-  "structured_abstract": false,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 2,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Research Support, Non-U.S. Gov't",
-   "Review",
-   "Journal Article"
-  ],
-  "exclude": "not_a_study",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "36870274",
-  "side_effect": "GASTROPARESIS",
-  "title": "Relationship between perioperative semaglutide use and residual gastric content: A retrospective analysis of patients undergoing elective upper endoscopy",
-  "journal_title": "Journal of clinical anesthesia",
-  "doi": "10.1016/j.jclinane.2023.111091",
-  "first_publication_date": "2023-03-02",
-  "electronic_publication_date": "2023-03-02",
-  "first_author": "Silveira",
-  "structured_abstract": true,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 10,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Journal Article"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "33269530",
-  "side_effect": "GASTROPARESIS",
-  "title": "The effect of semaglutide 2.4 mg once weekly on energy intake, appetite, control of eating, and gastric emptying in adults with obesity",
-  "journal_title": "Diabetes, obesity & metabolism",
-  "doi": "10.1111/dom.14280",
-  "first_publication_date": "2021-01-03",
-  "electronic_publication_date": "2021-01-03",
-  "first_author": "Friedrichsen",
-  "structured_abstract": true,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 9,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Research Support, Non-U.S. Gov't",
-   "research-article",
-   "Randomized Controlled Trial",
-   "Journal Article"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "36919944",
-  "side_effect": "GASTROPARESIS",
-  "title": "Association of glucagon-like peptide-1 receptor agonist treatment with gastric residue in an esophagogastroduodenoscopy",
-  "journal_title": "Journal of diabetes investigation",
-  "doi": "10.1111/jdi.14005",
-  "first_publication_date": "2023-03-15",
-  "electronic_publication_date": "2023-03-15",
-  "first_author": "Kobori",
-  "structured_abstract": true,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 2,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "research-article",
-   "Journal Article"
-  ],
-  "exclude": "outcome_not_reported",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -4807,196 +2607,60 @@
    "English Abstract",
    "Case Reports"
   ],
-  "exclude": "semaglutide_in_passing",
-  "shortlist": false,
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
+  "shortlist": true,
   "retained_from_first_analysis": false
  },
  {
-  "pmid": "38315827",
+  "pmid": "36198436",
   "side_effect": "GASTROPARESIS",
-  "title": "Glucagon-Like Peptide-1 Receptor Agonists During Electroconvulsive Therapy: Case Report With Evolving Concerns and Management Considerations",
-  "journal_title": "The journal of ECT",
-  "doi": "10.1097/yct.0000000000000992",
-  "first_publication_date": "2024-02-01",
-  "electronic_publication_date": "2024-02-01",
-  "first_author": "Espinoza",
-  "structured_abstract": true,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 1,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Research Support, Non-U.S. Gov't",
-   "Journal Article",
-   "Case Reports"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "38181103",
-  "side_effect": "GASTROPARESIS",
-  "title": "Glucagon-like Peptide-1 Agonists: What the Orthopaedic Surgeon Needs to Know",
-  "journal_title": "JBJS reviews",
-  "doi": "10.2106/jbjs.rvw.23.00167",
-  "first_publication_date": "2024-01-05",
-  "electronic_publication_date": "2024-01-05",
-  "first_author": "Chan",
+  "title": "Frequency of GLP-1 receptor agonists use in diabetic patients diagnosed with delayed gastric emptying and their demographic profile",
+  "journal_title": "Journal of investigative medicine : the official publication of the American Federation for Clinical Research",
+  "doi": "10.1136/jim-2022-002480",
+  "first_publication_date": "2023-01-01",
+  "electronic_publication_date": "",
+  "first_author": "Kalas",
   "structured_abstract": false,
   "drug_in_title": false,
   "drug_mentions_abstract": 1,
   "outcome_in_title": false,
-  "outcome_in_results": false,
+  "outcome_in_results": true,
   "evidence_synthesis": false,
   "pub_types": [
    "Journal Article"
   ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
+  "shortlist": true,
   "retained_from_first_analysis": false
  },
  {
-  "pmid": "38093506",
+  "pmid": "31644235",
   "side_effect": "GASTROPARESIS",
-  "title": "Obesity, heart failure with preserved ejection fraction, and the role of glucagon-like peptide-1 receptor agonists",
-  "journal_title": "ESC heart failure",
-  "doi": "10.1002/ehf2.14560",
-  "first_publication_date": "2023-12-13",
-  "electronic_publication_date": "2023-12-13",
-  "first_author": "Cimino",
+  "title": "Weight Loss Agents",
+  "journal_title": "",
+  "doi": "",
+  "first_publication_date": "2025-07-01",
+  "electronic_publication_date": "",
+  "first_author": "Hoofnagle",
   "structured_abstract": false,
   "drug_in_title": false,
   "drug_mentions_abstract": 1,
   "outcome_in_title": false,
-  "outcome_in_results": false,
+  "outcome_in_results": true,
   "evidence_synthesis": false,
   "pub_types": [
-   "review-article",
-   "Review",
-   "Journal Article"
+   "Review"
   ],
   "exclude": "not_a_study",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "39518474",
-  "side_effect": "GASTROPARESIS",
-  "title": "A Scoping Review of GLP-1 Receptor Agonists: Are They Associated with Increased Gastric Contents, Regurgitation, and Aspiration Events?",
-  "journal_title": "Journal of clinical medicine",
-  "doi": "10.3390/jcm13216336",
-  "first_publication_date": "2024-10-23",
-  "electronic_publication_date": "2024-10-23",
-  "first_author": "Chang",
-  "structured_abstract": false,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 1,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Scoping Review",
-   "review-article",
-   "Journal Article"
-  ],
-  "exclude": "not_a_study",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "38753265",
-  "side_effect": "GASTROPARESIS",
-  "title": "Safe Continuation of Glucagon-like Peptide 1 Receptor Agonists at Endoscopy: A Case Series of 57 Adults Undergoing Endoscopic Sleeve Gastroplasty",
-  "journal_title": "Obesity surgery",
-  "doi": "10.1007/s11695-024-07278-2",
-  "first_publication_date": "2024-05-16",
-  "electronic_publication_date": "2024-05-16",
-  "first_author": "Maselli",
-  "structured_abstract": true,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 1,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Multicenter Study",
-   "Journal Article"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "33750044",
-  "side_effect": "GASTROPARESIS",
-  "title": "Relationship Between Oral Semaglutide Tablet Erosion and Pharmacokinetics: A Pharmacoscintigraphic Study",
-  "journal_title": "Clinical pharmacology in drug development",
-  "doi": "10.1002/cpdd.938",
-  "first_publication_date": "2021-03-22",
-  "electronic_publication_date": "2021-03-22",
-  "first_author": "Baekdal",
-  "structured_abstract": false,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 15,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "research-article",
-   "Randomized Controlled Trial",
-   "Journal Article"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "34504612",
-  "side_effect": "GASTROPARESIS",
-  "title": "Future perspectives in diabesity treatment: Semaglutide, a glucagon-like peptide 1 receptor agonist (Review)",
-  "journal_title": "Experimental and therapeutic medicine",
-  "doi": "10.3892/etm.2021.10601",
-  "first_publication_date": "2021-08-12",
-  "electronic_publication_date": "2021-08-12",
-  "first_author": "Tilinca",
-  "structured_abstract": false,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 3,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "review-article",
-   "Review",
-   "Journal Article"
-  ],
-  "exclude": "not_a_study",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "36992862",
-  "side_effect": "GASTROPARESIS",
-  "title": "Pharmacotherapy of obesity: an update on the available medications and drugs under investigation",
-  "journal_title": "EClinicalMedicine",
-  "doi": "10.1016/j.eclinm.2023.101882",
-  "first_publication_date": "2023-03-20",
-  "electronic_publication_date": "2023-03-20",
-  "first_author": "Chakhtoura",
-  "structured_abstract": true,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 1,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "review-article",
-   "Review",
-   "Journal Article"
-  ],
-  "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -5019,30 +2683,11 @@
    "research-article",
    "Journal Article"
   ],
-  "exclude": "semaglutide_in_passing",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "37098289",
-  "side_effect": "GASTROPARESIS",
-  "title": "Design, synthesis, and biological evaluation of a potential long-acting glucagon-like peptide-1 (GLP-1) analog",
-  "journal_title": "Bioorganic & medicinal chemistry",
-  "doi": "10.1016/j.bmc.2023.117291",
-  "first_publication_date": "2023-04-20",
-  "electronic_publication_date": "2023-04-20",
-  "first_author": "Zhang",
-  "structured_abstract": false,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 1,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Journal Article"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
+  "shortlist": true,
   "retained_from_first_analysis": false
  },
  {
@@ -5067,102 +2712,9 @@
    "Journal Article"
   ],
   "exclude": "not_a_study",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "35408810",
-  "side_effect": "GASTROPARESIS",
-  "title": "Glucagon-like Peptide-1 Receptor Agonists in the Management of Type 2 Diabetes Mellitus and Obesity: The Impact of Pharmacological Properties and Genetic Factors",
-  "journal_title": "International journal of molecular sciences",
-  "doi": "10.3390/ijms23073451",
-  "first_publication_date": "2022-03-22",
-  "electronic_publication_date": "2022-03-22",
-  "first_author": "Klen",
-  "structured_abstract": false,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 1,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "review-article",
-   "Review",
-   "Journal Article"
-  ],
-  "exclude": "not_a_study",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "34889083",
-  "side_effect": "GASTROPARESIS",
-  "title": "A novel integrated QSP model of in vivo human glucose regulation to support the development of a glucagon/GLP-1 dual agonist",
-  "journal_title": "CPT: pharmacometrics & systems pharmacology",
-  "doi": "10.1002/psp4.12752",
-  "first_publication_date": "2021-12-24",
-  "electronic_publication_date": "2021-12-24",
-  "first_author": "Bosch",
-  "structured_abstract": false,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 1,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "research-article",
-   "Journal Article"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "36356832",
-  "side_effect": "GASTROPARESIS",
-  "title": "BI 456906: Discovery and preclinical pharmacology of a novel GCGR/GLP-1R dual agonist with robust anti-obesity efficacy",
-  "journal_title": "Molecular metabolism",
-  "doi": "10.1016/j.molmet.2022.101633",
-  "first_publication_date": "2022-11-07",
-  "electronic_publication_date": "2022-11-07",
-  "first_author": "Zimmermann",
-  "structured_abstract": true,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 1,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Research Support, Non-U.S. Gov't",
-   "research-article",
-   "Journal Article"
-  ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "34626851",
-  "side_effect": "GASTROPARESIS",
-  "title": "GLP-1 physiology informs the pharmacotherapy of obesity",
-  "journal_title": "Molecular metabolism",
-  "doi": "10.1016/j.molmet.2021.101351",
-  "first_publication_date": "2021-10-06",
-  "electronic_publication_date": "2021-10-06",
-  "first_author": "Drucker",
-  "structured_abstract": true,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 1,
-  "outcome_in_title": false,
-  "outcome_in_results": false,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Research Support, Non-U.S. Gov't",
-   "review-article",
-   "Review",
-   "Journal Article"
-  ],
-  "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -5186,7 +2738,10 @@
    "Journal Article"
   ],
   "exclude": "",
-  "shortlist": false,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": true,
   "retained_from_first_analysis": false
  },
  {
@@ -5210,29 +2765,9 @@
    "case-report"
   ],
   "exclude": "",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "37879878",
-  "side_effect": "PANCREATITIS",
-  "title": "Semaglutide: a new drug for the treatment of obesity",
-  "journal_title": "Drug and therapeutics bulletin",
-  "doi": "10.1136/dtb.2023.000007",
-  "first_publication_date": "2023-11-29",
-  "electronic_publication_date": "2023-11-29",
-  "first_author": "Lexchin",
-  "structured_abstract": false,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 9,
-  "outcome_in_title": false,
-  "outcome_in_results": true,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Review",
-   "Journal Article"
-  ],
-  "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -5256,6 +2791,35 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": false,
+  "retained_from_first_analysis": false
+ },
+ {
+  "pmid": "37879878",
+  "side_effect": "PANCREATITIS",
+  "title": "Semaglutide: a new drug for the treatment of obesity",
+  "journal_title": "Drug and therapeutics bulletin",
+  "doi": "10.1136/dtb.2023.000007",
+  "first_publication_date": "2023-11-29",
+  "electronic_publication_date": "2023-11-29",
+  "first_author": "Lexchin",
+  "structured_abstract": false,
+  "drug_in_title": true,
+  "drug_mentions_abstract": 9,
+  "outcome_in_title": false,
+  "outcome_in_results": true,
+  "evidence_synthesis": false,
+  "pub_types": [
+   "Review",
+   "Journal Article"
+  ],
+  "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -5280,7 +2844,10 @@
    "case-report"
   ],
   "exclude": "",
-  "shortlist": true,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": false,
   "retained_from_first_analysis": false
  },
  {
@@ -5303,7 +2870,10 @@
    "Journal Article"
   ],
   "exclude": "",
-  "shortlist": true,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": false,
   "retained_from_first_analysis": false
  },
  {
@@ -5328,7 +2898,10 @@
    "Journal Article"
   ],
   "exclude": "",
-  "shortlist": true,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": false,
   "retained_from_first_analysis": false
  },
  {
@@ -5352,7 +2925,10 @@
    "case-report"
   ],
   "exclude": "",
-  "shortlist": true,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": false,
   "retained_from_first_analysis": false
  },
  {
@@ -5375,7 +2951,36 @@
    "Journal Article"
   ],
   "exclude": "",
-  "shortlist": false,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": true,
+  "retained_from_first_analysis": false
+ },
+ {
+  "pmid": "43068352",
+  "side_effect": "PANCREATITIS",
+  "title": "Real-world Gastrointestinal, Pancreaticobiliary, Cardiorenal, Metabolic and Nutritional Outcomes of GLP-1 or GIP Receptors Agonists -based Therapy in Chronic Pancreatitis. ",
+  "journal_title": "Journal of gastrointestinal and liver diseases : JGLD",
+  "doi": "10.15403/jgld-6964",
+  "first_publication_date": "2026-11-21",
+  "electronic_publication_date": "2026-11-21",
+  "first_author": "Dhali",
+  "structured_abstract": false,
+  "drug_in_title": false,
+  "drug_mentions_abstract": 3,
+  "outcome_in_title": true,
+  "outcome_in_results": true,
+  "evidence_synthesis": false,
+  "pub_types": [
+   "IM",
+   "Journal Article"
+  ],
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": true,
   "retained_from_first_analysis": false
  },
  {
@@ -5399,7 +3004,10 @@
    "case-report"
   ],
   "exclude": "",
-  "shortlist": true,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": false,
   "retained_from_first_analysis": false
  },
  {
@@ -5423,6 +3031,9 @@
    "case-report"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -5445,7 +3056,10 @@
    "Journal Article"
   ],
   "exclude": "",
-  "shortlist": true,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": false,
   "retained_from_first_analysis": false
  },
  {
@@ -5467,8 +3081,11 @@
    "Journal Article",
    "Case Reports"
   ],
-  "exclude": "semaglutide_in_passing",
-  "shortlist": false,
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
+  "shortlist": true,
   "retained_from_first_analysis": false
  },
  {
@@ -5491,6 +3108,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -5513,6 +3133,9 @@
    "Editorial"
   ],
   "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -5536,6 +3159,9 @@
    "Journal Article"
   ],
   "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -5559,6 +3185,9 @@
    "Journal Article"
   ],
   "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -5581,7 +3210,10 @@
    "Journal Article"
   ],
   "exclude": "",
-  "shortlist": false,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": true,
   "retained_from_first_analysis": false
  },
  {
@@ -5606,6 +3238,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -5630,7 +3265,10 @@
    "Journal Article"
   ],
   "exclude": "",
-  "shortlist": true,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": false,
   "retained_from_first_analysis": false
  },
  {
@@ -5654,6 +3292,9 @@
    "Journal Article"
   ],
   "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -5678,7 +3319,10 @@
    "case-report"
   ],
   "exclude": "",
-  "shortlist": false,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": true,
   "retained_from_first_analysis": false
  },
  {
@@ -5703,6 +3347,9 @@
    "Observational Study"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -5727,6 +3374,9 @@
    "Journal Article"
   ],
   "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -5751,6 +3401,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": true,
   "retained_from_first_analysis": false
  },
@@ -5773,7 +3426,10 @@
    "research-article",
    "Journal Article"
   ],
-  "exclude": "semaglutide_in_passing",
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -5797,7 +3453,10 @@
    "Journal Article"
   ],
   "exclude": "",
-  "shortlist": true,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": false,
   "retained_from_first_analysis": false
  },
  {
@@ -5820,6 +3479,9 @@
    "Journal Article"
   ],
   "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -5842,6 +3504,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -5866,6 +3531,9 @@
    "Journal Article"
   ],
   "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -5890,6 +3558,9 @@
    "Journal Article"
   ],
   "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -5914,6 +3585,9 @@
    "case-report"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -5939,7 +3613,10 @@
    "Research Support, N.I.H., Extramural"
   ],
   "exclude": "",
-  "shortlist": false,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": true,
   "retained_from_first_analysis": false
  },
  {
@@ -5963,6 +3640,9 @@
    "case-report"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": true,
   "retained_from_first_analysis": false
  },
@@ -5986,30 +3666,9 @@
    "Journal Article"
   ],
   "exclude": "",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "39308839",
-  "side_effect": "PANCREATITIS",
-  "title": "Acute Pancreatitis Likely Due to Semaglutide",
-  "journal_title": "Cureus",
-  "doi": "10.7759/cureus.69844",
-  "first_publication_date": "2024-09-21",
-  "electronic_publication_date": "2024-09-21",
-  "first_author": "Hughes",
-  "structured_abstract": false,
-  "drug_in_title": true,
-  "drug_mentions_abstract": 5,
-  "outcome_in_title": true,
-  "outcome_in_results": true,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "Journal Article",
-   "Case Reports",
-   "case-report"
-  ],
-  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -6035,6 +3694,36 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": false,
+  "retained_from_first_analysis": false
+ },
+ {
+  "pmid": "39308839",
+  "side_effect": "PANCREATITIS",
+  "title": "Acute Pancreatitis Likely Due to Semaglutide",
+  "journal_title": "Cureus",
+  "doi": "10.7759/cureus.69844",
+  "first_publication_date": "2024-09-21",
+  "electronic_publication_date": "2024-09-21",
+  "first_author": "Hughes",
+  "structured_abstract": false,
+  "drug_in_title": true,
+  "drug_mentions_abstract": 5,
+  "outcome_in_title": true,
+  "outcome_in_results": true,
+  "evidence_synthesis": false,
+  "pub_types": [
+   "Journal Article",
+   "Case Reports",
+   "case-report"
+  ],
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -6058,7 +3747,10 @@
    "Journal Article"
   ],
   "exclude": "",
-  "shortlist": true,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": false,
   "retained_from_first_analysis": false
  },
  {
@@ -6081,6 +3773,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": true,
   "retained_from_first_analysis": false
  },
@@ -6105,7 +3800,10 @@
    "case-report"
   ],
   "exclude": "",
-  "shortlist": true,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": false,
   "retained_from_first_analysis": false
  },
  {
@@ -6129,6 +3827,9 @@
    "Journal Article"
   ],
   "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -6154,6 +3855,9 @@
    "case-report"
   ],
   "exclude": "not_a_study",
+  "auto_outcome_reported": false,
+  "auto_semaglutide_focus": true,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -6178,6 +3882,9 @@
    "Journal Article"
   ],
   "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -6201,7 +3908,10 @@
    "Journal Article"
   ],
   "exclude": "",
-  "shortlist": false,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": true,
   "retained_from_first_analysis": false
  },
  {
@@ -6223,7 +3933,10 @@
    "research-article",
    "Journal Article"
   ],
-  "exclude": "semaglutide_in_passing",
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -6249,7 +3962,10 @@
    "Research Support, N.I.H., Extramural"
   ],
   "exclude": "",
-  "shortlist": true,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": false,
   "retained_from_first_analysis": false
  },
  {
@@ -6272,6 +3988,9 @@
    "Case Reports"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -6295,6 +4014,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -6319,6 +4041,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -6341,7 +4066,10 @@
    "Journal Article"
   ],
   "exclude": "",
-  "shortlist": false,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": true,
   "retained_from_first_analysis": false
  },
  {
@@ -6363,6 +4091,9 @@
    "Editorial"
   ],
   "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -6386,6 +4117,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -6410,7 +4144,10 @@
    "case-report"
   ],
   "exclude": "",
-  "shortlist": true,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": false,
   "retained_from_first_analysis": false
  },
  {
@@ -6434,6 +4171,9 @@
    "Journal Article"
   ],
   "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -6458,6 +4198,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": true,
   "retained_from_first_analysis": true
  },
@@ -6482,6 +4225,9 @@
    "Journal Article"
   ],
   "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -6506,6 +4252,9 @@
    "Journal Article"
   ],
   "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -6528,6 +4277,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": true,
   "retained_from_first_analysis": true
  },
@@ -6549,7 +4301,10 @@
   "pub_types": [
    "Journal Article"
   ],
-  "exclude": "semaglutide_in_passing",
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -6574,6 +4329,9 @@
    "Case Reports"
   ],
   "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -6598,7 +4356,10 @@
    "review-article",
    "Journal Article"
   ],
-  "exclude": "semaglutide_in_passing",
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -6622,7 +4383,10 @@
    "Journal Article"
   ],
   "exclude": "",
-  "shortlist": false,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": true,
   "retained_from_first_analysis": false
  },
  {
@@ -6646,6 +4410,9 @@
    "Journal Article"
   ],
   "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -6670,6 +4437,9 @@
    "case-report"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": true,
   "retained_from_first_analysis": false
  },
@@ -6694,6 +4464,9 @@
    "case-report"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": true,
   "retained_from_first_analysis": true
  },
@@ -6715,7 +4488,10 @@
   "pub_types": [
    "Journal Article"
   ],
-  "exclude": "semaglutide_in_passing",
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -6740,6 +4516,9 @@
    "Journal Article"
   ],
   "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -6764,6 +4543,9 @@
    "case-report"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -6785,7 +4567,10 @@
   "pub_types": [
    "Journal Article"
   ],
-  "exclude": "semaglutide_in_passing",
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -6809,6 +4594,9 @@
    "Journal Article"
   ],
   "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -6830,7 +4618,10 @@
   "pub_types": [
    "Journal Article"
   ],
-  "exclude": "semaglutide_in_passing",
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -6853,7 +4644,10 @@
    "research-article",
    "Journal Article"
   ],
-  "exclude": "semaglutide_in_passing",
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -6876,7 +4670,10 @@
    "research-article",
    "Journal Article"
   ],
-  "exclude": "semaglutide_in_passing",
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -6900,6 +4697,9 @@
    "Journal Article"
   ],
   "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -6923,6 +4723,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -6946,6 +4749,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": true,
   "retained_from_first_analysis": false
  },
@@ -6969,6 +4775,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -6990,7 +4799,10 @@
   "pub_types": [
    "Journal Article"
   ],
-  "exclude": "semaglutide_in_passing",
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -7013,7 +4825,10 @@
    "Journal Article"
   ],
   "exclude": "",
-  "shortlist": true,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": false,
   "retained_from_first_analysis": false
  },
  {
@@ -7035,8 +4850,11 @@
    "Multicenter Study",
    "Journal Article"
   ],
-  "exclude": "semaglutide_in_passing",
-  "shortlist": false,
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
+  "shortlist": true,
   "retained_from_first_analysis": false
  },
  {
@@ -7060,7 +4878,10 @@
    "Journal Article"
   ],
   "exclude": "",
-  "shortlist": true,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": false,
   "retained_from_first_analysis": false
  },
  {
@@ -7084,6 +4905,9 @@
    "Journal Article"
   ],
   "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -7108,6 +4932,9 @@
    "Journal Article"
   ],
   "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -7131,7 +4958,10 @@
    "Journal Article"
   ],
   "exclude": "",
-  "shortlist": true,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": false,
   "retained_from_first_analysis": false
  },
  {
@@ -7154,6 +4984,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": true,
   "retained_from_first_analysis": false
  },
@@ -7177,6 +5010,9 @@
    "Journal Article"
   ],
   "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -7199,8 +5035,11 @@
    "research-article",
    "Journal Article"
   ],
-  "exclude": "semaglutide_in_passing",
-  "shortlist": false,
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
+  "shortlist": true,
   "retained_from_first_analysis": false
  },
  {
@@ -7222,7 +5061,10 @@
    "research-article",
    "Journal Article"
   ],
-  "exclude": "semaglutide_in_passing",
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -7248,6 +5090,9 @@
    "English Abstract"
   ],
   "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -7272,6 +5117,9 @@
    "Journal Article"
   ],
   "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -7297,6 +5145,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -7321,7 +5172,10 @@
    "Journal Article"
   ],
   "exclude": "",
-  "shortlist": false,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": true,
   "retained_from_first_analysis": false
  },
  {
@@ -7345,6 +5199,9 @@
    "Journal Article"
   ],
   "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -7368,6 +5225,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -7393,7 +5253,10 @@
    "systematic-review",
    "Journal Article"
   ],
-  "exclude": "semaglutide_in_passing",
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -7418,7 +5281,10 @@
    "Journal Article"
   ],
   "exclude": "",
-  "shortlist": false,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": true,
   "retained_from_first_analysis": false
  },
  {
@@ -7440,8 +5306,11 @@
    "research-article",
    "Journal Article"
   ],
-  "exclude": "semaglutide_in_passing",
-  "shortlist": false,
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
+  "shortlist": true,
   "retained_from_first_analysis": false
  },
  {
@@ -7464,8 +5333,11 @@
    "Systematic Review",
    "Journal Article"
   ],
-  "exclude": "semaglutide_in_passing",
-  "shortlist": false,
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
+  "shortlist": true,
   "retained_from_first_analysis": false
  },
  {
@@ -7490,6 +5362,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -7515,6 +5390,9 @@
    "Journal Article"
   ],
   "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -7539,6 +5417,9 @@
    "Journal Article"
   ],
   "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -7563,7 +5444,10 @@
    "Journal Article"
   ],
   "exclude": "",
-  "shortlist": true,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": false,
   "retained_from_first_analysis": false
  },
  {
@@ -7588,6 +5472,9 @@
    "Journal Article"
   ],
   "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -7611,7 +5498,10 @@
    "Journal Article",
    "Case Reports"
   ],
-  "exclude": "semaglutide_in_passing",
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -7635,6 +5525,9 @@
    "Case Reports"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -7660,6 +5553,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -7682,7 +5578,10 @@
    "Journal Article"
   ],
   "exclude": "",
-  "shortlist": true,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": false,
   "retained_from_first_analysis": false
  },
  {
@@ -7704,7 +5603,10 @@
    "research-article",
    "Journal Article"
   ],
-  "exclude": "outcome_not_reported",
+  "exclude": "",
+  "auto_outcome_reported": false,
+  "auto_semaglutide_focus": true,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -7727,7 +5629,10 @@
    "Journal Article"
   ],
   "exclude": "",
-  "shortlist": true,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": false,
   "retained_from_first_analysis": false
  },
  {
@@ -7750,6 +5655,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": true,
   "retained_from_first_analysis": false
  },
@@ -7773,6 +5681,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": true,
   "retained_from_first_analysis": false
  },
@@ -7796,7 +5707,10 @@
    "Journal Article"
   ],
   "exclude": "",
-  "shortlist": true,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": false,
   "retained_from_first_analysis": false
  },
  {
@@ -7819,8 +5733,11 @@
    "Case Reports",
    "case-report"
   ],
-  "exclude": "outcome_not_reported",
-  "shortlist": false,
+  "exclude": "",
+  "auto_outcome_reported": false,
+  "auto_semaglutide_focus": true,
+  "priority": "low",
+  "shortlist": true,
   "retained_from_first_analysis": false
  },
  {
@@ -7843,6 +5760,9 @@
    "Journal Article"
   ],
   "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -7865,7 +5785,10 @@
    "Journal Article"
   ],
   "exclude": "",
-  "shortlist": false,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": true,
   "retained_from_first_analysis": false
  },
  {
@@ -7888,7 +5811,10 @@
    "Journal Article"
   ],
   "exclude": "",
-  "shortlist": true,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": false,
   "retained_from_first_analysis": false
  },
  {
@@ -7911,7 +5837,10 @@
    "Journal Article"
   ],
   "exclude": "",
-  "shortlist": true,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": false,
   "retained_from_first_analysis": false
  },
  {
@@ -7936,6 +5865,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": true,
   "retained_from_first_analysis": false
  },
@@ -7959,6 +5891,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -7983,7 +5918,10 @@
    "Case Reports"
   ],
   "exclude": "",
-  "shortlist": true,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": false,
   "retained_from_first_analysis": false
  },
  {
@@ -8006,6 +5944,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -8031,7 +5972,10 @@
    "Journal Article"
   ],
   "exclude": "",
-  "shortlist": false,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": true,
   "retained_from_first_analysis": false
  },
  {
@@ -8055,6 +5999,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -8079,6 +6026,9 @@
    "Case Reports"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -8101,6 +6051,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": true,
   "retained_from_first_analysis": false
  },
@@ -8124,6 +6077,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -8147,6 +6103,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": true,
   "retained_from_first_analysis": false
  },
@@ -8171,6 +6130,9 @@
    "Journal Article"
   ],
   "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -8194,6 +6156,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -8216,7 +6181,10 @@
    "Journal Article"
   ],
   "exclude": "",
-  "shortlist": true,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": false,
   "retained_from_first_analysis": false
  },
  {
@@ -8237,7 +6205,10 @@
   "pub_types": [
    "Journal Article"
   ],
-  "exclude": "semaglutide_in_passing",
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -8263,6 +6234,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": true,
   "retained_from_first_analysis": false
  },
@@ -8285,7 +6259,10 @@
    "Journal Article"
   ],
   "exclude": "",
-  "shortlist": true,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": false,
   "retained_from_first_analysis": false
  },
  {
@@ -8309,6 +6286,9 @@
    "Journal Article"
   ],
   "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -8332,31 +6312,11 @@
    "Review",
    "Journal Article"
   ],
-  "exclude": "semaglutide_in_passing",
-  "shortlist": false,
-  "retained_from_first_analysis": false
- },
- {
-  "pmid": "38002464",
-  "side_effect": "SUICIDALITY",
-  "title": "GLP-1 Receptor Agonists and Related Mental Health Issues; Insights from a Range of Social Media Platforms Using a Mixed-Methods Approach",
-  "journal_title": "Brain sciences",
-  "doi": "10.3390/brainsci13111503",
-  "first_publication_date": "2023-10-24",
-  "electronic_publication_date": "2023-10-24",
-  "first_author": "Arillotta",
-  "structured_abstract": false,
-  "drug_in_title": false,
-  "drug_mentions_abstract": 4,
-  "outcome_in_title": false,
-  "outcome_in_results": true,
-  "evidence_synthesis": false,
-  "pub_types": [
-   "research-article",
-   "Journal Article"
-  ],
   "exclude": "",
-  "shortlist": true,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
+  "shortlist": false,
   "retained_from_first_analysis": false
  },
  {
@@ -8380,7 +6340,36 @@
    "Journal Article"
   ],
   "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
+  "retained_from_first_analysis": false
+ },
+ {
+  "pmid": "38002464",
+  "side_effect": "SUICIDALITY",
+  "title": "GLP-1 Receptor Agonists and Related Mental Health Issues; Insights from a Range of Social Media Platforms Using a Mixed-Methods Approach",
+  "journal_title": "Brain sciences",
+  "doi": "10.3390/brainsci13111503",
+  "first_publication_date": "2023-10-24",
+  "electronic_publication_date": "2023-10-24",
+  "first_author": "Arillotta",
+  "structured_abstract": false,
+  "drug_in_title": false,
+  "drug_mentions_abstract": 4,
+  "outcome_in_title": false,
+  "outcome_in_results": true,
+  "evidence_synthesis": false,
+  "pub_types": [
+   "research-article",
+   "Journal Article"
+  ],
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": true,
   "retained_from_first_analysis": false
  },
  {
@@ -8401,7 +6390,10 @@
   "pub_types": [
    "Journal Article"
   ],
-  "exclude": "semaglutide_in_passing",
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -8423,8 +6415,11 @@
   "pub_types": [
    "Journal Article"
   ],
-  "exclude": "not_a_study",
-  "shortlist": false,
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
+  "shortlist": true,
   "retained_from_first_analysis": false
  },
  {
@@ -8446,7 +6441,10 @@
    "Journal Article"
   ],
   "exclude": "",
-  "shortlist": false,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": true,
   "retained_from_first_analysis": false
  },
  {
@@ -8469,7 +6467,10 @@
    "Journal Article"
   ],
   "exclude": "",
-  "shortlist": false,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": true,
   "retained_from_first_analysis": false
  },
  {
@@ -8493,6 +6494,9 @@
    "Journal Article"
   ],
   "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -8515,7 +6519,10 @@
    "Journal Article"
   ],
   "exclude": "",
-  "shortlist": true,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": false,
   "retained_from_first_analysis": false
  },
  {
@@ -8539,7 +6546,10 @@
    "Observational Study"
   ],
   "exclude": "",
-  "shortlist": false,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": true,
   "retained_from_first_analysis": false
  },
  {
@@ -8566,6 +6576,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": true,
   "retained_from_first_analysis": true
  },
@@ -8589,7 +6602,10 @@
    "Journal Article"
   ],
   "exclude": "",
-  "shortlist": true,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": false,
   "retained_from_first_analysis": false
  },
  {
@@ -8612,7 +6628,10 @@
    "review-article",
    "Journal Article"
   ],
-  "exclude": "semaglutide_in_passing",
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -8637,6 +6656,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": true,
   "retained_from_first_analysis": true
  },
@@ -8660,6 +6682,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": true,
   "retained_from_first_analysis": false
  },
@@ -8681,7 +6706,10 @@
   "pub_types": [
    "Journal Article"
   ],
-  "exclude": "semaglutide_in_passing",
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -8705,6 +6733,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -8729,6 +6760,9 @@
    "Journal Article"
   ],
   "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -8753,6 +6787,9 @@
    "Research Support, N.I.H., Extramural"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": true,
   "retained_from_first_analysis": true
  },
@@ -8776,6 +6813,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": true,
   "retained_from_first_analysis": false
  },
@@ -8799,6 +6839,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": true,
   "retained_from_first_analysis": false
  },
@@ -8822,8 +6865,11 @@
    "research-article",
    "Journal Article"
   ],
-  "exclude": "semaglutide_in_passing",
-  "shortlist": false,
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
+  "shortlist": true,
   "retained_from_first_analysis": false
  },
  {
@@ -8846,7 +6892,10 @@
    "Journal Article"
   ],
   "exclude": "",
-  "shortlist": true,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": false,
   "retained_from_first_analysis": false
  },
  {
@@ -8868,7 +6917,10 @@
    "Systematic Review",
    "Journal Article"
   ],
-  "exclude": "semaglutide_in_passing",
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -8892,6 +6944,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": true,
   "retained_from_first_analysis": false
  },
@@ -8915,7 +6970,10 @@
    "research-article",
    "Journal Article"
   ],
-  "exclude": "semaglutide_in_passing",
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -8938,7 +6996,10 @@
    "Comparative Study",
    "Journal Article"
   ],
-  "exclude": "semaglutide_in_passing",
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -8961,7 +7022,10 @@
    "research-article",
    "Journal Article"
   ],
-  "exclude": "semaglutide_in_passing",
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -8986,7 +7050,10 @@
    "Review",
    "Journal Article"
   ],
-  "exclude": "semaglutide_in_passing",
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -9009,6 +7076,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -9032,7 +7102,10 @@
    "Systematic Review",
    "Journal Article"
   ],
-  "exclude": "semaglutide_in_passing",
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -9055,7 +7128,10 @@
    "research-article",
    "Journal Article"
   ],
-  "exclude": "semaglutide_in_passing",
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -9079,6 +7155,9 @@
    "Journal Article"
   ],
   "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -9102,7 +7181,10 @@
    "Clinical Study",
    "Journal Article"
   ],
-  "exclude": "semaglutide_in_passing",
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -9125,6 +7207,9 @@
    "Review"
   ],
   "exclude": "not_a_study",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -9149,7 +7234,10 @@
    "case-report"
   ],
   "exclude": "",
-  "shortlist": false,
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": true,
+  "priority": "high",
+  "shortlist": true,
   "retained_from_first_analysis": false
  },
  {
@@ -9171,7 +7259,10 @@
    "research-article",
    "Journal Article"
   ],
-  "exclude": "semaglutide_in_passing",
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -9196,7 +7287,10 @@
    "Research Support, U.S. Gov't, Non-P.H.S.",
    "Journal Article"
   ],
-  "exclude": "outcome_not_reported",
+  "exclude": "",
+  "auto_outcome_reported": false,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -9218,7 +7312,10 @@
   "pub_types": [
    "Journal Article"
   ],
-  "exclude": "semaglutide_in_passing",
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -9241,8 +7338,11 @@
    "research-article",
    "Journal Article"
   ],
-  "exclude": "semaglutide_in_passing",
-  "shortlist": false,
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
+  "shortlist": true,
   "retained_from_first_analysis": false
  },
  {
@@ -9264,7 +7364,10 @@
    "research-article",
    "Journal Article"
   ],
-  "exclude": "semaglutide_in_passing",
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
   "shortlist": false,
   "retained_from_first_analysis": false
  },
@@ -9287,8 +7390,11 @@
    "research-article",
    "Journal Article"
   ],
-  "exclude": "semaglutide_in_passing",
-  "shortlist": false,
+  "exclude": "",
+  "auto_outcome_reported": true,
+  "auto_semaglutide_focus": false,
+  "priority": "low",
+  "shortlist": true,
   "retained_from_first_analysis": false
  }
 ]

@@ -151,28 +151,29 @@ main은 성분·주제상 주 분석 후보, conditional은 추가 확인 필요
 
 | 단계 | 스크립트 | 산출물 | 이 저장소에 포함 |
 |---|---|---|---|
-| 논문 검색·자동 선별 | `collect_papers_v2.py` | `paper_flow_v2.json`, `paper_screening_v2.json`, `scripts/papers_v2_internal.json` | 앞의 둘만 (초록은 제외) |
+| 논문 검색·선별 대상 추출 | `collect_papers_v2.py` | `paper_flow_v2.json`, `paper_screening_v2.json`, `scripts/papers_v2_internal.json` | 앞의 둘만 (초록은 제외) |
 | 기사 전체 기간 수집 | `collect_fullperiod.py` | `scripts/news_candidates_fullperiod.json` | 아니오 |
 | 본문 추출 | `scrape_articles.py` | `scripts/raw_news/`, `scripts/raw_html/` | 아니오 |
 | 병합·중복·규칙 선별 | `merge_candidates.py` → `analyze_pilot.py` → `label_articles.py` | `scripts/article_labels_internal.json` | 예 (본문 없음) |
 | 3차 검증 표본·사이트 | `make_validation_sample_round3.py` → `validation/build_site_round3.py` | `validation/index_round3.html` | 아니오 |
+| 논문 판정 정리 | `summarize_paper_screening.py <판정 CSV>` | `validation/final_papers.json`, `paper_screening_validation.json` | 뒤의 것만 |
 | 규칙 대 분류기 비교 | `compare_classifiers.py <판정 CSV>` | `classifier_comparison.json` | 예 |
-| 초록 번역 | `translate_abstracts.py --provider deepl` | `scripts/abstract_translations.json` | 아니오 |
+| 초록 번역 | `translate_abstracts.py --provider deepl --include validation/final_papers.json` | `scripts/abstract_translations.json` | 아니오 |
 | RQ1~3 | `analyze_rq.py --articles <확정 목록>` | `results/rq_results.json`, 그림 2장 | 확정 목록으로 돌린 결과만 |
 
-수집 코드의 검토 내용과 바뀐 점은 `docs/crawling_review.md`, 사전의 수정 내역은 `docs/lexicon_changes.md`에 있다. 필요한 패키지는 `requirements.txt`다. 테스트는 `python -m pytest scripts/tests -q`로 돌린다(네트워크 불필요).
+수집 코드의 검토 내용과 바뀐 점은 `docs/crawling_review.md`, 논문 선별 절차와 근거는 `docs/paper_selection_sources.md`, 사전의 수정 내역은 `docs/lexicon_changes.md`에 있다. 필요한 패키지는 `requirements.txt`다. 테스트는 `python -m pytest scripts/tests -q`로 돌린다(네트워크 불필요).
 
 ### 2026-11-24에 실제로 돌린 것
 
-- **논문:** Europe PMC 검색 397건(NAION 82, 위마비 139, 췌장염 104, 자살사고 72). 자동 제외 뒤 159건이 남았고(51, 10, 56, 42), 묶음당 25건까지 사람 검증 대상으로 뽑아 85건(고유 82편)이다. 1차 분석의 주 분석 논문 11편은 모두 포함했다. 위마비는 "위 배출"만 다룬 69건을 빼서 10건이다.
+- **논문:** Europe PMC 검색 280건(NAION 82, 위마비 21, 췌장염 105, 자살사고 72). 출판 유형이 연구 보고가 아닌 61건을 뺀 219건이 선별 대상이다. 컴퓨터는 내용을 보고 탈락시키지 않고 우선순위(high 161, low 58)만 매긴다. 사람 검증 대상은 93건(고유 91편)이다. 위마비는 18건 전부, 나머지 세 묶음은 high 20건과 low 5건씩 층화 무작위 추출했다. 1차 분석의 주 분석 논문 11편은 모두 포함했다.
 - **기사 본문 재추출:** 기존 후보 158건 가운데 89건을 받았다. 결과와 추출 방법 비교는 `docs/crawling_review.md` 5장에 있다.
-- **3차 검증 사이트:** 논문 85건과 기사 파일럿 30건으로 만들었다.
+- **3차 검증 사이트:** 논문 93건과 기사 파일럿 30건으로 만들었다. 구획이 없는 초록 27건에는 배경·목적 문장이 어디까지인지 묻는 문항이 붙는다.
 - **분석:** `analyze_rq.py`는 컴퓨터가 통과시킨 기사 49건으로 시험 실행만 했다. 사람이 확정한 목록이 아니고 초록 번역도 없으므로 결과로 쓰지 않는다.
 
 ### 돌리지 못한 것
 
 - 네이버 검색 API를 쓰는 `collect_fullperiod.py`: 이 환경에 API 키가 없다.
-- `translate_abstracts.py`의 실제 번역: 번역 API 키가 없다. 문장 분리까지만 돌렸다(82편, 902문장, 약 13만 3천 자).
+- `translate_abstracts.py`의 실제 번역: 번역 API 키가 없다. 문장 분리까지만 돌렸다(사람 검증 대상 91편 기준 971문장, 약 14만 6천 자. 실제 번역 대상은 사람이 적격으로 판정한 논문뿐이다).
 - `compare_classifiers.py`: 1차 사람 판정 파일(`validation_codes.csv`)이 저장소에 없어 모의 판정으로 실행 여부만 확인했다.
 
 ### 시험 실행에서 보인 것 (결과 아님, 설계 참고용)

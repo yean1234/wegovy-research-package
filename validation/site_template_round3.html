@@ -171,6 +171,11 @@ const PRACTICE=[
   ['Background','Semaglutide is approved for chronic weight management. Pancreatitis has been reported with GLP-1 receptor agonists.'],
   ['Methods','Adults with obesity were randomised to semaglutide 2.4 mg or placebo for 68 weeks. The primary outcome was change in body weight.'],['Results','Mean weight change was -14.9% with semaglutide and -2.4% with placebo.']],
   key:{a:'yes',b:'bg'},why:'췌장염은 배경 문장에만 나오고, 결과로 잰 것은 체중 변화입니다. 부적격입니다.'},
+ {kind:'P',id:'X10',group:'PANCREATITIS',group_ko:'췌장염',title:'(가상) Acute pancreatitis after semaglutide dose escalation: a case report',journal:'가상 예시',date:'',sections:[['','']],sentences:[
+  'Semaglutide is a GLP-1 receptor agonist widely used for weight management.','Pancreatitis is listed as a rare adverse reaction, but reports with the 2.4 mg dose are scarce.',
+  'We report a 52-year-old man who developed acute pancreatitis two weeks after his semaglutide dose was increased to 2.4 mg.','Serum lipase was 1,240 U/L and computed tomography showed peripancreatic fat stranding.',
+  'Semaglutide was stopped and he recovered with supportive care.','Clinicians should consider pancreatitis in patients with severe abdominal pain during dose escalation.'],
+  key:{a:'yes',b:'yes',c:'yes',bg:2},why:'증례 보고에서 환자에게 췌장염이 생겼으므로 적격 · 주 분석입니다. 1·2번 문장은 이미 알려진 사실이고, 3번 문장부터 이 환자 이야기이므로 ④는 "2번 문장까지"입니다.'},
 ];
 
 let restOpen=false;
@@ -242,10 +247,10 @@ function verdictPR(x){return !isFinite(x)?'':x>.8?'<span class="verdict ok">&gt;
 /* ---------- answers and what the criteria derive from them ---------- */
 const ans=id=>state.answers[id]||{};
 function setAns(id,patch){state.answers[id]={...ans(id),...patch};scheduleSave();render()}
-function doneP(a){return !!(a.a&&(a.a==='no'||(a.b&&(a.b!=='yes'||a.c))))}
+function doneP(a,it){return !!(a.a&&(a.a==='no'||(a.b&&(a.b!=='yes'||(a.c&&(!(it&&it.sentences)||a.bg!==undefined))))))}
 function doneA(a,it){return !!(a.broken||(it.bundles.every(b=>(a.t||{})[b.code])&&a.ls&&(a.ls==='no'||a.sr)))}
-const done=(t,a,it)=>t==='P'?doneP(a):doneA(a,it);
-function derP(a){if(!doneP(a))return null;const elig=a.a==='yes'&&a.b==='yes';return{elig:elig?'yes':'no',role:elig?(a.c==='yes'?'main':'background'):'none'}}
+const done=(t,a,it)=>t==='P'?doneP(a,it):doneA(a,it);
+function derP(a,it){if(!doneP(a,it))return null;const elig=a.a==='yes'&&a.b==='yes';return{elig:elig?'yes':'no',role:elig?(a.c==='yes'?'main':'background'):'none',bg:elig&&it&&it.sentences?a.bg:''}}
 function derA(a,it){if(!doneA(a,it)||a.broken)return null;const topic={};it.bundles.forEach(b=>topic[b.code]=a.t[b.code]==='main'?'yes':'no');
  const research=a.ls==='yes'&&a.sr==='event'?'yes':'no';return{topic,research,include:research==='yes'&&Object.values(topic).includes('yes')?'yes':'no'}}
 const doneCount=t=>mine(t).filter(it=>done(t,ans(it.id),it)).length;
@@ -286,14 +291,15 @@ function guide(){
  <section class="card"><h3>논문: 무엇을 보고 답하나</h3><ul class="plain">
   <li>초록만 봅니다. 본문까지 찾아보지 않습니다.</li>
   <li>① 세마글루타이드가 나오는가 ② 이 부작용을 <b>결과로 측정해 보고</b>했는가 ③ 세마글루타이드<b>만의</b> 수치가 따로 있는가. 세 질문은 서로 다른 질문입니다.</li>
-  <li>①·②가 모두 "예"이면 적격이고, ③까지 "예"이면 주 분석, ③이 "아니오"이면 배경입니다.</li></ul>
+  <li>①·②가 모두 "예"이면 적격이고, ③까지 "예"이면 주 분석, ③이 "아니오"이면 배경입니다.</li>
+  <li>구획이 나뉘지 않은 초록은 문장에 번호가 붙어 나오고, ④에서 배경·목적 문장이 어디까지인지 고릅니다.</li></ul>
   <p class="muted" style="font-size:13px">단축키: ←·→ (이전/다음)</p></section>`;
 }
 function hl(text,pats,cls=''){let h=esc(text);pats.forEach(([p,c])=>{h=h.replace(p,m=>`<mark${c?` class="${c}"`:''}>${m}</mark>`)});return h}
 function paperBody(it,a,field){
  const pats=[[DRUG,'d'],[EN_PAT[it.group],'']];
- const secs=it.sections.map(([lab,txt])=>`<p class="sec ${BG_LABEL.test(lab)?'bg':''}">${lab?`<b>${esc(lab.toUpperCase())}</b>${BG_LABEL.test(lab)?' <span class="legend">(배경·목적)</span>':''}<br>`:''}${hl(txt,pats)}</p>`).join('');
- const d=derP(a);
+ const secs=it.sentences?it.sentences.map((s,i)=>`<div class="para"><span class="pn">${i+1}</span><span>${hl(s,pats)}</span></div>`).join(''):it.sections.map(([lab,txt])=>`<p class="sec ${BG_LABEL.test(lab)?'bg':''}">${lab?`<b>${esc(lab.toUpperCase())}</b>${BG_LABEL.test(lab)?' <span class="legend">(배경·목적)</span>':''}<br>`:''}${hl(txt,pats)}</p>`).join('');
+ const d=derP(a,it);
  return `<div class="meta"><span>${esc(it.pmid?'PMID '+it.pmid:it.id)}</span><span>${esc(it.journal||'')}</span><span>${esc(it.date||'')}</span><span class="chip">${esc(it.group_ko)}</span></div>
  <div class="title">${esc(it.title)}</div>
  <div class="abstract">${secs}</div>
@@ -307,6 +313,9 @@ function paperBody(it,a,field){
  ${a.a==='yes'&&a.b==='yes'?`<div class="q"><label class="qt"><span class="step">③</span>세마글루타이드만의 결과가 초록에 따로 있나요?</label>
   <div class="optcol">${opt(field+'c','yes','예 — 세마글루타이드만의 위험비·발생률·사례 수가 있음','세마글루타이드 단독 연구, 증례 보고, 그 체계적 고찰·메타분석 포함',a.c,'y')}
   ${opt(field+'c','no','아니오 — GLP-1 계열 전체의 수치만 있음','세마글루타이드는 약물 목록에만 나옴',a.c,'n')}</div></div>`:''}
+ ${a.a==='yes'&&a.b==='yes'&&it.sentences?`<div class="q"><label class="qt"><span class="step">④</span>앞에서부터 몇 번째 문장까지가 배경·목적인가요?</label>
+  <div class="hint">이 초록은 구획(Methods, Results 등)이 나뉘어 있지 않습니다. 이미 알려진 사실이나 연구 목적을 말하는 문장이 배경·목적이고, 이 연구가 한 일·환자·결과를 말하기 시작하는 문장부터는 아닙니다. 문장 번호는 초록 왼쪽에 있습니다.</div>
+  <div class="opts">${Array.from({length:Math.min(it.sentences.length,7)},(_,i)=>opt(field+'bg',String(i),i===0?'없음 (첫 문장부터 이 연구 이야기)':i+'번 문장까지','',a.bg===undefined?undefined:String(a.bg))).join('')}</div></div>`:''}
  ${d?`<div class="derived ${d.elig}">기준에 따른 결과: ${d.elig==='yes'?'적격':'부적격'}${d.elig==='yes'?' · '+(d.role==='main'?'주 분석':'배경'):''}</div>`:''}`;
 }
 function articleBody(it,a,field){
@@ -346,10 +355,10 @@ function practiceView(){
  const i=Math.min(state.idx.X,PRACTICE.length-1),it=PRACTICE[i],p=state.practice[it.id]||{},a=p.a||{};
  const nav=`<div class="navrow"><button class="btn" data-act="prev" ${i===0?'disabled':''}>← 이전</button><span class="pos">연습 ${i+1} / ${PRACTICE.length}</span><div class="progress"><i style="width:${(i+1)/PRACTICE.length*100}%"></i></div>
   <button class="btn primary" data-act="next" ${i===PRACTICE.length-1?'disabled':''}>다음 →</button></div>`;
- const ready=it.kind==='P'?doneP(a):doneA(a,it);let fb='';
+ const ready=it.kind==='P'?doneP(a,it):doneA(a,it);let fb='';
  if(p.checked){
   const k=it.key,diff=[];
-  if(it.kind==='P'){['a','b','c'].forEach((f,n)=>{if((k[f]||'')!==(a[f]||''))diff.push('①②③'[n])})}
+  if(it.kind==='P'){['a','b','c'].forEach((f,n)=>{if((k[f]||'')!==(a[f]||''))diff.push('①②③'[n])});if(k.bg!==undefined&&String(k.bg)!==String(a.bg))diff.push('④')}
   else{it.bundles.forEach(b=>{if(k.t[b.code]!==(a.t||{})[b.code])diff.push('주제')});if(k.ls!==a.ls)diff.push('연구 1단계');else if((k.sr||'')!==(a.sr||''))diff.push('연구 2단계')}
   fb=`<div class="fb ${diff.length?'bad':'ok'}"><b>${diff.length?'기준과 다른 답: '+esc(diff.join(', ')):'기준과 같은 답입니다'}</b><p>${esc(it.why)}</p></div>`;
  }
@@ -370,7 +379,7 @@ function results(){
  for(const t of ['P','A']){
   const complete=state.slot&&doneCount(t)===mine(t).length,canSee=complete||state.isOwner;
   h+=`<section class="card"><h3>${esc(NAME[t])}</h3>`;
-  const der=(id,it)=>{const a=C[id].answers[it.id]||{};return t==='P'?derP(a):derA(a,it)};
+  const der=(id,it)=>{const a=C[id].answers[it.id]||{};return t==='P'?derP(a,it):derA(a,it)};
   const fields=t==='P'?[['적격성',(d)=>[d.elig]],['역할 (주 분석/배경/해당 없음)',(d)=>[d.role]]]:[['주제 (기사×부작용)',null],['연구 보도 여부',(d)=>[d.research]],['분석 포함 여부 (주제 예 그리고 연구 보도 예)',(d)=>[d.include]]];
   fields.forEach(([label,f])=>{
    let units=[];
@@ -403,10 +412,10 @@ function results(){
  return h;
 }
 function csv(){
- const C=coders(),rows=[['round','task','item_id','pmid_or_article_id','group','assign','coder','coder_slot','q_a','q_b','q_c','topic_raw','lead_study','study_role','broken','low_confidence','note','derived_eligible','derived_role','derived_topic','derived_research','derived_include','rule_fit','rule_research','rule_pass','title','url']];
+ const C=coders(),rows=[['round','task','item_id','pmid_or_article_id','group','assign','coder','coder_slot','q_a','q_b','q_c','q_bg','topic_raw','lead_study','study_role','broken','low_confidence','note','derived_eligible','derived_role','derived_topic','derived_research','derived_include','rule_fit_or_paper_priority','rule_research','rule_pass','title','url']];
  Object.entries(C).forEach(([cid,c])=>{
-  D.papers.forEach(it=>{const a=c.answers[it.id];if(!a)return;const d=derP(a)||{};rows.push([3,'P',it.id,it.pmid,it.group,it.assign,cid,c.slot,a.a||'',a.b||'',a.c||'','','','','',a.low?1:'',a.note||'',d.elig||'',d.role||'','','','','','','',it.title,it.url])});
-  D.articles.forEach(it=>{const a=c.answers[it.id];if(!a)return;const d=derA(a,it)||{};it.bundles.forEach(b=>rows.push([3,'A',it.id,it.article_id,b.code,it.assign,cid,c.slot,'','','',(a.t||{})[b.code]||'',a.ls||'',a.sr||'',a.broken?1:'',a.low?1:'',a.note||'','','',d.topic?d.topic[b.code]:'',d.research||'',d.include||'',it.rule.fit[b.code]?'yes':'no',it.rule.research,it.rule_pass?'yes':'no',it.title,it.url]))})});
+  D.papers.forEach(it=>{const a=c.answers[it.id];if(!a)return;const d=derP(a,it)||{};rows.push([3,'P',it.id,it.pmid,it.group,it.assign,cid,c.slot,a.a||'',a.b||'',a.c||'',d.bg===undefined?'':d.bg,'','','','',a.low?1:'',a.note||'',d.elig||'',d.role||'','','','',it.rule.priority||'','','',it.title,it.url])});
+  D.articles.forEach(it=>{const a=c.answers[it.id];if(!a)return;const d=derA(a,it)||{};it.bundles.forEach(b=>rows.push([3,'A',it.id,it.article_id,b.code,it.assign,cid,c.slot,'','','','',(a.t||{})[b.code]||'',a.ls||'',a.sr||'',a.broken?1:'',a.low?1:'',a.note||'','','',d.topic?d.topic[b.code]:'',d.research||'',d.include||'',it.rule.fit[b.code]?'yes':'no',it.rule.research,it.rule_pass?'yes':'no',it.title,it.url]))})});
  return '\ufeff'+rows.map(r=>r.map(x=>'"'+String(x).replace(/"/g,'""')+'"').join(',')).join('\r\n');
 }
 
@@ -414,8 +423,9 @@ function csv(){
 function current(){const t=state.tab;if(t==='X')return{it:PRACTICE[Math.min(state.idx.X,PRACTICE.length-1)],practice:true};const items=mine(t);return{it:items[Math.min(state.idx[t],items.length-1)]}}
 function applyField(a,field,val){
  if(field.startsWith('t:')){a.t={...(a.t||{}),[field.slice(2)]:val}}else a[field]=val;
- if(field==='a'&&val==='no'){delete a.b;delete a.c}
- if(field==='b'&&val!=='yes')delete a.c;
+ if(field==='bg')a.bg=+val;
+ if(field==='a'&&val==='no'){delete a.b;delete a.c;delete a.bg}
+ if(field==='b'&&val!=='yes'){delete a.c;delete a.bg}
  if(field==='ls'&&val==='no')delete a.sr;
  return a;
 }

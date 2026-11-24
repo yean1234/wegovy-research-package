@@ -5,21 +5,29 @@ Target: 10-20 papers per bundle after human screening, for the four priority bun
 
 Inclusion rule (fixed before looking at the abstracts' wording about certainty):
   "the abstract names semaglutide and the study measured the bundle's adverse event as an outcome".
-The computer can only approximate that rule, so it works in two steps and a person confirms every paper.
+People decide that for every record they are shown; the computer never decides it. Sources for each step
+are in docs/paper_selection_sources.md.
 
   1. Search (Europe PMC, MEDLINE records with an abstract, first published START..today):
        title/abstract contains semaglutide (or a brand name) AND a bundle term.
-  2. Automatic exclusion, each with a count (flow diagram, paper_flow_v2.json):
-       a. publication type is not a study: editorial, comment, letter, news, erratum, retraction,
-          or a review that is not a systematic review / meta-analysis        -> 'not_a_study'
-       b. the bundle term is absent from the title AND absent from the results/conclusion part
-          of the abstract (it is only background)                              -> 'outcome_not_reported'
-       c. semaglutide is absent from the title AND named fewer than twice in the abstract
-          (a class-level paper that mentions it in passing)                    -> 'semaglutide_in_passing'
-  3. Shortlist for human screening: every remaining paper, or, when a bundle has more than CAP, the main
-     papers of the first analysis (paper_dates.json, already human-checked) plus a seeded random sample
-     of the rest up to CAP (so the new choices do not depend on what the abstracts say).
-     People then answer three factual questions per paper on the validation site (eligibility and role).
+  2. Marked ineligible by automation, with a count (the box of that name in the PRISMA 2020 flow diagram):
+       only records whose NLM publication type is not a study report: editorial, comment, news, erratum,
+       retraction, or a review not indexed/titled as a systematic review or meta-analysis.
+       Letters stay in (research letters report original data).
+  3. Everything else is the screening pool. Two content checks are computed but exclude nothing
+     (Cochrane Handbook 4.6.3: be over-inclusive at the title/abstract stage; O'Mara-Eves et al. 2015:
+     automatic elimination is not yet proven, using text mining to prioritise is safe):
+       auto_outcome_reported    the bundle term is in the title or outside the background sections
+       auto_semaglutide_focus   semaglutide is in the title or named at least twice in the abstract
+     priority = 'high' when both hold, else 'low'.
+  4. Who people screen: every record of the pool when it has at most CAP records (census); otherwise a
+     seeded stratified random sample, HIGH_N from the high stratum and CAP - HIGH_N from the low stratum.
+     The main papers of the first analysis (paper_dates.json) are a certainty stratum inside 'high'.
+     Because low-priority records are screened too, the human decisions show how often the two checks
+     would have been wrong (summarize_paper_screening.py). CAP and HIGH_N are workload decisions of the
+     team, not values from the literature; a systematic review would screen the whole pool.
+  5. People answer factual questions per record on the validation site (eligibility, role, and for
+     unstructured abstracts where the background sentences end).
 
 Usage
   python collect_papers_v2.py                    search, screen, draw the shortlist (changes as Europe PMC grows)
@@ -36,19 +44,20 @@ ROOT = pathlib.Path(__file__).parent
 REPO = ROOT.parent
 START = '2021-01-01'
 SEED = 20261124
-CAP = 25
+CAP = 25          # records per bundle that people screen (team workload decision, not from the literature)
+HIGH_N = 20       # of which from the high-priority stratum; the remaining CAP - HIGH_N come from the low-priority stratum
 DRUG_Q = 'semaglutide OR Wegovy OR Ozempic OR Rybelsus'
 DRUG_RE = r'semaglutide|wegovy|ozempic|rybelsus'
 GROUPS = {   # search terms (Europe PMC syntax) and the regex used on title/abstract
     'NAION': ('NAION OR "ischemic optic neuropathy" OR "ischaemic optic neuropathy"', r'NAION|isch(?:a)?emic optic neuropath'),
-    # The search also retrieves "gastric emptying" papers so the flow diagram shows how many there are, but the bundle is
-    # gastroparesis itself (README §2: delayed gastric emptying is a mechanism/measurement, not a synonym), matching the
-    # news-side pattern in label_articles.TOPIC. Emptying-only papers leave at step 2b.
-    'GASTROPARESIS': ('gastroparesis OR "gastric paralysis" OR "gastric emptying"', r'gastropare|gastric paralysis'),
+    # The bundle is gastroparesis itself (README §2: delayed gastric emptying is a mechanism/measurement, not a synonym),
+    # matching the news-side pattern in label_articles.TOPIC, so "gastric emptying" is not a search term.
+    'GASTROPARESIS': ('gastroparesis OR "gastric paralysis"', r'gastropare|gastric paralysis'),
     'PANCREATITIS': ('pancreatitis', r'pancreatitis'),
     'SUICIDALITY': ('suicid*', r'suicid'),
 }
-NOT_STUDY = {'editorial', 'comment', 'letter', 'news', 'published erratum', 'retraction of publication', 'retracted publication',
+# NLM publication types that are not study reports. "Letter" is NOT here: research letters carry original data.
+NOT_STUDY = {'editorial', 'comment', 'news', 'published erratum', 'retraction of publication', 'retracted publication',
              'expression of concern', 'biography', 'interview', 'patient education handout', 'video-audio media'}
 SYNTH_RE = r'systematic review|meta-analys|metaanalys|pooled analysis|network meta'
 RESULT_LABEL = r'^(results?|findings|conclusions?(?: and relevance)?|interpretation|discussion|main outcomes? and measures?|outcomes?)\b'
@@ -90,17 +99,20 @@ def sections(abstract_html):
 
 
 def result_part(secs):
-    """Text where outcomes are reported. Structured: every section that is not background/objective.
-    Unstructured: everything after the first sentence (the first sentence is normally the background)."""
+    """Text where outcomes are reported. Structured: every section that is not background/objective (the
+    authors' own labels). Unstructured: the whole abstract, because sentence roles cannot be told by
+    position; people mark the background sentences of unstructured abstracts on the validation site."""
     if len(secs) > 1 or secs[0][0]:
         keep = [t for lab, t in secs if lab and not re.match(BACKGROUND_LABEL, lab, re.I)]
         return ' '.join(keep)
-    sents = re.split(r'(?<=[.!?])\s+(?=[A-Z])', secs[0][1])
-    return ' '.join(sents[1:]) if len(sents) > 1 else secs[0][1]
+    return secs[0][1]
 
 
 def screen(rec, group):
-    """-> dict of flags + 'exclude' ('' when the paper stays in)."""
+    """-> dict of flags, 'exclude' ('' when the record stays in the pool) and 'priority' ('high' / 'low').
+
+    Only the publication type removes a record. The two content checks are predictions used to stratify
+    the sample; a 'low' record can still be drawn and is judged by people like any other."""
     title = rec.get('title') or ''
     secs = sections(rec.get('abstractText'))
     abstract = ' '.join(t for _, t in secs)
@@ -116,19 +128,35 @@ def screen(rec, group):
         'evidence_synthesis': synth,
         'pub_types': rec.get('pubTypeList', {}).get('pubType', []),
     }
-    if set(types) & NOT_STUDY or ('review' in types and not synth) or (re.search(r'\breview\b', title, re.I) and not synth and 'case' not in title.lower()):
-        f['exclude'] = 'not_a_study'
-    elif not (f['outcome_in_title'] or f['outcome_in_results']):
-        f['exclude'] = 'outcome_not_reported'
-    elif not f['drug_in_title'] and f['drug_mentions_abstract'] < 2:
-        f['exclude'] = 'semaglutide_in_passing'
-    else:
-        f['exclude'] = ''
+    f['exclude'] = 'not_a_study' if (set(types) & NOT_STUDY or ('review' in types and not synth)) else ''
+    f['auto_outcome_reported'] = f['outcome_in_title'] or f['outcome_in_results']
+    f['auto_semaglutide_focus'] = f['drug_in_title'] or f['drug_mentions_abstract'] >= 2
+    f['priority'] = 'high' if f['auto_outcome_reported'] and f['auto_semaglutide_focus'] else 'low'
     return f
 
 
 def previous_main():
     return {p['pmid'] for p in json.loads((REPO / 'paper_dates.json').read_text(encoding='utf-8')) if p['selection_role'] == 'main' and p['side_effect'] in GROUPS}
+
+
+def draw(pool, rng, keep, cap=None, high_n=None):
+    """Which records of one bundle people screen. -> (set of pmids, description of the draw).
+
+    pool <= cap: all of them (census). Otherwise a stratified random sample: high_n from the high-priority
+    stratum (the first-analysis main papers first, as a certainty stratum) and cap - high_n from the
+    low-priority stratum; slots a stratum cannot fill go to the other one."""
+    cap = CAP if cap is None else cap
+    high_n = HIGH_N if high_n is None else high_n
+    pool = sorted(pool, key=lambda x: x['pmid'])
+    rng.shuffle(pool)
+    if len(pool) <= cap:
+        return {x['pmid'] for x in pool}, 'census'
+    high = [x for x in pool if x['priority'] == 'high']
+    low = [x for x in pool if x['priority'] == 'low']
+    high = [x for x in high if x['pmid'] in keep] + [x for x in high if x['pmid'] not in keep]
+    n_high = min(len(high), max(high_n, cap - len(low)))
+    n_low = min(len(low), cap - n_high)
+    return {x['pmid'] for x in high[:n_high] + low[:n_low]}, 'stratified random sample'
 
 
 def run(today=None, fetch=epmc, log=print, keep=None):
@@ -148,20 +176,23 @@ def run(today=None, fetch=epmc, log=print, keep=None):
                          'doi': r.get('doi', ''), 'first_publication_date': r.get('firstPublicationDate', ''), 'electronic_publication_date': r.get('electronicPublicationDate', ''),
                          'first_author': (r.get('authorList', {}).get('author') or [{}])[0].get('lastName', ''), **f})
             internal[f"{g}:{r['pmid']}"] = {'pmid': r['pmid'], 'side_effect': g, 'sections': sections(r['abstractText'])}
-        kept = sorted([x for x in rows if not x['exclude']], key=lambda x: x['pmid'])
-        rng.shuffle(kept)
-        retained = [x for x in kept if x['pmid'] in keep]
-        short = {x['pmid'] for x in (retained + [x for x in kept if x['pmid'] not in keep])[:CAP]}
+        pool = [x for x in rows if not x['exclude']]
+        short, how = draw(pool, rng, keep)
         for x in rows:
             x['shortlist'] = x['pmid'] in short
             x['retained_from_first_analysis'] = x['pmid'] in keep
+        strata = {}
+        for p in ('high', 'low'):
+            n_pool, n_drawn = sum(x['priority'] == p for x in pool), sum(x['priority'] == p and x['shortlist'] for x in pool)
+            strata[p] = {'in_pool': n_pool, 'drawn': n_drawn, 'sampling_fraction': round(n_drawn / n_pool, 3) if n_pool else None}
         flow[g] = {'query': q, 'identified': hits, 'with_pmid_and_abstract': len(rows),
-                   'excluded': {k: sum(x['exclude'] == k for x in rows) for k in ('not_a_study', 'outcome_not_reported', 'semaglutide_in_passing')},
-                   'passed_auto_screen': len(kept), 'shortlist_for_human_screening': len(short), 'of_which_retained_from_first_analysis': len(retained), 'cap': CAP}
+                   'marked_ineligible_by_automation': {'not_a_study_publication_type': sum(x['exclude'] == 'not_a_study' for x in rows)},
+                   'screening_pool': len(pool), 'draw': how, 'strata': strata, 'screened_by_people': len(short),
+                   'of_which_retained_from_first_analysis': sum(x['shortlist'] and x['retained_from_first_analysis'] for x in rows), 'cap': CAP}
         screening += rows
-        log(g, flow[g]['identified'], '->', len(rows), flow[g]['excluded'], '->', len(kept), '-> shortlist', len(short))
+        log(g, 'identified', hits, '| not a study', flow[g]['marked_ineligible_by_automation']['not_a_study_publication_type'], '| pool', len(pool), strata, '|', how, len(short))
     meta = {'run_date': today, 'period_start': START, 'seed': SEED, 'source': 'Europe PMC REST search (SRC:MED, HAS_ABSTRACT:y)',
-            'rule': 'abstract names semaglutide and reports the bundle adverse event as an outcome; see module docstring'}
+            'rule': 'abstract names semaglutide and reports the bundle adverse event as an outcome; see module docstring and docs/paper_selection_sources.md'}
     return {'meta': meta, 'flow': flow}, screening, internal
 
 

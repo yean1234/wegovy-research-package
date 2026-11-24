@@ -1,8 +1,9 @@
 """Round-3 human-validation sample (criteria v3, 2026-11-24).
 
 What changed since round 2 (see the Notion page "판정 기준 v3"):
-  - papers: the expanded shortlist from collect_papers_v2.py (paper_screening_v2.json), not the old 23;
-    coders answer three factual questions and the site derives eligibility / role from them;
+  - papers: the records drawn by collect_papers_v2.py (paper_screening_v2.json), not the old 23;
+    coders answer three factual questions and the site derives eligibility / role from them; for an
+    unstructured abstract they also mark how many opening sentences are background / objective;
   - articles: one unit = one article. Coders see the whole extracted body with the lead marked, answer
     "is this adverse event the main topic" once per bundle whose term occurs in the article, and decide
     "research report or not" in two steps. The five-way trigger question is gone (only the binary value
@@ -20,6 +21,7 @@ Output: validation/sample_round3.json (not redistributed: it contains article bo
 import glob, json, math, pathlib, random, re, sys
 
 from label_articles import TOPIC, paragraphs
+from translate_abstracts import split_sentences
 
 ROOT = pathlib.Path(__file__).parent
 REPO = ROOT.parent
@@ -63,11 +65,16 @@ def paper_items(rng):
         if not x['shortlist']:
             continue
         g = x['side_effect']
+        secs = internal[f"{g}:{x['pmid']}"]['sections']
+        unstructured = len(secs) == 1 and not secs[0][0]
         items.append({'id': f"P3-{g}-{x['pmid']}", 'pmid': x['pmid'], 'group': g, 'group_ko': GROUP_KO[g], 'title': x['title'], 'journal': x['journal_title'],
                       'date': x['first_publication_date'], 'url': 'https://doi.org/' + x['doi'] if x['doi'] else f"https://pubmed.ncbi.nlm.nih.gov/{x['pmid']}/",
-                      'pub_types': x['pub_types'], 'sections': internal[f"{g}:{x['pmid']}"]['sections'],
-                      'rule': {k: x[k] for k in ('drug_in_title', 'drug_mentions_abstract', 'outcome_in_title', 'outcome_in_results', 'evidence_synthesis', 'retained_from_first_analysis')}})
-    assign(items, rng, lambda it: it['group'])
+                      'pub_types': x['pub_types'], 'sections': secs,
+                      # unstructured abstract: numbered sentences, so coders can mark where the background ends
+                      'sentences': split_sentences(secs[0][1]) if unstructured else None,
+                      'rule': {k: x[k] for k in ('priority', 'auto_outcome_reported', 'auto_semaglutide_focus', 'drug_in_title', 'drug_mentions_abstract',
+                                                 'outcome_in_title', 'outcome_in_results', 'evidence_synthesis', 'retained_from_first_analysis')}})
+    assign(items, rng, lambda it: (it['group'], it['rule']['priority']))   # both strata are in every coder's share
     return items
 
 

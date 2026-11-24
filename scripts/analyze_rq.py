@@ -94,10 +94,19 @@ def load_documents(articles_file=None):
     if tr.exists():
         by = collections.defaultdict(list)
         data = json.loads(tr.read_text(encoding='utf-8'))
+        final = REPO / 'validation' / 'final_papers.json'      # summarize_paper_screening.py
+        bg = {x['pmid']: x.get('background_sentences') for x in json.loads(final.read_text(encoding='utf-8'))} if final.exists() else {}
+        dropped = unmarked = 0
         for r in data['rows']:
-            if r['section_category'] == 'unlabelled' and r['position'] == 0:
-                continue      # unstructured abstract: the opening sentence is treated as background
+            if r['section_category'] == 'unlabelled':
+                n = bg.get(r['pmid'])
+                if n is None:
+                    unmarked += 1          # no human mark yet: the sentence is kept, and counted in the report
+                elif r['position'] < n:
+                    dropped += 1           # coders marked this opening sentence as background / objective
+                    continue
             by[r['pmid']].append(r)
+        meta['unstructured_abstract_sentences'] = {'dropped_as_background_by_coders': dropped, 'kept_without_a_human_mark': unmarked}
         for pmid, rows in sorted(by.items()):
             docs.append({'group': 'abstract', 'doc_id': pmid, 'bundles': rows[0]['side_effects'], 'sentences': [r['text_ko'] for r in rows], 'text': ' '.join(r['text_ko'] for r in rows)})
         meta['abstracts'] = f"{len(by)} papers, provider {data.get('provider')}"

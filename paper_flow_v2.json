@@ -1,65 +1,109 @@
 {
  "meta": {
-  "run_date": "2026-11-23",
+  "run_date": "2026-11-24",
   "period_start": "2021-01-01",
   "seed": 20261124,
   "source": "Europe PMC REST search (SRC:MED, HAS_ABSTRACT:y)",
-  "rule": "abstract names semaglutide and reports the bundle adverse event as an outcome; see module docstring"
+  "rule": "abstract names semaglutide and reports the bundle adverse event as an outcome; see module docstring and docs/paper_selection_sources.md"
  },
  "flow": {
   "NAION": {
-   "query": "TITLE_ABS:(semaglutide OR Wegovy OR Ozempic OR Rybelsus) AND TITLE_ABS:(NAION OR \"ischemic optic neuropathy\" OR \"ischaemic optic neuropathy\") AND FIRST_PDATE:[2021-01-01 TO 2026-11-23] AND SRC:MED AND HAS_ABSTRACT:y",
+   "query": "TITLE_ABS:(semaglutide OR Wegovy OR Ozempic OR Rybelsus) AND TITLE_ABS:(NAION OR \"ischemic optic neuropathy\" OR \"ischaemic optic neuropathy\") AND FIRST_PDATE:[2021-01-01 TO 2026-11-24] AND SRC:MED AND HAS_ABSTRACT:y",
    "identified": 82,
    "with_pmid_and_abstract": 82,
-   "excluded": {
-    "not_a_study": 22,
-    "outcome_not_reported": 2,
-    "semaglutide_in_passing": 7
+   "marked_ineligible_by_automation": {
+    "not_a_study_publication_type": 21
    },
-   "passed_auto_screen": 51,
-   "shortlist_for_human_screening": 25,
+   "screening_pool": 61,
+   "draw": "stratified random sample",
+   "strata": {
+    "high": {
+     "in_pool": 52,
+     "drawn": 20,
+     "sampling_fraction": 0.385
+    },
+    "low": {
+     "in_pool": 9,
+     "drawn": 5,
+     "sampling_fraction": 0.556
+    }
+   },
+   "screened_by_people": 25,
    "of_which_retained_from_first_analysis": 3,
    "cap": 25
   },
   "GASTROPARESIS": {
-   "query": "TITLE_ABS:(semaglutide OR Wegovy OR Ozempic OR Rybelsus) AND TITLE_ABS:(gastroparesis OR \"gastric paralysis\" OR \"gastric emptying\") AND FIRST_PDATE:[2021-01-01 TO 2026-11-23] AND SRC:MED AND HAS_ABSTRACT:y",
-   "identified": 139,
-   "with_pmid_and_abstract": 139,
-   "excluded": {
-    "not_a_study": 52,
-    "outcome_not_reported": 69,
-    "semaglutide_in_passing": 8
+   "query": "TITLE_ABS:(semaglutide OR Wegovy OR Ozempic OR Rybelsus) AND TITLE_ABS:(gastroparesis OR \"gastric paralysis\") AND FIRST_PDATE:[2021-01-01 TO 2026-11-24] AND SRC:MED AND HAS_ABSTRACT:y",
+   "identified": 21,
+   "with_pmid_and_abstract": 21,
+   "marked_ineligible_by_automation": {
+    "not_a_study_publication_type": 3
    },
-   "passed_auto_screen": 10,
-   "shortlist_for_human_screening": 10,
+   "screening_pool": 18,
+   "draw": "census",
+   "strata": {
+    "high": {
+     "in_pool": 10,
+     "drawn": 10,
+     "sampling_fraction": 1.0
+    },
+    "low": {
+     "in_pool": 8,
+     "drawn": 8,
+     "sampling_fraction": 1.0
+    }
+   },
+   "screened_by_people": 18,
    "of_which_retained_from_first_analysis": 2,
    "cap": 25
   },
   "PANCREATITIS": {
-   "query": "TITLE_ABS:(semaglutide OR Wegovy OR Ozempic OR Rybelsus) AND TITLE_ABS:(pancreatitis) AND FIRST_PDATE:[2021-01-01 TO 2026-11-23] AND SRC:MED AND HAS_ABSTRACT:y",
-   "identified": 104,
-   "with_pmid_and_abstract": 104,
-   "excluded": {
-    "not_a_study": 30,
-    "outcome_not_reported": 0,
-    "semaglutide_in_passing": 18
+   "query": "TITLE_ABS:(semaglutide OR Wegovy OR Ozempic OR Rybelsus) AND TITLE_ABS:(pancreatitis) AND FIRST_PDATE:[2021-01-01 TO 2026-11-24] AND SRC:MED AND HAS_ABSTRACT:y",
+   "identified": 105,
+   "with_pmid_and_abstract": 105,
+   "marked_ineligible_by_automation": {
+    "not_a_study_publication_type": 30
    },
-   "passed_auto_screen": 56,
-   "shortlist_for_human_screening": 25,
+   "screening_pool": 75,
+   "draw": "stratified random sample",
+   "strata": {
+    "high": {
+     "in_pool": 57,
+     "drawn": 20,
+     "sampling_fraction": 0.351
+    },
+    "low": {
+     "in_pool": 18,
+     "drawn": 5,
+     "sampling_fraction": 0.278
+    }
+   },
+   "screened_by_people": 25,
    "of_which_retained_from_first_analysis": 3,
    "cap": 25
   },
   "SUICIDALITY": {
-   "query": "TITLE_ABS:(semaglutide OR Wegovy OR Ozempic OR Rybelsus) AND TITLE_ABS:(suicid*) AND FIRST_PDATE:[2021-01-01 TO 2026-11-23] AND SRC:MED AND HAS_ABSTRACT:y",
+   "query": "TITLE_ABS:(semaglutide OR Wegovy OR Ozempic OR Rybelsus) AND TITLE_ABS:(suicid*) AND FIRST_PDATE:[2021-01-01 TO 2026-11-24] AND SRC:MED AND HAS_ABSTRACT:y",
    "identified": 72,
    "with_pmid_and_abstract": 72,
-   "excluded": {
-    "not_a_study": 8,
-    "outcome_not_reported": 3,
-    "semaglutide_in_passing": 19
+   "marked_ineligible_by_automation": {
+    "not_a_study_publication_type": 7
    },
-   "passed_auto_screen": 42,
-   "shortlist_for_human_screening": 25,
+   "screening_pool": 65,
+   "draw": "stratified random sample",
+   "strata": {
+    "high": {
+     "in_pool": 42,
+     "drawn": 20,
+     "sampling_fraction": 0.476
+    },
+    "low": {
+     "in_pool": 23,
+     "drawn": 5,
+     "sampling_fraction": 0.217
+    }
+   },
+   "screened_by_people": 25,
    "of_which_retained_from_first_analysis": 3,
    "cap": 25
   }
